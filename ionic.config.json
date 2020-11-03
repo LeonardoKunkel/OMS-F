@@ -1,5 +1,7 @@
 {
   "name": "OMS-Front",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
