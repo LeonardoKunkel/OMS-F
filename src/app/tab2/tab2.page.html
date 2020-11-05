@@ -1,17 +1,156 @@
-<ion-header [translucent]="true">
+<ion-header no-border>
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
+    <ion-title class="ion-text-center">SASISOPA</ion-title>
+  </ion-toolbar> <hr class="lineaN">
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card mode="ios" (click)="goPuntoUno()" class="carta">
+          <!-- <img height="100px" class="ion-padding" src="../../../assets/Imagenes/menuSASISOPA/diploma.svg" /> -->
+          <ion-card-header>
+            <ion-card-title>I. Política</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card mode="ios" (click)="goPuntoDos()" class="carta">
+          <!-- <img height="100px" class="ion-padding" src="../../../assets/Imagenes/menuSASISOPA/caution.svg" /> -->
+          <ion-card-header>
+            <ion-card-title>II. Identificación de Aspectos Ambientales y Riesgos</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card mode="ios" (click)="goPuntoTres()" class="carta">
+          <!-- <img height="100px" class="ion-padding" src="../../../assets/Imagenes/menuSASISOPA/libra.svg" /> -->
+          <ion-card-header>
+            <ion-card-title>III. Requisitos Legales</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card mode="ios" (click)="goPuntoCuatro()" class="carta">
+          <!-- <img height="100px" class="ion-padding" src="../../../assets/Imagenes/menuSASISOPA/finish.svg" /> -->
+          <ion-card-header>
+            <ion-card-title>IV. Objetivos, Metas e Indicadores</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card mode="ios" (click)="goPuntoCinco()" class="carta">
+          <!-- <img height="100px" class="ion-padding" src="../../../assets/Imagenes/menuSASISOPA/diagram.svg" /> -->
+          <ion-card-header>
+            <ion-card-title>V. Funciones, Responsabilidades y Autoridad</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card mode="ios" (click)="goPuntoSeis()" class="carta">
+          <!-- <img height="100px" class="ion-padding" src="../../../assets/Imagenes/menuSASISOPA/presentation.svg" /> -->
+          <ion-card-header>
+            <ion-card-title>VI. Competencia del personal, capacitación y entretenimiento</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card mode="ios" (click)="goPuntoSiete()" class="carta">
+          <!-- <img height="100px" class="ion-padding" src="../../../assets/Imagenes/menuSASISOPA/group.svg" /> -->
+          <ion-card-header>
+            <ion-card-title>VII. Comunicación, participación y consulta</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card mode="ios" (click)="goPuntoOcho()" class="carta">
+          <!-- <img height="100px" class="ion-padding" src="../../../assets/Imagenes/menuSASISOPA/record.svg" /> -->
+          <ion-card-header>
+            <ion-card-title>VIII. Control de documentos y registros</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card mode="ios" (click)="goPuntoNueve()" class="carta">
+          <!-- <img height="100px" class="ion-padding" src="../../../assets/Imagenes/menuSASISOPA/improve.svg" /> -->
+          <ion-card-header>
+            <ion-card-title>IX. Mejores prácticas y estándares</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card mode="ios" (click)="goPuntoDiez()" class="carta">
+          <!-- <img height="100px" class="ion-padding" src="../../../assets/Imagenes/menuSASISOPA/priority.svg" /> -->
+          <ion-card-header>
+            <ion-card-title>X. Control de actividades y procesos</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card mode="ios" (click)="goPuntoOnce()" class="carta">
+          <!-- <img height="100px" class="ion-padding" src="../../../assets/Imagenes/menuSASISOPA/solution.svg" /> -->
+          <ion-card-header>
+            <ion-card-title>XI. Integridad mecánica y aseguramiento de la calidad</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card mode="ios" (click)="goPuntoDoce()" class="carta">
+          <!-- <img height="100px" class="ion-padding" src="../../../assets/Imagenes/menuSASISOPA/cogwheel.svg" /> -->
+          <ion-card-header>
+            <ion-card-title>XII. Seguridad a contratistas</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card mode="ios" (click)="goPuntoTrece()" class="carta">
+          <ion-card-header>
+            <!-- <img height="100px" class="ion-padding" src="../../../assets/Imagenes/menuSASISOPA/alarm.svg" /> -->
+            <ion-card-title>XIII. Preparación y respuesta a emergencias</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card mode="ios" (click)="goPuntoCatorce()" class="carta">
+          <ion-card-header>
+            <!-- <img height="100px" class="ion-padding" src="../../../assets/Imagenes/menuSASISOPA/seo.svg" /> -->
+            <ion-card-title>XIV. Monitoreo, verificación y evaluación</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card mode="ios" (click)="goPuntoQuince()" class="carta">
+          <!-- <img height="100px" class="ion-padding" src="../../../assets/Imagenes/menuSASISOPA/audit.svg" /> -->
+          <ion-card-header>
+            <ion-card-title>XV. Auditorías</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card mode="ios" (click)="goPuntoDieciseis()" class="carta">
+          <!-- <img height="100px" class="ion-padding" src="../../../assets/Imagenes/menuSASISOPA/search.svg" /> -->
+          <ion-card-header>
+            <ion-card-title>XVI. Investigación de incidentes y accidentes</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card mode="ios" (click)="goPuntoDiecisiete()" class="carta">
+          <!-- <img height="100px" class="ion-padding" src="../../../assets/Imagenes/menuSASISOPA/address.svg" /> -->
+          <ion-card-header>
+            <ion-card-title>XVII. Revisión de la dirección</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card mode="ios" class="carta" (click)="goElemento18()">
+          <!-- <img height="100px" class="ion-padding" src="../../../assets/Imagenes/menuSASISOPA/performance.svg" /> -->
+          <ion-card-header>
+            <ion-card-title>XVIII. Informes de desempeño</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
