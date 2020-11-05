@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon slot="end" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Estación de Servicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #formulario="ngForm" (ngSubmit)="form()">
+    <ion-item>
+      <ion-label position="floating">Nombre de la estación:</ion-label>
+      <ion-input required name="nombre" [(ngModel)]="datos.nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Correo electronico:</ion-label>
+      <ion-input 
+      required 
+      name="correo" 
+      type="email" 
+      pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+      [(ngModel)]="datos.correo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Telefono(cel):</ion-label>
+      <ion-input 
+      maxlength="10" 
+      pattern="^([0-9]+)"
+      required name="telefono" 
+      [(ngModel)]="datos.telefono"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Representante Tecnico:</ion-label>
+      <ion-select required  placeholder="Selecciona" (ionChange)="cambioRepresentante($event)">
+        <ion-select-option *ngFor="let data of datosRepresentante" value= {{data._id}} >{{data.nombre}} </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Gerente de la Estación:</ion-label>
+      <ion-select required  placeholder="Selecciona" (ionChange)="cambioGerente($event)">
+        <ion-select-option *ngFor="let data of datosGerente" value= {{data._id}} >{{data.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Maxima Autoridad:</ion-label>
+      <ion-select required  placeholder="Selecciona" (ionChange)="cambioAutoridad($event)">
+        <ion-select-option *ngFor="let data of datosAutoridad" value= {{data._id}} >{{data.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item> 
+    <!-- ********************** -->
+    <ion-item>
+      <ion-label>Ingresa tu CP</ion-label>
+      <ion-input type="number" name="cp"  required (ionChange)="cpServices($event)" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Selecciona la colonia</ion-label>
+      <ion-select required  placeholder="Colonia" (ionChange)="select($event)">
+        <ion-select-option *ngFor="let data of respuestaCP" [value]= data.response >{{data.response.asentamiento}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Calle y Numero</ion-label>
+      <ion-input required name="calleNumero" [(ngModel)]="datos.calleNumero"></ion-input>
+    </ion-item>
+    <ion-button 
+      type="submit" 
+      expand="block" 
+      fill="clear" 
+      shape="round"
+      [disabled]="formulario.invalid"
+      >
+      Guardar
+    </ion-button>
+  </form>
+</ion-content>

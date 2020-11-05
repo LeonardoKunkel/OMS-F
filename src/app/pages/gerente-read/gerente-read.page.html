@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Registros</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" sizeLg="3" *ngFor="let data of maximaA">
+        <ion-card>
+          <ion-toolbar>
+            <ion-buttons slot="end">
+              <ion-button (click)="delete(data._id)">
+                <ion-icon color="danger" slot="end" name="trash-outline"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+          <ion-card-header>
+            <ion-card-subtitle color="dark">{{data.nombre}} {{data.apellidos}}</ion-card-subtitle>
+            <ion-card-subtitle>Telefono: {{data.telefono}}</ion-card-subtitle>
+            <ion-card-subtitle>Correo: {{data.correo}}</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
