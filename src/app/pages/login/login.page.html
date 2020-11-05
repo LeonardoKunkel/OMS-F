@@ -1,11 +1,9 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Devdactic App</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
   <form (ngSubmit)="login()" [formGroup]="credentials">
+    <div class="logo">
+      <img src="../../../assets/images/Softoil_Technologies.png">
+    </div>
     <div class="input-group">
       <ion-item>
         <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
@@ -26,9 +24,7 @@
       </div>
     </div>
     
-    <ion-button type="submit" expand="block" [disabled]="!credentials.valid">Log in</ion-button>
-    <ion-button type="button" expand="block" color="light" fill="clear">Not yet a member? Sign up!</ion-button>
-    
+    <ion-button type="submit" expand="block" [disabled]="!credentials.valid">Log in</ion-button>    
 
   </form>
 </ion-content>
