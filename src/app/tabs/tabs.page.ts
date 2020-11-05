@@ -9,4 +9,5 @@ export class TabsPage {
 
   constructor() {}
 
+  //El mapa te lleva a la pagina de tabs 3
 }

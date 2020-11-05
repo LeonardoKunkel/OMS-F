@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon slot="end" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Registrar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12"style="display: block; margin: auto;">
+        <ion-card>
+          <form #formulario="ngForm" (ngSubmit)="form()">
+            <ion-card-header>
+              <ion-toolbar>
+              <ion-buttons slot="start">
+                <ion-button (click)="read()">
+                  <ion-icon slot="start" name="eye-outline"></ion-icon>
+                  Consultar Catálogo
+                </ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+              <ion-card-title class="ion-text-center">Gerente Operativo</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-item>
+                <ion-label position="floating">Nombre(s):</ion-label>
+                <ion-input name="nombre" [(ngModel)]="datos.nombre" required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Apellido(s):</ion-label>
+                <ion-input name="apellidos" [(ngModel)]="datos.apellidos" required></ion-input>
+              </ion-item>
+              <ion-item> 
+                <ion-label position="floating">Correo:</ion-label>
+                <ion-input 
+                  type="email" 
+                  pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                  name="correo" 
+                  [(ngModel)]="datos.correo" 
+                  required>
+                </ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Telefono(cel):</ion-label>
+                <ion-input 
+                  type="text" 
+                  name="telefono" 
+                  maxlength="10"
+                  [(ngModel)]="datos.telefono" 
+                  required>
+                </ion-input>
+              </ion-item>
+              <ion-button 
+                type="submit" 
+                expand="block" 
+                fill="clear" 
+                shape="round"
+                [disabled]="formulario.invalid"
+                >
+                Guardar
+              </ion-button>
+            </ion-card-content>
+          </form>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

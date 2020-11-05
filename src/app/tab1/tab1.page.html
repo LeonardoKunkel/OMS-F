@@ -1,17 +1,60 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
+    <ion-title class="ion-text-center">
+      Catalogos
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-button (click)="mapa()" expand="block" fill="clear" shape="round">
+    Mapa
+  </ion-button>
+<ion-grid fixed>
+  <ion-row>
+    <ion-col size="12" sizeLg="3">
+      <ion-card (click)="autoridad()">
+        <ion-card-header>
+          <ion-card-subtitle>Catálogos</ion-card-subtitle>
+          <ion-card-title>Autoridad Maxima</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col size="12" sizeLg="3">
+      <ion-card (click)="gerente()">
+        <ion-card-header>
+          <ion-card-subtitle>Catálogos</ion-card-subtitle>
+          <ion-card-title>Gerente de la Estación</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col size="12" sizeLg="3">
+      <ion-card (click)="representante()">
+        <ion-card-header>
+          <ion-card-subtitle>Catálogos</ion-card-subtitle>
+          <ion-card-title>Representante Tecnico</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col size="12" sizeLg="3">
+      <ion-card (click)="estacion()">
+        <ion-card-header>
+          <ion-card-subtitle>Catálogos</ion-card-subtitle>
+          <ion-card-title>Estación de servicio</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 </ion-content>
