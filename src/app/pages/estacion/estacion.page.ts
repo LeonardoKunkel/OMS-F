@@ -109,6 +109,7 @@ export class EstacionPage implements OnInit {
     //console.log(this.datos);
     this._estacionService.postEstacion(this.datos).subscribe((data:any) =>{
       console.log(data);
+      this.navCtrl.navigateForward('/tabs/tab1');
     });
   }
 

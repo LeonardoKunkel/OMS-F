@@ -19,7 +19,7 @@ export class EstacionService {
   }
 
   getEstacionId(id: String){
-    return this.http.get(`${this.url}/${id}`);
+    return this.http.get(`http://localhost:3000/estacion/${id}`);
   }
 
   updateEstacionId(id:string, body){
