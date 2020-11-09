@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { AutoridadService } from 'src/app/services/autoridad.service';
 import { CpService } from 'src/app/services/cp.service';
 import { EstacionService } from 'src/app/services/estacion.service';
@@ -33,6 +33,7 @@ export class EstacionPage implements OnInit {
   datosGerente:any= [];
   constructor(
     public modalCtrl:ModalController,
+    public navCtrl: NavController,
     private cpService:CpService,
     private _representanteService: RepresentanteService,
     private _autoridadService: AutoridadService,
@@ -103,6 +104,7 @@ export class EstacionPage implements OnInit {
     //console.log(this.datos);
     this._estacionService.postEstacion(this.datos).subscribe((data:any) =>{
       console.log(data);
+      this.navCtrl.navigateForward('/tabs/tab1');
     });
   }
 }
