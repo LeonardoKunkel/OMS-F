@@ -13,28 +13,28 @@ import { RepresentanteService } from 'src/app/services/representante.service';
   styleUrls: ['./estacion.page.scss'],
 })
 export class EstacionPage implements OnInit {
-  datos:any={
-    nombre: "",
-    correo: "",
-    telefono: "",
-    idRepresentante:'',
-    idAutoridad:'',
-    idGerente:'',
-    cp:{
+  datos: any = {
+    nombre: '',
+    correo: '',
+    telefono: '',
+    idRepresentante: '',
+    idAutoridad: '',
+    idGerente: '',
+    cp: {
 
     },
-    calleNumero:''
+    calleNumero: ''
   };
   respuestaCP: any = [];
-  datosCp:any =[];
-  selecion:any= {};
-  datosAutoridad:any= [];
-  datosRepresentante:any= [];
-  datosGerente:any= [];
+  datosCp: any = [];
+  selecion: any = {};
+  datosAutoridad: any = [];
+  datosRepresentante: any = [];
+  datosGerente: any = [];
   constructor(
-    public modalCtrl:ModalController,
-    public navCtrl: NavController,
-    private cpService:CpService,
+    public modalCtrl: ModalController,
+    private navCtrl: NavController,
+    private cpService: CpService,
     private _representanteService: RepresentanteService,
     private _autoridadService: AutoridadService,
     private _gerenteService: GerenteService,
@@ -68,6 +68,11 @@ export class EstacionPage implements OnInit {
     });
   }
 
+  read(){
+    this.navCtrl.navigateForward('/estacion-read');
+    this.close();
+  }
+
   close(){
     this.modalCtrl.dismiss();
   }
@@ -78,7 +83,7 @@ export class EstacionPage implements OnInit {
     this.cpService.getCp(codigoPostal).subscribe((data:any) =>{
       this.respuestaCP = data;
       console.log(this.respuestaCP);
-    })
+    });
   }
 
   select(event){
@@ -107,4 +112,5 @@ export class EstacionPage implements OnInit {
       this.navCtrl.navigateForward('/tabs/tab1');
     });
   }
+
 }

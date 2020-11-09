@@ -67,7 +67,8 @@ const routes: Routes = [
   {
     path: 'e18-procedimiento',
     loadChildren: () => import('./pages/e18-procedimiento/e18-procedimiento.module').then( m => m.E18ProcedimientoPageModule)
-  },  {
+  },
+  {
     path: 'e1-menu',
     loadChildren: () => import('./pages/e1-menu/e1-menu.module').then( m => m.E1MenuPageModule)
   },
@@ -134,8 +135,11 @@ const routes: Routes = [
   {
     path: 'e17-menu',
     loadChildren: () => import('./pages/e17-menu/e17-menu.module').then( m => m.E17MenuPageModule)
+  },
+  {
+    path: 'estacion-read',
+    loadChildren: () => import('./pages/estacion-read/estacion-read.module').then( m => m.EstacionReadPageModule)
   }
-
 
 
 ];
