@@ -8,15 +8,15 @@ import { GerenteService } from 'src/app/services/gerente.service';
   styleUrls: ['./gerente.page.scss'],
 })
 export class GerentePage implements OnInit {
-  datos:any={
-    nombre:'',
-    apellidos:'',
-    telefono:'',
-    correo:''
-  }
+  datos: any = {
+    nombre: '',
+    apellidos: '',
+    telefono: '',
+    correo: ''
+  };
 
   constructor(
-    public modalCtrl:ModalController,
+    public modalCtrl: ModalController,
     private navCtrl: NavController,
     private _gerenteService: GerenteService
   ) { }

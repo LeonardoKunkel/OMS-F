@@ -11,6 +11,12 @@
 
 <ion-content>
   <form #formulario="ngForm" (ngSubmit)="form()">
+    <ion-buttons slot="start">
+      <ion-button (click)="read()">
+        <ion-icon slot="start" name="eye-outline"></ion-icon>
+        Consultar Catálogo
+      </ion-button>
+    </ion-buttons>
     <ion-item>
       <ion-label position="floating">Nombre de la estación:</ion-label>
       <ion-input required name="nombre" [(ngModel)]="datos.nombre"></ion-input>
