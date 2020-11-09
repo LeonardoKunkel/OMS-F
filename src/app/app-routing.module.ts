@@ -63,7 +63,11 @@ const routes: Routes = [
   {
     path: 'mapa',
     loadChildren: () => import('./pages/mapa/mapa.module').then( m => m.MapaPageModule)
+  },  {
+    path: 'estacion-read',
+    loadChildren: () => import('./pages/estacion-read/estacion-read.module').then( m => m.EstacionReadPageModule)
   }
+
 ];
 @NgModule({
   imports: [

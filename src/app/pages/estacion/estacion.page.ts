@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { AutoridadService } from 'src/app/services/autoridad.service';
 import { CpService } from 'src/app/services/cp.service';
 import { EstacionService } from 'src/app/services/estacion.service';
@@ -13,27 +13,28 @@ import { RepresentanteService } from 'src/app/services/representante.service';
   styleUrls: ['./estacion.page.scss'],
 })
 export class EstacionPage implements OnInit {
-  datos:any={
-    nombre: "",
-    correo: "",
-    telefono: "",
-    idRepresentante:'',
-    idAutoridad:'',
-    idGerente:'',
-    cp:{
+  datos: any = {
+    nombre: '',
+    correo: '',
+    telefono: '',
+    idRepresentante: '',
+    idAutoridad: '',
+    idGerente: '',
+    cp: {
 
     },
-    calleNumero:''
+    calleNumero: ''
   };
   respuestaCP: any = [];
-  datosCp:any =[];
-  selecion:any= {};
-  datosAutoridad:any= [];
-  datosRepresentante:any= [];
-  datosGerente:any= [];
+  datosCp: any = [];
+  selecion: any = {};
+  datosAutoridad: any = [];
+  datosRepresentante: any = [];
+  datosGerente: any = [];
   constructor(
-    public modalCtrl:ModalController,
-    private cpService:CpService,
+    public modalCtrl: ModalController,
+    private navCtrl: NavController,
+    private cpService: CpService,
     private _representanteService: RepresentanteService,
     private _autoridadService: AutoridadService,
     private _gerenteService: GerenteService,
@@ -67,6 +68,11 @@ export class EstacionPage implements OnInit {
     });
   }
 
+  read(){
+    this.navCtrl.navigateForward('/estacion-read');
+    this.close();
+  }
+
   close(){
     this.modalCtrl.dismiss();
   }
@@ -77,7 +83,7 @@ export class EstacionPage implements OnInit {
     this.cpService.getCp(codigoPostal).subscribe((data:any) =>{
       this.respuestaCP = data;
       console.log(this.respuestaCP);
-    })
+    });
   }
 
   select(event){
@@ -105,4 +111,5 @@ export class EstacionPage implements OnInit {
       console.log(data);
     });
   }
+
 }
