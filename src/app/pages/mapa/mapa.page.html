@@ -8,5 +8,10 @@
 </ion-header>
 
 <ion-content>
-  <div id="map"></div>
+  <input type="text" id="input" id="input">
+  <ion-button (click)="verify()" expand="block" fill="clear" shape="round">
+      Verificar
+  </ion-button>
+  <!-- <ion-searchbar placeholder="Busca"  (ionChange)="onSearchChange($event)" [(ngModel)]="search"></ion-searchbar> -->
+  <div id="map"> </div>
 </ion-content>

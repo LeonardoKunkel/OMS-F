@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="dissmis()">
+        <ion-icon slot="start" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <form #formulario="ngForm" (ngSubmit)="form()">
+            <ion-card-header>
+              <ion-card-title class="ion-text-center">Director</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-item>
+                <ion-label position="floating">Requerimientos físicos:</ion-label>
+                <ion-input name="requerimientoFisico" required [(ngModel)]="datos.requerimientoFisico"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Herramientas/Equipos:</ion-label>
+                <ion-input name="herramientaEquipo"  required [(ngModel)]="datos.herramientaEquipo" ></ion-input>
+              </ion-item>
+              <ion-item> 
+                <ion-label position="floating">Equipo de protección personal:</ion-label>
+                <ion-input 
+                  type="text" 
+                  name="equipoPersonal" 
+                  required
+                  [(ngModel)] = "datos.equipoProteccionPersonal">
+                </ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Nivel académico:</ion-label>
+                <ion-input 
+                  type="text" 
+                  name="nivelAcademico" 
+                  required
+                  [(ngModel)] = "datos.nivelAcademico">
+                </ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Personal a su cargo:</ion-label>
+                <ion-input 
+                  type="text" 
+                  name="personalCargo" 
+                  required
+                  [(ngModel)] = "datos.personalCargo">
+                </ion-input>
+              </ion-item>
+              <ion-button 
+                type="submit" 
+                expand="block" 
+                fill="clear" 
+                shape="round"
+                [disabled]="formulario.invalid"
+                >
+                Guardar
+              </ion-button>
+            </ion-card-content>
+          </form>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

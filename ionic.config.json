@@ -1,7 +1,8 @@
 {
   "name": "OMS-Front",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

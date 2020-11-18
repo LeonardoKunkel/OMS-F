@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/e1-menu"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="myPolitica()">
+        <ion-icon name="pencil-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Politíca</ion-title>
+    <ion-card-subtitle class="ion-text-center">{{datosEstacion.nombre}}</ion-card-subtitle>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" size="6" style="margin: auto; display: block;">
+        <ion-card>
+            <ion-card-header>
+              <ion-card-title class="ion-text-center">Politíca 1</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p style="margin: 3%; text-align: justify;" #politica1>
+                <b style="font-size: 20px;" >"{{datosEstacion.nombre}}"</b>  conscientes con la naturaleza de los
+                peligros y aspectos ambientales asociados a las actividades propias de la instalación, 
+                trabajadores y contratistas estamos comprometidos en mejorar nuestro desempeño en 
+                materia de Seguridad Industrial, Seguridad Operativa y Protección del medio ambiente, 
+                en todos los niveles de la organización, juntos orientamos nuestros esfuerzos para 
+                la evaluación, reducción y control de los riesgos e impactos 
+                ambientales, el cumplimiento normativo, mediante un proceso de mejora continua. 
+              </p>
+            </ion-card-content>
+        </ion-card>
+        <ion-card>
+            <ion-card-header>
+              <ion-card-title class="ion-text-center">Politíca 2</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p style="text-align: justify;" #politica2 >
+                 <b style="font-size: 20px;" >“{{datosEstacion.nombre}}”</b>
+                  estamos comprometidos en todos los niveles de la organización con la 
+                  seguridad de las instalaciones, los trabajadores, contratistas y medio 
+                  ambiente, controlando los peligros, riesgos e impactos ambientales derivados 
+                  de la operación normal de la estación, enfocándonos en el cumplimento de la 
+                  normatividad y la mejora continua en materia Seguridad Industrial, Seguridad 
+                  Operativa y Protección del medio ambiente.
+              </p>
+            </ion-card-content>
+        </ion-card>
+        <ion-card>
+            <ion-card-header>
+              <ion-card-title class="ion-text-center">Politíca 3</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p style="text-align: justify;" #politica3>Considerando los peligros, riesgos e 
+                impactos ambientales que se generan en la operación de esta estación de servicio, 
+                en <b style="font-size: 20px;">“{{datosEstacion.nombre}}”</b> estamos 
+                comprometidos en todos los niveles de la organización en establecer los controles 
+                necesarios y buscar continuamente su mejora en materia de Seguridad Industrial, 
+                Seguridad Operativa y Protección del medio ambiente.
+              </p>
+            </ion-card-content>
+        </ion-card>
+        <ion-item>
+          <ion-label>Politíca</ion-label>
+          <ion-select placeholder="Selecciona una politíca" (ionChange)="options($event)">
+            <ion-select-option value="politica1">Politíca 1</ion-select-option>
+            <ion-select-option value="politica2">Politíca 2</ion-select-option>
+            <ion-select-option value="politica3">Politíca 3</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
