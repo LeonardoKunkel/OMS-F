@@ -41,7 +41,7 @@
     <ion-item>
       <ion-label>Representante Tecnico:</ion-label>
       <ion-select required  placeholder="Selecciona" (ionChange)="cambioRepresentante($event)">
-        <ion-select-option *ngFor="let data of datosRepresentante" value= {{data._id}} >{{data.nombre}} </ion-select-option>
+        <ion-select-option *ngFor="let data of datosRepresentante" value= {{data._id}}>{{data.nombre}} </ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item>

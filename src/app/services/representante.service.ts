@@ -5,29 +5,29 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class RepresentanteService {
-  url='http://localhost:3000/representante';
+  url = 'http://localhost:3000/representante';
 
   constructor(
-    private http:HttpClient
+    private http: HttpClient
   ) { }
 
   postRepresentante(form){
-    return this.http.post(`${this.url}/create`,form);
+    return this.http.post(`${this.url}/create`, form);
   }
 
   getRepresentante(){
    return this.http.get(`${this.url}/`);
   }
 
-  getRepresentanteId(id: String){
+  getRepresentanteId(id: string){
     return this.http.get(`${this.url}/${id}`);
   }
 
-  updateRepresentanteId(id:string, body){
-    return this.http.put(`${this.url}/${id}`,body)
+  updateRepresentanteId(id: string, body){
+    return this.http.put(`${this.url}/${id}`, body);
   }
 
-  deleteRepresentanteId(id:String){
+  deleteRepresentanteId(id: string){
     return this.http.delete(`${this.url}/${id}`);
   }
 }

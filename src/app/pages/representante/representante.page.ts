@@ -8,15 +8,15 @@ import { RepresentanteService } from 'src/app/services/representante.service';
   styleUrls: ['./representante.page.scss'],
 })
 export class RepresentantePage implements OnInit {
-  datos:any={
-    nombre:'',
-    apellidos:'',
-    telefono:'',
-    correo:''
-  }
+  datos: any = {
+    nombre: '',
+    apellidos: '',
+    telefono: '',
+    correo: ''
+  };
 
   constructor(
-    public modalCtrl:ModalController,
+    public modalCtrl: ModalController,
     private _representanteService: RepresentanteService,
     private navCtrl: NavController
   ) { }
@@ -34,12 +34,12 @@ export class RepresentantePage implements OnInit {
   }
 
   post(){
-    this._representanteService.postRepresentante(this.datos).subscribe((data:any)=>{
+    this._representanteService.postRepresentante(this.datos).subscribe((data: any) => {
       console.log(data);
     });
   }
 
-  form(){
+  form() {
     this.post();
     close();
   }

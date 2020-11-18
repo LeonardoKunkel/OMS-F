@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 import { RepresentanteService } from 'src/app/services/representante.service';
 
 @Component({
@@ -8,11 +8,12 @@ import { RepresentanteService } from 'src/app/services/representante.service';
   styleUrls: ['./representante-read.page.scss'],
 })
 export class RepresentanteReadPage implements OnInit {
-  maximaA:any[]=[];
+  maximaA: any[] = [];
 
   constructor(
-    private _representanteService: RepresentanteService,
-    public navCtrl: NavController
+    private representanteService: RepresentanteService,
+    public navCtrl: NavController,
+    public toast: ToastController
   ) { }
 
   ngOnInit() {
@@ -20,18 +21,22 @@ export class RepresentanteReadPage implements OnInit {
   }
 
   getRepresentante(){
-    this._representanteService.getRepresentante().subscribe((data:any) =>{
+    this.representanteService.getRepresentante().subscribe((data: any) => {
       console.log(data);
       this.maximaA = data.representante;
-    })
+    });
   }
 
-  delete(id:string){
-    this._representanteService.deleteRepresentanteId(id).subscribe((data:any) =>{
+  async delete(id: string){
+    this.representanteService.deleteRepresentanteId(id).subscribe((data: any) => {
       console.log(data);
     });
+    const toast = await this.toast.create({
+      message: 'Representante eliminado',
+      duration: 2000
+    });
+    toast.present();
     this.navCtrl.navigateForward('/tabs/tab1');
   }
-
 
 }

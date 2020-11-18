@@ -10,8 +10,8 @@
       </ion-item>
       
       <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
-        <span *ngIf="email.errors?.required">Email is required</span>
-        <span *ngIf="email.errors?.emial">Email is invalid</span>
+        <span *ngIf="email.errors?.required">Se requiere Email</span>
+        <span *ngIf="email.errors?.emial">Correo inválido</span>
       </div>
       
       <ion-item>
@@ -19,8 +19,8 @@
       </ion-item>
       
       <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
-        <span *ngIf="password.errors?.required">Password is required</span>
-        <span *ngIf="password.errors?.minlength">Password needs to be 6 characters</span>
+        <span *ngIf="password.errors?.required">Se requiere contraseña</span>
+        <span *ngIf="password.errors?.minlength">Contraseña necesita 6 caracteres</span>
       </div>
     </div>
     

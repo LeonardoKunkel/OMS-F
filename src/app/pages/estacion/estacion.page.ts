@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, NavController } from '@ionic/angular';
+import { ModalController, NavController, ToastController } from '@ionic/angular';
 import { AutoridadService } from 'src/app/services/autoridad.service';
 import { CpService } from 'src/app/services/cp.service';
 import { EstacionService } from 'src/app/services/estacion.service';
@@ -33,6 +33,7 @@ export class EstacionPage implements OnInit {
   datosGerente: any = [];
   constructor(
     public modalCtrl: ModalController,
+    public toast: ToastController,
     private navCtrl: NavController,
     private cpService: CpService,
     private _representanteService: RepresentanteService,
@@ -47,28 +48,28 @@ export class EstacionPage implements OnInit {
     this.getGerente();
   }
 
-  getRepresentante(){
-    this._representanteService.getRepresentante().subscribe((data:any) =>{
-      //console.log(data);
+  getRepresentante() {
+    this._representanteService.getRepresentante().subscribe((data: any) => {
+      // console.log(data);
       this.datosRepresentante = data.representante;
     });
   }
 
-  getAutoridad(){
-    this._autoridadService.getAutoridad().subscribe((data:any) =>{
-      //console.log(data);
+  getAutoridad() {
+    this._autoridadService.getAutoridad().subscribe((data: any) => {
+      // console.log(data);
       this.datosAutoridad = data.autoridad;
     });
   }
 
-  getGerente(){
-    this._gerenteService.getGerente().subscribe((data:any) =>{
+  getGerente() {
+    this._gerenteService.getGerente().subscribe((data: any) => {
       // console.log(data);
       this.datosGerente = data.gerente;
     });
   }
 
-  read(){
+  read() {
     this.navCtrl.navigateForward('/estacion-read');
     this.close();
   }
@@ -78,9 +79,9 @@ export class EstacionPage implements OnInit {
   }
 
   cpServices(event){
-    //Servicio funciona en base al ionChange del select
-    let codigoPostal= event.detail.value;
-    this.cpService.getCp(codigoPostal).subscribe((data:any) =>{
+    // Servicio funciona en base al ionChange del select
+    const codigoPostal = event.detail.value;
+    this.cpService.getCp(codigoPostal).subscribe((data: any) => {
       this.respuestaCP = data;
       console.log(this.respuestaCP);
     });
@@ -92,22 +93,27 @@ export class EstacionPage implements OnInit {
     this.datos.cp = event.target.value;
   }
 
-  cambioAutoridad(event){
+  cambioAutoridad(event) {
     // console.log(event.target.value);
     this.datos.idAutoridad = event.target.value;
   }
-  cambioGerente(event){
+  cambioGerente(event) {
     // console.log(event.target.value);
     this.datos.idGerente = event.target.value;
   }
-  cambioRepresentante(event){
+  cambioRepresentante(event) {
     // console.log(event.target.value);
     this.datos.idRepresentante = event.target.value;
   }
 
-  form(){
-    //console.log(this.datos);
-    this._estacionService.postEstacion(this.datos).subscribe((data:any) =>{
+  async form(){
+    // console.log(this.datos);
+    const toast = await this.toast.create({
+      message: 'Datos guardados',
+      duration: 3000
+    });
+    toast.present();
+    this._estacionService.postEstacion(this.datos).subscribe((data: any) => {
       console.log(data);
       this.navCtrl.navigateForward('/tabs/tab1');
     });

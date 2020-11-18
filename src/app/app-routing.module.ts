@@ -6,6 +6,11 @@ import { IntroGuard } from './guards/intro.guard';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule),
     canLoad: [IntroGuard, AutoLoginGuard]
@@ -18,11 +23,6 @@ const routes: Routes = [
   {
     path: 'intro',
     loadChildren: () => import('./pages/intro/intro.module').then( m => m.IntroPageModule)
-  },
-  {
-    path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
   },
   {
     path: 'cal-modal',

@@ -11,8 +11,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PdfMakeWrapper } from 'pdfmake-wrapper';
 
-const pdfFonts = require('pdfmake/build/vfs_fonts.js');  
-PdfMakeWrapper.setFonts(pdfFonts);
+// const pdfFonts = require('pdfmake/build/vfs_fonts.js');
+// PdfMakeWrapper.setFonts(pdfFonts);
 
 @NgModule({
   declarations: [AppComponent],

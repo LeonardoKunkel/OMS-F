@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="end">
+    <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
     </ion-buttons>
     <ion-title class="ion-text-center">Estaciones Registradas</ion-title>
@@ -10,19 +10,27 @@
 <ion-content>
   <ion-grid fixed>
     <ion-row>
-      <ion-col size="12" sizeLg="3">
+      <ion-col size="12" sizeLg="3" *ngFor="let data of supEstacion">
         <ion-card>
           <ion-toolbar>
             <ion-buttons slot="end">
-              <ion-button>
+              <ion-button (click)="delete(data.id)">
                 <ion-icon color="danger" slot="end" name="trash-outline"></ion-icon>
               </ion-button>
             </ion-buttons>
           </ion-toolbar>
           <ion-card-header>
-            <ion-card-title></ion-card-title>
-            <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
-            <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
+            <ion-card-title>{{data.nombre}}</ion-card-title>
+            <ion-card-subtitle>
+              Dirección:
+              {{data.calleNumero}}
+              {{data.cp.asentamiento}}
+              {{data.cp.ciudad}}
+              {{data.cp.cp}}
+              {{data.cp.estado}}
+            </ion-card-subtitle>
+            <ion-card-subtitle>Telefono: {{data.telefono}}</ion-card-subtitle>
+            <ion-card-subtitle>Gerente: {{data.idGerente.nombre}} {{data.idGerente.apellidos}}</ion-card-subtitle>
           </ion-card-header>
         </ion-card>
       </ion-col>
