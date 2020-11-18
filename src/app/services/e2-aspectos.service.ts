@@ -4,30 +4,30 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class RepresentanteService {
-  url = 'http://localhost:3000/representante';
+export class E2AspectosService {
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  url = 'http://localhost:3000/aspectos';
 
-  postRepresentante(form){
+  constructor( private http: HttpClient ) { }
+
+  postAspectos(form) {
     return this.http.post(`${this.url}/create`, form);
   }
 
-  getRepresentante(){
-   return this.http.get(`${this.url}/`);
+  getAspectos() {
+    return this.http.get(`${this.url}/`);
   }
 
-  getRepresentanteId(id: string){
+  getAspectosId(id: string) {
     return this.http.get(`${this.url}/${id}`);
   }
 
-  updateRepresentanteId(id: string, body){
+  updateAspectosId(id: string, body) {
     return this.http.put(`${this.url}/${id}`, body);
   }
 
-  deleteRepresentanteId(id: string){
+  deleteAspectosId(id: string) {
     return this.http.delete(`${this.url}/${id}`);
   }
+
 }

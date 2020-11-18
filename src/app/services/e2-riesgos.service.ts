@@ -4,30 +4,30 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class RepresentanteService {
-  url = 'http://localhost:3000/representante';
+export class E2RiesgosService {
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  url = 'http://localhost:3000/riesgos';
 
-  postRepresentante(form){
+  constructor( private http: HttpClient ) { }
+
+  postRiesgos(form) {
     return this.http.post(`${this.url}/create`, form);
   }
 
-  getRepresentante(){
-   return this.http.get(`${this.url}/`);
+  getRiesgos() {
+    return this.http.get(`${this.url}/`);
   }
 
-  getRepresentanteId(id: string){
+  getRiesgosId(id: string) {
     return this.http.get(`${this.url}/${id}`);
   }
 
-  updateRepresentanteId(id: string, body){
+  updateRiesgosId(id: string, body) {
     return this.http.put(`${this.url}/${id}`, body);
   }
 
-  deleteRepresentanteId(id: string){
+  deleteRiesgosId(id: string) {
     return this.http.delete(`${this.url}/${id}`);
   }
+
 }

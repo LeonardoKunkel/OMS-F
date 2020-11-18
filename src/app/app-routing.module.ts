@@ -139,7 +139,8 @@ const routes: Routes = [
   {
     path: 'estacion-read',
     loadChildren: () => import('./pages/estacion-read/estacion-read.module').then( m => m.EstacionReadPageModule)
-  },  {
+  },
+  {
     path: 'e1-politica',
     loadChildren: () => import('./pages/e1-politica/e1-politica.module').then( m => m.E1PoliticaPageModule)
   },

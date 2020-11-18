@@ -19,7 +19,7 @@ export class AutenticacionService {
   async cargarToken() {
     const token = await Storage.get({ key: TOKEN_KEY });
     if (token && token.value) {
-      console.log('set token: ', token.value);
+      // console.log('set token: ', token.value);
       this.token = token.value;
       this.estaAutenticado.next(true);
     } else {

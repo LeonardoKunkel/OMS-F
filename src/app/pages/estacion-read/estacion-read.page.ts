@@ -1,6 +1,6 @@
-import { EstacionService } from 'src/app/services/estacion.service';
 import { Component, OnInit } from '@angular/core';
 import { NavController, ToastController } from '@ionic/angular';
+import { EstacionService } from 'src/app/services/estacion.service';
 
 @Component({
   selector: 'app-estacion-read',
@@ -12,9 +12,9 @@ export class EstacionReadPage implements OnInit {
   supEstacion: any[] = [];
 
   constructor(
+    private estacionService: EstacionService,
     public navCrtl: NavController,
     public toast: ToastController,
-    private estacionService: EstacionService
   ) { }
 
   ngOnInit() {
@@ -24,7 +24,7 @@ export class EstacionReadPage implements OnInit {
   getEstacion() {
     this.estacionService.getEstacion().subscribe((data: any) => {
       console.log(data);
-      this.supEstacion = data.estacion;
+      this.supEstacion = data;
     });
   }
 
@@ -33,7 +33,7 @@ export class EstacionReadPage implements OnInit {
       console.log(data);
     });
     const toast = await this.toast.create({
-      message: 'Gerente de estación eliminado',
+      message: 'Estación eliminada',
       duration: 2000
     });
     toast.present();

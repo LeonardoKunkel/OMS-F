@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="cerrarModal()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Criterios de Aceptación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col size="12">
+      <h3>Nivel de Probabilidad de ocurrencia (Frecuencia)</h3>
+      <ul>
+        <li>1. | <b>Remota.</b> No se espera que ocurra durante la vida del proyecto.</li>
+        <li>2. | <b>Baja.</b> Se espera que ocurra no más de una vez durante la vida del proyecto.</li>
+        <li>3. | <b>Media.</b> Se espera que ocurra varias veces durante la vida de la estación de servicio.</li>
+        <li>4. | <b>Alta.</b> Se espera que ocurra más de una vez al año.</li>
+      </ul>
+    </ion-col>
+    <ion-col size="12">
+      <h3>Nivel de Severidad de Consecuencia</h3>
+      <ul>
+        <li>4. | <b>Catastrófica.</b> Una o más fatalidades. Lesiones o fatalidades en la comunidad.</li>
+        <li>3. | <b>Grave.</b> Daño permanente en sección localizada del proceso o construcción. Accidentes incapacitantes u hospitalización.</li>
+        <li>2. | <b>Moderada.</b> Un accidente incapacitante. Múltiples lesionados.</li>
+        <li>1. | <b>Menor.</b> Respuesta a emergencia sin lesionados.</li>
+      </ul>
+    </ion-col>
+    <ion-col size="12">
+      <h3>Categoría de Riesgo (Magnitud)</h3>
+      <ul>
+        <li>I. | <b>INACEPTABLE.</b> No se puede reducir el trabajo hasta reducir el riesgo.</li>
+        <li>II. | <b>INDESEABLE.</b> No comenzar trabajo hasta reducir y controlar el riesgo</li>
+        <li>III. | <b>MODERADO.</b> Establecer medidas para implantarse en un tiempo determinado</li>
+        <li>IV. | <b>ACEPTABLE.</b> Considerar soluciones o mejoras para asegurar la eficacia de las medidas de control</li>
+      </ul>
+    </ion-col>
+  </ion-row>
+</ion-content>
