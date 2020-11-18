@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/e6-menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Perfil de Puesto</ion-title>
+    <ion-card-subtitle class="ion-text-center" >{{DataEstacion.nombre}}</ion-card-subtitle>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <p>
+      Es un documento que contiene la información del puesto a cubrirse, en él se describen varios
+      requisitos como, el objetivo del puesto, funciones específicas,conocimientos específicos,
+      las habilidades, nivel académico, idiomas, características personales y destrezas técnicas.
+    </p>
+    <ion-row>
+      <ion-col size="12" sizeLg="4">
+        <ion-card (click)="openModal()" mode="ios" class="carta">
+          <ion-card-header>
+            <!-- <img src="../../../assets/Imagenes/Elemento 6/director-01.png" style="width: 30%; height: auto; margin: auto; display: block;" alt=""> -->
+            <ion-card-title class="ion-text-center">Director</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeLg="4">
+        <ion-card (click)="openModal2()" mode="ios" class="carta">
+          <!-- <img src="../../../assets/Imagenes/Elemento 6/representante tecnico-01.png" style="width: 30%; height: auto; margin: auto; display: block;" alt=""> -->
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">Representante Técnico</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeLg="4">
+        <ion-card (click)="openModal3()" mode="ios" class="carta">
+          <!-- <img src="../../../assets/Imagenes/Elemento 6/encargado-01.png" style="width: 30%; height: auto; margin: auto; display: block;" alt=""> -->
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">Encargado</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeLg="4">
+        <ion-card (click)="openModal4()" mode="ios" class="carta">
+          <!-- <img src="../../../assets/Imagenes/Elemento 6/jefe de piso-01.png" style="width: 30%; height: auto; margin: auto; display: block;" alt=""> -->
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">Jefe de piso</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeLg="4">
+        <ion-card (click)="openModal5()" mode="ios" class="carta">
+          <!-- <img src="../../../assets/Imagenes/Elemento 6/despachadores-01.png" style="width: 30%; height: auto; margin: auto; display: block;" alt=""> -->
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">Despachadores</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeLg="4">
+        <ion-card (click)="openModal6()" mode="ios" class="carta">
+          <!-- <img src="../../../assets/Imagenes/Elemento 6/personal de mantenimiento-01.png" style="width: 30%; height: auto; margin: auto; display: block;" alt=""> -->
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">Personal de mantenimiento</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

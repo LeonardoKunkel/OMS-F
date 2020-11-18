@@ -62,4 +62,8 @@ export class Tab1Page {
     this.navCtrl.navigateForward('/calendario');
   }
 
+  grafica(){
+    this.navCtrl.navigateForward('/grafica');
+  }
+
 }
