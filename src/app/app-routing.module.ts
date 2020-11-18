@@ -6,11 +6,6 @@ import { IntroGuard } from './guards/intro.guard';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
-  },
-  {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule),
     canLoad: [IntroGuard, AutoLoginGuard]
@@ -23,6 +18,11 @@ const routes: Routes = [
   {
     path: 'intro',
     loadChildren: () => import('./pages/intro/intro.module').then( m => m.IntroPageModule)
+  },
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
   },
   {
     path: 'cal-modal',
@@ -139,7 +139,48 @@ const routes: Routes = [
   {
     path: 'estacion-read',
     loadChildren: () => import('./pages/estacion-read/estacion-read.module').then( m => m.EstacionReadPageModule)
+  },
+  {
+    path: 'e1-politica',
+    loadChildren: () => import('./pages/e1-politica/e1-politica.module').then( m => m.E1PoliticaPageModule)
+  },
+  {
+    path: 'grafica',
+    loadChildren: () => import('./pages/grafica/grafica.module').then( m => m.GraficaPageModule)
+  },
+  {
+    path: 'e4-objetivos-metas',
+    loadChildren: () => import('./pages/e4-objetivos-metas/e4-objetivos-metas.module').then( m => m.E4ObjetivosMetasPageModule)
+  },
+  {
+    path: 'e6-perfil-puesto',
+    loadChildren: () => import('./pages/e6-perfil-puesto/e6-perfil-puesto.module').then( m => m.E6PerfilPuestoPageModule)
+  },
+  {
+    path: 'e6-director',
+    loadChildren: () => import('./pages/e6-director/e6-director.module').then( m => m.E6DirectorPageModule)
+  },
+  {
+    path: 'e6-representante-tecnico',
+    loadChildren: () => import('./pages/e6-representante-tecnico/e6-representante-tecnico.module').then( m => m.E6RepresentanteTecnicoPageModule)
+  },
+  {
+    path: 'e6-encargado',
+    loadChildren: () => import('./pages/e6-encargado/e6-encargado.module').then( m => m.E6EncargadoPageModule)
+  },
+  {
+    path: 'e6-jefe-piso',
+    loadChildren: () => import('./pages/e6-jefe-piso/e6-jefe-piso.module').then( m => m.E6JefePisoPageModule)
+  },
+  {
+    path: 'e6-despachadores',
+    loadChildren: () => import('./pages/e6-despachadores/e6-despachadores.module').then( m => m.E6DespachadoresPageModule)
+  },
+  {
+    path: 'e6-personal-mantenimiento',
+    loadChildren: () => import('./pages/e6-personal-mantenimiento/e6-personal-mantenimiento.module').then( m => m.E6PersonalMantenimientoPageModule)
   }
+
 
 
 ];

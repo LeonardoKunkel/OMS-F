@@ -10,8 +10,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PdfMakeWrapper } from 'pdfmake-wrapper';
+import { Geolocation } from '@capacitor/core';
+//import { PdfFonts } from 'pdfmake/build/vfs_fonts.js';
 
-// const pdfFonts = require('pdfmake/build/vfs_fonts.js');
+//  import {PdfFonts} from "pdfmake/build/vfs_fonts.js";
+//  PdfMakeWrapper.setFonts(PdfFonts);
+
+// const pdfFonts = require('pdfmake/build/vfs_fonts.js');  
 // PdfMakeWrapper.setFonts(pdfFonts);
 
 @NgModule({
@@ -21,7 +26,7 @@ import { PdfMakeWrapper } from 'pdfmake-wrapper';
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule
     ],
   providers: [
     StatusBar,
