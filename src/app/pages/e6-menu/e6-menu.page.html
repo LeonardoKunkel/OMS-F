@@ -1,10 +1,12 @@
-<ion-header no-border>
+<ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs/tab2"></ion-back-button>
     </ion-buttons>
     <ion-title class="ion-text-center">VI. Competencia del personal, capacitación y entretenimiento</ion-title>
-  </ion-toolbar><hr class="linea">
+    <ion-card-subtitle class="ion-text-center">{{DataEstacion.nombre}}</ion-card-subtitle>
+  </ion-toolbar>
+  <hr class="linea">
 </ion-header>
 
 <ion-content>
@@ -12,7 +14,7 @@
     <ion-grid fixed>
       <ion-row>
         <ion-col size="12" sizeMd="6" sizeLg="4">
-          <ion-card mode="ios" (click)="goPuntoProcedimiento()" class="carta">
+          <ion-card class="carta">
             <ion-card-header>
               <!-- <img class="ion-padding" src="../../../assets/Imagenes/1_procedimiento.png" style="width: 50%; margin: auto; display: block;" /> -->
               <ion-card-title class="ion-text-center">Procedimiento</ion-card-title>
@@ -20,7 +22,7 @@
           </ion-card>
         </ion-col>
         <ion-col size="12" sizeMd="6" sizeLg="4">
-          <ion-card mode="ios" (click)="goPuntoPerfilPuesto()" class="carta">
+          <ion-card (click)="goPuntoPerfilPuesto()" class="carta">
             <ion-card-header>
               <!-- <img class="ion-padding" src="../../../assets/Imagenes/Elemento 6/6_perfilpuesto-01.png" style="width: 50%; margin: auto; display: block;" /> -->
               <ion-card-title class="ion-text-center">FS-14 Perfil de puesto</ion-card-title>
@@ -28,7 +30,7 @@
           </ion-card>
         </ion-col>
         <ion-col size="12" sizeMd="6" sizeLg="4">
-          <ion-card mode="ios" (click)="goPuntoDeteccionNecesidaes()" class="carta">
+          <ion-card class="carta">
             <ion-card-header>
               <!-- <img class="ion-padding" src="../../../assets/Imagenes/Elemento 6/6_detecciondenecesidades-01.png" style="width: 50%; margin: auto; display: block;" /> -->
               <ion-card-title class="ion-text-center">FS-15 Detección de necesidades</ion-card-title>
@@ -36,7 +38,7 @@
           </ion-card>
         </ion-col>
         <ion-col size="12" sizeMd="6" sizeLg="4">
-          <ion-card mode="ios" (click)="goPuntoProgramaCapacitacion()" class="carta">
+          <ion-card class="carta">
             <ion-card-header>
               <!-- <img class="ion-padding" src="../../../assets/Imagenes/Elemento 6/6_programacapacitacion-01.png" style="width: 50%; margin: auto; display: block;" /> -->
               <ion-card-title class="ion-text-center">FS-16 Programa de capacitación</ion-card-title>
@@ -44,7 +46,7 @@
           </ion-card>
         </ion-col>
         <ion-col size="12" sizeMd="6" sizeLg="4">
-          <ion-card mode="ios" class="carta" (click)="pdf()">
+          <ion-card class="carta">
             <ion-card-header>
               <!-- <img class="ion-padding" src="../../../assets/Imagenes/Elemento 6/6_seguimientocapacitación-01.png" style="width: 50%; margin: auto; display: block;" /> -->
               <ion-card-title class="ion-text-center">FS-17 Seguimiento del programa de capacitación</ion-card-title>
@@ -54,7 +56,7 @@
           </ion-card>
         </ion-col>
         <ion-col size="12" sizeMd="6" sizeLg="4">
-          <ion-card mode="ios" (click)="goPuntoEvidencia()" class="carta">
+          <ion-card class="carta">
             <ion-card-header>
               <!-- <img class="ion-padding" src="../../../assets/Imagenes/1_evidencia.png" style="width: 50%; margin: auto; display: block;" /> -->
               <ion-card-title class="ion-text-center">Subir Cursos Extra</ion-card-title>
@@ -62,7 +64,7 @@
           </ion-card>
         </ion-col>
         <ion-col size="12" sizeMd="6" sizeLg="4">
-          <ion-card mode="ios" (click)="goPuntoEvidencia()" class="carta">
+          <ion-card class="carta">
             <ion-card-header>
               <!-- <img class="ion-padding" src="../../../assets/Imagenes/1_evidencia.png" style="width: 50%; margin: auto; display: block;" /> -->
               <ion-card-title class="ion-text-center">Evidencia</ion-card-title>

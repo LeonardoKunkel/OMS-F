@@ -1,10 +1,110 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>e16Menu</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tabs2"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">XVI. Investigación de incidentes y accidentes</ion-title>
     <ion-card-subtitle class="ion-text-center">{{DataEstacion.nombre}}</ion-card-subtitle>
   </ion-toolbar>
+  <hr class="linea">
 </ion-header>
 
 <ion-content>
+  <ion-grid fixed>
+    <div style="text-align: justify; margin: 3%;">
+      <p><b>Instructivo</b></p>
+      <ul>
+        <li>
+          Deben registrarse todos los incidentes y accidentes que originen eventos tipo 1,2 o 3 que
+          ocurran en la estación de servicio en las Bitácoras de Operación y Mantenimiento.
+        </li>
+        <li>
+          Se guardan en Expediente todas las Investigaciones Causa Raíz realizadas.
+        </li>
+        <li>
+          Se genera estadística mensual y anual de incidentes y accidentes.
+        </li>
+        <li>
+          Se guardan los registros en papel de los incidentes en un plazo de 5 años después de
+          ocurridos, y en forma electrónica en forma permanente.
+        </li>
+        <li>
+          Se guardan en expediente todos los informes generados a la Agencia, resultantes de
+          incidentes y accidentes ocurridos en la Estación de servicio.
+        </li>
+        <li>
+          Se lleva un control de la atención de recomendaciones derivadas del análisis de incidentes
+          y accidente.
+        </li>
+      </ul>
+    </div>
+    <ion-row>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card class="carta">
+          <img src="../../../assets/Imagenes/Elemento 16/invaccidentes.png" style="width: 50%; margin: auto; display: block;"/>
+          <ion-card-header>
+            <ion-card-title>P-SA-16 Investigación de Incidentes y Accidentes</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card class="carta">
+          <img src="../../../assets/Imagenes/Elemento 16/metodologiaarbol.png" style="width: 50%; margin: auto; display: block;"/>
+          <ion-card-header>
+            <ion-card-title>P-CR-01 Metodología Árbol de Fallas</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card class="carta">
+          <img src="../../../assets/Imagenes/Elemento 16/Formato para analisis causa raiz-01.png" style="width: 50%; margin: auto; display: block;"/>
+          <ion-card-header>
+            <ion-card-title>FO-10 Formato para análisis Causa Raíz</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <br><br>
+      <h2><b>Importante:</b></h2>
+      <p class="textomd">
+        En caso de generarse incidentes y accidentes que originen eventos tipo 1, 2 o 3
+        que ocurran en la estación de servicio en las Bitácoras de Operación y
+        Mantenimiento.Debera llenar los siguientes formularios:
+      </p>
+      <br><br>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card class="carta">
+          <img src="../../../assets/Imagenes/1_procedimiento.png" style="width: 50%; margin: auto; display: block;"/>
+          <ion-card-header>
+            <ion-card-title>Comprobación de Hipótesis de Trabajo / Recomendaciones de la Investigación Causa Raíz</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card class="carta">
+          <img src="../../../assets/Imagenes/Elemento 16/Entrevista de testigos para la investigacion causa raiz-01.png" style="width: 50%; margin: auto; display: block;"/>
+          <ion-card-header>
+            <ion-card-title>FO-11 Entrevista de Testigos para la Investigación Causa Raíz</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card class="carta">
+          <img src="../../../assets/Imagenes/Elemento 16/Estadistica de incidentes y accidentes-01.png" style="width: 50%; margin: auto; display: block;"/>
+          <ion-card-header>
+            <ion-card-title>FO-14 Estadística de Incidentes y Accidentes</ion-card-title>
+          </ion-card-header>
+        </ion-card>
 
+
+      </ion-col> 
+      <ion-col size="12" sizeMd="6" sizeLg="4">
+        <ion-card class="carta">
+          <img src="../../../assets/Imagenes/1_evidencia.png" style="width: 50%; margin: auto; display: block;"/>
+          <ion-card-header>
+            <ion-card-title>Evidencia</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

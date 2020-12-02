@@ -9,7 +9,7 @@ import { EstacionService } from 'src/app/services/estacion.service';
   styleUrls: ['./e1-politica.page.scss'],
 })
 export class E1PoliticaPage implements OnInit {
-  datosEstacion:any={};
+  datosEstacion: any = {};
   @ViewChild('politica1') politicaUno;
   @ViewChild('politica2') politicaDos;
   @ViewChild('politica3') politicaTres;
@@ -22,16 +22,16 @@ export class E1PoliticaPage implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('custom_id');
-    //console.log('Id seleccionado Politica:',id);
+    // console.log('Id seleccionado Politica:',id);
     this.getEstacion(id);
   }
 
-  getEstacion(id:String){
-    this._estacionService.getEstacionId(id).subscribe((data:any) =>{
+  getEstacion(id: string){
+    this._estacionService.getEstacionId(id).subscribe((data: any) => {
       this.datosEstacion = data;
-    })
+    });
   }
-  
+
   options(e){
     let result = e.target.value;
     if (result === 'politica1') {

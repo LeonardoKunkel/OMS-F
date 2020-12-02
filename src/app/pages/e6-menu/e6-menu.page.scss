@@ -1,7 +1,10 @@
-  
 .linea{
-    background-color: #D79043;
+    background-color: #d79043;
     height: 5px;
+}
+
+.carta{
+    background-image: url('../../../assets/images/flamas_azules_de_fondo.png');
 }
 ion-card:hover {
     transform: scale(1.1);

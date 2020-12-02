@@ -8,20 +8,20 @@ import { EstacionService } from 'src/app/services/estacion.service';
   styleUrls: ['./e9-menu.page.scss'],
 })
 export class E9MenuPage implements OnInit {
-  DataEstacion:any={};
+  DataEstacion: any = {};
 
   constructor(
     private route: ActivatedRoute,
-    private _estacionService: EstacionService     
+    private _estacionService: EstacionService
   ) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('custom_id');
     this.getEstacion(id);
-    //console.log(id,'Elemento 1');
+    // console.log(id,'Elemento 1');
   }
-  getEstacion(id:string){
-    this._estacionService.getEstacionId(id).subscribe((data:any) =>{
+  getEstacion(id: string){
+    this._estacionService.getEstacionId(id).subscribe((data: any) => {
       console.log(data);
       this.DataEstacion = data;
     });
