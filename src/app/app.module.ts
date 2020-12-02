@@ -11,27 +11,29 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PdfMakeWrapper } from 'pdfmake-wrapper';
 import { Geolocation } from '@capacitor/core';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
 //import { PdfFonts } from 'pdfmake/build/vfs_fonts.js';
 
 //  import {PdfFonts} from "pdfmake/build/vfs_fonts.js";
 //  PdfMakeWrapper.setFonts(PdfFonts);
 
-// const pdfFonts = require('pdfmake/build/vfs_fonts.js');  
+// const pdfFonts = require('pdfmake/build/vfs_fonts.js');
 // PdfMakeWrapper.setFonts(pdfFonts);
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    BrowserModule, 
-    IonicModule.forRoot(), 
+    BrowserModule,
+    IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule
-    ],
+  ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    FileOpener
   ],
   bootstrap: [AppComponent]
 })

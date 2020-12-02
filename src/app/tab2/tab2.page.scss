@@ -1,13 +1,13 @@
-ion-card:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-  }
-  
-//   .carta{
-//     background-image: url('../../../assets/FondosEstilos/Dots2_100.png');
-//   }
+.linea{
+  background-color: #d79043;
+  height: 5px;
+}
 
-//   .lineaN{
-//     background-color: #CC6B3A ;
-//     height: 5px; 
-//   }
+.carta{
+  background-image: url('../../assets/images/puntos_grises.png');
+}
+
+ion-card:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}

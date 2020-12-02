@@ -9,13 +9,29 @@
 </ion-header>
 
 <ion-content>
-  <ion-fab vertical="top" horizontal="end" slot="fixed">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button
     (click)="enviarForm()"
     type="submit"
     color="success"
     [disabled]="formulario.invalid">
       <ion-icon name="cloud-upload"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button
+    (click)="crearPdf()"
+    color="warning">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="top" horizontal="start" slot="fixed">
+    <ion-fab-button
+    (click)="descargarPdf()"
+    type="submit"
+    color="danger"
+    [disabled]="!pdfObj">
+      <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
   <ion-grid fixed>

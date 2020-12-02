@@ -1,0 +1,335 @@
+import { EstacionService } from './../../../services/estacion.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ToastController } from '@ionic/angular';
+import { E11EquipoCriticoService } from 'src/app/services/e11-equipo-critico.service';
+
+@Component({
+  selector: 'app-e11-lista',
+  templateUrl: './e11-lista.page.html',
+  styleUrls: ['./e11-lista.page.scss'],
+})
+export class E11ListaPage implements OnInit {
+
+  DataEstacion: any = {};
+
+  datos: any = {
+    check1: false,
+    check2: false,
+    check3: false,
+    check4: false,
+    check5: false,
+    check6: false,
+    check7: false,
+    check8: false,
+    check9: false,
+    check10: false,
+    check11: false,
+    check12: false,
+    check13: false,
+    check14: false,
+    check15: false,
+    check16: false,
+    check17: false,
+    check18: false,
+    check19: false,
+    check20: false,
+    check21: false,
+    check22: false,
+    check23: false,
+    check24: false,
+    check25: false,
+    check26: false,
+    check27: false,
+    check28: false,
+    num1: 0,
+    num2: 0,
+    num3: 0,
+    num4: 0,
+    num5: 0,
+    num6: 0,
+    num7: 0,
+    num8: 0,
+    num9: 0,
+    num10: 0,
+    num11: 0,
+    num12: 0,
+    num13: 0,
+    num14: 0,
+    num15: 0,
+    num16: 0,
+    num17: 0,
+    num18: 0,
+  };
+
+  datosm: any = {
+    check1: '',
+    check2: '',
+    check3: '',
+    check4: '',
+    check5: '',
+    check6: '',
+    check7: '',
+    check8: '',
+    check9: '',
+    check10: '',
+    check11: '',
+    check12: '',
+    check13: '',
+    check14: '',
+    check15: '',
+    check16: '',
+    check17: '',
+    check18: '',
+    check19: '',
+    check20: '',
+    check21: '',
+    check22: '',
+    check23: '',
+    check24: '',
+    check25: '',
+    check26: '',
+    check27: '',
+    check28: '',
+  };
+
+  constructor(
+    public toast: ToastController,
+    private eqCrit: E11EquipoCriticoService,
+    private estacionService: EstacionService,
+    private route: ActivatedRoute,
+  )
+  {
+    this.checar();
+    this.getOnce();
+  }
+
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('custom_id');
+    this.getEstacion(id);
+  }
+
+  getEstacion(id: string){
+    this.estacionService.getEstacionId(id).subscribe((data: any) => {
+      console.log(data);
+      this.DataEstacion = data;
+    });
+  }
+
+  getOnce() {
+    this.eqCrit.getEquipoCrit().subscribe((data: any) => {
+      console.log(data.equipoCritico[data.equipoCritico - 1]);
+      this.datos = data.equipoCritico[data.equipoCritico - 1];
+    });
+  }
+
+  async guardar() {
+    const toast = await this.toast.create({
+      message: 'Datos guardados',
+      duration: 2000
+    });
+    toast.present();
+
+    this.eqCrit.postEquipoCrit(this.datos).subscribe(data => {
+      console.log(data);
+    });
+  }
+
+  checar() {
+    if (this.datos.check1 === true) {
+      this.datosm.check1 = 'X';
+    } else {
+      this.datosm.check1 = '';
+    }
+    if (this.datos.check2 === true) {
+      this.datosm.check2 = 'X';
+    } else {
+      this.datosm.check2 = '';
+    }
+    if (this.datos.check3 === true) {
+      this.datosm.check3 = 'X';
+    } else {
+      this.datosm.check3 = '';
+    }
+    if (this.datos.check4 === true) {
+      this.datosm.check4 = 'X';
+    } else {
+      this.datosm.check4 = '';
+    }
+    if (this.datos.check5 === true) {
+      this.datosm.check5 = 'X';
+    } else {
+      this.datosm.check5 = '';
+    }
+    if (this.datos.check6 === true) {
+      this.datosm.check6 = 'X';
+    } else {
+      this.datosm.check6 = '';
+    }
+    if (this.datos.check7 === true) {
+      this.datosm.check7 = 'X';
+    } else {
+      this.datosm.check7 = '';
+    }
+    if (this.datos.check8 === true) {
+      this.datosm.check8 = 'X';
+    } else {
+      this.datosm.check8 = '';
+    }
+    if (this.datos.check9 === true) {
+      this.datosm.check9 = 'X';
+    } else {
+      this.datosm.check9 = '';
+    }
+    if (this.datos.check10 === true) {
+      this.datosm.check10 = 'X';
+    } else {
+      this.datosm.check10 = '';
+    }
+    if (this.datos.check11 === true) {
+      this.datosm.check11 = 'X';
+    } else {
+      this.datosm.check11 = '';
+    }
+    if (this.datos.check12 === true) {
+      this.datosm.check12 = 'X';
+    } else {
+      this.datosm.check12 = '';
+    }
+    if (this.datos.check13 === true) {
+      this.datosm.check13 = 'X';
+    } else {
+      this.datosm.check13 = '';
+    }
+    if (this.datos.check14 === true) {
+      this.datosm.check14 = 'X';
+    } else {
+      this.datosm.check14 = '';
+    }
+    if (this.datos.check15 === true) {
+      this.datosm.check15 = 'X';
+    } else {
+      this.datosm.check15 = '';
+    }
+    if (this.datos.check16 === true) {
+      this.datosm.check16 = 'Aplica';
+    } else {
+      this.datosm.check16 = 'No Aplica';
+    }
+    if (this.datos.check17 === true) {
+      this.datosm.check17 = 'Aplica';
+    } else {
+      this.datosm.check17 = 'No Aplica';
+    }
+    if (this.datos.check18 === true) {
+      this.datosm.check18 = 'Aplica';
+    } else {
+      this.datosm.check18 = 'No Aplica';
+    }
+    if (this.datos.check19 === true) {
+      this.datosm.check19 = 'Aplica';
+    } else {
+      this.datosm.check19 = 'No Aplica';
+    }
+    if (this.datos.check20 === true) {
+      this.datosm.check20 = 'Aplica';
+    } else {
+      this.datosm.check20 = 'No Aplica';
+    }
+    if (this.datos.check21 === true) {
+      this.datosm.check21 = 'Aplica';
+    } else {
+      this.datosm.check21 = 'No Aplica';
+    }
+    if (this.datos.check22 === true) {
+      this.datosm.check22 = 'Aplica';
+    } else {
+      this.datosm.check22 = 'No Aplica';
+    }
+    if (this.datos.check23 === true) {
+      this.datosm.check23 = 'Aplica';
+    } else {
+      this.datosm.check23 = 'No Aplica';
+    }
+    if (this.datos.check24 === true) {
+      this.datosm.check24 = 'Aplica';
+    } else {
+      this.datosm.check24 = 'No Aplica';
+    }
+    if (this.datos.check25 === true) {
+      this.datosm.check25 = 'Aplica';
+    } else {
+      this.datosm.check25 = 'No Aplica';
+    }
+    if (this.datos.check26 === true) {
+      this.datosm.check26 = 'Aplica';
+    } else {
+      this.datosm.check26 = 'No Aplica';
+    }
+    if (this.datos.check27 === true) {
+      this.datosm.check27 = 'Aplica';
+    } else {
+      this.datosm.check27 = 'No Aplica';
+    }
+    if (this.datos.check28 === true) {
+      this.datosm.check28 = 'Aplica';
+    } else {
+      this.datosm.check28 = 'No Aplica';
+    }
+    if (this.datos.num1 === '') {
+      this.datosm.num1 = 0;
+    }
+    if (this.datos.num2 === '') {
+      this.datosm.num2 = 0;
+    }
+    if (this.datos.num3 === '') {
+      this.datosm.num3 = 0;
+    }
+    if (this.datos.num4 === '') {
+      this.datosm.num4 = 0;
+    }
+    if (this.datos.num5 === '') {
+      this.datosm.num5 = 0;
+    }
+    if (this.datos.num6 === '') {
+      this.datosm.num6 = 0;
+    }
+    if (this.datos.num7 === '') {
+      this.datosm.num7 = 0;
+    }
+    if (this.datos.num8 === '') {
+      this.datosm.num8 = 0;
+    }
+    if (this.datos.num9 === '') {
+      this.datosm.num9 = 0;
+    }
+    if (this.datos.num10 === '') {
+      this.datosm.num10 = 0;
+    }
+    if (this.datos.num11 === '') {
+      this.datosm.num11 = 0;
+    }
+    if (this.datos.num12 === '') {
+      this.datosm.num12 = 0;
+    }
+    if (this.datos.num13 === '') {
+      this.datosm.num13 = 0;
+    }
+    if (this.datos.num14 === '') {
+      this.datosm.num14 = 0;
+    }
+    if (this.datos.num15 === '') {
+      this.datosm.num15 = 0;
+    }
+    if (this.datos.num16 === '') {
+      this.datosm.num16 = 0;
+    }
+    if (this.datos.num17 === '') {
+      this.datosm.num17 = 0;
+    }
+    if (this.datos.num18 === '') {
+      this.datosm.num18 = 0;
+    }
+  }
+
+}

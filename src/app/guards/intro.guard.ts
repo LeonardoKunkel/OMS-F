@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CanLoad, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
 export const INTRO_KEY = 'intro-seen';
 import { Plugins } from '@capacitor/core';
@@ -18,7 +17,7 @@ export class IntroGuard implements CanLoad {
     if (verIntro && (verIntro.value === 'true')) {
       return true;
     } else {
-      this.router.navigateByUrl('/intro', { replaceUrl: true });
+      this.router.navigateByUrl('/login', { replaceUrl: true });
       return true;
     }
   }

@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: E11MenuPage
+  },  {
+    path: 'e11-lista',
+    loadChildren: () => import('./e11-lista/e11-lista.module').then( m => m.E11ListaPageModule)
   }
+
 ];
 
 @NgModule({
