@@ -8,7 +8,9 @@ import { GerenteService } from 'src/app/services/gerente.service';
   styleUrls: ['./gerente-read.page.scss'],
 })
 export class GerenteReadPage implements OnInit {
+
   maximaA: any[] = [];
+
   constructor(
     public navCtrl: NavController,
     public toast: ToastController,

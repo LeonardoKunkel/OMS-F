@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, ToastController } from '@ionic/angular';
+import { GerenteService } from 'src/app/services/gerente.service';
 import { RepresentanteService } from 'src/app/services/representante.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class RepresentanteReadPage implements OnInit {
   constructor(
     private representanteService: RepresentanteService,
     public navCtrl: NavController,
-    public toast: ToastController
+    public toast: ToastController,
+    private gerenteService: GerenteService
   ) { }
 
   ngOnInit() {

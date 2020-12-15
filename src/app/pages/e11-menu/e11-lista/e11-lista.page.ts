@@ -14,34 +14,34 @@ export class E11ListaPage implements OnInit {
   DataEstacion: any = {};
 
   datos: any = {
-    check1: false,
-    check2: false,
-    check3: false,
-    check4: false,
-    check5: false,
-    check6: false,
-    check7: false,
-    check8: false,
-    check9: false,
-    check10: false,
-    check11: false,
-    check12: false,
-    check13: false,
-    check14: false,
-    check15: false,
-    check16: false,
-    check17: false,
-    check18: false,
-    check19: false,
-    check20: false,
-    check21: false,
-    check22: false,
-    check23: false,
-    check24: false,
-    check25: false,
-    check26: false,
-    check27: false,
-    check28: false,
+    C1: false,
+    C2: false,
+    C3: false,
+    C4: false,
+    C5: false,
+    C6: false,
+    C7: false,
+    C8: false,
+    C9: false,
+    C10: false,
+    C11: false,
+    C12: false,
+    C13: false,
+    C14: false,
+    C15: false,
+    C16: false,
+    C17: false,
+    C18: false,
+    C19: false,
+    C20: false,
+    C21: false,
+    C22: false,
+    C23: false,
+    C24: false,
+    C25: false,
+    C26: false,
+    C27: false,
+    C28: false,
     num1: 0,
     num2: 0,
     num3: 0,
@@ -101,29 +101,31 @@ export class E11ListaPage implements OnInit {
   )
   {
     this.checar();
-    this.getOnce();
+    // this.getOnce();
   }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('custom_id');
-    this.getEstacion(id);
+    // const id = this.route.snapshot.paramMap.get('custom_id');
+    // this.getEstacion(id);
   }
 
-  getEstacion(id: string){
-    this.estacionService.getEstacionId(id).subscribe((data: any) => {
-      console.log(data);
-      this.DataEstacion = data;
-    });
-  }
+  // getEstacion(id: string){
+  //   this.estacionService.getEstacionId(id).subscribe((data: any) => {
+  //     console.log(data);
+  //     this.DataEstacion = data;
+  //   });
+  // }
 
-  getOnce() {
-    this.eqCrit.getEquipoCrit().subscribe((data: any) => {
-      console.log(data.equipoCritico[data.equipoCritico - 1]);
-      this.datos = data.equipoCritico[data.equipoCritico - 1];
-    });
-  }
+  // getOnce() {
+  //   this.eqCrit.getEquipoCrit().subscribe((data: any) => {
+  //     console.log(data.equipoCritico[data.equipoCritico - 1]);
+  //     this.datos = data.equipoCritico[data.equipoCritico - 1];
+  //   });
+  // }
 
   async guardar() {
+    // this.getOnce();
+    this.checar();
     const toast = await this.toast.create({
       message: 'Datos guardados',
       duration: 2000

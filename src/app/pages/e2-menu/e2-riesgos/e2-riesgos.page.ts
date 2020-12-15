@@ -89,18 +89,18 @@ export class E2RiesgosPage implements OnInit {
   ngOnInit() {
   }
 
-  getRiesgos() {
-    this.riesgosService.getRiesgos().subscribe((data: any) => {
-      console.log(data.riesgos[data.riesgos.length - 1]);
-      this.datos = data.riesgos[data.riesgos.length - 1];
-    });
-  }
-
   async criterios() {
     const modal = await this.modalCtrl.create({
       component: RiesgosModalPage,
     });
     await modal.present();
+  }
+
+  getRiesgos() {
+    this.riesgosService.getRiesgos().subscribe((data: any) => {
+      console.log(data.riesgos[data.riesgos.length - 1]);
+      this.datos = data.riesgos[data.riesgos.length - 1];
+    });
   }
 
   async enviarForm(formulario) {
@@ -111,6 +111,7 @@ export class E2RiesgosPage implements OnInit {
       duration: 2000
     });
     toast.present();
+
     const magnitud1 = this.datos.F1 + this.datos.C1;
     this.datos.M1 = '';
     switch (magnitud1) {

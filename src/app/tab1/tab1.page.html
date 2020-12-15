@@ -20,46 +20,62 @@
     </ion-row>
   </ion-grid>
   <ion-row class="carta-catalogo">
-    <ion-col sizeSm="6" sizeMd="6" sizeLg="3">
+    <ion-col sizeSm="6" sizeMd="6" sizeLg="4">
       <ion-card (click)="autoridad()">
         <ion-card-header>
-          <ion-card-subtitle>Catálogos</ion-card-subtitle>
           <ion-card-title>Máxima Autoridad</ion-card-title>
         </ion-card-header>
         <ion-card-content>
+          <ion-item *ngFor="let data of maximaAut">
+            <ion-avatar slot="end">
+              <img src="../../assets/icon/demo_personal.png">
+            </ion-avatar>
+            <ion-label>
+              <h3>{{data.nombre}} {{data.apellidos}}</h3>
+              <p>Teléfono: {{data.telefono}}</p>
+              <p>Correo: {{data.correo}}</p>
+            </ion-label>
+          </ion-item>
         </ion-card-content>
       </ion-card>
     </ion-col>
-    <ion-col sizeSm="6" sizeMd="6" sizeLg="3">
+    <ion-col sizeSm="6" sizeMd="6" sizeLg="4">
       <ion-card (click)="gerente()">
         <ion-card-header>
-          <ion-card-subtitle>Catálogos</ion-card-subtitle>
           <ion-card-title>Gerente de la Estación</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-
+          <ion-card-content>
+            <ion-item *ngFor="let data of gerenteEst">
+              <ion-avatar slot="end">
+                <img src="../../assets/icon/demo_personal.png">
+              </ion-avatar>
+              <ion-label>
+                <h3>{{data.nombre}} {{data.apellidos}}</h3>
+                <p>Teléfono: {{data.telefono}}</p>
+                <p>Correo: {{data.correo}}</p>
+              </ion-label>
+            </ion-item>
+          </ion-card-content>
         </ion-card-content>
       </ion-card>
     </ion-col>
-    <ion-col sizeSm="6" sizeMd="6" sizeLg="3">
+    <ion-col sizeSm="6" sizeMd="6" sizeLg="4">
       <ion-card (click)="representante()">
         <ion-card-header>
-          <ion-card-subtitle>Catálogos</ion-card-subtitle>
           <ion-card-title>Representante Técnico</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-    <ion-col sizeSm="6" sizeMd="6" sizeLg="3">
-      <ion-card (click)="estacion()">
-        <ion-card-header>
-          <ion-card-subtitle>Catálogos</ion-card-subtitle>
-          <ion-card-title>Estación de servicio</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-
+          <ion-item *ngFor="let data of representanteTec">
+            <ion-avatar slot="end">
+              <img src="../../assets/icon/demo_personal.png">
+            </ion-avatar>
+            <ion-label>
+              <h3>{{data.nombre}} {{data.apellidos}}</h3>
+              <p>Teléfono: {{data.telefono}}</p>
+              <p>Correo: {{data.correo}}</p>
+            </ion-label>
+          </ion-item>
         </ion-card-content>
       </ion-card>
     </ion-col>

@@ -10,8 +10,8 @@ export class E2RiesgosService {
 
   constructor( private http: HttpClient ) { }
 
-  postRiesgos(form) {
-    return this.http.post(`${this.url}/create`, form);
+  postRiesgos(datos) {
+    return this.http.post(`${this.url}/create`, datos);
   }
 
   getRiesgos() {

@@ -8,27 +8,27 @@ import { EstacionService } from '../services/estacion.service';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page implements OnInit {
-  datosEstacion:any={};
-  idEstacion="";
+  datosEstacion: any = {};
+  idEstacion = '';
 
   constructor(
     public navCtrl: NavController,
-    private route:ActivatedRoute,
+    private route: ActivatedRoute,
     private _estacionService: EstacionService,
     private router: Router
   ) {
     const id = this.route.snapshot.paramMap.get('custom_id');
     this.idEstacion = id;
     this.getEstacion(id);
-    //console.log('Id seleccionado:',id);
+    // console.log('Id seleccionado:',id);
   }
 
   ngOnInit() {
   }
 
-  getEstacion(id:string){
-    this._estacionService.getEstacionId(id).subscribe((data:any) =>{
-      //console.log(data);
+  getEstacion(id: string){
+    this._estacionService.getEstacionId(id).subscribe((data: any) => {
+      // console.log(data);
       this.datosEstacion = data;
     });
   }
@@ -84,7 +84,7 @@ export class Tab2Page implements OnInit {
     this.router.navigate(['/e17-menu', {custom_id: this.idEstacion}]);
   }
   goElemento18(){
-    this.navCtrl.navigateForward('/e18-procedimiento')
+    this.navCtrl.navigateForward('/e18-procedimiento');
   }
 
 }

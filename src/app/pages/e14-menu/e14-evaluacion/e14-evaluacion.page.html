@@ -1,0 +1,249 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/e14-menu"></ion-back-button>
+      <ion-button>
+        <ion-icon slot="start" name="print"></ion-icon>
+        IMPRIMIR
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Evaluación de requisitos legales</ion-title>
+  </ion-toolbar>
+  <hr class="linea">
+</ion-header>
+
+<ion-content>
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="enviarForm()" type="submit" color="success">
+      <ion-icon name="cloud-upload"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" sizeMd="4" sizeLg="4">
+        <ion-item>
+          <ion-label>Fecha de evaluación</ion-label>
+          <ion-datetime display-format="DD.MM.YYYY" name="fecha2" [(ngModel)]="datos.fecha2"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" sizeMd="4" sizeLg="4">
+        <ion-item>
+          <ion-label>Trimestre</ion-label>
+            <ion-select interface="popover" name="trimestre" [(ngModel)]="datos.trimestre">
+              <ion-select-option value="02">02</ion-select-option>
+              <ion-select-option value="05">05</ion-select-option>
+              <ion-select-option value="08">08</ion-select-option>
+              <ion-select-option value="11">11</ion-select-option>
+            </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" sizeMd="4" sizeLg="4">
+        <ion-item>
+          <ion-label>Año: {{ this.datos.fecha1 }}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-slides mode="ios" pager="ios" scrollbar="ios">
+          <ion-slide>
+            <ion-card>
+              <ion-item color="warning">
+                <ion-avatar>
+                  <img src='../../../assets/icon/ASEA-01.png' />
+                </ion-avatar>
+                <ion-label class="ion-text-center">ASEA</ion-label>
+              </ion-item>
+              <br>
+              <ion-card-content>
+                <ion-card-subtitle class="ion-text-left texto">Emisiones a la atmósfera</ion-card-subtitle>
+                <ion-item>
+                  <h3 class="texto">Licencia Ambiental única del sector Hidrocarburos</h3>
+                  <ion-checkbox color="success" slot="end" name="check1" [(ngModel)]="this.datos.check1"></ion-checkbox>
+                </ion-item>
+                <br>
+                <ion-card-subtitle class="ion-text-left texto">Residuos</ion-card-subtitle>
+                <ion-item>
+                  <h3 class="texto">Cédula de Operación anual del sector Hidrocarburos</h3>
+                <ion-checkbox color="success" slot="end" name="check2" [(ngModel)]="datos.check2"></ion-checkbox>
+                </ion-item>
+                <br>
+                <ion-card-subtitle class="ion-text-left texto">Impacto Ambiental</ion-card-subtitle>
+                <ion-item>
+                  <h3 class="texto">Autorización en materia de impacto Ambiental, a través de una Manifestación de Impacto Ambiental (MIA)</h3>
+                <ion-checkbox color="success" slot="end" name="check3" [(ngModel)]="datos.check3"></ion-checkbox>
+                </ion-item>
+                <br>
+                <ion-card-subtitle class="ion-text-left texto">Seguridad y Protección Ambiental</ion-card-subtitle>
+                <ion-item>
+                  <h3 class="texto">Dictamen de la NOM-005-ASEA-2016 otorgado por una unidad de verificación</h3>
+                  <ion-checkbox color="success" slot="end" name="check4" [(ngModel)]="datos.check4"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <h3 class="texto">
+                    Contar con un sistema de administración en seguridad industrial, seguridad operativa y
+                    protección del medio ambiente(SASISOPA), registrado ante la ASEA
+                  </h3>
+                  <ion-checkbox color="success" slot="end" name="check5" [(ngModel)]="datos.check5"></ion-checkbox>
+                </ion-item>
+                <br>
+                <ion-card-subtitle class="ion-text-left texto">Generador de residuos de manejo especial y/o peligrosos</ion-card-subtitle>
+                <ion-item>
+                  <h3 class="texto">Contar con su registro como generador de residuos (manejo especial y/o peligrosos) ante la ASEA</h3>
+                  <ion-checkbox color="success" slot="end" name="check6" [(ngModel)]="datos.check6"></ion-checkbox>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+          <ion-slide>
+            <ion-card>
+              <ion-item color="warning">
+                <ion-avatar>
+                  <img src='../../../assets/icon/CRE-01.png' />
+                </ion-avatar>
+                <ion-label class="ion-text-center">COMISIÓN REGULADORA DE ENERGÍA</ion-label>
+              </ion-item>
+              <br>
+              <ion-card-content>
+                <ion-card-subtitle class="ion-text-left texto">Regulación para expendio al público</ion-card-subtitle>
+                <ion-item>
+                  <h3 class="texto">Contar con Permiso de expendio de petrolíferos en estaciones de servicio vigente</h3>
+                  <ion-checkbox color="success" slot="end" name="check7" [(ngModel)]="datos.check7"></ion-checkbox>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+          <ion-slide>
+            <ion-card>
+              <ion-item color="warning">
+                <ion-avatar>
+                  <img src='../../../assets/icon/STPS-01.png' />
+                </ion-avatar>
+                <ion-label class="ion-text-center">SECRETARÍA DEL TRABAJO Y PREVENSIÓN SOCIAL</ion-label>
+              </ion-item>
+              <br>
+              <ion-card-content>
+                <ion-card-subtitle class="ion-text-left texto">Seguridad e higiene</ion-card-subtitle>
+                <ion-item>
+                  <h3 class="texto">
+                    Tener las áreas de la estación delimitadas de tal manera que se disponga de espacios
+                    seguros para la realización de las actividades de los trabajadores de acuerdo a la NOM-001-STPS-2008
+                  </h3>
+                  <ion-checkbox color="success" slot="end" name="check8" [(ngModel)]="datos.check8"></ion-checkbox>
+                </ion-item>
+                <ion-list>
+                  <ion-list-header>
+                    <h3 class="ion-text-left texto">
+                      Exhibir ante la autoridad laboral, cuando así lo solicite, la información
+                      y documentación que las siguientes normas le obligue a elaborar o poseer:
+                    </h3>
+                  </ion-list-header>
+                  <ion-item>
+                    <h3 class="texto">
+                      NOM-002-STPS-2010
+                    </h3>
+                    <ion-checkbox color="success" slot="end" name="check9" [(ngModel)]="datos.check9"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <h3 class="texto">
+                      NOM-005-STPS-1998
+                    </h3>
+                    <ion-checkbox color="success" slot="end" name="check10" [(ngModel)]="datos.check10"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <h3 class="texto">
+                      NOM-009-STPS-2011
+                    </h3>
+                    <ion-checkbox color="success" slot="end" name="check11" [(ngModel)]="datos.check11"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <h3 class="texto">
+                      NOM-020-STPS-2011
+                    </h3>
+                    <ion-checkbox color="success" slot="end" name="check13" [(ngModel)]="datos.check13"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <h3 class="texto">
+                      NOM-022-STPS-2008
+                    </h3>
+                    <ion-checkbox color="success" slot="end" name="check14" [(ngModel)]="datos.check14"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <h3 class="texto">
+                      NOM-025-STPS-2008
+                    </h3>
+                    <ion-checkbox color="success" slot="end" name="check15" [(ngModel)]="datos.check15"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <h3 class="texto">
+                      NOM-026-STPS-2008
+                    </h3>
+                    <ion-checkbox color="success" slot="end" name="check16" [(ngModel)]="datos.check16"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <h3 class="texto">
+                      NOM-029-STPS-2011
+                    </h3>
+                    <ion-checkbox color="success" slot="end" name="check17" [(ngModel)]="datos.check17"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <h3 class="texto">
+                      NOM-017-STPS-2008
+                    </h3>
+                    <ion-checkbox color="success" slot="end" name="check18" [(ngModel)]="datos.check18"></ion-checkbox>
+                  </ion-item>
+                </ion-list>
+                <ion-item>
+                  <h3 class="texto">
+                    Contar con evidencia del uso de equipo de protección personal requerido para la
+                    realización de las actividades de acuerdo a la NOM-017-STPS-2008
+                  </h3>
+                  <ion-checkbox color="success" slot="end" name="check12" [(ngModel)]="datos.check12"></ion-checkbox>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+          <ion-slide>
+            <ion-card>
+              <ion-item color="warning">
+                <ion-avatar>
+                  <img src='../../../assets/icon/SEMARNAT-01.png' />
+                </ion-avatar>
+                <ion-label class="ion-text-center">SEMARNAT</ion-label>
+              </ion-item>
+              <ion-card-content>
+                <ion-card-subtitle class="ion-text-left texto">Protección ambiental</ion-card-subtitle>
+                <ion-item>
+                  <h3 class="texto">
+                    Cumplir con los parámetros de descarga de aguas residuales a bienes nacionales mediante
+                    pruebas de laboratorio NOM-001-SEMARNAT-1996
+                  </h3>
+                  <ion-checkbox color="success" slot="end" name="check19" [(ngModel)]="datos.check19"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <h3 class="texto">
+                    Cumplir con los parámetros de descarga de aguas residuales a bienes nacionales mediante
+                    pruebas de laboratorio NOM-002-SEMARNAT-1996
+                  </h3>
+                  <ion-checkbox color="success" slot="end" name="check20" [(ngModel)]="datos.check20"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <h3 class="texto">
+                    Tener identificados y clasificados sus residuos peligrosos NOM-052-SEMARNAT-1996
+                  </h3>
+                  <ion-checkbox color="success" slot="end" name="check21" [(ngModel)]="datos.check21"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <h3 class="texto">
+                    Almacenar sus residuos peligrosos de acuerdo a las tablas de incompatibilidad de la norma NOM-054-SEMARNAT-1993
+                  </h3>
+                  <ion-checkbox color="success" slot="end" name="check22" [(ngModel)]="datos.check22"></ion-checkbox>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
