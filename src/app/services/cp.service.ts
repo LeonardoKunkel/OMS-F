@@ -10,7 +10,7 @@ export class CpService {
   ) { }
 
   getCp(cp){
-  return this.http.get(`https://api-sepomex.hckdrk.mx/query/info_cp/${cp}`)
-  //return this.http.get('https://api-sepomex.hckdrk.mx/query/info_cp/76905');
+  return this.http.get(`https://api-sepomex.hckdrk.mx/query/info_cp/${cp}`);
+  // return this.http.get('https://api-sepomex.hckdrk.mx/query/info_cp/76905');
   }
 }

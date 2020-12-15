@@ -1,9 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
-import { INTRO_KEY } from 'src/app/guards/intro.guard';
-import { Plugins } from '@capacitor/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-const { Storage } = Plugins;
+import { AlertController, ModalController, NavController, ToastController } from '@ionic/angular';
+import { AutenticacionService } from 'src/app/services/autenticacion.service';
+import { EstacionService } from 'src/app/services/estacion.service';
+import { EstacionPage } from './../estacion/estacion.page';
 
 @Component({
   selector: 'app-intro',
@@ -11,18 +11,93 @@ const { Storage } = Plugins;
   styleUrls: ['./intro.page.scss'],
 })
 export class IntroPage implements OnInit {
-  @ViewChild(IonSlides) slides: IonSlides;
-  constructor( private router: Router ) { }
+
+  arrayEstacion: any = [];
+  supEstacion: any[] = [];
+
+  constructor(
+    private navCtrl: NavController,
+    public alertCtrl: AlertController,
+    private router: Router,
+    private authService: AutenticacionService,
+    private estacionService: EstacionService,
+    public modalCtrl: ModalController,
+    public toast: ToastController
+  ) { }
 
   ngOnInit() {
+    this.getEstacion();
+    this.getEntrar();
   }
 
-  next() {
-    this.slides.slideNext();
+  async entrar() {
+    const alert = await this.alertCtrl.create({
+      cssClass: 'my-custom-class',
+      header: 'Seleccione ES',
+      inputs: this.arrayEstacion,
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Cancelado');
+          }
+        },
+        {
+          text: 'Ok',
+          handler: (id) => {
+            console.log(id);
+            this.router.navigate(['tabs/tab1', {custom_id: id}]);
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
 
-  async start() {
-    await Storage.set({key: INTRO_KEY, value: 'true'});
-    this.router.navigateByUrl('/login', { replaceUrl: true });
+  getEntrar() {
+    this.estacionService.getEstacion().subscribe((data: any) => {
+      for (let j = 0; j < data.length; j++) {
+        const conteo = {
+          name: data[j].nombre,
+          type: 'radio',
+          label: data[j].nombre,
+          value: data[j]._id
+        };
+        this.arrayEstacion.push(conteo);
+      }
+    });
   }
+
+  async cerrarSesion() {
+    await this.authService.logout();
+    this.router.navigateByUrl('/', { replaceUrl: true });
+  }
+
+  getEstacion() {
+    this.estacionService.getEstacion().subscribe((data: any) => {
+      console.log(data);
+      this.supEstacion = data;
+    });
+  }
+
+  async delete(id: string) {
+    this.estacionService.deleteEstacionId(id).subscribe((data: any) => {
+      console.log(data);
+    });
+    const toast = await this.toast.create({
+      message: 'Estación eliminada',
+      duration: 2000
+    });
+    toast.present();
+  }
+
+  async estacion() {
+    const modal = await this.modalCtrl.create({
+      component: EstacionPage
+    });
+    return await modal.present();
+  }
+
 }

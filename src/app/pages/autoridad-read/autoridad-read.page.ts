@@ -8,7 +8,7 @@ import { AutoridadService } from 'src/app/services/autoridad.service';
   styleUrls: ['./autoridad-read.page.scss'],
 })
 export class AutoridadReadPage implements OnInit {
-  maximaA:any[]=[];
+  maximaA: any[] = [];
 
   constructor(
     private _autoridadService:AutoridadService,
@@ -16,7 +16,7 @@ export class AutoridadReadPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getAutoridad()
+    this.getAutoridad();
   }
 
   getAutoridad(){

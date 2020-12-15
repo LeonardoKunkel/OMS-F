@@ -102,10 +102,19 @@ export class E7ListaPage implements OnInit {
   constructor(
     public toast: ToastController,
     private listaService: E7ListaService
-  ) { this.getLista(); }
+  ) {
+    // this.getLista();
+    }
 
   ngOnInit() {
   }
+
+  // getLista() {
+  //   this.listaService.getLista().subscribe((data: any) => {
+  //     console.log(data.riesgos[data.riesgos.length - 1]);
+  //     this.datos = data.riesgos[data.riesgos.length - 1];
+  //   });
+  // }
 
   checar() {
     if (this.datos2.C1 === true) {
@@ -320,21 +329,15 @@ export class E7ListaPage implements OnInit {
     }
   }
 
-  getLista() {
-    this.listaService.getLista().subscribe((data: any) => {
-      console.log(data.riesgos[data.riesgos.length - 1]);
-      this.datos = data.riesgos[data.riesgos.length - 1];
-    });
-  }
-
   async guardar() {
+    this.checar();
     const toast = await this.toast.create({
       message: 'Datos guardados',
       duration: 2000
     });
     toast.present();
 
-    this.listaService.postLista(this.datos).subscribe(data => {
+    this.listaService.postLista(this.datos2).subscribe(data => {
       console.log(data);
     });
   }

@@ -5,18 +5,12 @@
         <ion-icon slot="end" name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title class="ion-text-center">Estación de Servicio</ion-title>
+    <ion-title class="ion-text-center">Agregar nueva Estación de Servicio</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <form #formulario="ngForm" (ngSubmit)="form()">
-    <ion-buttons slot="start">
-      <ion-button (click)="read()">
-        <ion-icon slot="start" name="eye-outline"></ion-icon>
-        Consultar Catálogo
-      </ion-button>
-    </ion-buttons>
     <ion-item>
       <ion-label position="floating">Nombre de la estación:</ion-label>
       <ion-input required name="nombre" [(ngModel)]="datos.nombre"></ion-input>

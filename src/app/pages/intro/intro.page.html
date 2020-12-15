@@ -1,30 +1,52 @@
-<ion-content class="fondo">
-  <div class="fondo">
-    <ion-slides pager="true">
-  
-      <!-- Slide 1 -->
-      <ion-slide>
-        <ion-text color="light">
-          <img src="../../../assets/images/Writing.png">
-          <h1>Hey there!</h1>
-          <p>This is an epic app because...</p>
-          <ion-button (click)="next()" fill="outline" color="light">
-            Next
-          </ion-button>
-        </ion-text>
-      </ion-slide>
-      
-      <!-- Slide 2 -->
-      <ion-slide>
-        <ion-text color="light">
-          <img src="../../../assets/images/Drinking_Writing.png">
-          <h1>It's Ionic!</h1>
-          <p>... it shows all the basics you need!</p>
-          <ion-button (click)="start()" fill="outline" color="light">
-            Start
-          </ion-button>
-        </ion-text>
-      </ion-slide>
-    </ion-slides>
-  </div>  
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cerrarSesion()">
+        <ion-icon slot="start" name="close-circle-outline"></ion-icon>
+        Cerrar sesión
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1 class="ion-text-center">Estaciones de Servicio Registradas</h1>
+  <ion-fab horizontal="end" vertical="top" slot="fixed" edge>
+    <ion-fab-button color="success" (click)="entrar()">
+      <ion-icon name="enter-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button (click)="estacion()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" sizeLg="3" *ngFor="let data of supEstacion">
+        <ion-card>
+          <ion-toolbar>
+            <ion-buttons slot="end">
+              <ion-button (click)="delete(data.id)">
+                <ion-icon color="danger" slot="end" name="trash-outline"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+          <ion-card-header>
+            <ion-card-title>{{data.nombre}}</ion-card-title>
+            <ion-card-subtitle>
+              Dirección:
+              {{data.calleNumero}}
+              {{data.cp.asentamiento}}
+              {{data.cp.ciudad}}
+              {{data.cp.cp}}
+              {{data.cp.estado}}
+            </ion-card-subtitle>
+            <ion-card-subtitle>Telefono: {{data.telefono}}</ion-card-subtitle>
+            <ion-card-subtitle>Gerente: {{data.idGerente.nombre}} {{data.idGerente.apellidos}}</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

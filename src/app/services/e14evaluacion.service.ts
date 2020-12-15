@@ -4,29 +4,28 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class E11EquipoCriticoService {
+export class E14evaluacionService {
 
-  url = 'http://localhost:3000/equipoCrit';
+  url = 'http://localhost:3000/evaluacionReq';
 
   constructor( private http: HttpClient ) { }
 
-  postEquipoCrit(form) {
+  postEvaluacionReq(form) {
     return this.http.post(`${this.url}/create`, form);
   }
 
-  getEquipoCrit() {
+  getEvaluacionReq() {
     return this.http.get(`${this.url}/`);
   }
-
-  getEquipoCritId(id: string) {
+  getEvaluacionReqId(id: string) {
     return this.http.get(`${this.url}/${id}`);
   }
 
-  updateEquipoCritId(id: string, body) {
+  updateEvaluacionReqId(id: string, body) {
     return this.http.put(`${this.url}/${id}`, body);
   }
 
-  deleteEquipoCritId(id: string) {
+  deleteEvaluacionReqId(id: string) {
     return this.http.delete(`${this.url}/${id}`);
   }
 

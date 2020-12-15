@@ -9,5 +9,397 @@
 </ion-header>
 
 <ion-content>
-  
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="guardar()" type="submit" color="success">
+      <ion-icon name="cloud-upload"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card class="carta">
+          <ion-card-content>
+            <ion-card-header>
+              <ion-label>Producto Manejado</ion-label>
+            </ion-card-header>
+            <ion-list>
+              <ion-row>
+                <ion-col size="12" sizeMd="6" sizeLg="4">
+                  <ion-card-title>
+                    <ion-checkbox color="primary" name="C1" [(ngModel)]="datos.C1"></ion-checkbox>
+                    Magna <b>MG</b>
+                  </ion-card-title>
+                  <ion-item>
+                    <ion-input
+                      type="number"
+                      placeholder="No. de tanques"
+                      min="0"
+                      max="10"
+                      name="num1"
+                      [(ngModel)]="datos.num1">
+                    </ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input
+                      type="number"
+                      placeholder="No. de dispensarios por tanque"
+                      min="0"
+                      max="10"
+                      name="num2"
+                      [(ngModel)]="datos.num2">
+                    </ion-input>
+                  </ion-item>
+                  <div>
+                    <hr class="linea1">
+                  </div>
+                </ion-col>
+                <ion-col size="12" sizeMd="6" sizeLg="4">
+                  <ion-card-title>
+                    <ion-checkbox color="primary" name="C2" [(ngModel)]="datos.C2"></ion-checkbox>
+                    Premium <b>PR</b>
+                  </ion-card-title>
+                  <ion-item>
+                    <ion-input
+                      type="number"
+                      placeholder="No. de tanques"
+                      min="0"
+                      max="10"
+                      name="num3"
+                      [(ngModel)]="datos.num3">
+                    </ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input
+                      type="number"
+                      placeholder="No. de dispensarios por tanque"
+                      min="0"
+                      max="10"
+                      name="num4"
+                      [(ngModel)]="datos.num4">
+                    </ion-input>
+                  </ion-item>
+                  <div>
+                    <hr class="linea1">
+                  </div>
+                </ion-col>
+                <ion-col size="12" sizeMd="6" sizeLg="4">
+                  <ion-card-title>
+                    <ion-checkbox color="primary" name="C3" [(ngModel)]="datos.C3"></ion-checkbox>
+                    Diesel <b>DL</b>
+                  </ion-card-title>
+                  <ion-item>
+                    <ion-input
+                      type="number"
+                      placeholder="No. de tanques"
+                      min="0"
+                      max="10"
+                      name="num5"
+                      [(ngModel)]="datos.num5">
+                    </ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input
+                      type="number"
+                      placeholder="No. de dispensarios por tanque"
+                      min="0"
+                      max="10"
+                      name="num6"
+                      [(ngModel)]="datos.num6">
+                    </ion-input>
+                  </ion-item>
+                  <div>
+                    <hr class="linea1">
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+        <ion-card class="carta">
+          <ion-card-content>
+            <ion-card-header>
+              <ion-label>Marque con cuales equipos opera y con cuantos cuenta.</ion-label>
+            </ion-card-header>
+            <ion-row>
+              <ion-col size="12" sizeMd="6" sizeLg="4">
+                <ion-card-title>
+                  <ion-checkbox color="primary" name="C4" [(ngModel)]="datos.C4"></ion-checkbox>
+                  Tanque Horizontal
+                </ion-card-title>
+                <ion-item>
+                  <ion-input
+                    type="number"
+                    placeholder="Cantidad"
+                    max="20"
+                    name="num7"
+                    [(ngModel)]="datos.num7">
+                  </ion-input>
+                </ion-item>
+                <div>
+                  <hr class="linea1">
+                </div>
+                <br>
+                <ion-card-title>
+                  <ion-checkbox color="primary" name="C5" [(ngModel)]="datos.C5"></ion-checkbox>
+                  Dispensario
+                </ion-card-title>
+                <ion-item>
+                  <ion-input
+                    type="number"
+                    placeholder="Cantidad"
+                    max="20"
+                    name="num8"
+                    [(ngModel)]="datos.num8">
+                  </ion-input>
+                </ion-item>
+                <div>
+                  <hr class="linea1">
+                </div>
+                <br>
+                <ion-card-title>
+                  <ion-checkbox color="primary" name="C6" [(ngModel)]="datos.C6"></ion-checkbox>
+                  Extintores
+                </ion-card-title>
+                <ion-item>
+                  <ion-input
+                    type="number"
+                    placeholder="Cantidad"
+                    max="20"
+                    name="num9"
+                    [(ngModel)]="datos.num9">
+                  </ion-input>
+                </ion-item>
+                <div>
+                  <hr class="linea1">
+                </div>
+                <br>
+                <ion-card-title>
+                  <ion-checkbox color="primary" name="C7" [(ngModel)]="datos.C7"></ion-checkbox>
+                  Válvula presión-vacío
+                </ion-card-title>
+                <ion-item>
+                  <ion-input
+                    type="number"
+                    placeholder="Cantidad"
+                    max="20"
+                    name="num10"
+                    [(ngModel)]="datos.num10">
+                  </ion-input>
+                </ion-item>
+                <div>
+                  <hr class="linea1">
+                </div>
+              </ion-col>
+              <ion-col size="12" sizeMd="6" sizeLg="4">
+                <ion-card-title>
+                  <ion-checkbox color="primary" name="C8" [(ngModel)]="datos.C8"></ion-checkbox>
+                  Arrestador de flama
+                </ion-card-title>
+                <ion-item>
+                  <ion-input
+                    type="number"
+                    placeholder="Cantidad"
+                    max="20"
+                    name="num11"
+                    [(ngModel)]="datos.num11">
+                  </ion-input>
+                </ion-item>
+                <div>
+                  <hr class="linea1">
+                </div>
+                <br>
+                <ion-card-title>
+                  <ion-checkbox color="primary" name="C9" [(ngModel)]="datos.C9"></ion-checkbox>
+                  Pozos de Observación
+                </ion-card-title>
+                <ion-item>
+                  <ion-input
+                    type="number"
+                    placeholder="Cantidad"
+                    max="20"
+                    name="num12"
+                    [(ngModel)]="datos.num12">
+                  </ion-input>
+                </ion-item>
+                <div>
+                  <hr class="linea1">
+                </div>
+                <br>
+                <ion-card-title>
+                  <ion-checkbox color="primary" name="C10" [(ngModel)]="datos.C10"></ion-checkbox>
+                  Drenajes
+                </ion-card-title>
+                <ion-item>
+                  <ion-input
+                    type="number"
+                    placeholder="Cantidad"
+                    max="20"
+                    name="num13"
+                    [(ngModel)]="datos.num13">
+                  </ion-input>
+                </ion-item>
+                <div>
+                  <hr class="linea1">
+                </div>
+                <br>
+                <ion-card-title>
+                  <ion-checkbox color="primary" name="C11" [(ngModel)]="datos.C11"></ion-checkbox>
+                  Trampa de combustible
+                </ion-card-title>
+                <ion-item>
+                  <ion-input
+                    type="number"
+                    placeholder="Cantidad"
+                    max="20"
+                    name="num14"
+                    [(ngModel)]="datos.num14">
+                  </ion-input>
+                </ion-item>
+                <div>
+                  <hr class="linea1">
+                </div>
+              </ion-col>
+              <ion-col size="12" sizeMd="6" sizeLg="4">
+                <ion-card-title>
+                  <ion-checkbox color="primary" name="C12" [(ngModel)]="datos.C12"></ion-checkbox>
+                  Tierras Eléctricas
+                </ion-card-title>
+                <ion-item>
+                  <ion-input
+                    type="number"
+                    placeholder="Cantidad"
+                    max="20"
+                    name="num15"
+                    [(ngModel)]="datos.num15">
+                  </ion-input>
+                </ion-item>
+                <div>
+                  <hr class="linea1">
+                </div>
+                <br>
+                <ion-card-title>
+                  <ion-checkbox color="primary" name="C13" [(ngModel)]="datos.C13"></ion-checkbox>
+                  Control de inventarios
+                </ion-card-title>
+                <ion-item>
+                  <ion-input
+                    type="number"
+                    placeholder="Cantidad"
+                    max="20"
+                    name="num16"
+                    [(ngModel)]="datos.num16">
+                  </ion-input>
+                </ion-item>
+                <div>
+                  <hr class="linea1">
+                </div>
+                <br>
+                <ion-card-title>
+                  <ion-checkbox color="primary" name="C14" [(ngModel)]="datos.C14"></ion-checkbox>
+                  Sensores de fugas
+                </ion-card-title>
+                <ion-item>
+                  <ion-input
+                    type="number"
+                    placeholder="Cantidad"
+                    max="20"
+                    name="num17"
+                    [(ngModel)]="datos.num17">
+                  </ion-input>
+                </ion-item>
+                <div>
+                  <hr class="linea1">
+                </div>
+                <br>
+                <ion-card-title>
+                  <ion-checkbox color="primary" name="C15" [(ngModel)]="datos.C15"></ion-checkbox>
+                  Tablero de control eléctrico
+                </ion-card-title>
+                <ion-item>
+                  <ion-input
+                    type="number"
+                    placeholder="Cantidad"
+                    max="20"
+                    name="num18"
+                    [(ngModel)]="datos.num18">
+                  </ion-input>
+                </ion-item>
+                <div>
+                  <hr class="linea1">
+                </div>
+                <br>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+        <ion-card class="carta">
+          <ion-card-content>
+            <ion-card-header>
+              <ion-label>Marque los equipos con los que cuenta:</ion-label>
+            </ion-card-header>
+            <ion-row>
+              <ion-col size="12" sizeMd="6" sizeLg="4">
+                <ion-item>
+                  <ion-label>Compresor</ion-label>
+                  <ion-checkbox color="primary" name="C16" [(ngModel)]="datos.C16"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Pararrayos</ion-label>
+                  <ion-checkbox color="primary" name="C17" [(ngModel)]="datos.C17"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Área cambio de aceite</ion-label>
+                  <ion-checkbox color="primary" name="C18" [(ngModel)]="datos.C18"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Hidroneumático</ion-label>
+                  <ion-checkbox color="primary" name="C19" [(ngModel)]="datos.C19"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Cisterna</ion-label>
+                  <ion-checkbox color="primary" name="C20" [(ngModel)]="datos.C20"></ion-checkbox>
+                </ion-item>
+              </ion-col>
+              <ion-col size="12" sizeMd="6" sizeLg="4">
+                <ion-item>
+                  <ion-label>Bodega de lubricantes</ion-label>
+                  <ion-checkbox color="primary" name="C21" [(ngModel)]="datos.C21"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Planta de Emergencia</ion-label>
+                  <ion-checkbox color="primary" name="C22" [(ngModel)]="datos.C22"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Bomba de agua</ion-label>
+                  <ion-checkbox color="primary" name="C23" [(ngModel)]="datos.C23"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Almacén de residuos peligrosos</ion-label>
+                  <ion-checkbox color="primary" name="C24" [(ngModel)]="datos.C24"></ion-checkbox>
+                </ion-item>
+              </ion-col>
+              <ion-col size="12" sizeMd="6" sizeLg="4">
+                <ion-item>
+                  <ion-label>Paros de emergencia</ion-label>
+                  <ion-checkbox color="primary" name="C25" [(ngModel)]="datos.C25"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Transformador</ion-label>
+                  <ion-checkbox color="primary" name="C26" [(ngModel)]="datos.C26"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Motobomba</ion-label>
+                  <ion-checkbox color="primary" name="C27" [(ngModel)]="datos.C27"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Tubería de venteo</ion-label>
+                  <ion-checkbox color="primary" name="C29" [(ngModel)]="datos.C28"></ion-checkbox>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

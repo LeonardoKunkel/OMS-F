@@ -115,7 +115,6 @@ export class EstacionPage implements OnInit {
     toast.present();
     this._estacionService.postEstacion(this.datos).subscribe((data: any) => {
       console.log(data);
-      this.navCtrl.navigateForward('/tabs/tab1');
     });
   }
 
