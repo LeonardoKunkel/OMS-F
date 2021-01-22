@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { EstacionService } from 'src/app/services/estacion.service';
+import * as pdfMake from "pdfmake/build/pdfmake";
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+(<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-e1-politica',
@@ -13,6 +16,7 @@ export class E1PoliticaPage implements OnInit {
   @ViewChild('politica1') politicaUno;
   @ViewChild('politica2') politicaDos;
   @ViewChild('politica3') politicaTres;
+  politicaEscogida:'';
 
   constructor(
     private route: ActivatedRoute,
@@ -36,16 +40,17 @@ export class E1PoliticaPage implements OnInit {
     let result = e.target.value;
     if (result === 'politica1') {
       let politica1 = this.politicaUno.nativeElement.innerText;
-      console.log(politica1);
+      this.politicaEscogida = politica1;
+      // console.log(politica1);
     }else if(result === 'politica2'){
       let politica2 = this.politicaDos.nativeElement.innerText;
-      console.log(politica2);
+      this.politicaEscogida = politica2;
+      // console.log(politica2);
     }else if(result === 'politica3'){
-      let politica3 = this.politicaUno.nativeElement.innerText;
-      console.log(politica3);
+      let politica3 = this.politicaTres.nativeElement.innerText;
+      this.politicaEscogida = politica3;
+      // console.log(politica3);
     }
-    
-    
   }
 
   async myPolitica(){
@@ -73,12 +78,26 @@ export class E1PoliticaPage implements OnInit {
           text: 'Aceptar',
           handler: (e) => {
             console.log(e);
+            this.politicaEscogida = e.politicaCreada;
           }
         }
       ]
     });
 
     await alert.present();
+  }
+
+  pdf(){
+    const dd ={
+      content:[
+        'texto Libre',
+        {text:`${this.politicaEscogida}`,fontSize:10, bold:true}
+      ]
+    };
+
+    pdfMake.createPdf(dd).open();
+    // console.log(this.politicaEscogida);
+    //Nadamas falta guardar la politica escogida a la base de datos
   }
 
 }

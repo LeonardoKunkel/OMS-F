@@ -1,7 +1,7 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tabs2"></ion-back-button>
+      <ion-back-button defaultHref="/tabs/tab2;"></ion-back-button>
     </ion-buttons>
     <ion-title class="ion-text-center">VIII. Control de Documentos y Registros</ion-title>
     <ion-card-subtitle class="ion-text-center">{{DataEstacion.nombre}}</ion-card-subtitle>
@@ -24,7 +24,7 @@
         </ion-card>
       </ion-col>
       <ion-col size="12" sizeMd="6" sizeLg="4">
-        <ion-card class="carta">
+        <ion-card class="carta" (click)="procedimientoInstructivo()">
           <img
           class="ion-padding image"
           src="../../../assets/Imagenes/Punto 8/lista_maestra_de_docs.png"
@@ -35,7 +35,7 @@
         </ion-card>
       </ion-col>
       <ion-col size="12" sizeMd="6" sizeLg="4">
-        <ion-card class="carta">
+        <ion-card class="carta" (click)="goLista()">
           <img
           class="ion-padding image"
           src="../../../assets/Imagenes/Punto 8/lista_maestra_de_docs.png"
@@ -63,7 +63,7 @@
         </p>
       </ion-col>
       <ion-col size="12" sizeMd="6" sizeLg="4">
-        <ion-card class="carta">
+        <ion-card class="carta" (click)="goSolicitud()">
           <img
           class="ion-padding image"
           src="../../../assets/Imagenes/Punto 8/lista_maestra_de_docs.png"

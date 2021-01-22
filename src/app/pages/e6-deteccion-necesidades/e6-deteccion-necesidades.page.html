@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/e6-menu"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="pdf()">
+        <ion-icon slot="start" name="print"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Detección de Necesidades</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row style="display: block; margin: auto;">
+      <ion-col size="12" sizeLg="6">
+        <ion-slides mode="ios" pager="ios" scrollbar="ios">
+          <ion-slide *ngFor="let data of slides">
+            <ion-card>
+              <ion-card-content>
+                <p>Desarrollo Laboral: <b>{{data.desarrolloLaboral}}</b></p><br>
+                <ion-item-divider color="light">
+                  <ion-label>Situación Actual:</ion-label>
+                </ion-item-divider>
+                <p class="ion-text-justify">{{data.situacionActual}}</p><br>
+                <ion-item-divider color="light">
+                  <ion-label>Situación Deseada:</ion-label>
+                </ion-item-divider>
+                <ol>
+                  <li class="ion-text-justify">{{data.situacionDeseada[0].a}}</li>
+                  <li class="ion-text-justify">{{data.situacionDeseada[0].b}}</li>
+                </ol><br>
+                <ion-item-divider color="light">
+                  <ion-label>Objetivos de la necesidad:</ion-label>
+                </ion-item-divider>
+                <ol>
+                  <li class="ion-text-justify">{{data.objetivosNEcesidad[0].a}}</li>
+                  <li class="ion-text-justify">{{data.objetivosNEcesidad[0].b}}</li>
+                  <li class="ion-text-justify">{{data.objetivosNEcesidad[0].c}}</li>
+                </ol><br>
+                <ion-item-divider color="light">
+                  <ion-label>Temas para Capacitación:</ion-label>
+                </ion-item-divider><br>
+                <ol>
+                  <li class="ion-text-justify">{{data.temasCapacitacion[0].a}}</li>
+                  <li class="ion-text-justify">{{data.temasCapacitacion[0].b}}</li>
+                  <li class="ion-text-justify">{{data.temasCapacitacion[0].c}}</li>
+                  <li class="ion-text-justify">{{data.temasCapacitacion[0].d}}</li>
+                </ol><br>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

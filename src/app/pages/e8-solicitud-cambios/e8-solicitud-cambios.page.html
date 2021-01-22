@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="pdf()">
+        <ion-icon slot="start" name="print"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/e8-menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Solicitud de Cambios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row style="margin: auto; display: block;">
+      <ion-col size="12" sizeLg="8">
+        <form action="">
+          <ion-card>
+            <ion-card-content>
+              <ion-item>
+                <ion-label position="floating">Tipo de documento:</ion-label>
+                <ion-select placeholder="Selecciona">
+                  <ion-select-option *ngFor="let data of tipoDoc" >{{data}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Origen del Cambio:</ion-label>
+                <ion-select placeholder="Selecciona">
+                  <ion-select-option *ngFor="let data of origenCambio" >{{data}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Estado Actual</ion-label>
+                <ion-textarea name="estadoActual" [(ngModel)]="datos.estadoActual"></ion-textarea>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Cambio Propuesto</ion-label>
+                <ion-textarea name="cambioPropuesto" [(ngModel)]="datos.cambioPropuesto"></ion-textarea>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Motivo de la aceptación o rechazo</ion-label>
+                <ion-textarea name="motivoAceptacion" [(ngModel)]="datos.motivoAceptacion"></ion-textarea>
+              </ion-item>
+            </ion-card-content>
+            <ion-button type="submit" expand="block" fill="clear" shape="round">
+              Enviar
+            </ion-button>
+          </ion-card>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

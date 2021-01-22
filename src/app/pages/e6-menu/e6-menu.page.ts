@@ -38,4 +38,15 @@ export class E6MenuPage implements OnInit {
     this.router.navigate(['/e6-perfil-puesto', {custom_id: this.idEstacion}]);
   }
 
+  goDeteccionNecesidades(){
+    this.router.navigate(['/e6-deteccion-necesidades', {custom_id: this.idEstacion}]);
+  }
+
+  programaCapacitacion(){
+    this.router.navigate(['/e6-programa-capacitacion', {custom_id: this.idEstacion}]);
+  }
+
+  seguimientoProgramaCapacitacion(){
+    this.router.navigate(['/e6-seguimiento-programa-capacitacion', {custom_id: this.idEstacion}]);
+  }
 }

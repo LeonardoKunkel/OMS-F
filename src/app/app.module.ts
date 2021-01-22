@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PdfMakeWrapper } from 'pdfmake-wrapper';
 import { Geolocation } from '@capacitor/core';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
+import { NgCalendarModule } from 'ionic2-calendar';
 //import { PdfFonts } from 'pdfmake/build/vfs_fonts.js';
 
 //  import {PdfFonts} from "pdfmake/build/vfs_fonts.js";
@@ -27,7 +28,8 @@ import { FileOpener } from '@ionic-native/file-opener/ngx';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgCalendarModule
   ],
   providers: [
     StatusBar,

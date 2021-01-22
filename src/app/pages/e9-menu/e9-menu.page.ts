@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { EstacionService } from 'src/app/services/estacion.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class E9MenuPage implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private _estacionService: EstacionService
+    private _estacionService: EstacionService,
+    private navCtrl:NavController
   ) { }
 
   ngOnInit() {
@@ -25,5 +27,9 @@ export class E9MenuPage implements OnInit {
       console.log(data);
       this.DataEstacion = data;
     });
+  }
+
+  goListado(){
+    this.navCtrl.navigateForward('/e9-listado-codigos-estandares');
   }
 }

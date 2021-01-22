@@ -2,8 +2,20 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button (click)="cerrarSesion()">
-        <ion-icon slot="start" name="close-circle-outline"></ion-icon>
+        <ion-icon slot="start" name="power-outline"></ion-icon>
         Cerrar sesión
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="estacion()">
+        <ion-icon slot="end" name="add"></ion-icon>
+        Agregar
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="entrar()">
+        <ion-icon slot="end" name="enter-outline"></ion-icon>
+        Entrar
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -11,23 +23,13 @@
 
 <ion-content>
   <h1 class="ion-text-center">Estaciones de Servicio Registradas</h1>
-  <ion-fab horizontal="end" vertical="top" slot="fixed" edge>
-    <ion-fab-button color="success" (click)="entrar()">
-      <ion-icon name="enter-outline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
-    <ion-fab-button (click)="estacion()">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12" sizeLg="3" *ngFor="let data of supEstacion">
         <ion-card>
           <ion-toolbar>
             <ion-buttons slot="end">
-              <ion-button (click)="delete(data.id)">
+              <ion-button (click)="delete(data._id)">
                 <ion-icon color="danger" slot="end" name="trash-outline"></ion-icon>
               </ion-button>
             </ion-buttons>

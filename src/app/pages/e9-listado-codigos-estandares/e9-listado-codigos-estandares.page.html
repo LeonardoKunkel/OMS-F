@@ -1,0 +1,194 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="pdf()">
+        <ion-icon slot="start" name="print"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/e9-menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Listado de Codigos y Estandares</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="row header">
+      <ion-col size="3">CÓDIGO O ESTÁNDAR</ion-col>
+      <ion-col size="5">DESCRIPCIÓN</ion-col>
+      <ion-col size="2">AÑO DE EMISIÓN</ion-col>
+      <ion-col size="2">APLICACIÓN</ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col  size="12" sizeLg="3" style="text-align: center;" class="row header">ORGANIZACIÓN</ion-col>
+      <ion-col  size="12" sizeLg="9" style="text-align: center;" class="row head">NORMAS OFICIALES MEXICANAS</ion-col>
+    </ion-row>
+    <ion-row class="row" *ngFor="let data of listado[0].normas">
+      <ion-col size="12" sizeLg="3" style="text-align: justify;"> <p class="txt">CÓDIGO O ESTÁNDAR: </p><br> {{data.org}}</ion-col>
+      <ion-col size="12" sizeLg="5" style="text-align: justify;"> <p class="txt">DESCRIPCIÓN: </p><br> {{data.nom}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: center;"> <p class="txt">AÑO DE EMISIÓN: </p><br> {{data.emision}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: justify;"> <p class="txt">APLICACIÓN: </p><br> {{data.aplicacion}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" sizeLg="3" style="text-align: center;" class="row header">ORGANIZACIÓN</ion-col>
+      <ion-col size="12" sizeLg="9" style="text-align: center;" class="row head">SECRETARIA DE COMUNICACIONES Y TRANSPORTES</ion-col>
+    </ion-row>
+    <ion-row class="row" *ngFor="let data of listado[0].comunicaciones">
+      <ion-col size="12" sizeLg="3" style="text-align: justify;"><p class="txt">CÓDIGO O ESTÁNDAR: </p><br> {{data.org}}</ion-col>
+      <ion-col size="12" sizeLg="5" style="text-align: justify;"><p class="txt">DESCRIPCIÓN: </p><br> {{data.nom}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: center;"><p class="txt">AÑO DE EMISIÓN: </p><br>  {{data.emision}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: justify;"><p class="txt">APLICACIÓN: </p><br> {{data.aplicacion}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" sizeLg="3" style="text-align: center;" class="row header">ORGANIZACIÓN</ion-col>
+      <ion-col size="12" sizeLg="9" style="text-align: center;" class="row head">UNDERWRITERS LABORATORIES INC.   UL</ion-col>
+    </ion-row>
+    <ion-row class="row" *ngFor="let data of listado[0].laboratorios">
+      <ion-col size="12" sizeLg="3" style="text-align: justify;"><p class="txt">CÓDIGO O ESTÁNDAR: </p><br>{{data.org}}</ion-col>
+      <ion-col size="12" sizeLg="5" style="text-align: justify;"><p class="txt">DESCRIPCIÓN: </p><br> {{data.nom}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: center;"><p class="txt">AÑO DE EMISIÓN: </p><br> {{data.emision}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: justify;"><p class="txt">APLICACIÓN: </p><br> {{data.aplicacion}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" sizeLg="3" style="text-align: center;" class="row header">ORGANIZACIÓN</ion-col>
+      <ion-col size="12" sizeLg="9" style="text-align: center;" class="row head">AMERICAN INSTITUTE OF STEEL CONSTRUCTION, INC</ion-col>
+    </ion-row>
+    <ion-row class="row" *ngFor="let data of listado[0].construccion">
+      <ion-col size="12" sizeLg="3" style="text-align: justify;"><p class="txt">CÓDIGO O ESTÁNDAR: </p><br>{{data.org}}</ion-col>
+      <ion-col size="12" sizeLg="5" style="text-align: justify;"><p class="txt">DESCRIPCIÓN: </p><br>{{data.nom}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: center;"><p class="txt">AÑO DE EMISIÓN: </p><br>{{data.emision}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: justify;"><p class="txt">APLICACIÓN: </p><br>{{data.aplicacion}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12"  sizeLg="3" style="text-align: center;" class="row header">ORGANIZACIÓN</ion-col>
+      <ion-col size="12"  sizeLg="9" style="text-align: center;" class="row head">PETROLEUM EQUIPMENT INSTITUTE</ion-col>
+    </ion-row>
+    <ion-row class="row" *ngFor="let data of listado[0].petroleo">
+      <ion-col size="12"  sizeLg="3" style="text-align: justify;"><p class="txt">CÓDIGO O ESTÁNDAR: </p><br>{{data.org}}</ion-col>
+      <ion-col size="12"  sizeLg="5" style="text-align: justify;"><p class="txt">DESCRIPCIÓN: </p><br>{{data.nom}}</ion-col>
+      <ion-col size="12"  sizeLg="2" style="text-align: center;"><p class="txt">AÑO DE EMISIÓN: </p><br> <p class="txt">APLICACIÓN: </p><br>{{data.emision}}</ion-col>
+      <ion-col size="12"  sizeLg="2" style="text-align: justify;"><p class="txt">APLICACIÓN: </p><br>{{data.aplicacion}}</ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col size="12"  sizeLg="3" style="text-align: center;" class="row header">ORGANIZACIÓN</ion-col>
+      <ion-col size="12"  sizeLg="9" style="text-align: center;" class="row head">AMERICAN ESTÁNDAR FOR TESTING MATERIALS ASTM</ion-col>
+    </ion-row>
+    <ion-row class="row" *ngFor="let data of listado[0].testMaterials">
+      <ion-col size="12"  sizeLg="3" style="text-align: justify;"><p class="txt">CÓDIGO O ESTÁNDAR: </p><br>{{data.org}}</ion-col>
+      <ion-col size="12"  sizeLg="5" style="text-align: justify;"><p class="txt">DESCRIPCIÓN: </p><br>{{data.nom}}</ion-col>
+      <ion-col size="12"  sizeLg="2" style="text-align: center;"><p class="txt">AÑO DE EMISIÓN: </p><br> <p class="txt">APLICACIÓN: </p><br>{{data.emision}}</ion-col>
+      <ion-col size="12"  sizeLg="2" style="text-align: justify;"><p class="txt">APLICACIÓN: </p><br>{{data.aplicacion}}</ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col size="12"  sizeLg="3" style="text-align: center;" class="row header">ORGANIZACIÓN</ion-col>
+      <ion-col size="12"  sizeLg="9" style="text-align: center;" class="row head">SOUTHWEST RESEARCH INSTITUTE</ion-col>
+    </ion-row>
+    <ion-row  *ngFor="let data of listado[0].south">
+      <ion-col size="12"  sizeLg="3" style="text-align: justify;"><p class="txt">CÓDIGO O ESTÁNDAR: </p><br>{{data.org}}</ion-col>
+      <ion-col size="12"  sizeLg="5" style="text-align: justify;"><p class="txt">DESCRIPCIÓN: </p><br>{{data.nom}}</ion-col>
+      <ion-col size="12"  sizeLg="2" style="text-align: center;"><p class="txt">AÑO DE EMISIÓN: </p><br> <p class="txt">APLICACIÓN: </p><br>{{data.emision}}</ion-col>
+      <ion-col size="12"  sizeLg="2" style="text-align: justify;"><p class="txt">APLICACIÓN: </p><br>{{data.aplicacion}}</ion-col>
+    </ion-row>
+    <ion-row class="row header">
+      <ion-col size="12"  sizeLg="3" style="text-align: center;" class="row header">ORGANIZACIÓN</ion-col>
+      <ion-col size="12"  sizeLg="9" style="text-align: center;" class="row head">NATIONAL FIRE PROTECTION ASSOCIATION NFPA</ion-col>
+    </ion-row>
+    <ion-row  *ngFor="let data of listado[0].nationalFire">
+      <ion-col size="12"  sizeLg="3" style="text-align: justify;"><p class="txt">CÓDIGO O ESTÁNDAR: </p><br>{{data.org}}</ion-col>
+      <ion-col size="12"  sizeLg="5" style="text-align: justify;"><p class="txt">DESCRIPCIÓN: </p><br>{{data.nom}}</ion-col>
+      <ion-col size="12"  sizeLg="2" style="text-align: center;"><p class="txt">AÑO DE EMISIÓN: </p><br> <p class="txt">APLICACIÓN: </p><br>{{data.emision}}</ion-col>
+      <ion-col size="12"  sizeLg="2" style="text-align: justify;"><p class="txt">APLICACIÓN: </p><br>{{data.aplicacion}}</ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col size="12"  sizeLg="3" style="text-align: center;" class="row header">ORGANIZACIÓN</ion-col>
+      <ion-col size="12"  sizeLg="9" style="text-align: center;" class="row head">INTERNATIONAL STANDARDS ORGANIZATION</ion-col>
+    </ion-row>
+    <ion-row class="row" *ngFor="let data of listado[0].internationalStandard">
+      <ion-col size="12"  sizeLg="3" style="text-align: justify;"><p class="txt">CÓDIGO O ESTÁNDAR: </p><br>{{data.org}}</ion-col>
+      <ion-col size="12"  sizeLg="5" style="text-align: justify;"><p class="txt">DESCRIPCIÓN: </p><br>{{data.nom}}</ion-col>
+      <ion-col size="12"  sizeLg="2" style="text-align: center;"><p class="txt">AÑO DE EMISIÓN: </p><br> <p class="txt">APLICACIÓN: </p><br>{{data.emision}}</ion-col>
+      <ion-col size="12"  sizeLg="2" style="text-align: justify;"><p class="txt">APLICACIÓN: </p><br>{{data.aplicacion}}</ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col size="12" sizeLg="3" style="text-align: center;"class="row header">ORGANIZACIÓN</ion-col>
+      <ion-col size="12" sizeLg="9" style="text-align: center;"class="row head">STEEL TANKS INSTITUTE</ion-col>
+    </ion-row>
+    <ion-row class="row" *ngFor="let data of listado[0].steelTanks">
+      <ion-col size="12" sizeLg="3" style="text-align: justify;"><p class="txt">CÓDIGO O ESTÁNDAR: </p><br>{{data.org}}</ion-col>
+      <ion-col size="12" sizeLg="5" style="text-align: justify;"><p class="txt">DESCRIPCIÓN: </p><br>{{data.nom}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: center;"><p class="txt">AÑO DE EMISIÓN: </p><br>{{data.emision}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: justify;"><p class="txt">APLICACIÓN: </p><br>{{data.aplicacion}}</ion-col>
+    </ion-row>
+    <ion-row class="row header">
+      <ion-col size="12" sizeLg="3" style="text-align: center;" class="row header">ORGANIZACIÓN</ion-col>
+      <ion-col size="12" sizeLg="9" style="text-align: center;" class="row head">NORMAS MEXICANAS</ion-col>
+    </ion-row>
+    <ion-row class="row" *ngFor="let data of listado[0].normasMexicanas">
+      <ion-col size="12" sizeLg="3" style="text-align: justify;"><p class="txt">CÓDIGO O ESTÁNDAR: </p><br>{{data.org}}</ion-col>
+      <ion-col size="12" sizeLg="5" style="text-align: justify;"><p class="txt">DESCRIPCIÓN: </p><br>{{data.nom}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: center;"><p class="txt">AÑO DE EMISIÓN: </p><br>{{data.emision}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: justify;"><p class="txt">APLICACIÓN: </p><br>{{data.aplicacion}}</ion-col>
+    </ion-row>
+    <ion-row class="row header">
+      <ion-col size="12" sizeLg="3" style="text-align: center;" class="row header">ORGANIZACIÓN</ion-col>
+      <ion-col size="12" sizeLg="9" style="text-align: center;" class="row head">AMERICAN PETROLEUM INSTITUTE</ion-col>
+    </ion-row>
+    <ion-row class="row" *ngFor="let data of listado[0].americanPetroleo">
+      <ion-col size="12" sizeLg="3" style="text-align: justify;"><p class="txt">CÓDIGO O ESTÁNDAR: </p><br>{{data.org}}</ion-col>
+      <ion-col size="12" sizeLg="5" style="text-align: justify;"><p class="txt">DESCRIPCIÓN: </p><br>{{data.nom}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: center;"><p class="txt">AÑO DE EMISIÓN: </p><br>{{data.emision}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: justify;"><p class="txt">APLICACIÓN: </p><br>{{data.aplicacion}}</ion-col>
+    </ion-row>
+    <ion-row class="row header">
+      <ion-col size="12" sizeLg="3" style="text-align: center;" class="row header">ORGANIZACIÓN</ion-col>
+      <ion-col size="12" sizeLg="9" style="text-align: center;" class="row head">NATIONAL ELECTRICAL MANUFACTURERS ASSOCIATION.</ion-col>
+    </ion-row>
+    <ion-row class="row" *ngFor="let data of listado[0].nationalElectrical">
+      <ion-col size="12" sizeLg="3" style="text-align: justify;"><p class="txt">CÓDIGO O ESTÁNDAR: </p><br>{{data.org}}</ion-col>
+      <ion-col size="12" sizeLg="5" style="text-align: justify;"><p class="txt">DESCRIPCIÓN: </p><br>{{data.nom}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: center;"><p class="txt">AÑO DE EMISIÓN: </p><br>{{data.emision}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: justify;"><p class="txt">APLICACIÓN: </p><br>{{data.aplicacion}}</ion-col>
+    </ion-row>
+    <ion-row class="row header">
+      <ion-col size="12" sizeLg="3" style="text-align: center;" class="row header">ORGANIZACIÓN</ion-col>
+      <ion-col size="12" sizeLg="9" style="text-align: center;" class="row head">UNIFORM FIRE CODE</ion-col>
+    </ion-row>
+    <ion-row class="row" *ngFor="let data of listado[0].uniformFire">
+      <ion-col size="12" sizeLg="3" style="text-align: justify;"><p class="txt">CÓDIGO O ESTÁNDAR: </p><br>{{data.org}}</ion-col>
+      <ion-col size="12" sizeLg="5" style="text-align: justify;"><p class="txt">DESCRIPCIÓN: </p><br>{{data.nom}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: center;"><p class="txt">AÑO DE EMISIÓN: </p><br>{{data.emision}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: justify;"><p class="txt">APLICACIÓN: </p><br>{{data.aplicacion}}</ion-col>
+    </ion-row>
+    <ion-row class="row header">
+      <ion-col size="12" sizeLg="3" style="text-align: center;" class="row header">ORGANIZACIÓN</ion-col>
+      <ion-col size="12" sizeLg="9" style="text-align: center;" class="row head">INSTITUTO MEXICANO DE LA CONSTRUCCIÓN EN ACERO.</ion-col>
+    </ion-row>
+    <ion-row class="row" *ngFor="let data of listado[0].institutoMexicano">
+      <ion-col size="12" sizeLg="3" style="text-align: justify;"><p class="txt">CÓDIGO O ESTÁNDAR: </p><br>{{data.org}}</ion-col>
+      <ion-col size="12" sizeLg="5" style="text-align: justify;"><p class="txt">DESCRIPCIÓN: </p><br>{{data.nom}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: center;"><p class="txt">AÑO DE EMISIÓN: </p><br>{{data.emision}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: justify;"><p class="txt">APLICACIÓN: </p><br>{{data.aplicacion}}</ion-col>
+    </ion-row>
+    <ion-row class="row header">
+      <ion-col size="12" sizeLg="3" style="text-align: center;" class="row header">ORGANIZACIÓN</ion-col>
+      <ion-col size="12" sizeLg="9" style="text-align: center;" class="row head">SECRETARIA DE ENERGIA</ion-col>
+    </ion-row>
+    <ion-row class="row" *ngFor="let data of listado[0].secretariaEnergia">
+      <ion-col size="12" sizeLg="3" style="text-align: justify;"><p class="txt">CÓDIGO O ESTÁNDAR: </p><br>{{data.org}}</ion-col>
+      <ion-col size="12" sizeLg="5" style="text-align: justify;"><p class="txt">DESCRIPCIÓN: </p><br>{{data.nom}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: center;"><p class="txt">AÑO DE EMISIÓN: </p><br>{{data.emision}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: justify;"><p class="txt">APLICACIÓN: </p><br>{{data.aplicacion}}</ion-col>
+    </ion-row>
+    <ion-row class="row header">
+      <ion-col size="12" sizeLg="3" style="text-align: center;" class="row header">ORGANIZACIÓN</ion-col>
+      <ion-col size="12" sizeLg="9" style="text-align: center;" class="row head">NORMAS DE REFERENCIA DE PEMEX</ion-col>
+    </ion-row>
+    <ion-row class="row" *ngFor="let data of listado[0].normasReferencia">
+      <ion-col size="12" sizeLg="3" style="text-align: justify;"><p class="txt">CÓDIGO O ESTÁNDAR: </p><br>{{data.org}}</ion-col>
+      <ion-col size="12" sizeLg="5" style="text-align: justify;"><p class="txt">DESCRIPCIÓN: </p><br>{{data.nom}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: center;"><p class="txt">AÑO DE EMISIÓN: </p><br>{{data.emision}}</ion-col>
+      <ion-col size="12" sizeLg="2" style="text-align: justify;"><p class="txt">APLICACIÓN: </p><br>{{data.aplicacion}}</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

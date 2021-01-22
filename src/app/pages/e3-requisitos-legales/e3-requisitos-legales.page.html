@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/e3-menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">{{estacion.nombre}}</ion-title>
+    <ion-buttons slot="end" (click)="pdf()">
+        <ion-icon name="print"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row class="row header">
+          <ion-col size="12" sizeLg="8" class="ion-text-center">INFORMACIÓN DEL REQUISITO</ion-col>
+          <ion-col size="12" sizeLg="2" class="ion-text-center">APLICACIÓN Y EVALUACIÓN DEL REQUISITO</ion-col>
+          <ion-col size="12" sizeLg="2" class="ion-text-center">REFERENCIAS</ion-col>
+        </ion-row>
+        <ion-row class="row header">
+          <ion-col size="12" sizeLg="4" class="col">NOMBRE DE LA LEGISLACIÓN </ion-col>
+          <ion-col size="12" sizeLg="2" class="col">NOMBRE DEL REQUISITO</ion-col>
+          <ion-col size="12" sizeLg="2" class="col">DEPENDENCIA(FEDERAL, ESTATAL O MUNICIPAL)</ion-col>
+          <ion-col size="12" sizeLg="2" class="col">CLAUSULA Y ARTICULOS QUE APLICAN</ion-col>
+          <ion-col size="12" sizeLg="2" class="col">Consultas</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let data of tabla" class="row">
+          <ion-col size="12" sizeLg="4" class="col req">{{data.col1}}</ion-col>
+          <ion-col size="12" sizeLg="2" class="col">{{data.col2}}</ion-col>
+          <ion-col size="12" sizeLg="2" class="col">{{data.col3}}</ion-col>
+          <ion-col size="12" sizeLg="2" class="col">{{data.col4}}</ion-col>
+          <ion-col size="12" sizeLg="2" class="col"><a href={{data.col4}}>Consultar</a></ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

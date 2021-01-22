@@ -1,5 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import * as pdfMake from "pdfmake/build/pdfmake";
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+(<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-e4-objetivos-metas',
@@ -12,7 +15,7 @@ export class E4ObjetivosMetasPage implements OnInit {
   state = false;
 
   data:any = [ {
-    name: 'Reducción en generacion de residuos peligrosos',
+    name: 'Mejor manejo en generacion de residuos peligrosos',
     selected: false,
     value: 'Reducción en generacion de residuos peligrosos',
     img: '../../../assets/Imagenes/Elemento 4/reducción en generacion de residuos-01.png',
@@ -74,7 +77,7 @@ export class E4ObjetivosMetasPage implements OnInit {
   ];
 
   generacionResiduosPeligrosos: any = {
-    objetivo: 'Reducción en la generación de residuos peligrosos',
+    objetivo: 'Manejo en la generación de residuos peligrosos',
     proceso: 'Acciones y medidas preventivas',
     meta1: 'Reducción en la fuente, separación y valorización de los residuos',
     meta2: 'Implementación del esquema “Producción más limpia”',
@@ -276,63 +279,733 @@ export class E4ObjetivosMetasPage implements OnInit {
 
     if (uno === true && dos === true && tres === true) {
        alert('123')
-      // this.maquetacion(this.generacionResiduosPeligrosos, this.reduccionConsumoAgua, this.reduccionConsumoEnergia);
+      this.maquetacion(this.generacionResiduosPeligrosos, this.reduccionConsumoAgua, this.reduccionConsumoEnergia);
     } else if (uno === true && dos === true && cuatro === true) {
        alert('124')
-      //  this.maquetacion(this.generacionResiduosPeligrosos, this.reduccionConsumoAgua, this.cumplimientoProgramaMantenimiento);
+       this.maquetacion(this.generacionResiduosPeligrosos, this.reduccionConsumoAgua, this.cumplimientoProgramaMantenimiento);
     } else if (uno === true && dos === true && cinco === true) {
        alert('125')
-      //  this.maquetacion(this.generacionResiduosPeligrosos, this.reduccionConsumoAgua, this.incrementarCapacitacionTrabajadores);
+       this.maquetacion(this.generacionResiduosPeligrosos, this.reduccionConsumoAgua, this.incrementarCapacitacionTrabajadores);
     } else if (uno === true && dos === true && seis === true) {
        alert('126')
-      //  this.maquetacion(this.generacionResiduosPeligrosos, this.reduccionConsumoAgua, this.incrementarVentas);
+       this.maquetacion(this.generacionResiduosPeligrosos, this.reduccionConsumoAgua, this.incrementarVentas);
     } else if (uno === true && tres === true && cuatro === true) {
        alert('134')
-      //  this.maquetacion(this.generacionResiduosPeligrosos, this.reduccionConsumoEnergia, this.cumplimientoProgramaMantenimiento);
+       this.maquetacion(this.generacionResiduosPeligrosos, this.reduccionConsumoEnergia, this.cumplimientoProgramaMantenimiento);
     } else if (uno === true && tres === true && cinco === true) {
        alert('135')
-      //  this.maquetacion(this.generacionResiduosPeligrosos, this.reduccionConsumoEnergia, this.incrementarCapacitacionTrabajadores);
+       this.maquetacion(this.generacionResiduosPeligrosos, this.reduccionConsumoEnergia, this.incrementarCapacitacionTrabajadores);
     } else if (uno === true && tres === true && seis === true) {
        alert('136')
-      //  this.maquetacion(this.generacionResiduosPeligrosos, this.reduccionConsumoEnergia, this.incrementarVentas);
+       this.maquetacion(this.generacionResiduosPeligrosos, this.reduccionConsumoEnergia, this.incrementarVentas);
     } else if (uno === true && cuatro === true && cinco === true) {
       alert('145')
-      // this.maquetacion(this.generacionResiduosPeligrosos, this.cumplimientoProgramaMantenimiento, this.incrementarCapacitacionTrabajadores);
+      this.maquetacion(this.generacionResiduosPeligrosos, this.cumplimientoProgramaMantenimiento, this.incrementarCapacitacionTrabajadores);
     } else if (uno === true && cuatro === true && seis === true) {
        alert('146')
-      //  this.maquetacion(this.generacionResiduosPeligrosos, this.cumplimientoProgramaMantenimiento, this.incrementarVentas);
+       this.maquetacion(this.generacionResiduosPeligrosos, this.cumplimientoProgramaMantenimiento, this.incrementarVentas);
     } else if (dos === true && tres === true && cuatro === true) {
        alert('234')
-      //  this.maquetacion(this.reduccionConsumoAgua, this.reduccionConsumoEnergia, this.cumplimientoProgramaMantenimiento);
+       this.maquetacion(this.reduccionConsumoAgua, this.reduccionConsumoEnergia, this.cumplimientoProgramaMantenimiento);
     } else if (dos === true && tres === true && cinco === true) {
        alert('235')
-      //  this.maquetacion(this.reduccionConsumoAgua, this.reduccionConsumoEnergia, this.incrementarCapacitacionTrabajadores);
+       this.maquetacion(this.reduccionConsumoAgua, this.reduccionConsumoEnergia, this.incrementarCapacitacionTrabajadores);
     } else if (dos === true && tres === true && seis === true) {
        alert('236')
-      //  this.maquetacion(this.reduccionConsumoAgua, this.reduccionConsumoEnergia, this.incrementarVentas);
+       this.maquetacion(this.reduccionConsumoAgua, this.reduccionConsumoEnergia, this.incrementarVentas);
     } else if (dos === true && cuatro === true && cinco === true) {
       alert('245')
-      //  this.maquetacion(this.reduccionConsumoAgua, this.cumplimientoProgramaMantenimiento, this.incrementarCapacitacionTrabajadores);
+       this.maquetacion(this.reduccionConsumoAgua, this.cumplimientoProgramaMantenimiento, this.incrementarCapacitacionTrabajadores);
     } else if (dos === true && cuatro === true && seis === true) {
       alert('246')
-      //  this.maquetacion(this.reduccionConsumoAgua, this.cumplimientoProgramaMantenimiento, this.incrementarVentas);
+       this.maquetacion(this.reduccionConsumoAgua, this.cumplimientoProgramaMantenimiento, this.incrementarVentas);
     } else if (dos === true && cinco === true && seis === true) {
       alert('256')
-      //  this.maquetacion(this.reduccionConsumoAgua, this.incrementarCapacitacionTrabajadores, this.incrementarVentas);
+       this.maquetacion(this.reduccionConsumoAgua, this.incrementarCapacitacionTrabajadores, this.incrementarVentas);
     } else if (tres === true && cuatro === true && cinco === true) {
       alert('345')
-      //  this.maquetacion(this.reduccionConsumoEnergia, this.cumplimientoProgramaMantenimiento, this.incrementarCapacitacionTrabajadores);
+       this.maquetacion(this.reduccionConsumoEnergia, this.cumplimientoProgramaMantenimiento, this.incrementarCapacitacionTrabajadores);
     } else if (tres === true && cuatro === true && seis === true) {
        alert('346')
-      //  this.maquetacion(this.reduccionConsumoEnergia, this.cumplimientoProgramaMantenimiento, this.incrementarVentas);
+       this.maquetacion(this.reduccionConsumoEnergia, this.cumplimientoProgramaMantenimiento, this.incrementarVentas);
     } else if (tres === true && cinco === true && seis === true) {
        alert('356')
-      //  this.maquetacion(this.reduccionConsumoEnergia, this.incrementarCapacitacionTrabajadores, this.incrementarVentas);
+       this.maquetacion(this.reduccionConsumoEnergia, this.incrementarCapacitacionTrabajadores, this.incrementarVentas);
     } else if (cuatro === true && cinco === true && seis === true) {
       alert('456')
-      // this.maquetacion(this.cumplimientoProgramaMantenimiento, this.incrementarCapacitacionTrabajadores, this.incrementarVentas);
+      this.maquetacion(this.cumplimientoProgramaMantenimiento, this.incrementarCapacitacionTrabajadores, this.incrementarVentas);
     }
   }
-  
 
+  maquetacion(data1, data2, data3) {
+    const dd ={
+      content:[
+        // primera tabla
+        {
+          table: {
+            widths: [110, 460, 70, 70],
+            body: [
+              [
+                {
+                  text: 'OBJETIVO ',
+                  fontSize: 12,
+                  fillColor: '#dddddd'
+                },
+                {
+                  text: `${data1.objetivo}`,
+                  colSpan: 3,
+                  fontSize: 12
+                },
+                {},
+                {}
+              ],
+              [
+                {
+                  text: 'PROCESO',
+                  fontSize: 12,
+                  fillColor: '#dddddd'
+                },
+                {
+                  text: `${data1.proceso}`,
+                  colSpan: 3,
+                  fontSize: 12
+                },
+                {},
+                {}
+              ],
+              [
+                {
+                  text: 'RESPONSABLE',
+                  fontSize: 12,
+                  fillColor: '#dddddd'
+                },
+                {
+                  text: 'Representante Técnico',
+                  fontSize: 12
+                },
+                {
+                  text: 'PERIODO',
+                  fontSize: 12,
+                  fillColor: '#dddddd'
+                },
+                {
+                  text: 'Anual',
+                  fontSize: 12
+                }
+              ]
+            ]
+          }
+        },
+        {text: '\n'},
+        {
+          table: {
+            widths: [15, 170, 180, 75, 90, 94, 74],
+            heights: [10, 25, 25, 25],
+            body: [
+              [
+                {
+                  text: 'No.',
+                  fontSize: 12,
+                  fillColor: '#dddddd',
+                  alignment: 'center',
+                  bold: true
+                },
+                {
+                  text: 'METAS',
+                  fontSize: 12,
+                  fillColor: '#dddddd',
+                  alignment: 'center',
+                  bold: true
+                },
+                {
+                  text: 'ACTIVIDAD',
+                  fontSize: 12,
+                  fillColor: '#dddddd',
+                  alignment: 'center',
+                  bold: true
+                },
+                {
+                  text: 'INDICADOR',
+                  fontSize: 12,
+                  fillColor: '#dddddd',
+                  alignment: 'center',
+                  bold: true
+                },
+                {
+                  text: 'SOPORTE',
+                  fontSize: 12,
+                  fillColor: '#dddddd',
+                  alignment: 'center',
+                  bold: true
+                },
+                {
+                  text: 'FRECUENCIA DE EVALUACIÓN',
+                  fontSize: 12,
+                  fillColor: '#dddddd',
+                  alignment: 'center',
+                  bold: true
+                },
+                {
+                  text: 'CRITERIO DE ACEPTACIÓN',
+                  fontSize: 11,
+                  fillColor: '#dddddd',
+                  alignment: 'center',
+                  bold: true
+                }
+              ],
+              [
+                {
+                  text: '1'
+                },
+                {
+                  text: `${data1.meta1}`,
+                  fontSize: 12,
+                },
+                {
+                  text: `${data1.a1}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data1.i1}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data1.S1}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data1.fE1}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data1.cA1}`,
+                  fontSize: 12
+                }
+              ],
+              [
+                {
+                  text: '2'
+                },
+                {
+                  text: `${data1.meta2}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data1.a2}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data1.i2}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data1.S2}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data1.fE2}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data1.cA2}`,
+                  fontSize: 12
+                }
+              ],
+              [
+                {
+                  text: '3'
+                },
+                {
+                  text: `${data1.meta3}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data1.a3}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data1.i3}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data1.S3}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data1.fE3}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data1.cA3}`,
+                  fontSize: 12
+                }
+              ]
+            ]
+          },
+          pageBreak: 'after'
+        },
+        // Segunda tabla
+        {
+          table: {
+            widths: [110, 460, 70, 70],
+            body: [
+              [
+                {
+                  text: 'OBJETIVO ',
+                  fontSize: 12,
+                  fillColor: '#dddddd'
+                },
+                {
+                  text: `${data2.objetivo}`,
+                  colSpan: 3,
+                  fontSize: 12
+                },
+                {},
+                {}
+              ],
+              [
+                {
+                  text: 'PROCESO',
+                  fontSize: 12,
+                  fillColor: '#dddddd'
+                },
+                {
+                  text: `${data2.proceso}`,
+                  colSpan: 3,
+                  fontSize: 12
+                },
+                {},
+                {}
+              ],
+              [
+                {
+                  text: 'RESPONSABLE',
+                  fontSize: 12,
+                  fillColor: '#dddddd'
+                },
+                {
+                  text: 'Representante Técnico',
+                  fontSize: 12
+                },
+                {
+                  text: 'PERIODO',
+                  fontSize: 12,
+                  fillColor: '#dddddd'
+                },
+                {
+                  text: 'Anual',
+                  fontSize: 12
+                }
+              ]
+            ]
+          }
+        },
+        {text: '\n'},
+        {
+          table: {
+            widths: [15, 170, 180, 75, 90, 94, 74],
+            heights: [10, 25, 25, 25],
+            body: [
+              [
+                {
+                  text: 'No.',
+                  fontSize: 12,
+                  fillColor: '#dddddd',
+                  alignment: 'center',
+                  bold: true
+                },
+                {
+                  text: 'METAS',
+                  fontSize: 12,
+                  fillColor: '#dddddd',
+                  alignment: 'center',
+                  bold: true
+                },
+                {
+                  text: 'ACTIVIDAD',
+                  fontSize: 12,
+                  fillColor: '#dddddd',
+                  alignment: 'center',
+                  bold: true
+                },
+                {
+                  text: 'INDICADOR',
+                  fontSize: 12,
+                  fillColor: '#dddddd',
+                  alignment: 'center',
+                  bold: true
+                },
+                {
+                  text: 'SOPORTE',
+                  fontSize: 12,
+                  fillColor: '#dddddd',
+                  alignment: 'center',
+                  bold: true
+                },
+                {
+                  text: 'FRECUENCIA DE EVALUACIÓN',
+                  fontSize: 12,
+                  fillColor: '#dddddd',
+                  alignment: 'center',
+                  bold: true
+                },
+                {
+                  text: 'CRITERIO DE ACEPTACIÓN',
+                  fontSize: 11,
+                  fillColor: '#dddddd',
+                  alignment: 'center',
+                  bold: true
+                }
+              ],
+              [
+                {
+                  text: '1'
+                },
+                {
+                  text: `${data2.meta1}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data2.a1}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data2.i1}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data2.S1}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data2.fE1}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data2.cA1}`,
+                  fontSize: 12
+                }],
+              [
+                {
+                  text: '2'
+                },
+                {
+                  text: `${data2.meta2}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data2.a2}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data2.i2}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data2.S2}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data2.fE2}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data2.cA2}`,
+                  fontSize: 12
+                }],
+              [
+                {
+                  text: '3'
+                },
+                {
+                  text: `${data2.meta3}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data2.a3}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data2.i3}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data2.S3}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data2.fE3}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data2.cA3}`,
+                  fontSize: 12
+                }
+              ]
+            ]
+          },
+          pageBreak: 'after'
+        },
+        // Tercera tabla
+        {
+          table: {
+            widths: [110, 460, 70, 70],
+            body: [
+              [
+                {
+                  text: 'OBJETIVO ',
+                  fontSize: 12,
+                  fillColor: '#dddddd'
+                },
+                {
+                  text: `${data3.objetivo}`,
+                  colSpan: 3,
+                  fontSize: 12
+                },
+                {},
+                {}
+              ],
+              [
+                {
+                  text: 'PROCESO',
+                  fontSize: 12,
+                  fillColor: '#dddddd'
+                },
+                {
+                  text: `${data3.proceso}`,
+                  colSpan: 3,
+                  fontSize: 12
+                },
+                {},
+                {}
+              ],
+              [
+                {
+                  text: 'RESPONSABLE',
+                  fontSize: 12,
+                  fillColor: '#dddddd'
+                },
+                {
+                  text: 'Representante Técnico',
+                  fontSize: 12
+                },
+                {
+                  text: 'PERIODO',
+                  fontSize: 12,
+                  fillColor: '#dddddd'
+                },
+                {
+                  text: 'Anual',
+                  fontSize: 12
+                }
+              ]
+            ]
+          }
+        },
+        {text: '\n'},
+        {
+          table: {
+            widths: [15, 170, 180, 75, 90, 94, 74],
+            heights: [10, 25, 25, 25],
+            body: [
+              [
+                {
+                  text: 'No.',
+                  fontSize: 12,
+                  fillColor: '#dddddd',
+                  alignment: 'center',
+                  bold: true
+                },
+                {
+                  text: 'METAS',
+                  fontSize: 12,
+                  fillColor: '#dddddd',
+                  alignment: 'center',
+                  bold: true
+                },
+                {
+                  text: 'ACTIVIDAD',
+                  fontSize: 12,
+                  fillColor: '#dddddd',
+                  alignment: 'center',
+                  bold: true
+                },
+                {
+                  text: 'INDICADOR',
+                  fontSize: 12,
+                  fillColor: '#dddddd',
+                  alignment: 'center',
+                  bold: true
+                },
+                {
+                  text: 'SOPORTE',
+                  fontSize: 12,
+                  fillColor: '#dddddd',
+                  alignment: 'center',
+                  bold: true
+                },
+                {
+                  text: 'FRECUENCIA DE EVALUACIÓN',
+                  fontSize: 12,
+                  fillColor: '#dddddd',
+                  alignment: 'center',
+                  bold: true
+                },
+                {
+                  text: 'CRITERIO DE ACEPTACIÓN',
+                  fontSize: 11,
+                  fillColor: '#dddddd',
+                  alignment: 'center',
+                  bold: true
+                }
+              ],
+              [
+                {
+                  text: '1'
+                },
+                {
+                  text: `${data3.meta1}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data3.a1}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data3.i1}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data3.S1}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data3.fE1}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data3.cA1}`,
+                  fontSize: 12
+                }
+              ],
+              [
+                {
+                  text: '2'
+                },
+                {
+                  text: `${data3.meta2}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data3.a2}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data3.i2}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data3.S2}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data3.fE2}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data3.cA2}`,
+                  fontSize: 1,
+                }
+              ],
+              [
+                {
+                  text: '3'
+                },
+                {
+                  text: `${data3.meta3}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data3.a3}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data3.i3}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data3.S3}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data3.fE3}`,
+                  fontSize: 12
+                },
+                {
+                  text: `${data3.cA3}`,
+                  fontSize: 1,
+                }
+              ]
+            ]
+          }
+        },
+        {text: '\n\n', pageBreak: 'after'},
+        {
+          table: {
+            widths: [200, 200, 140],
+            heights: [50, 30],
+            body: [
+              [
+                {
+                  text: `{firmaRepresentanteTecnico}`,
+                  fit: [100, 50],
+                  alignment: 'center',
+                  border: [true, true, true, false]
+                },
+                {
+                  text: `{firmaEstacion}`,
+                  fit: [100, 50],
+                  alignment: 'center',
+                  border: [true, true, true, false]
+                },
+                {
+                  text: '',
+                  fit: [100, 50],
+                  alignment: 'center',
+                  border: [true, true, true, false]
+                }
+              ],
+              [
+                {
+                  text: `REVISADO POR:\n {ddd.representanteTecnico} \n REPRESENTANTE TÉCNICO`,
+                  alignment: 'center',
+                  border: [true, false, true, true]
+                },
+                {
+                  text: `APROBADO POR:\n{ddd.maximaAutoridad}\nMAXIMA AUTORIDAD`,
+                  alignment: 'center',
+                  border: [true, false, true, true]
+                },
+                {
+                  text: `FECHA DE APROBACIÓN:\n{day}/{month}/{year}`,
+                  alignment: 'center',
+                  border: [true, false, true, true]
+                }
+              ]
+            ]
+          },
+          layout: {
+            defaultBorder: false
+          },
+          margin: [85, 0]
+        }
+      ],
+      pageOrientation: 'landscape',
+      pageSize: 'LETTER',
+      pageMargins: [22, 130]
+    };
+    
+    pdfMake.createPdf(dd).open();
+
+  }
 }

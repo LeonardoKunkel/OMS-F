@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Calendario de actividades</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="openCalModal()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-segment [(ngModel)]="calendar.mode">
+    <ion-segment-button value="month">
+      <ion-label>Mes</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="week">
+      <ion-label>Semana</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="day">
+      <ion-label>Día</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-row>
+    <ion-col size="12" size-md="6" size-lg="6">
+      <ion-button (click)="crearEventosAleatorios()" expand="block" fill="outline">
+        Agregar Eventos
+      </ion-button>
+    </ion-col>
+    <ion-col size="12" size-md="6" size-lg="6">
+      <ion-button (click)="removerEventos()" expand="block" fill="outline">
+        Remover todos los eventos
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  
+  <ion-row>
+    <ion-col size="2">
+      <ion-button (click)="back()" fill="clear">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-col>
+    <ion-col size="8" class="ion-text-center">
+      <h2>{{ viewTitle }}</h2>
+    </ion-col>
+    <ion-col size="2">
+      <ion-button (click)="next()" fill="clear">
+        <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <calendar
+  [eventSource]="eventSource"
+  [calendarMode]="calendar.mode"
+  [currentDate]="calendar.currentDate"
+  (onTitleChanged)="onViewTitleChanged($event)" 
+  >
+  </calendar>
+</ion-content>

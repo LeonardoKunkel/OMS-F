@@ -1,122 +1,84 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button (click)="cerrarSesion()">
-        <ion-icon slot="start" name="close-circle-outline"></ion-icon>
-        Cerrar sesión
-      </ion-button>
+      <ion-back-button defaultHref="/intro"></ion-back-button>
     </ion-buttons>
+    <ion-title class="ion-text-center">{{estacion.nombre}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
   <ion-grid fixed>
-    <ion-row>
-      <ion-col size="12">
-        <h3>Bienvenido a</h3>
-        <h1>Oil Management System</h1>
-        <hr class="linea">
+    <ion-row style="display: block; margin: auto;">
+      <ion-col size="12" sizeLg="3">
+        <ion-card>
+          <ion-card-content>
+            <p><b>Telefono:</b> {{estacion.telefono}}</p>
+            <p><b>Calle/Numero:</b>  {{estacion.calleNumero}}</p>
+            <p><b>Asentamiento:</b> {{cp.asentamiento}}</p>
+            <p><b>Ciudad:</b>  {{cp.ciudad}}</p>
+            <p><b>Estado:</b>  {{cp.estado}}</p>
+            <p><b>Municipio:</b>  {{cp.municipio}}</p>
+            <p><b>Cp:</b>  {{cp.cp}}</p>
+            <ion-item-divider color="light">
+              <ion-label>Gerente de la estación</ion-label>
+            </ion-item-divider>
+            <p><b>Nombre:</b>  {{gerente.nombre}} {{gerente.apellidos}}</p>
+            <p><b>Correo:</b> {{gerente.correo}}</p>
+            <p><b>Telefono:</b>  {{gerente.telefono}}</p>
+            <ion-item-divider color="light">
+              <ion-label>Maxima Autoridad </ion-label>
+            </ion-item-divider>
+            <p><b>Nombre:</b>  {{autoridad.nombre}} {{autoridad.apellidos}}</p>
+            <p><b>Correo:</b> {{autoridad.correo}}</p>
+            <p><b>Telefono:</b>  {{autoridad.telefono}}</p>
+            <ion-item-divider color="light">
+              <ion-label>Representante Tecnico</ion-label>
+            </ion-item-divider>
+            <p><b>Nombre:</b>  {{representante.nombre}} {{representante.apellidos}}</p>
+            <p><b>Correo:</b> {{representante.correo}}</p>
+            <p><b>Telefono:</b>  {{representante.telefono}}</p>
+          </ion-card-content>
+        </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-row class="carta-catalogo">
-    <ion-col sizeSm="6" sizeMd="6" sizeLg="4">
-      <ion-card (click)="autoridad()">
-        <ion-card-header>
-          <ion-card-title>Máxima Autoridad</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-item *ngFor="let data of maximaAut">
-            <ion-avatar slot="end">
-              <img src="../../assets/icon/demo_personal.png">
-            </ion-avatar>
-            <ion-label>
-              <h3>{{data.nombre}} {{data.apellidos}}</h3>
-              <p>Teléfono: {{data.telefono}}</p>
-              <p>Correo: {{data.correo}}</p>
-            </ion-label>
-          </ion-item>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-    <ion-col sizeSm="6" sizeMd="6" sizeLg="4">
-      <ion-card (click)="gerente()">
-        <ion-card-header>
-          <ion-card-title>Gerente de la Estación</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-card-content>
-            <ion-item *ngFor="let data of gerenteEst">
-              <ion-avatar slot="end">
-                <img src="../../assets/icon/demo_personal.png">
-              </ion-avatar>
-              <ion-label>
-                <h3>{{data.nombre}} {{data.apellidos}}</h3>
-                <p>Teléfono: {{data.telefono}}</p>
-                <p>Correo: {{data.correo}}</p>
-              </ion-label>
-            </ion-item>
-          </ion-card-content>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-    <ion-col sizeSm="6" sizeMd="6" sizeLg="4">
-      <ion-card (click)="representante()">
-        <ion-card-header>
-          <ion-card-title>Representante Técnico</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-item *ngFor="let data of representanteTec">
-            <ion-avatar slot="end">
-              <img src="../../assets/icon/demo_personal.png">
-            </ion-avatar>
-            <ion-label>
-              <h3>{{data.nombre}} {{data.apellidos}}</h3>
-              <p>Teléfono: {{data.telefono}}</p>
-              <p>Correo: {{data.correo}}</p>
-            </ion-label>
-          </ion-item>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col sizeSm="12" sizeMd="12" sizeLg="4" class="carta-mapa">
-      <ion-card (click)="mapa()">
-        <ion-card-header></ion-card-header>
-        <ion-card-content>
-          <ion-card-title style="color: azure; font-size: 30px;">Mapa</ion-card-title>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-    
-    <ion-col sizeSm="12" sizeMd="12" sizeLg="4" class="carta-calendario">
-      <ion-card (click)="abrirCalendario()">
-        <ion-card-header></ion-card-header>
-        <ion-card-content>
-          <ion-card-title style="color: black; font-size: 30px;">
-            Calendario
-          </ion-card-title>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-    
-    <ion-col sizeSm="12" sizeMd="12" sizeLg="4" class="carta-estadistica">
-      <ion-card (click)="grafica()">
-        <ion-card-header></ion-card-header>
-        <ion-card-content>
-          <ion-card-title style="color: azure; font-size: 30px;">
-            Gráfica
-          </ion-card-title>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row>
   <ion-grid fixed>
     <ion-row>
-      <ion-col size="6"></ion-col>
-      <ion-col size="6"></ion-col>
+      <ion-col size="12" sizeLg="4">
+        <ion-card (click)="mapa()">
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">Mapa</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-icon name="map-outline" size="large" style="margin: auto; display: block;"></ion-icon>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeLg="4">
+        <ion-card (click)="abrirCalendario()">
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">Calendario</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-icon name="calendar-outline" size="large" style="margin: auto; display: block;"></ion-icon>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeLg="4">
+        <ion-card (click)="grafica()">
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">Graficas</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-icon name="stats-chart-outline" size="large" style="margin: auto; display: block;"></ion-icon>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
     </ion-row>
   </ion-grid>
+
+  <ion-button (click)="goSasisopa()" expand="block" fill="clear" shape="round">
+    Sasisopa
+  </ion-button>
 </ion-content>
