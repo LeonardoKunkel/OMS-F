@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="start" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Federal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- <app-acordeon-federal [usuario]="usuarios[0]" ></app-acordeon-federal> -->
+
+<ion-grid fixed>
+  <ion-row style="margin: auto; display: block;">
+    <ion-col size="12">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title class="ion-text-center">Cumplimiento Regulatorio</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-card-header *ngFor="let data of regulaciones; let idxs=index">
+            <ion-item-divider style="border-radius: 10px;" color="light">
+              <ion-card-title >{{data.nombre}}</ion-card-title>
+            </ion-item-divider>
+            <div *ngFor="let datas of regulaciones[idxs].obligacion; let idx=index">
+              <app-acordeon-federal [usuario]="datas"></app-acordeon-federal>
+            </div>
+            <!-- <p *ngFor="let data of regulaciones[idxs].obligacion; let idx=index">A</p> -->
+            <!-- <app-acordeon-federal [usuario]="usuarios[0]" ></app-acordeon-federal> -->
+          </ion-card-header>
+
+          <!-- <div *ngFor="let data of regulaciones; let idxs=index" >
+            <ion-card-title>{{data.nombre}}</ion-card-title>
+            <div *ngFor="let datas of regulaciones[idxs].obligacion; let idx=index">
+              <ul>
+                <li (click)="opcion(datas)" class="lista">{{datas}}</li>
+                
+              </ul>
+            </div>
+          </div> -->
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

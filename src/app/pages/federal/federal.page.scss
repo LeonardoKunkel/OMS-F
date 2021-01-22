@@ -1,0 +1,8 @@
+.carta{
+    // background-image: url('../../../assets/images/flamas_azules_de_fondo.png');
+    border-radius: 25px;
+}
+ion-card:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}

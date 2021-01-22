@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="pdf()">
+        <ion-icon slot="end" name="print"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="e8-menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Lista Maestra de Documentos Internos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row class="row header">
+          <ion-col size="12" sizeLg="1" class="ion-text-center">Clave</ion-col>
+          <ion-col size="12" sizeLg="5" class="ion-text-center">DESCRIPCIÓN DEL DOCUMENTO</ion-col>
+          <ion-col size="12" sizeLg="2" class="ion-text-center">FECHA DE EMISIÓN</ion-col>
+          <ion-col size="12" sizeLg="2" class="ion-text-center">FECHA DE REVISIÓN</ion-col>
+          <ion-col size="12" sizeLg="2" class="ion-text-center">NO. DE REVISIÓN</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let data of PSA let idx=index;" class="row">
+          <ion-col size="12" sizeLg="1"> <p class="txt"><b>Clave:</b></p> {{data.clave}}</ion-col>
+          <ion-col size="12" sizeLg="5"> <p class="txt"><b>DESCRIPCIÓN DEL DOCUMENTO:</b></p> {{data.descripcion}}</ion-col>
+          <ion-col size="12" sizeLg="2"> <p class="txt"><b>FECHA DE EMISIÓN:</b> </p> hola</ion-col>
+          <ion-col size="12" sizeLg="2">
+              <ion-label class="txt" style="font-size: 8;"><b>FECHA DE REVISIÓN:</b></ion-label>
+              <ion-input type="date" [(ngModel)]="PSA[idx].fechaRevision" ></ion-input>
+          </ion-col>
+          <ion-col size="12" sizeLg="2">
+            <p class="txt"><b>NO. DE REVISIÓN:</b></p>
+            <p class="rev">0</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+      
+      <ion-grid >
+        <ion-row class="row header">
+          <ion-col size="12" sizeLg="1" class="ion-text-center">Clave</ion-col>
+          <ion-col size="12" sizeLg="5" class="ion-text-center">NOMBRE DEL FORMATO</ion-col>
+          <ion-col size="12" sizeLg="2" class="ion-text-center">FECHA DE EMISIÓN</ion-col>
+          <ion-col size="12" sizeLg="1.5" class="ion-text-center">DISPOSICIÓN</ion-col>
+          <ion-col size="12" sizeLg="1.5" class="ion-text-center">PROCEDIMIENTO ASOCIADO</ion-col>
+          <ion-col size="12" sizeLg="1" class="ion-text-center">NO. DE REVISIÓN</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let data of FS; let idx = index" class="row">
+          <ion-col size="12" sizeLg="1"><p class="txt"><b>CLAVE:</b> </p> {{data.clave}}</ion-col>
+          <ion-col size="12" sizeLg="5"><p class="txt"><b>NOMBRE DEL FORMATO:</b> </p>{{data.descripcion}}</ion-col>
+          <ion-col size="12" sizeLg="2">
+            poner fecha BD
+          </ion-col>
+          <ion-col size="12" sizeLg="1.5">
+            <ion-label class="txt" style="font-size: 8;"><b>DISPOSICIÓN:</b></ion-label>
+            <ion-input type="text" [(ngModel)]="FS[idx].disposicion" placeholder="Escribe ..."></ion-input>
+          </ion-col>
+          <ion-col size="12" sizeLg="1.5">
+            <ion-label class="txt" style="font-size: 8;"><b>PROCEDIMIENTO ASOCIADO:</b></ion-label>
+            N_Procedimiento
+            <!-- <ion-input type="text" placeholder="Awesome Input"></ion-input> -->
+          </ion-col>
+          <ion-col size="12" sizeLg="1">
+            <p class="txt"><b>NO. DE REVISIÓN:</b></p>
+            <p class="rev"> {{data.noRevicion}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

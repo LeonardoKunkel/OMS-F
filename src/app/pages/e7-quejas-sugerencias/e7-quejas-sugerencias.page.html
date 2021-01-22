@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="pdf()">
+        <ion-icon name="print"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/e7-menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Quejas y Sugerencias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form action="">
+    <ion-grid fixed>
+      <ion-row style="margin: auto; display: block;">
+        <ion-col size="12" sizeLg="4">
+          <ion-card>
+            <ion-card-content>
+              <div *ngFor="let att of anArray; let idx = index">
+                <ion-item-divider color="light">
+                  <ion-label>{{idx+1}}. QUEJAS, SUGERENCIAS O SOLICITUD DE INFORMACIÓN</ion-label>
+                </ion-item-divider>
+                <ion-item>
+                  <ion-label position="floating">Nombre de quien realiza(Queja/Sugerencia):</ion-label>
+                  <ion-input name="nombre" [(ngModel)]="anArray[idx].nombre"></ion-input>
+                  <p>{{anArray[idx].nombre}}</p>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Contacto (Correo/Celular):</ion-label>
+                  <ion-input name="contacto" [(ngModel)]="anArray[idx].contacto"></ion-input>
+                  <p>{{anArray[idx].contacto}}</p>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Tipo:</ion-label>
+                  <ion-select  placeholder="Selecciona" (ionChange)="change($event)">
+                    <ion-select-option value="Queja">Queja</ion-select-option>
+                    <ion-select-option value="Sugerencia">Sugerencia</ion-select-option>
+                    <ion-select-option value="Solicitud de información">Solicitud de información</ion-select-option>
+                  </ion-select>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Alteración:</ion-label>
+                  <ion-select (ionChange)="change2($event)"placeholder="Selecciona">
+                    <ion-select-option value="Condicion de riesgo">Condicion de riesgo</ion-select-option>
+                    <ion-select-option value="Impacto al medio ambiente">Impacto al medio ambiente</ion-select-option>
+                  </ion-select>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Descripción o Motivo:</ion-label>
+                  <ion-textarea  placeholder="Escribe" name="descripcion" [(ngModel)]="anArray[idx].descripcion" ></ion-textarea>
+                  <p>{{anArray[idx].descripcion}}</p>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Prioridad:</ion-label>
+                  <ion-select (ionChange)="change3($event)"placeholder="Selecciona">
+                    <ion-select-option value="Alta">Alta</ion-select-option>
+                    <ion-select-option value="Media">Media</ion-select-option>
+                    <ion-select-option value="Baja">Baja</ion-select-option>
+                  </ion-select>
+                </ion-item>
+
+              </div>
+              <ion-button (click)="add()" fill="clear" shape="round">
+                <ion-icon slot="start" name="add"></ion-icon>
+              </ion-button>
+              <ion-button (click)="enviar()" expand="block" fill="clear" shape="round">
+                Enviar
+              </ion-button>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

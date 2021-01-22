@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/e5-menu"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="pdf()">
+        <ion-icon slot="start" name="print"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Carta Designación</ion-title>
+    <ion-card-subtitle class="ion-text-center">{{datosEstacion.nombre}}</ion-card-subtitle>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row style="margin: auto; display: block;">
+      <ion-col size="12" sizeLg="8">
+        <ion-card>
+          <ion-card-content>
+            En seguimiento al proceso de la Implantación del Sistema de Administración de la Seguridad Industrial,
+              Seguridad Operativa y Protección al medio Ambiente, en la Gasolinera <b>{{datosEstacion.nombre}}</b> , ubicada en
+              <b>{{datosEstacion.calleNumero}}</b>, C.P. <b>{{cp.cp}}</b>,
+              <b>{{cp.estado}}</b>, <b>{{cp.ciudad}}</b>, el que suscribe <b style="font-size: 15px;">{{representante.nombre}} {{representante.apellidos}}</b>, Representante
+              Legal me permito hacer de su conocimiento que ha sido designado Representante Técnico, para fungir
+              como Representante de la Estación de Servicio ante la ASEA, y para cumplir con lo siguiente:
+              <ol>
+                <li>Asegurar que el SA es conforme con los requisitos establecidos en los lineamientos y
+                  demás normativa aplicable.
+                </li>
+                <li>
+                  Informar a la alta dirección de la Estación de Servicio acerca del desempeño del Sistema
+                  de Administración.
+                </li>
+                <li>Proponer la adopción de las mejores prácticas nacionales e internacionales en la
+                  implementación del Sistema de Administración.
+                </li>
+                <li>Coordinar las acciones necesarias para subsanar los incumplimientos de la normatividad
+                  interna y externa aplicable.</li>
+                <li>Informar a la Agencia de cualquier situación que pudiera poner en riesgo la seguridad
+                  Industrial, seguridad Operativa y Protección al Ambiente.
+                </li>
+              </ol>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

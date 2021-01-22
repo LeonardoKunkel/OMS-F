@@ -37,6 +37,12 @@ export class E7MenuPage implements OnInit {
   }
 
   goPuntoEvidencia() {
-    this.navCtrl.navigateForward('/');
+    // this.navCtrl.navigateForward('/e7-quejas-sugerencias');
+  }
+  goQuejas(){
+    this.navCtrl.navigateForward('/e7-quejas-sugerencias');
+  }
+  goRegistroControl(){
+    this.navCtrl.navigateForward('/e7registro-control-quejas');
   }
 }

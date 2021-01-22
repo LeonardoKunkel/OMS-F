@@ -1,14 +1,7 @@
 import { Component } from '@angular/core';
-import { ModalController, NavController } from '@ionic/angular';
-import { AutoridadPage } from '../pages/autoridad/autoridad.page';
-import { GerentePage } from '../pages/gerente/gerente.page';
-import { RepresentantePage } from '../pages/representante/representante.page';
-import { EstacionPage } from '../pages/estacion/estacion.page';
-import { Router } from '@angular/router';
-import { AutenticacionService } from '../services/autenticacion.service';
-import { RepresentanteService } from '../services/representante.service';
-import { GerenteService } from '../services/gerente.service';
-import { AutoridadService } from '../services/autoridad.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
+import { EstacionService } from '../services/estacion.service';
 
 @Component({
   selector: 'app-tab1',
@@ -16,82 +9,44 @@ import { AutoridadService } from '../services/autoridad.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-
-  maximaAut: any[] = [];
-  gerenteEst: any[] = [];
-  representanteTec: any[] = [];
-
+  estacion:any={};
+  cp:any={};
+  gerente:any={};
+  autoridad:any={};
+  representante:any={};
+  idEstacion:'';
   constructor(
-    public modalCtrl: ModalController,
-    public navCtrl: NavController,
-    private authService: AutenticacionService,
-    private router: Router,
-    private autoridadService: AutoridadService,
-    private representanteService: RepresentanteService,
-    private gerenteService: GerenteService
-  ) {
-    this.getAutoridad();
-    this.getGerente();
-    this.getRepresentante();
+    private router:ActivatedRoute,
+    private route: Router,
+    private _estacion:EstacionService,
+    private navCtrl:NavController
+
+   ) {
+    const id = this.router.snapshot.paramMap.get('custom_id');
+    this.getEstacionID(id);
   }
 
-  async autoridad() {
-    const modal = await this.modalCtrl.create({
-      component: AutoridadPage
-    });
-    return await modal.present();
-  }
-
-  async gerente() {
-    const modal = await this.modalCtrl.create({
-      component: GerentePage
-    });
-    return await modal.present();
-  }
-
-  getAutoridad() {
-    this.autoridadService.getAutoridad().subscribe((data: any) => {
-      console.log(data);
-      this.maximaAut = data.autoridad;
+  getEstacionID(id:string){
+    this._estacion.getEstacionId(id).subscribe((data: any)=>{
+      this.idEstacion = data._id;
+      this.estacion = data;
+      this.cp = data.cp;
+      this.gerente = data.idGerente;
+      this.autoridad = data.idAutoridad;
+      this.representante = data.idRepresentante;
+      console.log(data, ' Esta es tu estacion');
     });
   }
 
-  getRepresentante() {
-    this.representanteService.getRepresentante().subscribe((data: any) => {
-      console.log(data);
-      this.representanteTec = data.representante;
-    });
+  goSasisopa(){
+    // console.log('Hola mundo', this.idEstacion);
+    this.route.navigate(['/tabs/tab2', {custom_id: this.idEstacion}]);
+    
   }
-
-  getGerente() {
-    this.gerenteService.getGerente().subscribe((data: any) => {
-      console.log(data);
-      this.gerenteEst = data.gerente;
-    });
-  }
-
-  async representante() {
-    const modal = await this.modalCtrl.create({
-      component: RepresentantePage
-    });
-    return await modal.present();
-  }
-
-  async estacion() {
-    const modal = await this.modalCtrl.create({
-      component: EstacionPage
-    });
-    return await modal.present();
-  }
-
   mapa() {
     this.navCtrl.navigateForward('/mapa');
   }
 
-  async cerrarSesion() {
-    await this.authService.logout();
-    this.router.navigateByUrl('/', { replaceUrl: true });
-  }
 
   abrirCalendario() {
     this.navCtrl.navigateForward('/calendario');

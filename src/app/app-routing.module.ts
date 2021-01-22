@@ -178,7 +178,83 @@ const routes: Routes = [
   {
     path: 'e6-personal-mantenimiento',
     loadChildren: () => import('./pages/e6-personal-mantenimiento/e6-personal-mantenimiento.module').then( m => m.E6PersonalMantenimientoPageModule)
+  },  {
+    path: 'e3-requisitos-legales',
+    loadChildren: () => import('./pages/e3-requisitos-legales/e3-requisitos-legales.module').then( m => m.E3RequisitosLegalesPageModule)
+  },
+  {
+    path: 'e5-matriz-responsabilidad',
+    loadChildren: () => import('./pages/e5-matriz-responsabilidad/e5-matriz-responsabilidad.module').then( m => m.E5MatrizResponsabilidadPageModule)
+  },
+  {
+    path: 'e5-carta-designacion',
+    loadChildren: () => import('./pages/e5-carta-designacion/e5-carta-designacion.module').then( m => m.E5CartaDesignacionPageModule)
+  },
+  {
+    path: 'e6-deteccion-necesidades',
+    loadChildren: () => import('./pages/e6-deteccion-necesidades/e6-deteccion-necesidades.module').then( m => m.E6DeteccionNecesidadesPageModule)
+  },
+  {
+    path: 'e6-programa-capacitacion',
+    loadChildren: () => import('./pages/e6-programa-capacitacion/e6-programa-capacitacion.module').then( m => m.E6ProgramaCapacitacionPageModule)
+  },
+  {
+    path: 'e6-seguimiento-programa-capacitacion',
+    loadChildren: () => import('./pages/e6-seguimiento-programa-capacitacion/e6-seguimiento-programa-capacitacion.module').then( m => m.E6SeguimientoProgramaCapacitacionPageModule)
+  },
+  {
+    path: 'e7-quejas-sugerencias',
+    loadChildren: () => import('./pages/e7-quejas-sugerencias/e7-quejas-sugerencias.module').then( m => m.E7QuejasSugerenciasPageModule)
+  },
+  {
+    path: 'e7registro-control-quejas',
+    loadChildren: () => import('./pages/e7registro-control-quejas/e7registro-control-quejas.module').then( m => m.E7registroControlQuejasPageModule)
+  },
+  {
+    path: 'e8-lista-maestra-documentos-internos',
+    loadChildren: () => import('./pages/e8-lista-maestra-documentos-internos/e8-lista-maestra-documentos-internos.module').then( m => m.E8ListaMaestraDocumentosInternosPageModule)
+  },
+  {
+    path: 'e9-listado-codigos-estandares',
+    loadChildren: () => import('./pages/e9-listado-codigos-estandares/e9-listado-codigos-estandares.module').then( m => m.E9ListadoCodigosEstandaresPageModule)
+  },
+  {
+    path: 'federal',
+    loadChildren: () => import('./pages/federal/federal.module').then( m => m.FederalPageModule)
+  },
+  {
+    path: 'municipal',
+    loadChildren: () => import('./pages/municipal/municipal.module').then( m => m.MunicipalPageModule)
+  },
+  {
+    path: 'estatal',
+    loadChildren: () => import('./pages/estatal/estatal.module').then( m => m.EstatalPageModule)
+  },
+  {
+    path: 'calendario-cre',
+    loadChildren: () => import('./pages/calendario-cre/calendario-cre.module').then( m => m.CalendarioCrePageModule)
+  },
+  {
+    path: 'estatal-model',
+    loadChildren: () => import('./pages/estatal-model/estatal-model.module').then( m => m.EstatalModelPageModule)
+  },
+  {
+    path: 'federal-model',
+    loadChildren: () => import('./pages/federal-model/federal-model.module').then( m => m.FederalModelPageModule)
+  },
+  {
+    path: 'municipal-model',
+    loadChildren: () => import('./pages/municipal-model/municipal-model.module').then( m => m.MunicipalModelPageModule)
+  },
+  {
+    path: 'solicitud-cambios',
+    loadChildren: () => import('./pages/solicitud-cambios/solicitud-cambios.module').then( m => m.SolicitudCambiosPageModule)
+  },
+  {
+    path: 'e8-solicitud-cambios',
+    loadChildren: () => import('./pages/e8-solicitud-cambios/e8-solicitud-cambios.module').then( m => m.E8SolicitudCambiosPageModule)
   }
+
 
 
 

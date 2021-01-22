@@ -47,11 +47,11 @@ export class IntroPage implements OnInit {
         {
           text: 'Ok',
           handler: (id) => {
-            console.log(id);
+            //console.log(id);
             this.router.navigate(['tabs/tab1', {custom_id: id}]);
           }
         }
-      ]
+      ] 
     });
     await alert.present();
   }

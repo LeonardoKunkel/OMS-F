@@ -1,0 +1,38 @@
+
+<ion-grid fixed>
+  <ion-row>
+    <ion-col size="12">
+      <ion-card>
+        <ion-card-header class="card-header">
+          <ion-toolbar>
+            <ion-buttons slot="end">
+              <ion-button  (click)="toggleAcordeon()">
+                <ion-icon slot="start" name="chevron-down-outline"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+            <ion-card-subtitle style="font-size: 8px;">{{usuario.nombre}}</ion-card-subtitle>
+          </ion-toolbar>
+        </ion-card-header>
+        <ion-card-content #cc class="card-content">
+          {{usuario.description}}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<!-- <ion-list>
+  <ion-item>
+    <ion-label class="ion-text-wrap">
+      <p style="color: blue; font-size: 19px;">
+        Nombre: {{usuario.nombre}}
+      </p>
+      <p>
+        Apellido: {{usuario.apellido}}
+      </p>
+      <p>
+        Edad: {{usuario.edad}}
+      </p>
+    </ion-label>
+    <ion-icon (click)="deleteUser()" slot="end" name="trash"></ion-icon>
+  </ion-item>
+</ion-list> -->

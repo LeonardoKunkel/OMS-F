@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/e5-menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Matriz Responsabilidad</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row class="row header" *ngFor="let data of matriz; let indice=index">
+          <ion-col size="12" sizeLg="8" class="col" >{{indice+1}}.- {{data.elemento}} </ion-col>
+          <ion-col size="12">
+            <p>{{data.incisos[0].a}}</p>
+            <p>{{data.incisos[0].b}}</p>
+            <p>{{data.incisos[0].c}}</p>
+            <p>{{data.incisos[0].d}}</p>
+            <p>{{data.incisos[0].e}}</p>
+            <p>{{data.incisos[0].f}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row  class="row" >
+          <!-- <p>{{data.incisos[0].a}}</p> -->
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <!-- <ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
+    Click me
+  </ion-button>
+ <div *ngFor="let data of matriz; let indice=index">
+  <p>{{data.elemento}}</p>
+  <div >
+    <p>{{data.incisos[0].a}}</p>
+    <p>{{data.incisos[0].b}}</p>
+    <p>{{data.incisos[0].c}}</p>
+    <p>{{data.incisos[0].d}}</p>
+  </div>
+ </div>
+
+ <div *ngFor="let datas of array;">
+ </div> -->
+</ion-content>

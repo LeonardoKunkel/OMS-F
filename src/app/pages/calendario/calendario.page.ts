@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController, NavController } from '@ionic/angular';
 import { CalendarComponent } from 'ionic2-calendar';
 import { CalModalPage } from './../cal-modal/cal-modal.page';
+import { FederalModelPage } from '../federal-model/federal-model.page';
+import { EstatalModelPage  }  from '../estatal-model/estatal-model.page';
+import { MunicipalModelPage }  from '../municipal-model/municipal-model.page';
 
 @Component({
   selector: 'app-calendario',
@@ -9,6 +12,10 @@ import { CalModalPage } from './../cal-modal/cal-modal.page';
   styleUrls: ['./calendario.page.scss'],
 })
 export class CalendarioPage implements OnInit {
+
+  Asea:any="<ul><li>Programa de Mantenimiento Anualizado con programacion de actividades</li><li>Llenado de Bitacoras  NOM-005-ASEA-2016</li><li>Certificados de Funcionamiento de Tierras Fisicas y Sistema Electrico</li><li>Pruebas de Hermeticidad en Tanques y Lineas</li><li>Prueba de la Eficiencia del sistema de recuperacion de vapores (DONDE APLIQUE)</li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul>"
+
+  cre:any="<ul><li>Estructura de capital</li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul>"
 
   eventSource = [];
   viewTitle: string;
@@ -20,9 +27,54 @@ export class CalendarioPage implements OnInit {
 
   @ViewChild(CalendarComponent) myCal: CalendarComponent;
 
-  constructor( private modalCtrl: ModalController ) { }
+  constructor( 
+    private modalCtrl: ModalController,
+    private navCtrl:NavController,
+    public alertController: AlertController
+  ) { }
 
   ngOnInit() {
+  }
+
+  async alertFederal(){
+    const modal = await this.modalCtrl.create({
+      component: FederalModelPage,
+      cssClass: 'cal-modal',
+      backdropDismiss: false
+    });
+
+    await modal.present();
+  }
+
+  async alertEstatal(){
+    const modal = await this.modalCtrl.create({
+      component: EstatalModelPage,
+      cssClass: 'cal-modal',
+      backdropDismiss: false
+    });
+
+    await modal.present();
+  }
+
+  async alertMunicipal(){
+    const modal = await this.modalCtrl.create({
+      component: MunicipalModelPage,
+      cssClass: 'cal-modal',
+      backdropDismiss: false
+    });
+
+    await modal.present();
+  }
+
+  federal(){
+    this.navCtrl.navigateForward('/federal');
+  }
+
+  estatal(){
+    this.navCtrl.navigateForward('/estatal');
+  }
+  municipal(){
+    this.navCtrl.navigateForward('/municipal');
   }
 
   next() {

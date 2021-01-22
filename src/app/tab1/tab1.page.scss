@@ -1,45 +1,5 @@
-.linea{
-    background-color: #2b8ae4;
-    height: 3px;
-    margin-bottom: 20px;
-}
-.logo {
-    height: 10%;
-    width: 10%;
-}
-.titulo {
-    font-size: 30px;
-    color: black;
-    margin-top: 5px;
-}
-.carta-catalogo {
-    ion-card {
-        background-image: url(../../assets/images/Blue_logo_home.png);
-    }
-}
-.carta-mapa {
-    ion-card {
-        background-image: url(../../assets/images/Mapa_inicio.png);
-    }
-    ion-card-header {
-        margin-top: 130px;
-    }
-}
-.carta-calendario {
-    ion-card {
-        background-image: url(../../assets/images/Calendario_1.png);
-    }
-    ion-card-header {
-        margin-top: 130px;
-    }
-}
-.carta-estadistica {
-    ion-card {
-        background-image: url(../../assets/images/estadisticas_1.png);
-    }
-    ion-card-header {
-        margin-top: 130px;
-    }
+.iconos{
+    font-size: 100px;
 }
 ion-card:hover {
     transform: scale(1.1);
