@@ -55,6 +55,20 @@
                   required>
                 </ion-input>
               </ion-item>
+              <ion-grid fixed>
+                <ion-row>
+                  <ion-col size="5" style="margin: auto; display: block;">
+                    <signature-pad class="firma"
+                    [options]="signaturePadOptions" 
+                    (onBeginEvent)="drawStart()" 
+                    (onEndEvent)="drawComplete()">
+                    </signature-pad>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-button (click)="clear()" shape="round">
+                Borrar firma
+              </ion-button>
               <ion-button 
                 type="submit" 
                 expand="block" 

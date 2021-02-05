@@ -2,10 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { EstacionService } from 'src/app/services/estacion.service';
-import * as pdfMake from "pdfmake/build/pdfmake";
-import * as pdfFonts from 'pdfmake/build/vfs_fonts';
-(<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
-
+import { Canvas, Cell, Columns, Img, Line, PageReference, PdfMakeWrapper, Table, Txt } from 'pdfmake-wrapper';
+import { RepresentanteService } from 'src/app/services/representante.service';
+import { from } from 'rxjs';
 @Component({
   selector: 'app-e1-politica',
   templateUrl: './e1-politica.page.html',
@@ -17,11 +16,13 @@ export class E1PoliticaPage implements OnInit {
   @ViewChild('politica2') politicaDos;
   @ViewChild('politica3') politicaTres;
   politicaEscogida:'';
+  firmaRepresentante:'';
 
   constructor(
     private route: ActivatedRoute,
     public alertCtrl: AlertController,
-    private _estacionService : EstacionService
+    private _estacionService : EstacionService,
+    private _representanteService: RepresentanteService
     ) { }
 
   ngOnInit() {
@@ -33,6 +34,16 @@ export class E1PoliticaPage implements OnInit {
   getEstacion(id: string){
     this._estacionService.getEstacionId(id).subscribe((data: any) => {
       this.datosEstacion = data;
+       console.log(data,' esta es tu data');
+      this._getRepresentante(data.idRepresentante._id);
+      
+    });
+  }
+
+  _getRepresentante(id:string){
+    this._representanteService.getRepresentanteId(id).subscribe((data:any)=>{
+      console.log(data,'Representante');
+      this.firmaRepresentante = data.newRepresentante.firma;
     });
   }
 
@@ -87,17 +98,62 @@ export class E1PoliticaPage implements OnInit {
     await alert.present();
   }
 
-  pdf(){
-    const dd ={
-      content:[
-        'texto Libre',
-        {text:`${this.politicaEscogida}`,fontSize:10, bold:true}
+  async pdf(){
+    // PdfMakeWrapper.useFont('Sony_Sketch_EF');
+    let pdf = new PdfMakeWrapper();
+  
+    pdf.header(
+      await new Table([
+        [
+            new Columns([
+            // await new Img ('../../../assets/icon/favicon.png').
+            await new Img (`http://localhost:3000/logo/${this.datosEstacion.filename}`).
+            height(55).
+            width(40).
+            alignment('center')
+            .build(),
+            new Txt(`${this.datosEstacion.nombre}`).alignment('center').fontSize(15).bold().end
+          ]).end
+        ],
+          [new Cell(new Txt('I. POLÍTICA').alignment('center').end).end],
+          [new Cell(new Txt('SISTEMA DE LA ADMINISTRACIÓN DE LA SEGURIDAD INDUSTRIAL SEGURIDAD OPERATIVA Y PROTECCIÓN DEL MEDIO AMBIENTE').fontSize(8).alignment('center').end).fillColor('#d7d8d6').end]
+      ]).margin([20,0]).relativePosition(90,90).margin(-70 |-100).widths([560]).end
+    );
+    
+    pdf.background(
+      [
+        await new Img(`http://localhost:3000/logo/${this.datosEstacion.filename}`).
+        height(300).
+        width(200).
+        opacity(0.3).
+        margin([200,300]).
+        build()
       ]
-    };
+    );
 
-    pdfMake.createPdf(dd).open();
-    // console.log(this.politicaEscogida);
-    //Nadamas falta guardar la politica escogida a la base de datos
+    
+    pdf.add([
+      new Txt(`${this.politicaEscogida}`).margin([20,120]).alignment('justify').fontSize(20).end,
+      await new Img(`${this.firmaRepresentante}`).height(80).width(80).alignment('center').build() ,
+      new  Canvas ( [ 
+          new  Line ( [ 10 , 10 ] ,  [ 150 ,  10 ] ) . end
+      ] ).alignment('center').end ,
+      new Txt('REPRESENTANTE LEGAL').alignment('center').end ,
+      new Txt(`${this.datosEstacion.idRepresentante.nombre} ${this.datosEstacion.idRepresentante.apellidos}`).alignment('center').end ,
+    ]);
+
+    pdf.footer(
+      await new Img (`../../../assets/images/footer.png`).
+      height(80).
+      width(600).
+      margin([0,-70]).
+      build(),
+    )
+
+    pdf.pageSize('LETTER');
+    pdf.pageMargins([20, 30, 30, 20]);
+    pdf.pageOrientation('portrait');
+    pdf.create().open();
   }
 
 }

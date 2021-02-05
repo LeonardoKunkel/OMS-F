@@ -1,8 +1,36 @@
-.linea{
-    background-color: #D79043;
-    height: 3px;
+@import '~swiper/swiper-bundle';
+
+.header{
+    background-color: gray;
+    border-radius: 15px;
+    color: white;
 }
-.linea1{
-    background-color: #0080BB;
-    height: 2px;
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+  }
+  
+.custom-icon{
+    font-size: 64px;
+}
+
+.custom-icon:hover{
+    color: blue;
+}
+.label{
+    display: none;
+}
+@media(max-width: 900px){
+    .header{
+        display: none;
+    }
+
+    .label{
+        display: inline;
+        font-size: 15px;
+        color: black;
+    }
 }

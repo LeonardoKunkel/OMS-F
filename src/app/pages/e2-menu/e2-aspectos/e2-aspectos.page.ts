@@ -1,13 +1,1007 @@
-import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { newArray } from '@angular/compiler/src/util';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonSlides, ModalController, ToastController } from '@ionic/angular';
 import { E2AspectosService } from 'src/app/services/e2-aspectos.service';
-
+import { Cell, PdfMakeWrapper, Table, Txt } from 'pdfmake-wrapper';
+import { AspectosModalPage } from './aspectos-modal/aspectos-modal.page';
 @Component({
   selector: 'app-e2-aspectos',
   templateUrl: './e2-aspectos.page.html',
   styleUrls: ['./e2-aspectos.page.scss'],
 })
 export class E2AspectosPage implements OnInit {
+
+  @ViewChild('mySlider')  slides: IonSlides;
+
+  public swipeNext(){
+    this.slides.slideNext();
+  }
+  
+  public swipeBack(){
+    this.slides.slidePrev();
+  }
+
+  aspectosAmbientales:any=[
+    {
+      area:'ALMACENAMIENTO DE COMBUSTIBLES',
+      array:[
+        {
+          act:'Entrada maniobra de autotanque (Recepción AT)',
+          eql:'Autotanque',
+          element:'HTC, BETX y Hexano',
+          imAmb:'Aire',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'Licencia Ambiental Única (LAU)',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'X',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Evitar derrames',
+          proc:[
+            'P-OP-01',
+            'P-IM-02'
+          ]
+        },
+        {
+          act:'Toma muestra de producto (Recepción AT)',
+          eql:'Autotanque',
+          element:'HTC, BETX y Hexano',
+          imAmb:'Aire',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'Licencia Ambiental Única (LAU)',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Evitar derrames',
+          proc:[
+            'P-OP-01'
+          ]
+        },
+        {
+          act:'Conexión de mangueras (Recepción AT) ',
+          eql:'Autotanque y tanque de almacenamiento',
+          element:'HTC, BETX y Hexano',
+          imAmb:'Aire',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'Licencia Ambiental Única (LAU)',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Evitar derrames',
+          proc:[
+            'P-OP-01',
+            'P-IM-02'
+          ]
+        },
+        {
+          act:'Descarga de hidrocarburo (Recepción AT) ',
+          eql:'Autotanque y tanque de almacenamiento',
+          element:'HTC, BETX y Hexano',
+          imAmb:'Aire',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'Licencia Ambiental Única (LAU)',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Evitar emisiones',
+          proc:[
+            'P-OP-01'
+          ]
+        },
+        {
+          act:'Derrame durante en llenado (Recepción AT)',
+          eql:'Autotanque y tanque de almacenamiento',
+          element:'HTC, BETX y Hexano',
+          imAmb:'Aire',
+          realPot:'Potencial',
+          condOp:'Emergencia',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'Licencia Ambiental Única (LAU)',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Evitar derrames',
+          proc:[
+            'P-OP-01'
+          ]
+        },
+        {
+          act:'Desconexión de Mangueras (Recepción AT)',
+          eql:'Autotanque y tanque de almacenamiento',
+          element:'HTC, BETX y Hexano',
+          imAmb:'Aire',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'Licencia Ambiental Única (LAU)',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Evitar derrames',
+          proc:[
+            'P-OP-01'
+          ]
+        },
+        {
+          act:'',
+          eql:'Autotanque y tanque de almacenamiento',
+          element:'Hidrocarburo goteo al piso ',
+          imAmb:'Suelo',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'NOM-002-SEMARNAT-1996',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Evitar derrames',
+          proc:[
+            'P-OP-01'
+          ]
+        },
+        {
+          act:'Desconexión de Mangueras (Recepción AT) ',
+          eql:'Autotanque y tanque de almacenamiento',
+          element:'Hidrocarburo goteo que se lava y se va al drenaje',
+          imAmb:'Agua',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'NOM-002-SEMARNAT-1996',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Evitar derrames',
+          proc:[
+            'P-OP-01'
+          ]
+        },
+        {
+          act:'Escurrimiento de autotanque(Recepción AT)',
+          eql:'Autotanque y tanque de almacenamiento',
+          element:'HTC, BETX y Hexano',
+          imAmb:'Aire',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'Licencia Ambiental Única (LAU',
+          eliminacion:'',
+          sustitucion:'',
+          control:'X',
+          senalizacion:'',
+          controlAmbo:'',
+          epp:'',
+          objMeta:'Evitar derrames',
+          proc:[
+            'P-OP-01'
+          ]
+        },
+        {
+          act:'Salida maniobra de autotanque(Recepción AT)',
+          eql:'Autotanque',
+          element:'HTC, BETX y Hexano',
+          imAmb:'Aire',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'Licencia Ambiental Única (LAU)',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'X',
+          controlAmbo:'',
+          epp:'',
+          objMeta:'Evitar incidentes',
+          proc:[
+            'P-OP-01',
+            'P-IM-02'
+          ]
+        },
+        {
+          act:'Almacenamiento derrame',
+          eql:'Tanque de almacenamiento',
+          element:'Hidrocarburo',
+          imAmb:'Suelo',
+          realPot:'Potencial',
+          condOp:'Emergencia',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'NOM-138-SEMARNAT/SSA1-2012,',
+          eliminacion:'',
+          sustitucion:'',
+          control:'X',
+          senalizacion:'',
+          controlAmbo:'',
+          epp:'',
+          objMeta:'Evitar derrames',
+          proc:[
+            'P-OP-01',
+            'P-IM-02',
+            'P-SA-06'
+          ]
+        },
+        {
+          act:'Almacenamiento derrame',
+          eql:'Tanque de almacenamiento',
+          element:'Hidrocarburo',
+          imAmb:'Suelo',
+          realPot:'Potencial',
+          condOp:'Emergencia',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'NOM-138-SEMARNAT/SSA1-2012,',
+          eliminacion:'',
+          sustitucion:'',
+          control:'X',
+          senalizacion:'',
+          controlAmbo:'',
+          epp:'',
+          objMeta:'Evitar derrames',
+          proc:[
+            'P-OP-01',
+            'P-IM-02',
+            'P-SA-06'
+          ]
+        },
+        {
+          act:'Venteo',
+          eql:'Tuberías de venteo',
+          element:'HTC, BETX y Hexano',
+          imAmb:'Aire',
+          realPot:'Potencial',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'LAU) Licencia Ambiental Única ',
+          eliminacion:'',
+          sustitucion:'',
+          control:'X',
+          senalizacion:'',
+          controlAmbo:'',
+          epp:'',
+          objMeta:'Evitar emisiones',
+          proc:[
+            'P-IM-02'
+          ]
+        },
+        {
+          act:'Venteo incendio',
+          eql:'Tuberías de venteo',
+          element:'Emisiones',
+          imAmb:'Aire',
+          realPot:'Potencial',
+          condOp:'Emergencia',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Evitar emisiones',
+          proc:[
+            'P-OP-01',
+            'P-IM-02',
+            'P-PRE-01'
+          ]
+        },
+        {
+          act:'Retiro de aguas aceitosas (purgado de agua)',
+          eql:'Tanque de almacenamiento',
+          element:'Agua contaminada',
+          imAmb:'Agua',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'NOM-002-SEMARNAT-1996',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Control de residuos',
+          proc:[
+            'P-IM-02'
+          ]
+        },
+        {
+          act:'Retiro de lodos(limpieza interior de tanque)',
+          eql:'Tanque de almacenamiento',
+          element:'Lodos aceitosos',
+          imAmb:'Residuos Peligrosos',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'NOM-052-SEMARNAT-2005',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Control de residuos',
+          proc:[
+            'P-IM-02',
+            'P-TS-05'
+          ]
+        },
+        {
+          act:'Retiro de aguas aceitosas y materiales impregnados(limpieza de bocatomas)',
+          eql:'Tanque de almacenamiento',
+          element:'Residuos impregnados',
+          imAmb:'Residuos Peligrosos',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'NOM-052-SEMARNAT-2005',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Control de residuos',
+          proc:[
+            'P-IM-02',
+            'P-TS-05'
+          ]
+        }
+       ]
+    },
+    {
+      area:'MÓDULO DE DESPACHO DE ABASTECIMIENTO DE COMBUSTIBLE A VEHICULOS',
+      array:[
+        {
+          act:'Generación de aguas aceitosas y materiales impregnados(limpieza del área)',
+          eql:'Área de tanque de almacenamiento',
+          element:'Agua contaminada',
+          imAmb:'Agua',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'NOM-002-SEMARNAT-1996',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Control de residuos',
+          proc:[
+            'P-IM-04',
+            'P-IM-05'
+          ]
+        },
+        {
+          act:'Colocación de la pistola en el vehículo',
+          eql:'Vehículo',
+          element:'Hidrocarburo goteo y se lava y se va al drenaje',
+          imAmb:'Agua',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'NOM-002-SEMARNAT-1996',
+          eliminacion:'',
+          sustitucion:'x',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'',
+          epp:'',
+          objMeta:'Evitar derrames',
+          proc:[
+            'P-OP-02'
+          ]
+        },
+        {
+          act:'Carga de hidrocarburo',
+          eql:'Vehículo',
+          element:'HTC, BETX y Hexano',
+          imAmb:'Aire',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'(LAU) Licencia Ambiental Única ',
+          eliminacion:'',
+          sustitucion:'',
+          control:'x',
+          senalizacion:'',
+          controlAmbo:'',
+          epp:'',
+          objMeta:'Evitar derrames',
+          proc:[
+            'P-OP-02'
+          ]
+        },
+        {
+          act:'Termino del despacho y retiro de pistola del vehículo',
+          eql:'Vehículo',
+          element:'Hidrocarburo goteo y se lava y se va al drenaje',
+          imAmb:'Agua',
+          realPot:'REAL',
+          condOp:'',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'NOM-002-SEMARNAT-1996',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Evitar derrame',
+          proc:[
+            'P-OP-02'
+          ]
+        },
+        {
+          act:'Suministro de lubricantes, aditivos.',
+          eql:'Vehículo',
+          element:'Envases y estopa o franela impregnados de aceite o aditivos',
+          imAmb:'Residuos peligrosos',
+          realPot:'REAL',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'NOM-052-SEMARNAT-2005',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Control de residuos',
+          proc:[
+            'P-OP-02'
+          ]
+        },
+        {
+          act:'Limpieza de dispensarios e islas',
+          eql:'Dispensario',
+          element:'Consumo de agua',
+          imAmb:'Agua',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'Ley de aguas Nacionales (LAN) 2012',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Reducir consumo de agua',
+          proc:[
+            'P-IM-01'
+          ]
+        },
+        {
+          act:'Limpieza de contenedores',
+          eql:'Dispensario',
+          element:'Aguas contaminadas y material impregnados con hidrocarburos ',
+          imAmb:'Residuos peligrosos',
+          realPot:'REAL',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'NOM-052-SEMARNAT-2005',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Control de residuos',
+          proc:[
+            'P-IM-01'
+          ]
+        },
+        {
+          act:'Cambio de filtros',
+          eql:'Dispensario',
+          element:'Filtros impregnados de hidrocarburo',
+          imAmb:'Residuos peligrosos',
+          realPot:'REAL',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'NOM-052-SEMARNAT-2005',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Control de residuos',
+          proc:[
+            'P-IM-01 '
+          ]
+        },
+        {
+          act:'Cambio de mangueras, conexiones o pistolas',
+          eql:'Dispensario',
+          element:'HTC, BETX y Hexano',
+          imAmb:'Aire',
+          realPot:'REAL',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'Licencia Ambiental Única (LAU)',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Evitar derrames',
+          proc:[
+            'P-IM-01'
+          ]
+        },
+      ]
+    },
+    {
+      area:'DRENAJES Y TRAMPA DE COMBUSTIBLES',
+      array:[
+        {
+          act:'Limpieza',
+          eql:'Registros, tubería y trampa',
+          element:'Lodos impregnados de hidrocarburos y aceites',
+          imAmb:'Residuos peligrosos',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'NOM-052-SEMARNAT-2005',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Control de residuos',
+          proc:[
+            'P-IM-05'
+          ]
+        },
+        {
+          act:'Limpieza',
+          eql:'Rejillas',
+          element:'Recolección de residuos sólidos no peligrosos',
+          imAmb:'Residuos sólidos',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'NOM-052-SEMARNAT-2005',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Control de residuos',
+          proc:[
+            'P-IM-05'
+          ]
+        },
+        {
+          act:'Separación de hidrocarburo',
+          eql:'Trampa de gasolina y Diesel',
+          element:'HTC, BETX y Hexano',
+          imAmb:'Aire',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'(LAU) Licencia Ambiental Única',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Evitar derrames',
+          proc:[
+            'P-IM-05'
+          ]
+        }
+      ]
+    },
+    {
+      area:'OFICINAS Y BAÑOS',
+      array:[
+        {
+          act:'Actividades cotidianas sin riesgo',
+          eql:'Contenedores',
+          element:'Generación de residuos',
+          imAmb:'Residuos sólidos no peligrosos (basura)',
+          realPot:'Real ',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'NOM-052-SEMARNAT-2005',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Control de residuos',
+          proc:[
+            'P-IM-04',
+            'P-IM-05'
+          ]
+        },
+        {
+          act:'Actividades cotidianas sin riesgo',
+          eql:'Instalaciones eléctricas',
+          element:'Consumo de energía eléctrica',
+          imAmb:'Recursos naturales',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'Ley del servicio público de Energía Eléctrica',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Reducir consumo',
+          proc:[
+            'P-IM-03'
+          ]
+        },
+        {
+          act:'Actividades cotidianas sin riesgo',
+          eql:'Sanitarios',
+          element:'Consumo de agua',
+          imAmb:'Recursos naturales',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'Ley de aguas Nacionales (LAN) 2012',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Reducir consumo',
+          proc:[
+          ]
+        },
+        {
+          act:'Actividades cotidianas sin riesgo',
+          eql:'Consumo de papel',
+          element:'Consumo de papel',
+          imAmb:'Recursos naturales',
+          realPot:'Real ',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Reducir consumo',
+          proc:[
+          ]
+        }
+      ]
+    },
+    {
+      area:'CUARTO DE CONTROL ELÉCTRICO',
+      array:[
+        {
+          act:'Operación normal',
+          eql:'Consumo de energía eléctrica',
+          element:'Recursos naturales',
+          imAmb:'Recursos naturales ',
+          realPot:'REAL',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'Ley del servicio público de energía eléctrica',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'',
+          proc:[
+            'P-IM-03'
+          ]
+        },
+        {
+          act:'Mantenimiento',
+          eql:'Tableros eléctricos',
+          element:'Generación de residuos peligrosos (trapos impregnados aceite usado) y residuos solidos',
+          imAmb:'Residuos peligrosos',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'NOM-052-SEMARNAT-2005',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Control de residuos',
+          proc:[
+            'P-IM-03'
+          ]
+        },
+        {
+          act:'Operación normal',
+          eql:'Planta de emergencia',
+          element:'HTC, BETX y Hexano',
+          imAmb:'Aire',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'(LAU) Licencia Ambiental Única ',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Evitar derrames',
+          proc:[
+            'P-IM-03'
+          ]
+        },
+        {
+          act:'Mantenimiento',
+          eql:'Planta de emergencia',
+          element:'Generación de residuos peligrosos (trapos impregnados aceite usado) y residuos sólidos.',
+          imAmb:'Residuos peligrosos',
+          realPot:'Real',
+          condOp:'Rutinaria',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'NOM-052-SEMARNAT-2005',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Control de residuos',
+          proc:[
+            'P-IM-03'
+          ]
+        }
+      ]
+    },
+    {
+      area:'ÁREA: CUARTO DE MÁQUINAS',
+      array:[
+        {
+          act:'Operación normal',
+          eql:'Compresor e hidroneumático',
+          element:'Consumo de energía eléctrica',
+          imAmb:'Recursos naturales',
+          realPot:'Real',
+          condOp:'Normal',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:'',
+          reqLegal:'Ley del servicio público de Energía Eléctrica',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Reducir consumo',
+          proc:[
+            'P-IM-06'
+          ]
+        },
+        {
+          act:'Mantenimiento',
+          eql:'Compresor e hidroneumático',
+          element:'Generación de residuos peligrosos (trapos impregnados aceite usado) y residuos solidos',
+          imAmb:'Residuos peligrosos',
+          realPot:'Real',
+          condOp:'Normal',
+          F:0,
+          N:0,
+          M:0,
+          VT:0,
+          AAS:' ',
+          reqLegal:'NOM-052-SEMARNAT-2005',
+          eliminacion:'',
+          sustitucion:'',
+          control:'',
+          senalizacion:'',
+          controlAmbo:'X',
+          epp:'',
+          objMeta:'Control de residuos',
+          proc:[
+            'P-IM-06'
+          ]
+        }     
+      ]
+    }
+  ]
+
+  arrayNew:any=[];
 
   datos: any = {
     F1: '',
@@ -209,235 +1203,112 @@ export class E2AspectosPage implements OnInit {
 
   constructor(
     public toast: ToastController,
+    public modalController: ModalController,
     private aspectosService: E2AspectosService
   ) { }
 
   ngOnInit() {
   }
 
-  getAspectos() {
-    this.aspectosService.getAspectos().subscribe((data: any) => {
-      console.log(data.riesgos[data.riesgos.length - 1]);
-      this.datos = data.riesgos[data.riesgos.length - 1];
+ async help(){
+    const modal = await this.modalController.create({
+      component: AspectosModalPage,
+      cssClass: 'my-custom-class',
+      swipeToClose: true,
     });
+    return await modal.present();
   }
 
-  async enviarForm(formulario) {
+  calculo(){
 
-    const toast = await this.toast.create({
-      message: 'Datos guardados',
-      duration: 2000
-    });
-    toast.present();
+    for (let i = 0; i < this.aspectosAmbientales.length; i++) {
+      for (let j = 0; j < this.aspectosAmbientales[i].array.length; j++) {
+        let F = parseInt(this.aspectosAmbientales[i].array[j].F); 
+        let N = parseInt(this.aspectosAmbientales[i].array[j].N);
+        let M = parseInt(this.aspectosAmbientales[i].array[j].M);
+        let sumaTotal = F + N + M;
+        this.aspectosAmbientales[i].array[j].VT = sumaTotal;
+        this.arrayNew.push(sumaTotal);
+      }
+    }
+    var top12 = this.arrayNew.sort(function (a, b) { return b - a; }).slice(0, 12);
+    var topEnd = top12.length - 1;
 
-    const valortotal1 = this.datos.F1 + this.datos.N1 + this.datos.M1;
-    this.datos.VT1 = valortotal1;
-    const valortotal2 = this.datos.F2 + this.datos.N2 + this.datos.M2;
-    this.datos.VT2 = valortotal2;
-    const valortotal3 = this.datos.F3 + this.datos.N3 + this.datos.M3;
-    this.datos.VT3 = valortotal3;
-    const valortotal4 = this.datos.F4 + this.datos.N4 + this.datos.M4;
-    this.datos.VT4 = valortotal4;
-    const valortotal5 = this.datos.F5 + this.datos.N5 + this.datos.M5;
-    this.datos.VT5 = valortotal5;
-    const valortotal6 = this.datos.F6 + this.datos.N6 + this.datos.M6;
-    this.datos.VT6 = valortotal6;
-    const valortotal7 = this.datos.F7 + this.datos.N7 + this.datos.M7;
-    this.datos.VT7 = valortotal7;
-    const valortotal8 = this.datos.F8 + this.datos.N8 + this.datos.M8;
-    this.datos.VT8 = valortotal8;
-    const valortotal9 = this.datos.F9 + this.datos.N9 + this.datos.M9;
-    this.datos.VT9 = valortotal9;
-    const valortotal10 = this.datos.F10 + this.datos.N10 + this.datos.M10;
-    this.datos.VT10 = valortotal10;
-    const valortotal11 = this.datos.F11 + this.datos.N11 + this.datos.M11;
-    this.datos.VT11 = valortotal11;
-    const valortotal12 = this.datos.F12 + this.datos.N12 + this.datos.M12;
-    this.datos.VT12 = valortotal12;
-    const valortotal13 = this.datos.F13 + this.datos.N13 + this.datos.M13;
-    this.datos.VT13 = valortotal13;
-    const valortotal14 = this.datos.F14 + this.datos.N14 + this.datos.M14;
-    this.datos.VT14 = valortotal14;
-    const valortotal15 = this.datos.F15 + this.datos.N15 + this.datos.M15;
-    this.datos.VT15 = valortotal15;
-    const valortotal16 = this.datos.F16 + this.datos.N16 + this.datos.M16;
-    this.datos.VT16 = valortotal16;
-    const valortotal17 = this.datos.F17 + this.datos.N17 + this.datos.M17;
-    this.datos.VT17 = valortotal17;
-    const valortotal18 = this.datos.F18 + this.datos.N18 + this.datos.M18;
-    this.datos.VT18 = valortotal18;
-    const valortotal19 = this.datos.F19 + this.datos.N19 + this.datos.M19;
-    this.datos.VT19 = valortotal19;
-    const valortotal20 = this.datos.F20 + this.datos.N20 + this.datos.M20;
-    this.datos.VT20 = valortotal20;
-    const valortotal21 = this.datos.F21 + this.datos.N21 + this.datos.M21;
-    this.datos.VT21 = valortotal21;
-    const valortotal22 = this.datos.F22 + this.datos.N22 + this.datos.M22;
-    this.datos.VT22 = valortotal22;
-    const valortotal23 = this.datos.F23 + this.datos.N23 + this.datos.M23;
-    this.datos.VT23 = valortotal23;
-    const valortotal24 = this.datos.F24 + this.datos.N24 + this.datos.M24;
-    this.datos.VT24 = valortotal24;
-    const valortotal25 = this.datos.F25 + this.datos.N25 + this.datos.M25;
-    this.datos.VT25 = valortotal25;
-    const valortotal26 = this.datos.F26 + this.datos.N26 + this.datos.M26;
-    this.datos.VT26 = valortotal26;
-    const valortotal27 = this.datos.F27 + this.datos.N27 + this.datos.M27;
-    this.datos.VT27 = valortotal27;
-    const valortotal28 = this.datos.F28 + this.datos.N28 + this.datos.M28;
-    this.datos.VT28 = valortotal28;
-    const valortotal29 = this.datos.F29 + this.datos.N29 + this.datos.M29;
-    this.datos.VT29 = valortotal29;
-    const valortotal30 = this.datos.F30 + this.datos.N30 + this.datos.M30;
-    this.datos.VT30 = valortotal30;
-    const valortotal31 = this.datos.F31 + this.datos.N31 + this.datos.M31;
-    this.datos.VT31 = valortotal31;
-    const valortotal32 = this.datos.F32 + this.datos.N32 + this.datos.M32;
-    this.datos.VT32 = valortotal32;
-    const valortotal33 = this.datos.F33 + this.datos.N33 + this.datos.M33;
-    this.datos.VT33 = valortotal33;
-    const valortotal34 = this.datos.F34 + this.datos.N34 + this.datos.M34;
-    this.datos.VT34 = valortotal34;
-    const valortotal35 = this.datos.F35 + this.datos.N35 + this.datos.M35;
-    this.datos.VT35 = valortotal35;
-    const valortotal36 = this.datos.F36 + this.datos.N36 + this.datos.M36;
-    this.datos.VT36 = valortotal36;
-    const valortotal37 = this.datos.F37 + this.datos.N37 + this.datos.M37;
-    this.datos.VT37 = valortotal37;
-    const valortotal38 = this.datos.F38 + this.datos.N38 + this.datos.M38;
-    this.datos.VT38 = valortotal38;
-    const valortotal39 = this.datos.F39 + this.datos.N39 + this.datos.M39;
-    this.datos.VT39 = valortotal39;
-
-    const conteo = [
-      valortotal1,
-      valortotal2,
-      valortotal3,
-      valortotal4,
-      valortotal5,
-      valortotal6,
-      valortotal7,
-      valortotal8,
-      valortotal9,
-      valortotal10,
-      valortotal11,
-      valortotal12,
-      valortotal13,
-      valortotal14,
-      valortotal15,
-      valortotal16,
-      valortotal17,
-      valortotal18,
-      valortotal19,
-      valortotal20,
-      valortotal21,
-      valortotal22,
-      valortotal23,
-      valortotal24,
-      valortotal25,
-      valortotal26,
-      valortotal27,
-      valortotal28,
-      valortotal29,
-      valortotal30,
-      valortotal31,
-      valortotal32,
-      valortotal33,
-      valortotal34,
-      valortotal35,
-      valortotal36,
-      valortotal37,
-      valortotal38,
-      valortotal39,
-    ];
-
-    const top12 = conteo.sort(function (a, b) { return b - a; }).slice(0, 12);
-    console.log(top12);
-    const ultimo = top12[top12.length - 1];
-    console.log(ultimo);
-
-    const aspectoSig1 = valortotal1 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS1 = aspectoSig1;
-    const aspectoSig2 = valortotal2 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS2 = aspectoSig2;
-    const aspectoSig3 = valortotal3 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS3 = aspectoSig3;
-    const aspectoSig4 = valortotal4 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS4 = aspectoSig4;
-    const aspectoSig5 = valortotal5 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS5 = aspectoSig5;
-    const aspectoSig6 = valortotal6 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS6 = aspectoSig6;
-    const aspectoSig7 = valortotal7 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS7 = aspectoSig7;
-    const aspectoSig8 = valortotal8 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS8 = aspectoSig8;
-    const aspectoSig9 = valortotal9 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS9 = aspectoSig9;
-    const aspectoSig10 = valortotal10 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS10 = aspectoSig10;
-    const aspectoSig11 = valortotal11 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS11 = aspectoSig11;
-    const aspectoSig12 = valortotal12 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS12 = aspectoSig12;
-    const aspectoSig13 = valortotal13 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS13 = aspectoSig13;
-    const aspectoSig14 = valortotal14 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS14 = aspectoSig14;
-    const aspectoSig15 = valortotal15 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS15 = aspectoSig15;
-    const aspectoSig16 = valortotal16 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS16 = aspectoSig16;
-    const aspectoSig17 = valortotal17 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS17 = aspectoSig17;
-    const aspectoSig18 = valortotal18 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS18 = aspectoSig18;
-    const aspectoSig19 = valortotal19 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS19 = aspectoSig19;
-    const aspectoSig20 = valortotal20 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS20 = aspectoSig20;
-    const aspectoSig21 = valortotal21 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS21 = aspectoSig21;
-    const aspectoSig22 = valortotal22 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS22 = aspectoSig22;
-    const aspectoSig23 = valortotal23 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS23 = aspectoSig23;
-    const aspectoSig24 = valortotal24 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS24 = aspectoSig24;
-    const aspectoSig25 = valortotal25 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS25 = aspectoSig25;
-    const aspectoSig26 = valortotal26 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS26 = aspectoSig26;
-    const aspectoSig27 = valortotal27 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS27 = aspectoSig27;
-    const aspectoSig28 = valortotal28 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS28 = aspectoSig28;
-    const aspectoSig29 = valortotal29 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS29 = aspectoSig29;
-    const aspectoSig30 = valortotal30 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS30 = aspectoSig30;
-    const aspectoSig31 = valortotal31 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS31 = aspectoSig31;
-    const aspectoSig32 = valortotal32 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS32 = aspectoSig32;
-    const aspectoSig33 = valortotal33 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS33 = aspectoSig33;
-    const aspectoSig34 = valortotal34 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS34 = aspectoSig34;
-    const aspectoSig35 = valortotal35 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS35 = aspectoSig35;
-    const aspectoSig36 = valortotal36 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS36 = aspectoSig36;
-    const aspectoSig37 = valortotal37 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS37 = aspectoSig37;
-    const aspectoSig38 = valortotal38 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS38 = aspectoSig38;
-    const aspectoSig39 = valortotal39 >= ultimo ? 'Si' : 'No';
-    this.datos.AAS39 = aspectoSig39;
-
-    this.aspectosService.postAspectos(this.datos).subscribe(data => {
-      console.log(data);
-    });
+    for (let i = 0; i < this.aspectosAmbientales.length; i++) {
+      for (let index = 0; index < this.aspectosAmbientales[i].array.length; index++) {
+        const validacion = this.aspectosAmbientales[i].array[index].VT >= topEnd ? 'Si' : 'No';
+        this.aspectosAmbientales[i].array[index].AAS = validacion;
+      }
+    }
   }
 
+  pdf(){
+    const pdf = new PdfMakeWrapper();
+
+    pdf.add(
+      new Table([
+        [
+          new Cell(new Txt('No').fontSize(8).alignment('center').end).color('#ffffff').fillColor('#6f7269').end,
+          new Cell(new Txt('ACTIVIDAD, PRODUCTO O SERVICIO').fontSize(8).alignment('center').end).color('#ffffff').fillColor('#6f7269').end,
+          new Cell(new Txt('EQUIPO/LUGAR').fontSize(8).alignment('center').end).color('#ffffff').fillColor('#6f7269').end,
+          new Cell(new Txt('ELEMENTO').fontSize(8).alignment('center').end).color('#ffffff').fillColor('#6f7269').end,
+          new Cell(new Txt('IMPACTO AMBIENTAL').fontSize(8).alignment('center').end).color('#ffffff').fillColor('#6f7269').end,
+          new Cell(new Txt('REAL O POTENCIA').fontSize(8).alignment('center').end).color('#ffffff').fillColor('#6f7269').end,
+          new Cell(new Txt('CONDICIÓN DE OPERACIÓN').fontSize(8).alignment('center').end).color('#ffffff').fillColor('#6f7269').end,
+          new Cell(new Txt('F').fontSize(8).alignment('center').end).color('#ffffff').fillColor('#6f7269').end,
+          new Cell(new Txt('N').fontSize(8).alignment('center').end).color('#ffffff').fillColor('#6f7269').end,
+          new Cell(new Txt('M').fontSize(8).alignment('center').end).color('#ffffff').fillColor('#6f7269').end,
+          new Cell(new Txt('VT').fontSize(8).alignment('center').end).color('#ffffff').fillColor('#6f7269').end,
+          new Cell(new Txt('AAS SI/No ').fontSize(8).alignment('center').end).color('#ffffff').fillColor('#6f7269').end,
+          new Cell(new Txt('REQUISITO LEGAL U OTRO REQUISIT').fontSize(8).alignment('center').end).color('#ffffff').fillColor('#6f7269').end,
+          new Cell(new Txt('SUSTITUCIÓN').fontSize(8).alignment('center').end).color('#ffffff').fillColor('#6f7269').end,
+          new Cell(new Txt('SEÑALIZACIÓN').fontSize(8).alignment('center').end).color('#ffffff').fillColor('#6f7269').end,
+          new Cell(new Txt('CONTROL AMVO').fontSize(8).alignment('center').end).color('#ffffff').fillColor('#6f7269').end,
+          new Cell(new Txt('EPP').fontSize(8).alignment('center').end).color('#ffffff').fillColor('#6f7269').end,
+          new Cell(new Txt('OBJETIVO O META').fontSize(8).alignment('center').end).color('#ffffff').fillColor('#6f7269').end,
+          new Cell(new Txt('PROCEDIMIENTO DE CONTROL OPERACIONAL AMBIENTAL').fontSize(8).alignment('center').end).color('#ffffff').fillColor('#6f7269').end,
+        ]
+      ]).widths([10, 80, 60, 50, 50, 40, 50, 5, 5, 5, 5, 15, 70, 5, 5, 5, 5, 60, 60]).end
+    )
+
+    for (let index = 0; index < this.aspectosAmbientales.length; index++) {
+      pdf.add([
+        new Table([
+          [
+            new Cell(new Txt(`${index+1}. `+`${this.aspectosAmbientales[index].area}`).end).color('#ffffff').fillColor('#6f7269').end
+          ]
+        ]).widths([747]).end
+      ])
+
+      for (let i = 0; i < this.aspectosAmbientales[index].array.length; i++) {
+        pdf.add([
+          new Table([
+            [
+              new Cell(new Txt(`${i+1}`).fontSize(8).end).end,
+              new Cell(new Txt(`${this.aspectosAmbientales[index].array[i].act}`).fontSize(8).end).end,
+              new Cell(new Txt(`${this.aspectosAmbientales[index].array[i].eql}`).fontSize(8).end).end,
+              new Cell(new Txt(`${this.aspectosAmbientales[index].array[i].element}`).fontSize(8).end).end,
+              new Cell(new Txt(`${this.aspectosAmbientales[index].array[i].imAmb}`).fontSize(8).end).end,
+              new Cell(new Txt(`${this.aspectosAmbientales[index].array[i].realPot}`).fontSize(8).end).end,
+              new Cell(new Txt(`${this.aspectosAmbientales[index].array[i].condOp}`).fontSize(8).end).end,
+              new Cell(new Txt(`${this.aspectosAmbientales[index].array[i].F}`).fontSize(8).end).end,
+              new Cell(new Txt(`${this.aspectosAmbientales[index].array[i].N}`).fontSize(8).end).end,
+              new Cell(new Txt(`${this.aspectosAmbientales[index].array[i].M}`).fontSize(8).end).end,
+              new Cell(new Txt(`${this.aspectosAmbientales[index].array[i].VT}`).fontSize(8).end).end,
+              new Cell(new Txt(`${this.aspectosAmbientales[index].array[i].AAS}`).fontSize(8).end).end,
+              new Cell(new Txt(`${this.aspectosAmbientales[index].array[i].reqLegal}`).fontSize(8).end).end,
+              new Cell(new Txt(`${this.aspectosAmbientales[index].array[i].sustitucion}`).fontSize(8).end).end,
+              new Cell(new Txt(`${this.aspectosAmbientales[index].array[i].control}`).fontSize(8).end).end,
+              new Cell(new Txt(`${this.aspectosAmbientales[index].array[i].senalizacion}`).fontSize(8).end).end,
+              new Cell(new Txt(`${this.aspectosAmbientales[index].array[i].controlAmbo}`).fontSize(8).end).end,
+              new Cell(new Txt(`${this.aspectosAmbientales[index].array[i].epp}`).fontSize(8).end).end,
+              new Cell(new Txt(`${this.aspectosAmbientales[index].array[i].objMeta}`).fontSize(8).end).end,
+            ]
+          ]).widths([10, 80, 60, 50, 50, 40, 50, 5, 5, 5, 5, 15, 70, 5, 5, 5, 5, 60, 60]).end
+        ])
+      }
+    }
+    pdf.pageOrientation('landscape');
+    pdf.create().open();
+  }
 }

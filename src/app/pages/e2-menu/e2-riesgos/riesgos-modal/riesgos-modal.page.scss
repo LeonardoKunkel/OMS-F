@@ -1,0 +1,40 @@
+table {
+    width: 100%;
+    border: 0.5px solid #000;
+ }
+ th, td {
+    width: 25%;
+    text-align: left;
+    vertical-align: top;
+    border: 0.2px solid #000;
+ }
+ body {
+   cursor: url('http://ionicframework.com/img/finger.png'), auto;
+}
+
+.header .col {
+   background-color:lightgrey;
+}
+
+.col {
+   border: solid 1px grey;
+   border-bottom-style: none;
+   border-right-style: none;
+}
+
+.col:last-child {
+   border-right: solid 1px grey;
+}
+
+.row:last-child .col {
+   border-bottom: solid 1px grey;
+}
+
+// @media(max-width: 990px){
+//    .header{
+//        display: none;
+//    }
+//    .req{
+//        background-color:lightgrey;
+//    }
+// }

@@ -13,13 +13,26 @@ import { PdfMakeWrapper } from 'pdfmake-wrapper';
 import { Geolocation } from '@capacitor/core';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import { NgCalendarModule } from 'ionic2-calendar';
-//import { PdfFonts } from 'pdfmake/build/vfs_fonts.js';
+import { SwiperModule } from 'swiper/angular';
 
-//  import {PdfFonts} from "pdfmake/build/vfs_fonts.js";
-//  PdfMakeWrapper.setFonts(PdfFonts);
+// import pdfFonts from '../assets/fonts/custom-fonts.js';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+// configuring fonts
+PdfMakeWrapper.setFonts(pdfFonts);
 
-// const pdfFonts = require('pdfmake/build/vfs_fonts.js');
-// PdfMakeWrapper.setFonts(pdfFonts);
+// // import pdfFonts from '../assets/fonts/Sony_Sketch_EF.ttf';
+
+//Configuring custom fonts
+// PdfMakeWrapper.setFonts(pdfFonts, {
+//   Sony: {
+//       normal: 'Birthday.ttf',
+//       bold: 'Birthday.ttf',
+//       italics: 'Birthday.ttf',
+//       bolditalics: 'Birthday.ttf'
+//   }
+// });
+
+// PdfMakeWrapper.useFont('Sony');
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,7 +42,8 @@ import { NgCalendarModule } from 'ionic2-calendar';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    NgCalendarModule
+    NgCalendarModule,
+    SwiperModule
   ],
   providers: [
     StatusBar,

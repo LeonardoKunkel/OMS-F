@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="start" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" >Tablas de Referencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-card>
+      <ion-card-content>
+        <ion-card-header>
+          <ion-card-title class="ion-text-center">Frecuencia (F)</ion-card-title>
+        </ion-card-header>
+        <ion-grid fixed >
+          <ion-row style="color: white; background-color: rgb(98, 96, 98); border-radius: 15px;">
+            <ion-col size="6" >Descripción</ion-col>
+            <ion-col size="4" >Grado</ion-col>
+            <ion-col size="2" >Valor</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let data of frecuencia">
+            <ion-col size="6">{{data.desc}}</ion-col>
+            <ion-col size="4">{{data.grado}}</ion-col>
+            <ion-col size="2">{{data.value}}</ion-col>
+            <hr color="purple" size=2 width="150%">
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Naturaleza (N)</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid fixed >
+          <ion-row style="color: white; background-color: rgb(98, 96, 98); border-radius: 15px;">
+            <ion-col size="6" >Descripción</ion-col>
+            <ion-col size="4" >Grado</ion-col>
+            <ion-col size="2" >Valor</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let data of naturaleza">
+            <!-- <ion-col size="6">{{data.desc}}</ion-col> -->
+            <ion-col size="4">{{data.grade}}</ion-col>
+            <ion-col size="2">{{data.value}}</ion-col>
+            <hr color="purple" size=2 width="150%">
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+    
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Magnitud (M)</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid fixed >
+          <ion-row style="color: white; background-color: rgb(98, 96, 98); border-radius: 15px;">
+            <ion-col size="6" >Descripción</ion-col>
+            <ion-col size="4" >Grado</ion-col>
+            <ion-col size="2" >Valor</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let data of magnitud">
+            <!-- <ion-col size="6">{{data.desc}}</ion-col> -->
+            <ion-col size="4">{{data.grade}}</ion-col>
+            <ion-col size="2">{{data.value}}</ion-col>
+            <hr color="purple" size=2 width="150%">
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <!-- <p *ngFor="let data of frecuencia"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis vel quos tempora, quidem suscipit accusantium recusandae at laborum aliquam sed quibusdam maiores dolore eaque, reiciendis similique illum! Adipisci, omnis tenetur!</p> -->
+
+</ion-content>
