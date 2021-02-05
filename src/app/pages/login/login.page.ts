@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { AutenticacionService } from 'src/app/services/autenticacion.service';
-
+// import { } from '../../../assets/images/terminalHd.jfif'
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',

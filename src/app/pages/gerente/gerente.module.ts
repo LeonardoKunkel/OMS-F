@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { GerentePageRoutingModule } from './gerente-routing.module';
 
 import { GerentePage } from './gerente.page';
+import { SignaturePadModule } from 'angular2-signaturepad';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SignaturePadModule,
     GerentePageRoutingModule
   ],
   declarations: [GerentePage]

@@ -22,6 +22,42 @@
 </ion-header>
 
 <ion-content>
+  <ion-grid fixed>
+    <ion-row >
+      <ion-col size="12" sizeLg="4" style="margin: auto; display: block;">
+        <ion-card color="warning" style="border-radius: 15px; ">
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">Registro de Personal</ion-card-title>
+            <ion-button (click)="goRepresentante()" expand="block"  shape="round">
+              representante
+            </ion-button>
+            <ion-button (click)="goGerente()" expand="block"  shape="round">
+              gerente
+            </ion-button>
+            <ion-button (click)="goAutoridad()" expand="block"  shape="round">
+              Maxima Autoridad
+            </ion-button>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" sizeLg="4" style="margin: auto; display: block;">
+        <ion-card color="sucess" style="border-radius: 15px; ">
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">MAPA</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <img 
+            style="width: 90%; height: auto;"
+            src="../../../assets/icon/mexico.png" 
+            alt="">
+            <ion-card-subtitle class="ion-text-center">Mapa Estaciones de Servicio</ion-card-subtitle>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   <h1 class="ion-text-center">Estaciones de Servicio Registradas</h1>
   <ion-grid fixed>
     <ion-row>
@@ -47,6 +83,8 @@
             <ion-card-subtitle>Telefono: {{data.telefono}}</ion-card-subtitle>
             <ion-card-subtitle>Gerente: {{data.idGerente.nombre}} {{data.idGerente.apellidos}}</ion-card-subtitle>
           </ion-card-header>
+          <!-- <img src="../../../assets/images/Softoil_logo.png"> -->
+          <img src="http://localhost:3000/logo/{{data.filename}}"  alt="No hay Logo" >
         </ion-card>
       </ion-col>
     </ion-row>

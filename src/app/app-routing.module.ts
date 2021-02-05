@@ -178,7 +178,8 @@ const routes: Routes = [
   {
     path: 'e6-personal-mantenimiento',
     loadChildren: () => import('./pages/e6-personal-mantenimiento/e6-personal-mantenimiento.module').then( m => m.E6PersonalMantenimientoPageModule)
-  },  {
+  },
+  {
     path: 'e3-requisitos-legales',
     loadChildren: () => import('./pages/e3-requisitos-legales/e3-requisitos-legales.module').then( m => m.E3RequisitosLegalesPageModule)
   },
@@ -253,6 +254,10 @@ const routes: Routes = [
   {
     path: 'e8-solicitud-cambios',
     loadChildren: () => import('./pages/e8-solicitud-cambios/e8-solicitud-cambios.module').then( m => m.E8SolicitudCambiosPageModule)
+  },
+  {
+    path: 'aspectos-modal',
+    loadChildren: () => import('./pages/e2-menu/e2-aspectos/aspectos-modal/aspectos-modal.module').then( m => m.AspectosModalPageModule)
   }
 
 

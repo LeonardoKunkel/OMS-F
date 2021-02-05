@@ -65,6 +65,8 @@
       <ion-label position="floating">Calle y Numero</ion-label>
       <ion-input required name="calleNumero" [(ngModel)]="datos.calleNumero"></ion-input>
     </ion-item>
+    <ion-input type="file"  class="d-none" (change)="onPhotoSelected($event)" #photoInput required></ion-input>
+    <img [src]="photoSelected || '../../../assets/no hay imagen.png' " style="width: 30%; display: block; margin: auto;" alt="No image" (click)="photoInput.click()">
     <ion-button 
       type="submit" 
       expand="block" 

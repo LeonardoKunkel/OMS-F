@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { EstacionService } from 'src/app/services/estacion.service';
 
@@ -13,6 +13,7 @@ export class E2MenuPage implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private _estacionService: EstacionService,
     private navCtrl: NavController
     ) { }
@@ -30,7 +31,11 @@ export class E2MenuPage implements OnInit {
     });
   }
   riesgos() {
-    this.navCtrl.navigateForward('/e2-menu/e2-riesgos');
+    let _idEstacion = this.DataEstacion._id;
+    this.router.navigate(['/e2-menu/e2-riesgos', {custom_id: _idEstacion}]);
+    // this.navCtrl.navigateForward('/e2-menu/e2-riesgos');
+    // console.log(this.DataEstacion._id);
+    
   }
   aspectosAmbientales() {
     this.navCtrl.navigateForward('/e2-menu/e2-aspectos');

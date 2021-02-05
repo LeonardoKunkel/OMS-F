@@ -1,8 +1,7 @@
-.linea{
-    background-color: #D79043;
-    height: 3px;
-}
-.linea1{
-    background-color: #0080BB;
-    height: 2px;
-}
+@import '~swiper/swiper-bundle';
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+  }

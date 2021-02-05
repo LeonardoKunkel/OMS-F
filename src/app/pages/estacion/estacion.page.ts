@@ -13,6 +13,9 @@ import { RepresentanteService } from 'src/app/services/representante.service';
   styleUrls: ['./estacion.page.scss'],
 })
 export class EstacionPage implements OnInit {
+  file : File;
+  uploadedFiles: Array <File>
+  photoSelected: string | ArrayBuffer;
   datos: any = {
     nombre: '',
     correo: '',
@@ -20,9 +23,7 @@ export class EstacionPage implements OnInit {
     idRepresentante: '',
     idAutoridad: '',
     idGerente: '',
-    cp: {
-
-    },
+    cp:{}   ,
     calleNumero: ''
   };
   respuestaCP: any = [];
@@ -106,6 +107,16 @@ export class EstacionPage implements OnInit {
     this.datos.idRepresentante = event.target.value;
   }
 
+  onPhotoSelected(event): void{
+   if(event.target.files && event.target.files[0]){
+     this.file = <File>event.target.files[0];
+     //Vista de la imagen
+     const reader = new FileReader();
+     reader.onload = e =>this.photoSelected = reader.result;
+     reader.readAsDataURL(this.file);
+   }
+  }
+
   async form(){
     // console.log(this.datos);
     const toast = await this.toast.create({
@@ -113,9 +124,11 @@ export class EstacionPage implements OnInit {
       duration: 3000
     });
     toast.present();
-    this._estacionService.postEstacion(this.datos).subscribe((data: any) => {
+    this._estacionService.postEstacion(this.datos, this.file).subscribe((data: any) => {
       console.log(data);
     });
+    console.log(this.datos);
+    
   }
 
 }

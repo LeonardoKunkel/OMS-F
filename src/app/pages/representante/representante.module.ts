@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { RepresentantePageRoutingModule } from './representante-routing.module';
 
 import { RepresentantePage } from './representante.page';
+import { SignaturePadModule } from 'angular2-signaturepad';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SignaturePadModule,
     RepresentantePageRoutingModule
   ],
   declarations: [RepresentantePage]

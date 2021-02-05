@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { table } from 'console';
 import { Cell, PdfMakeWrapper, Table, Txt } from 'pdfmake-wrapper';
 
 @Component({

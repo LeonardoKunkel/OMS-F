@@ -7,11 +7,12 @@ import { IonicModule } from '@ionic/angular';
 import { E2RiesgosPageRoutingModule } from './e2-riesgos-routing.module';
 
 import { E2RiesgosPage } from './e2-riesgos.page';
-
+import { SwiperModule } from 'swiper/angular';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    SwiperModule,
     IonicModule,
     E2RiesgosPageRoutingModule
   ],

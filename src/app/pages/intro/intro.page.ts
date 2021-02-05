@@ -4,7 +4,9 @@ import { AlertController, ModalController, NavController, ToastController } from
 import { AutenticacionService } from 'src/app/services/autenticacion.service';
 import { EstacionService } from 'src/app/services/estacion.service';
 import { EstacionPage } from './../estacion/estacion.page';
-
+import { GerentePage } from '../gerente/gerente.page'
+import { RepresentantePage } from '../representante/representante.page';
+import { AutoridadPage } from '../autoridad/autoridad.page';
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.page.html',
@@ -96,6 +98,31 @@ export class IntroPage implements OnInit {
   async estacion() {
     const modal = await this.modalCtrl.create({
       component: EstacionPage
+    });
+    return await modal.present();
+  }
+
+  async goRepresentante(){
+    const modal = await this.modalCtrl.create({
+      component: RepresentantePage,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
+    // this.navCtrl.navigateForward('/representante')
+  }
+
+  async goGerente(){
+    const modal = await this.modalCtrl.create({
+      component: GerentePage,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
+  }
+
+  async goAutoridad(){
+    const modal = await this.modalCtrl.create({
+      component: AutoridadPage,
+      cssClass: 'my-custom-class'
     });
     return await modal.present();
   }
