@@ -1,5 +1,10 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="blue">
+    <ion-buttons slot="end">
+      <ion-button (click)="pdf()">
+        <ion-icon slot="start" name="print"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/e5-menu"></ion-back-button>
     </ion-buttons>
@@ -11,36 +16,35 @@
   <ion-card>
     <ion-card-content>
       <ion-grid>
-        <ion-row class="row header" *ngFor="let data of matriz; let indice=index">
-          <ion-col size="12" sizeLg="8" class="col" >{{indice+1}}.- {{data.elemento}} </ion-col>
-          <ion-col size="12">
-            <p>{{data.incisos[0].a}}</p>
-            <p>{{data.incisos[0].b}}</p>
-            <p>{{data.incisos[0].c}}</p>
-            <p>{{data.incisos[0].d}}</p>
-            <p>{{data.incisos[0].e}}</p>
-            <p>{{data.incisos[0].f}}</p>
-          </ion-col>
+        <ion-row class="header">
+          <ion-col sizeLg="5" size="12">Descripcion</ion-col>
+          <ion-col sizeLg="1" size="12">Dirección</ion-col>
+          <ion-col sizeLg="1" size="12">Representante Técnico</ion-col>
+          <ion-col sizeLg="1" size="12">Encargado</ion-col>
+          <ion-col sizeLg="1" size="12">Jefe de piso</ion-col>
+          <ion-col sizeLg="1" size="12">Despachadores</ion-col>
+          <ion-col sizeLg="1" size="12">Personal de mantenimiento</ion-col>
+          <ion-col sizeLg="1" size="12">Contratistas, Proveedores</ion-col>
         </ion-row>
-        <ion-row  class="row" >
-          <!-- <p>{{data.incisos[0].a}}</p> -->
-        </ion-row>
+        <div *ngFor="let data of matriz; let indice=index">
+          <ion-row class="subheader" >
+            <ion-col size="12" >{{indice+1}}.- {{data.elemento}} </ion-col>
+          </ion-row>
+          <div *ngFor="let dts of data.incisos; let idx=index" >
+            <ion-row>
+              <ion-col sizeLg="5" size="12">{{dts.nombre}}</ion-col>
+              <ion-col sizeLg="1" size="12"><p class="desc"><b>Dirección: </b></p>{{dts.dir}}</ion-col>
+              <ion-col sizeLg="1" size="12"><p class="desc"><b>Representante Técnico: </b></p>{{dts.re}}</ion-col>
+              <ion-col sizeLg="1" size="12"><p class="desc"><b>Encargado: </b></p>{{dts.encar}}</ion-col>
+              <ion-col sizeLg="1" size="12"><p class="desc"><b>Jefe de piso:</b></p>{{dts.jefP}}</ion-col>
+              <ion-col sizeLg="1" size="12"><p class="desc"><b>Despachadores: </b></p>{{dts.des}}</ion-col>
+              <ion-col sizeLg="1" size="12"><p class="desc"><b>Personal de mantenimiento: </b></p>{{dts.perM}}</ion-col>
+              <ion-col sizeLg="1" size="12"><p class="desc"><b>Contratistas, Proveedores:</b></p>{{dts.conPro}}</ion-col>
+            </ion-row>
+            <hr style="background-color: #1d3961;">
+          </div>
+        </div>
       </ion-grid>
     </ion-card-content>
   </ion-card>
-  <!-- <ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
-    Click me
-  </ion-button>
- <div *ngFor="let data of matriz; let indice=index">
-  <p>{{data.elemento}}</p>
-  <div >
-    <p>{{data.incisos[0].a}}</p>
-    <p>{{data.incisos[0].b}}</p>
-    <p>{{data.incisos[0].c}}</p>
-    <p>{{data.incisos[0].d}}</p>
-  </div>
- </div>
-
- <div *ngFor="let datas of array;">
- </div> -->
 </ion-content>

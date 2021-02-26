@@ -258,7 +258,12 @@ const routes: Routes = [
   {
     path: 'aspectos-modal',
     loadChildren: () => import('./pages/e2-menu/e2-aspectos/aspectos-modal/aspectos-modal.module').then( m => m.AspectosModalPageModule)
+  },
+  {
+    path: 'e11-inspeccion-tanques-registros',
+    loadChildren: () => import('./pages/e11-menu/e11-inspeccion-tanques-registros/e11-inspeccion-tanques-registros.module').then( m => m.E11InspeccionTanquesRegistrosPageModule)
   }
+
 
 
 

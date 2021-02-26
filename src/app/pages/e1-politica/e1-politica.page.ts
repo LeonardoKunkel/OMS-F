@@ -141,7 +141,7 @@ export class E1PoliticaPage implements OnInit {
       new Txt('REPRESENTANTE LEGAL').alignment('center').end ,
       new Txt(`${this.datosEstacion.idRepresentante.nombre} ${this.datosEstacion.idRepresentante.apellidos}`).alignment('center').end ,
     ]);
-
+    
     pdf.footer(
       await new Img (`../../../assets/images/footer.png`).
       height(80).

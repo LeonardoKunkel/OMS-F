@@ -32,6 +32,89 @@ export class IntroPage implements OnInit {
     this.getEntrar();
   }
 
+  //Log Out
+  async cerrarSesion() {
+    await this.authService.logout();
+    this.router.navigateByUrl('/', { replaceUrl: true });
+  }
+
+  //pull-down Refresh
+    doRefresh(event){
+      console.log('Begin async operation');
+  
+      setTimeout(() => {
+        console.log('Async operation has ended');
+        this.getEstacion();
+        event.target.complete();
+      }, 2000);
+    }
+
+
+  //Dark Mode
+
+  toogleTheme($event){
+    if ($event.detail.checked) {
+      document.body.setAttribute('color-theme', 'dark');
+    } else{
+     document.body.setAttribute('color-theme', 'ligth');
+    }
+ }
+
+ //Maps
+  mapa() {
+    this.navCtrl.navigateForward('/mapa');
+  }
+
+  //function for DB
+
+  getEstacion() {
+    this.estacionService.getEstacion().subscribe((data: any) => {
+      console.log(data);
+      this.supEstacion = data;
+    });
+  }
+
+  async delete(id: string) {
+    this.estacionService.deleteEstacionId(id).subscribe((data: any) => {
+      console.log(data);
+    });
+    const toast = await this.toast.create({
+      message: 'Estación eliminada',
+      duration: 2000
+    });
+    toast.present();
+  }
+
+  //Go To Pages
+
+  // async entrar() {
+  //   console.log(this.arrayEstacion);
+    
+  //   // const alert = await this.alertCtrl.create({
+  //   //   cssClass: 'my-custom-class',
+  //   //   header: 'Seleccione ES',
+  //   //   inputs: this.arrayEstacion,
+  //   //   buttons: [
+  //   //     {
+  //   //       text: 'Cancelar',
+  //   //       role: 'cancel',
+  //   //       cssClass: 'secondary',
+  //   //       handler: () => {
+  //   //         console.log('Cancelado');
+  //   //       }
+  //   //     },
+  //   //     {
+  //   //       text: 'Ok',
+  //   //       handler: (id) => {
+  //   //         //console.log(id);
+  //   //         this.router.navigate(['tabs/tab1', {custom_id: id}]);
+  //   //       }
+  //   //     }
+  //   //   ] 
+  //   // });
+  //   // await alert.present();
+  // }
+  
   async entrar() {
     const alert = await this.alertCtrl.create({
       cssClass: 'my-custom-class',
@@ -72,28 +155,6 @@ export class IntroPage implements OnInit {
     });
   }
 
-  async cerrarSesion() {
-    await this.authService.logout();
-    this.router.navigateByUrl('/', { replaceUrl: true });
-  }
-
-  getEstacion() {
-    this.estacionService.getEstacion().subscribe((data: any) => {
-      console.log(data);
-      this.supEstacion = data;
-    });
-  }
-
-  async delete(id: string) {
-    this.estacionService.deleteEstacionId(id).subscribe((data: any) => {
-      console.log(data);
-    });
-    const toast = await this.toast.create({
-      message: 'Estación eliminada',
-      duration: 2000
-    });
-    toast.present();
-  }
 
   async estacion() {
     const modal = await this.modalCtrl.create({

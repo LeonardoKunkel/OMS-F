@@ -125,9 +125,10 @@ export class EstacionPage implements OnInit {
     });
     toast.present();
     this._estacionService.postEstacion(this.datos, this.file).subscribe((data: any) => {
-      console.log(data);
+      //console.log(data);
+      this.close();
     });
-    console.log(this.datos);
+    //console.log(this.datos);
     
   }
 

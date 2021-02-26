@@ -1,5 +1,11 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="blue">
+    <ion-buttons slot="end">
+      <ion-button (click)="pdf()">
+        <ion-icon slot="start" name="print"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Despachadores</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="dissmis()">
         <ion-icon slot="start" name="close"></ion-icon>
@@ -9,63 +15,130 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col size="12">
-        <ion-card>
-          <form #formulario="ngForm" (ngSubmit)="form()">
-            <ion-card-header>
-              <ion-card-title class="ion-text-center">Director</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <ion-item>
-                <ion-label position="floating">Requerimientos físicos:</ion-label>
-                <ion-input name="requerimientoFisico" required [(ngModel)]="datos.requerimientoFisico"></ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-label position="floating">Herramientas/Equipos:</ion-label>
-                <ion-input name="herramientaEquipo"  required [(ngModel)]="datos.herramientaEquipo" ></ion-input>
-              </ion-item>
-              <ion-item> 
-                <ion-label position="floating">Equipo de protección personal:</ion-label>
-                <ion-input 
-                  type="text" 
-                  name="equipoPersonal" 
-                  required
-                  [(ngModel)] = "datos.equipoProteccionPersonal">
-                </ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-label position="floating">Nivel académico:</ion-label>
-                <ion-input 
-                  type="text" 
-                  name="nivelAcademico" 
-                  required
-                  [(ngModel)] = "datos.nivelAcademico">
-                </ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-label position="floating">Personal a su cargo:</ion-label>
-                <ion-input 
-                  type="text" 
-                  name="personalCargo" 
-                  required
-                  [(ngModel)] = "datos.personalCargo">
-                </ion-input>
-              </ion-item>
-              <ion-button 
-                type="submit" 
-                expand="block" 
-                fill="clear" 
-                shape="round"
-                [disabled]="formulario.invalid"
-                >
-                Guardar
-              </ion-button>
-            </ion-card-content>
-          </form>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-card style="border-radius: 15px;">
+    <ion-card-header color="diana">
+      <ion-card-title class="ion-text-center">Conocimientos específicos</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item *ngFor="let att of datos.conocimientosEspecificos; let idx = index">
+        <ion-label >{{idx +1}}. Conocimiento</ion-label>
+        <ion-input placeholder="Escribir..." [(ngModel)]="datos.conocimientosEspecificos[idx].value"></ion-input>
+      </ion-item>
+      <ion-button (click)="add().conocimiento()" expand="block" fill="clear" shape="round">
+        Añadir
+      </ion-button>
+      <div>
+        <ion-chip *ngFor="let att of datos.conocimientosEspecificos; let idx = index">
+          <ion-icon name="pin" color="primary"></ion-icon>
+          <ion-label>{{att.value}}</ion-label>
+          <ion-icon name="close" (click)="delete(idx)"></ion-icon>
+        </ion-chip>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card style="border-radius: 15px;">
+    <ion-card-header color="diana">
+      <ion-card-title class="ion-text-center">Características personales.</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item *ngFor="let att of datos.caracteristicasPersonales; let idx = index">
+        <ion-label >{{idx +1}}. Carácteristicas</ion-label>
+        <ion-input placeholder="Escribir..." [(ngModel)]="datos.caracteristicasPersonales[idx].value"></ion-input>
+      </ion-item>
+      <ion-button (click)="add().caracteristicas()" expand="block" fill="clear" shape="round">
+        Añadir
+      </ion-button>
+      <div>
+        <ion-chip *ngFor="let att of datos.caracteristicasPersonales; let idx = index">
+          <ion-icon name="pin" color="primary"></ion-icon>
+          <ion-label>{{att.value}}</ion-label>
+          <ion-icon name="close" (click)="delete(idx)"></ion-icon>
+        </ion-chip>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card style="border-radius: 15px;">
+    <ion-card-header color="diana">
+      <ion-card-title class="ion-text-center">Destrezas técnicas.</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item *ngFor="let att of datos.destrezasTecnicas; let idx = index">
+        <ion-label >{{idx +1}}. Carácteristicas</ion-label>
+        <ion-input placeholder="Escribir..." [(ngModel)]="datos.destrezasTecnicas[idx].value"></ion-input>
+      </ion-item>
+      <ion-button (click)="add().destrezas()" expand="block" fill="clear" shape="round">
+        Añadir
+      </ion-button>
+      <div>
+        <ion-chip *ngFor="let att of datos.destrezasTecnicas; let idx = index">
+          <ion-icon name="pin" color="primary"></ion-icon>
+          <ion-label>{{att.value}}</ion-label>
+          <ion-icon name="close" (click)="delete(idx)"></ion-icon>
+        </ion-chip>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card style="border-radius: 15px;">
+    <ion-card-header color="diana">
+      <ion-card-title class="ion-text-center">Características físicas.</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item *ngFor="let att of datos.caracteristicasFisicas; let idx = index">
+        <ion-label >{{idx +1}}. Carácteristicas</ion-label>
+        <ion-input placeholder="Escribir..." [(ngModel)]="datos.caracteristicasFisicas[idx].value"></ion-input>
+      </ion-item>
+      <ion-button (click)="add().caracteristicasFisicas()" expand="block" fill="clear" shape="round">
+        Añadir
+      </ion-button>
+      <div>
+        <ion-chip *ngFor="let att of datos.caracteristicasFisicas; let idx = index">
+          <ion-icon name="pin" color="primary"></ion-icon>
+          <ion-label>{{att.value}}</ion-label>
+          <ion-icon name="close" (click)="delete(idx)"></ion-icon>
+        </ion-chip>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card style="border-radius: 15px;">
+    <ion-card-header color="diana">
+      <ion-card-title class="ion-text-center">Personal a su cargo.</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item *ngFor="let att of datos.personalCargo; let idx = index">
+        <ion-label >{{idx +1}}. Carácteristicas</ion-label>
+        <ion-input placeholder="Escribir..." [(ngModel)]="datos.personalCargo[idx].value"></ion-input>
+      </ion-item>
+      <ion-button (click)="add().personalCargo()" expand="block" fill="clear" shape="round">
+        Añadir
+      </ion-button>
+      <div>
+        <ion-chip *ngFor="let att of datos.personalCargo; let idx = index">
+          <ion-icon name="pin" color="primary"></ion-icon>
+          <ion-label>{{att.value}}</ion-label>
+          <ion-icon name="close" (click)="delete(idx)"></ion-icon>
+        </ion-chip>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card style="border-radius: 15px;">
+    <ion-card-header color="diana">
+      <ion-card-title class="ion-text-center">Herramientas/Equipos.</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item *ngFor="let att of datos.herramientas; let idx = index">
+        <ion-label >{{idx +1}}. Carácteristicas</ion-label>
+        <ion-input placeholder="Escribir..." [(ngModel)]="datos.herramientas[idx].value"></ion-input>
+      </ion-item>
+      <ion-button (click)="add().herramientas()" expand="block" fill="clear" shape="round">
+        Añadir
+      </ion-button>
+      <div>
+        <ion-chip *ngFor="let att of datos.herramientas; let idx = index">
+          <ion-icon name="pin" color="primary"></ion-icon>
+          <ion-label>{{att.value}}</ion-label>
+          <ion-icon name="close" (click)="delete(idx)"></ion-icon>
+        </ion-chip>
+      </div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

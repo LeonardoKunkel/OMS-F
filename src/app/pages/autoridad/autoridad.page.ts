@@ -15,8 +15,10 @@ export class AutoridadPage implements OnInit {
   private signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
     'maxwidth':1,
     'minWidth': 1,
-    'canvasWidth': 350,
-    'canvasHeight': 300
+    'canvasWidth': 200,
+    'canvasHeight': 200,
+    'penColor':'rgb(0, 0, 0)',
+    'backgroundColor': 'rgb(94, 96, 99)'
   };
   
   datos:any={
@@ -47,12 +49,11 @@ export class AutoridadPage implements OnInit {
 
   drawStart() {
     // will be notified of szimek/signature_pad's onBegin event
+    // this.signaturePad.set('backgroundColor', 'rgb(29, , 255)');
     console.log('begin drawing');
   }
 
   drawComplete() {
-    // will be notified of szimek/signature_pad's onEnd event
-    // console.log(this.signaturePad.toDataURL(), 'URL');
     this.datos.firma = this.signaturePad.toDataURL();
   }
 
@@ -68,7 +69,7 @@ export class AutoridadPage implements OnInit {
 
   form(){
     this.post();
-    close();
+    this.close();
   }
   
 

@@ -1,5 +1,5 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar>
+  <ion-toolbar color="blue">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/intro"></ion-back-button>
     </ion-buttons>
@@ -20,19 +20,19 @@
             <p><b>Estado:</b>  {{cp.estado}}</p>
             <p><b>Municipio:</b>  {{cp.municipio}}</p>
             <p><b>Cp:</b>  {{cp.cp}}</p>
-            <ion-item-divider color="light">
+            <ion-item-divider color="diana" style="border-radius: 15px;">
               <ion-label>Gerente de la estación</ion-label>
             </ion-item-divider>
             <p><b>Nombre:</b>  {{gerente.nombre}} {{gerente.apellidos}}</p>
             <p><b>Correo:</b> {{gerente.correo}}</p>
             <p><b>Telefono:</b>  {{gerente.telefono}}</p>
-            <ion-item-divider color="light">
+            <ion-item-divider color="diana" style="border-radius: 15px;">
               <ion-label>Maxima Autoridad </ion-label>
             </ion-item-divider>
             <p><b>Nombre:</b>  {{autoridad.nombre}} {{autoridad.apellidos}}</p>
             <p><b>Correo:</b> {{autoridad.correo}}</p>
             <p><b>Telefono:</b>  {{autoridad.telefono}}</p>
-            <ion-item-divider color="light">
+            <ion-item-divider color="diana" style="border-radius: 15px;">
               <ion-label>Representante Tecnico</ion-label>
             </ion-item-divider>
             <p><b>Nombre:</b>  {{representante.nombre}} {{representante.apellidos}}</p>
@@ -45,16 +45,6 @@
   </ion-grid>
   <ion-grid fixed>
     <ion-row>
-      <ion-col size="12" sizeLg="4">
-        <ion-card (click)="mapa()">
-          <ion-card-header>
-            <ion-card-title class="ion-text-center">Mapa</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-icon name="map-outline" size="large" style="margin: auto; display: block;"></ion-icon>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
       <ion-col size="12" sizeLg="4">
         <ion-card (click)="abrirCalendario()">
           <ion-card-header>

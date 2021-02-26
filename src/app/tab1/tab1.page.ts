@@ -43,9 +43,6 @@ export class Tab1Page {
     this.route.navigate(['/tabs/tab2', {custom_id: this.idEstacion}]);
     
   }
-  mapa() {
-    this.navCtrl.navigateForward('/mapa');
-  }
 
 
   abrirCalendario() {

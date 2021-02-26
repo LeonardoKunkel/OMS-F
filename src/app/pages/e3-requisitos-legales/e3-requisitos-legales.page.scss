@@ -1,30 +1,37 @@
-body {
-    cursor: url('http://ionicframework.com/img/finger.png'), auto;
+
+.header{
+    background-color:#d79043 ;
+    border-radius: 15px;
+    color: white;
 }
 
-.header .col {
-    background-color:lightgrey;
-}
+// body {
+//     cursor: url('http://ionicframework.com/img/finger.png'), auto;
+// }
 
-.col {
-    border: solid 1px grey;
-    border-bottom-style: none;
-    border-right-style: none;
-}
+// .header .col {
+//     background-color:lightgrey;
+// }
 
-.col:last-child {
-    border-right: solid 1px grey;
-}
+// .col {
+//     border: solid 1px grey;
+//     border-bottom-style: none;
+//     border-right-style: none;
+// }
 
-.row:last-child .col {
-    border-bottom: solid 1px grey;
-}
+// .col:last-child {
+//     border-right: solid 1px grey;
+// }
 
-@media(max-width: 990px){
-    .header{
-        display: none;
-    }
-    .req{
-        background-color:lightgrey;
-    }
-}
+// .row:last-child .col {
+//     border-bottom: solid 1px grey;
+// }
+
+// @media(max-width: 990px){
+//     .header{
+//         display: none;
+//     }
+//     .req{
+//         background-color:lightgrey;
+//     }
+// }
