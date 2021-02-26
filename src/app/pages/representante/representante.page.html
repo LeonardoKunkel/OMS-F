@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="blue">
     <ion-buttons slot="end">
       <ion-button (click)="close()">
         <ion-icon slot="end" name="close"></ion-icon>
@@ -66,13 +66,13 @@
                   </ion-col>
                 </ion-row>
               </ion-grid>
-              <ion-button (click)="clear()" shape="round">
+              <ion-button (click)="clear()" shape="round" color="danger">
                 Borrar firma
               </ion-button>
               <ion-button  
                 type="submit" 
                 expand="block" 
-                fill="clear" 
+                color="primary"
                 shape="round"
                 [disabled]="formulario.invalid"
                 >

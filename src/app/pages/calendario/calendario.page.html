@@ -1,11 +1,11 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="blue">
     <ion-title class="ion-text-center">Calendario de actividades</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button (click)="openCalModal()">
+      <ion-button (click)="openCalModal()" >
         <ion-icon slot="icon-only" name="add"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -14,21 +14,21 @@
 
 <ion-content>
   <ion-fab  slot="fixed" vertical="start" horizontal="end">
-    <ion-fab-button color="warning">
+    <ion-fab-button color="diana">
       <ion-icon name="help-circle-outline"></ion-icon>
     </ion-fab-button>
-    <ion-fab-list side="top">
-      <ion-fab-button color="light" (click)="alertFederal()">
+    <ion-fab-list side="top" >
+      <ion-fab-button color="light" (click)="alertFederal()" color="warning">
         <img src="../../assets/icon/mexico.png" style="width: 20px; height: auto;">
       </ion-fab-button>
     </ion-fab-list>
     <ion-fab-list side="bottom">
-      <ion-fab-button color="light" (click)="alertMunicipal()">
+      <ion-fab-button color="light" (click)="alertMunicipal()" color="warning">
         <img src="../../assets/icon/municipalidad.png" style="width: 20px; height: auto;">
       </ion-fab-button>
     </ion-fab-list>
     <ion-fab-list side="start">
-      <ion-fab-button color="light" (click)="alertEstatal()">
+      <ion-fab-button color="light" (click)="alertEstatal()" color="warning">
         <ion-icon name="shield-outline"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>
@@ -39,7 +39,7 @@
         <ion-card>
           <ion-card-content>
             <img src="../../assets/icon/mexico.png" style="width: 20%; height: auto; margin: auto; display: block;">
-            <ion-button (click)="federal()" expand="block" shape="round">
+            <ion-button (click)="federal()" expand="block" shape="round" color="diana">
               FEDERAL
             </ion-button>
           </ion-card-content>
@@ -47,7 +47,7 @@
         <ion-card>
           <ion-card-content>
             <ion-icon slot="start" name="shield" class="icono"></ion-icon>
-            <ion-button (click)="estatal()" expand="block" shape="round">
+            <ion-button (click)="estatal()" expand="block" shape="round" color="diana">
               ESTATAL
             </ion-button>
           </ion-card-content>
@@ -55,7 +55,7 @@
         <ion-card>
           <ion-card-content>
             <img src="../../assets/icon/municipalidad.png" style="width: 20%; height: auto; margin: auto; display: block;">
-            <ion-button (click)="municipal()" expand="block" shape="round">
+            <ion-button (click)="municipal()" expand="block" shape="round" color="diana">
               MUNICIPAL
             </ion-button>
           </ion-card-content>

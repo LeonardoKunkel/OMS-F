@@ -1,5 +1,5 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar>
+<ion-header >
+  <ion-toolbar color="blue">
     <ion-buttons slot="end">
       <ion-button (click)="pdf()">
         <ion-icon slot="start" name="print"></ion-icon>
@@ -25,8 +25,8 @@
     </ion-fab-button>
   </ion-fab>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="presentModal()">
-      <ion-icon name="arrow-forward-circle"></ion-icon>
+    <ion-fab-button (click)="presentModal()" color="diana">
+      <ion-icon name="help"></ion-icon>
     </ion-fab-button>
   </ion-fab>
   <form #formulario="ngForm" (ngSubmit)="form()">
@@ -75,19 +75,19 @@
             </ion-slide>
           </ion-slides>
         </ion-col>
+        <ion-button  
+          type="submit" 
+          size="large" 
+          color="primary" 
+          shape="round"
+          [disabled]="formulario.invalid"
+          >
+          Guardar
+        </ion-button>
+        <ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
+         comprobar
+        </ion-button>
       </ion-row>
     </ion-grid>
-    <ion-button  
-      type="submit" 
-      expand="block" 
-      fill="clear" 
-      shape="round"
-      [disabled]="formulario.invalid"
-      >
-      Guardar
-    </ion-button>
   </form>
-  <ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
-    Enviar
-  </ion-button>
 </ion-content>

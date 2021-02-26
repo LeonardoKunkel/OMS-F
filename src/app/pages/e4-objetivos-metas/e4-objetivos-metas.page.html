@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="blue">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/e4-menu"></ion-back-button>
     </ion-buttons>
@@ -32,7 +32,7 @@
                           </ion-col>
                       </ion-row>
                   </ion-grid>
-                  <ion-item color="light" #carta>
+                  <ion-item color="diana" #carta style="border-radius: 15px;">
                       <ion-label>{{check.name}}</ion-label>
                       <ion-checkbox #check  (ionChange)="cambio($event)" [(ngModel)]="check.selected" ></ion-checkbox>
                   </ion-item>

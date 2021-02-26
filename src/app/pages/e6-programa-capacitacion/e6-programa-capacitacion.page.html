@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="blue">
     <ion-buttons slot="end">
       <ion-button (click)="pdf()">
         <ion-icon slot="end" name="print"></ion-icon>
@@ -8,11 +8,161 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/e6-menu"></ion-back-button>
     </ion-buttons>
-    <ion-title class="ion-text-center" class="titulo">PROGRAMA DE CAPACITACIÓN</ion-title>
+    <ion-title class="ion-text-center"  >PROGRAMA DE CAPACITACIÓN</ion-title>
   </ion-toolbar>
 </ion-header>
 
   <ion-content>
+    <ion-fab vertical="top" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="addCard()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <div>
+      <ion-slides mode="ios" pager="ios" scrollbar="ios" >
+        <ion-slide>
+          <ion-grid fixed>
+            <ion-row style="margin: auto; display: block;">
+              <ion-col size="6">
+                  <ion-card fixed *ngFor="let att of cardArray; let idx = index">
+                    <ion-card-header>
+                      <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
+                      <ion-card-title>Awesome Title</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                      <ion-grid fixed>
+                        <ion-row>
+                          <ion-col size="12" sizeLg="6">
+                            <ion-item>
+                              <ion-label position="floating">Nombre del curso:</ion-label>
+                              <ion-input [(ngModel)]="cardArray[idx].nombreCurso"></ion-input>
+                            </ion-item>
+                            <ion-item>
+                              <ion-label position="floating">Instructor del curso:</ion-label>
+                              <ion-input name="nombreInstructor" [(ngModel)]="cardArray[idx].nombreInstructor"></ion-input>
+                            </ion-item>
+                            <ion-item>
+                              <ion-label>Fecha</ion-label>
+                              <ion-input type="date" [(ngModel)]="cardArray[idx].fecha"></ion-input>
+                            </ion-item>
+                            <ion-item>
+                              <ion-label position="floating">Costo</ion-label>
+                              <ion-input type="number"  [(ngModel)]="cardArray[idx].costo"></ion-input>
+                            </ion-item>
+                            <ion-item>
+                              <ion-label position="floating">Duración(Horas):</ion-label>
+                              <ion-input [(ngModel)]="cardArray[idx].duracion"></ion-input>
+                            </ion-item>
+                            <ion-item>
+                              <ion-label>Modalidad</ion-label>
+                              <ion-select placeholder="Seleccionaa">
+                                <ion-select-option>Interna</ion-select-option>
+                                <ion-select-option>Externa</ion-select-option>
+                              </ion-select>
+                            </ion-item>
+                            <ion-item>
+                              <ion-label position="floating">Objetivo</ion-label>
+                              <ion-input [(ngModel)]="cardArray[idx].objetivo"></ion-input>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col size="12" sizeLg="6">
+                            <ion-item>
+                              <ion-label position="floating">Contenido</ion-label>
+                              <ion-input [(ngModel)]="cardArray[idx].contenido"></ion-input>
+                            </ion-item>
+                            <ion-item>
+                              <ion-label position="floating">Metodologia</ion-label>
+                              <ion-input [(ngModel)]="cardArray[idx].metodologia"></ion-input>
+                            </ion-item>
+                            <br>
+                            <ion-item-divider color="diana">
+                              <ion-label>Personal</ion-label>
+                            </ion-item-divider>
+                            <div *ngFor="let att of anArray; let cont = index">
+                              <ion-item position="floating">
+                                <ion-label>Puesto:</ion-label>
+                                <ion-input [(ngModel)]="anArray[cont].puesto"></ion-input>
+                              </ion-item>
+                              <ion-item>
+                                <ion-label>Personal:</ion-label>
+                                <ion-input [(ngModel)]="anArray[cont].personal"></ion-input>
+                              </ion-item>
+                            </div>
+                            <ion-toolbar>
+                              <ion-icon (click)="Add()" slot="end" name="add"></ion-icon>
+                            </ion-toolbar>
+                          </ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </ion-card-content>
+                  </ion-card>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-slide>
+      </ion-slides>
+    </div>
+    <ion-button (click)="ver()" expand="block" fill="clear" shape="round">
+      Click me
+    </ion-button>
+
+
+
+
+<!-- 
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12" sizeLg="6" style="margin: auto; display: block;">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Capacitaciones Registros</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-item>
+                <ion-label position="floating">Nombre del curso:</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Instructor:</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Objetivo:</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Contenido:</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Duración(Horas):</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Modalidad:</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Metodología:</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Costo:</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Fecha:</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Personal:</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
     <ion-fab vertical="top" horizontal="end" slot="fixed">
       <ion-fab-button (click)="Add()">
         <ion-icon name="add"></ion-icon>
@@ -57,14 +207,87 @@
                   <ion-input type="number"  text-right  [(ngModel)]="anArray[idx].costo"></ion-input>
                 </ion-item>
               </div>
-              <!-- <button ion-button   (click)="Add()">Añadir</button> -->
-              <!-- <button ion-button full  (click)="goTo()" >let's go</button> -->
-              <!-- <ion-button (click)="enviar()" expand="block" fill="clear" shape="round">
-                Enviar
-              </ion-button> -->
             </ion-card-content>
           </ion-card>
+          <ion-item-divider color="diana" style="border-radius: 15px;">
+            <ion-label>Cronograma</ion-label>
+          </ion-item-divider>
         </ion-col>
       </ion-row>
     </ion-grid>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Cronograma de capacitación</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid fixed>
+          <ion-row  class="header">
+            <ion-col size="12" sizeLg="3">Nombre del curso</ion-col>
+            <ion-col size="12" sizeLg="3">Instructor</ion-col>
+            <ion-col size="12" sizeLg="0.5">Ene</ion-col>
+            <ion-col size="12" sizeLg="0.5">Feb</ion-col>
+            <ion-col size="12" sizeLg="0.5">Mar</ion-col>
+            <ion-col size="12" sizeLg="0.5">Abr</ion-col>
+            <ion-col size="12" sizeLg="0.5">May</ion-col>
+            <ion-col size="12" sizeLg="0.5">Jun</ion-col>
+            <ion-col size="12" sizeLg="0.5">Jul</ion-col>
+            <ion-col size="12" sizeLg="0.5">Ago</ion-col>
+            <ion-col size="12" sizeLg="0.5">Sep</ion-col>
+            <ion-col size="12" sizeLg="0.5">Oct</ion-col>
+            <ion-col size="12" sizeLg="0.5">Nov</ion-col>
+            <ion-col size="12" sizeLg="0.5">Dic</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let att of croArray; let idx = index">
+            <ion-col size="12" sizeLg="3">
+              <ion-input type="text" placeholder="Escribir.." [(ngModel)]="croArray[idx].nombreCurso" ></ion-input>
+            </ion-col>
+            <ion-col size="12" sizeLg="3">
+              <ion-input type="text" placeholder="Escribir.." [(ngModel)]="croArray[idx].instructor"></ion-input>
+            </ion-col>
+            <ion-col size="12" sizeLg="0.5">
+              <ion-checkbox class="check" color="success" [(ngModel)]="croArray[idx].ene"></ion-checkbox>
+            </ion-col>
+            <ion-col size="12" sizeLg="0.5">
+              <ion-checkbox class="check" color="success" [(ngModel)]="croArray[idx].feb"></ion-checkbox>
+            </ion-col>
+            <ion-col size="12" sizeLg="0.5">
+              <ion-checkbox class="check" color="success" [(ngModel)]="croArray[idx].mar"></ion-checkbox>
+            </ion-col>
+            <ion-col size="12" sizeLg="0.5">
+              <ion-checkbox class="check" color="success" [(ngModel)]="croArray[idx].abr"></ion-checkbox>
+            </ion-col>
+            <ion-col size="12" sizeLg="0.5">
+              <ion-checkbox class="check" color="success" [(ngModel)]="croArray[idx].may"></ion-checkbox>
+            </ion-col>
+            <ion-col size="12" sizeLg="0.5">
+              <ion-checkbox class="check" color="success" [(ngModel)]="croArray[idx].jun"></ion-checkbox>
+            </ion-col>
+            <ion-col size="12" sizeLg="0.5">
+              <ion-checkbox class="check" color="success" [(ngModel)]="croArray[idx].jul"></ion-checkbox>
+            </ion-col>
+            <ion-col size="12" sizeLg="0.5">
+              <ion-checkbox class="check" color="success" [(ngModel)]="croArray[idx].ago"></ion-checkbox>
+            </ion-col>
+            <ion-col size="12" sizeLg="0.5">
+              <ion-checkbox class="check" color="success" [(ngModel)]="croArray[idx].sep"></ion-checkbox>
+            </ion-col>
+            <ion-col size="12" sizeLg="0.5">
+              <ion-checkbox class="check" color="success" [(ngModel)]="croArray[idx].oct"></ion-checkbox>
+            </ion-col>
+            <ion-col size="12" sizeLg="0.5">
+              <ion-checkbox class="check" color="success" [(ngModel)]="croArray[idx].nov"></ion-checkbox>
+            </ion-col>
+            <ion-col size="12" sizeLg="0.5">
+              <ion-checkbox class="check" color="success" [(ngModel)]="croArray[idx].dic"></ion-checkbox>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+    <ion-button (click)="addCro()" expand="block" fill="clear" shape="round">
+      Agregar
+    </ion-button>
+    <ion-button (click)="goTo()" expand="block" fill="clear" shape="round">
+      Verificar
+    </ion-button> -->
   </ion-content>

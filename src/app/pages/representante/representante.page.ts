@@ -15,8 +15,10 @@ export class RepresentantePage implements OnInit {
   private signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
     'maxwidth':1,
     'minWidth': 1,
-    'canvasWidth': 350,
-    'canvasHeight': 300
+    'canvasWidth': 200,
+    'canvasHeight': 200,
+    'penColor':'rgb(0, 0, 0)',
+    'backgroundColor': 'rgb(94, 96, 99)'
   };
   
   datos: any = {
@@ -68,7 +70,7 @@ export class RepresentantePage implements OnInit {
 
   form() {
     this.post();
-    close();
+    this.close();
   }
 
 }

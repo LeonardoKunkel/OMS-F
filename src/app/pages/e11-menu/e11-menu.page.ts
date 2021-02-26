@@ -33,4 +33,8 @@ export class E11MenuPage implements OnInit {
     this.navCtrl.navigateForward('/e11-menu/e11-lista');
   }
 
+  programaAnual(){
+    this.navCtrl.navigateForward('e11-menu/e11-inspeccion-tanques-registros');
+  }
+
 }

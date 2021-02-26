@@ -574,7 +574,7 @@ salvaGuardas:[
         ],
           [new Cell(new Txt('I. POLÍTICA').alignment('center').end).end],
           [new Cell(new Txt('SISTEMA DE LA ADMINISTRACIÓN DE LA SEGURIDAD INDUSTRIAL SEGURIDAD OPERATIVA Y PROTECCIÓN DEL MEDIO AMBIENTE').fontSize(8).alignment('center').end).fillColor('#d7d8d6').end]
-      ]).margin([20,0]).relativePosition(90,90).margin(-70 |-100).widths([560]).end
+      ]).margin([20,0]).relativePosition(90,90).margin(-80 |-100).widths([800]).end
     );
     
     pdf.background(
@@ -583,34 +583,35 @@ salvaGuardas:[
         height(300).
         width(200).
         opacity(0.3).
-        margin([200,300]).
+        margin([300,200]).
         build()
       ]
     );
 
-
-    pdf.add(
-      pdf.add(
-        new Table(
-          [
-            [
-              new Cell(new Txt(`No.`).fontSize(10).end).fillColor('#abadds').end,
-              new Cell(new Txt(`Actividades`).fontSize(10).end).fillColor('#abadds').end,
-              new Cell(new Txt(`Riesgo asociado`).fontSize(10).end).fillColor('#abadds').end,
-              new Cell(new Txt(`Causas`).fontSize(10).end).fillColor('#abadds').end,
-              new Cell(new Txt(`Salvaguardas`).fontSize(10).end).fillColor('#abadds').end,
-              new Cell(new Txt(`F`).fontSize(10).end).fillColor('#abadds').end,
-              new Cell(new Txt(`C`).fontSize(10).end).fillColor('#abadds').end,
-              new Cell(new Txt(`R`).fontSize(10).end).fillColor('#abadds').end,
-              new Cell(new Txt(`Recomendación`).fontSize(10).end).fillColor('#abadds').end
-            ]
-          ]
-        ).widths([20, 130, 130, 115, 140, 10, 10, 10, 115]).end
-      )
-    )
     
+     
+      pdf.rawContent(
+        [
+          new Table(
+            [
+              [
+                new Cell(new Txt(`No.`).fontSize(10).end).fillColor('#abadds').end,
+                new Cell(new Txt(`Actividades`).fontSize(10).end).fillColor('#abadds').end,
+                new Cell(new Txt(`Riesgo asociado`).fontSize(10).end).fillColor('#abadds').end,
+                new Cell(new Txt(`Causas`).fontSize(10).end).fillColor('#abadds').end,
+                new Cell(new Txt(`Salvaguardas`).fontSize(10).end).fillColor('#abadds').end,
+                new Cell(new Txt(`F`).fontSize(10).end).fillColor('#abadds').end,
+                new Cell(new Txt(`C`).fontSize(10).end).fillColor('#abadds').end,
+                new Cell(new Txt(`R`).fontSize(10).end).fillColor('#abadds').end,
+                new Cell(new Txt(`Recomendación`).fontSize(10).end).fillColor('#abadds').end
+              ]
+            ]
+          ).widths([20, 130, 130, 115, 140, 10, 10, 10, 115]).end
+        ]
+      )
+  
     for (let i = 0; i < this.riesgos.length; i++) {
-
+      
       pdf.add(
         new Table(
           [
@@ -662,8 +663,18 @@ salvaGuardas:[
           ]
         ).widths([20, 130, 130, 115, 140, 10, 10, 10, 115]).end
       )
-      
     }
+
+    pdf.footer(
+      await new Img (`../../../assets/images/footer.png`).
+      height(100).
+      width(820).
+      margin([0,-35]).
+      build(),
+    )
+
+
+    pdf.pageMargins([ 40, 150, 40, 60 ]);
     pdf.pageOrientation('landscape');
     pdf.create().open();
   }
