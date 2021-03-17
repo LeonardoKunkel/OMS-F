@@ -5,30 +5,35 @@ import { EstacionService } from 'src/app/services/estacion.service';
 import { Canvas, Cell, Columns, Img, Line, PageReference, PdfMakeWrapper, Table, Txt } from 'pdfmake-wrapper';
 import { RepresentanteService } from 'src/app/services/representante.service';
 import { from } from 'rxjs';
+import { E1PoliticaService } from 'src/app/services/e1-politica.service';
+import { stringify } from '@angular/compiler/src/util';
 @Component({
   selector: 'app-e1-politica',
   templateUrl: './e1-politica.page.html',
   styleUrls: ['./e1-politica.page.scss'],
 })
 export class E1PoliticaPage implements OnInit {
+
   datosEstacion: any = {};
   @ViewChild('politica1') politicaUno;
   @ViewChild('politica2') politicaDos;
   @ViewChild('politica3') politicaTres;
-  politicaEscogida:'';
-  firmaRepresentante:'';
+  politicaEscogida: string;
+  firmaRepresentante: '';
 
   constructor(
     private route: ActivatedRoute,
     public alertCtrl: AlertController,
     private _estacionService : EstacionService,
-    private _representanteService: RepresentanteService
+    private _representanteService: RepresentanteService,
+    private politicaService: E1PoliticaService
     ) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('custom_id');
     // console.log('Id seleccionado Politica:',id);
     this.getEstacion(id);
+    this.getPolitica();
   }
 
   getEstacion(id: string){
@@ -47,24 +52,37 @@ export class E1PoliticaPage implements OnInit {
     });
   }
 
+  getPolitica() {
+    this.politicaService.getPolitica().subscribe((data: any) => {
+      console.log(data);
+    });
+  }
+
+  postPolitica() {
+    this.politicaService.postPolitica(this.politicaEscogida).subscribe((data: any) => {
+      console.log(data);
+    });
+  }
+
   options(e){
     let result = e.target.value;
     if (result === 'politica1') {
       let politica1 = this.politicaUno.nativeElement.innerText;
       this.politicaEscogida = politica1;
       // console.log(politica1);
-    }else if(result === 'politica2'){
+    } else if(result === 'politica2') {
       let politica2 = this.politicaDos.nativeElement.innerText;
       this.politicaEscogida = politica2;
       // console.log(politica2);
-    }else if(result === 'politica3'){
+    } else if(result === 'politica3') {
       let politica3 = this.politicaTres.nativeElement.innerText;
       this.politicaEscogida = politica3;
       // console.log(politica3);
     }
+    console.log(this.politicaEscogida.toString());
   }
 
-  async myPolitica(){
+  async myPolitica() {
     const alert = await this.alertCtrl.create({
       cssClass: 'my-custom-class',
       header: 'Crear Politíca',
@@ -85,16 +103,16 @@ export class E1PoliticaPage implements OnInit {
           handler: () => {
             console.log('Confirm Cancel');
           }
-        }, {
+        },
+        {
           text: 'Aceptar',
           handler: (e) => {
-            console.log(e);
+            console.log(e, 'Hola');
             this.politicaEscogida = e.politicaCreada;
           }
         }
       ]
     });
-
     await alert.present();
   }
 

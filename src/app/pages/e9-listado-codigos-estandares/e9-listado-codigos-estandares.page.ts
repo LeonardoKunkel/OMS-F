@@ -10,7 +10,7 @@ export class E9ListadoCodigosEstandaresPage implements OnInit {
 
   constructor() { }
 
-  listado:any=[
+  listado: any = [
     {
       normas:[
         {
@@ -560,9 +560,6 @@ export class E9ListadoCodigosEstandaresPage implements OnInit {
     }
   ]
 
-  
-
-  
   ngOnInit() {
   }
 
