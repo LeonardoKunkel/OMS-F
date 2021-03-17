@@ -1,3 +1,4 @@
+import { NavController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EstacionService } from 'src/app/services/estacion.service';
@@ -12,7 +13,8 @@ export class E12MenuPage implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private _estacionService: EstacionService     
+    private _estacionService: EstacionService,
+    private navCtrl: NavController
   ) { }
 
   ngOnInit() {
@@ -27,4 +29,11 @@ export class E12MenuPage implements OnInit {
     });
   }
 
+  goAnexo() {
+    this.navCtrl.navigateForward('/e12-menu/e12-anexo');
+  }
+
+  goCarta() {
+    this.navCtrl.navigateForward('/e12-menu/e12-carta');
+  }
 }
