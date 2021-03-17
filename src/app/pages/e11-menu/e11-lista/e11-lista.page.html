@@ -9,6 +9,36 @@
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-grid fixed>
+        <ion-row *ngFor="let data of listaEquipos; let idx=index;" >
+          <ion-col size="1.7">{{idx}}</ion-col>
+          <ion-col size="1.7">{{data.tipo}}</ion-col>
+          <ion-col size="1.7">{{data.clave}}</ion-col>
+          <ion-col size="1.7">{{data.desc}}</ion-col>
+          <ion-col size="1.7">
+            <div style="background-color: green; color: white;">
+              <ion-checkbox></ion-checkbox>
+              MAGNA
+            </div>
+            <div style="background-color: red; color: white;">
+              <ion-checkbox></ion-checkbox>
+              PREMIUM
+            </div>
+            <div style="background-color: black; color: white;">
+              <ion-checkbox></ion-checkbox>
+              DIESEL
+            </div>
+          </ion-col>
+          <!-- <ion-col size="1.7"><div style="background-color: red">PREMIUM</div></ion-col>
+          <ion-col size="1.7"><div style="background-color: black;">DIESEL</div></ion-col> -->
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+
   <ion-fab vertical="top" horizontal="end" slot="fixed">
     <ion-fab-button (click)="guardar()" type="submit" color="success">
       <ion-icon name="cloud-upload"></ion-icon>

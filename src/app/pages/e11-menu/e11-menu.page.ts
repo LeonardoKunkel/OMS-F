@@ -34,7 +34,16 @@ export class E11MenuPage implements OnInit {
   }
 
   programaAnual(){
-    this.navCtrl.navigateForward('e11-menu/e11-inspeccion-tanques-registros');
+    this.navCtrl.navigateForward('e11-menu/e11-programa-anual-mantenimiento');
+    
+  }
+
+  goPlanMantenimiento(){
+    this.navCtrl.navigateForward('e11-menu/e11-plan-mantenimiento');
+  }
+
+  goSolicitud(){
+    this.navCtrl.navigateForward('/solicitud-informacion');
   }
 
 }

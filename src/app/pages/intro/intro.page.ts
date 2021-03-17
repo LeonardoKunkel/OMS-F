@@ -87,33 +87,6 @@ export class IntroPage implements OnInit {
 
   //Go To Pages
 
-  // async entrar() {
-  //   console.log(this.arrayEstacion);
-    
-  //   // const alert = await this.alertCtrl.create({
-  //   //   cssClass: 'my-custom-class',
-  //   //   header: 'Seleccione ES',
-  //   //   inputs: this.arrayEstacion,
-  //   //   buttons: [
-  //   //     {
-  //   //       text: 'Cancelar',
-  //   //       role: 'cancel',
-  //   //       cssClass: 'secondary',
-  //   //       handler: () => {
-  //   //         console.log('Cancelado');
-  //   //       }
-  //   //     },
-  //   //     {
-  //   //       text: 'Ok',
-  //   //       handler: (id) => {
-  //   //         //console.log(id);
-  //   //         this.router.navigate(['tabs/tab1', {custom_id: id}]);
-  //   //       }
-  //   //     }
-  //   //   ] 
-  //   // });
-  //   // await alert.present();
-  // }
   
   async entrar() {
     const alert = await this.alertCtrl.create({
@@ -132,7 +105,6 @@ export class IntroPage implements OnInit {
         {
           text: 'Ok',
           handler: (id) => {
-            //console.log(id);
             this.router.navigate(['tabs/tab1', {custom_id: id}]);
           }
         }

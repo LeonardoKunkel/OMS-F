@@ -6,6 +6,9 @@ const routes: Routes = [
   {
     path: '',
     component: Tab1Page,
+    children: [
+       
+    ]
   }
 ];
 
@@ -14,3 +17,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class Tab1PageRoutingModule {}
+

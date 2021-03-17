@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { EstacionService } from '../services/estacion.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { EstacionService } from '../services/estacion.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  arrayTanques:any=[];
   estacion:any={};
   cp:any={};
   gerente:any={};
@@ -19,7 +20,8 @@ export class Tab1Page {
     private router:ActivatedRoute,
     private route: Router,
     private _estacion:EstacionService,
-    private navCtrl:NavController
+    private navCtrl:NavController,
+    private alertController:AlertController
 
    ) {
     const id = this.router.snapshot.paramMap.get('custom_id');
@@ -45,12 +47,68 @@ export class Tab1Page {
   }
 
 
-  abrirCalendario() {
-    this.navCtrl.navigateForward('/calendario');
-  }
+  // abrirCalendario() {
+  //   this.navCtrl.navigateForward('/calendario');
+  // }
 
-  grafica() {
-    this.navCtrl.navigateForward('/grafica');
+  // grafica() {
+  //   this.navCtrl.navigateForward('/grafica');
+  // }
+  
+  async presentAlertPrompt() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Prompt!',
+      inputs: [ 
+        {
+          name: 'producto',
+          type: 'text',
+          value: '',
+          placeholder:'MAGNA...'
+
+        }, 
+        {
+          name: 'siglas',
+          type: 'text',
+          value: '',
+          placeholder:'MG...'
+        }, 
+        {
+          name: 'noTanques',
+          type: 'number',
+          value: '',
+          placeholder:'3..'
+        }, 
+        {
+          name: 'noDispensarios',
+          type: 'number',
+          value: '',
+          placeholder:'3..'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Ok',
+          handler: (e) => {
+
+            this.arrayTanques.push(e);
+
+            console.log(this.arrayTanques);
+            
+
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
 }

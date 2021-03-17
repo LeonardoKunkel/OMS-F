@@ -1,0 +1,226 @@
+<ion-header>
+  <ion-toolbar color="blue">
+    <ion-buttons slot="end">
+      <ion-button (click)="pdf()">
+        <ion-icon slot="end" name="print"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/e11-menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Programa Anual de Mantenimiento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row class="head" >
+      <ion-col size="2">
+        <div class="headSize">
+          <b>ÁREA-EQUIPO</b>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div class="headSize">
+          <b>PLAN DE MANTENIMIENTO</b>
+        </div>
+      </ion-col>
+      <ion-col size="0.7">
+        <div class="headSize">
+          <b>PERIODO</b>
+        </div>
+      </ion-col>
+      <ion-col size="0.2">
+        <div class="headSize">
+          <b>Ene</b>
+        </div>
+      </ion-col>
+      <ion-col size="0.2">
+        <div class="headSize">
+          <b>Feb</b>
+        </div>
+      </ion-col>
+      <ion-col size="0.2">
+        <div class="headSize">
+          <b>Mar</b>
+        </div>
+      </ion-col>
+      <ion-col size="0.2">
+        <div class="headSize">
+          <b>Abr</b>
+        </div>
+      </ion-col>
+      <ion-col size="0.2">
+        <div class="headSize">
+          <b>Mar</b>
+        </div>
+      </ion-col>
+      <ion-col size="0.2">
+        <div class="headSize">
+          <b>May</b>
+        </div>
+      </ion-col>
+      <ion-col size="0.2">
+        <div class="headSize">
+          <b>Jun</b>
+        </div>
+      </ion-col>
+      <ion-col size="0.2">
+        <div class="headSize">
+          <b>Jul</b>
+        </div>
+      </ion-col>
+      <ion-col size="0.2">
+        <div class="headSize">
+          <b>Ago</b>
+        </div>
+      </ion-col>
+      <ion-col size="0.2">
+        <div class="headSize">
+          <b>Sep</b>
+        </div>
+      </ion-col>
+      <ion-col size="0.2">
+        <div class="headSize">
+          <b>Oct</b>
+        </div>
+      </ion-col>
+      <ion-col size="0.2">
+        <div class="headSize">
+          <b>Nov</b>
+        </div>
+      </ion-col>
+      <ion-col size="0.2">
+        <div class="headSize">
+          <b>Dic</b>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div>
+    <ion-grid fixed>
+      <ion-row *ngFor="let data of programaMantenimiento; let idx=index;">
+        <ion-col size="2">
+          <div class="fontZize">
+            {{data.areaEquipo}}
+          </div>
+          <!-- <hr style="background-color: #d79043;"> -->
+        </ion-col>
+        <ion-col size="4">
+          <div class="fontZize" *ngFor="let dts of data.planMantenimiento; let i=index;">
+            {{dts}}
+          </div>
+          <!-- <hr style="background-color: #d79043;"> -->
+        </ion-col>
+        <ion-col size="1.5">
+          <div class="fontZize" *ngFor="let dts of data.periodo; let i=index;">
+            {{dts}}
+          </div>
+          <!-- <hr style="background-color: #d79043;"> -->
+        </ion-col>
+        <ion-col size="0.2">
+          <div class="fontZize" *ngFor="let dts of data.meses; let i=index;">
+            <div class="fontZize" *ngFor="let datas of dts.Ene; let i=index;">
+              <div *ngIf="datas"  class="true" > </div>
+              <div *ngIf="!datas" class="false" > </div>
+            </div>
+          </div>
+          <!-- <hr style="background-color: #d79043;"> -->
+        </ion-col>
+        <ion-col size="0.2">
+          <div class="fontZize" *ngFor="let dts of data.meses; let i=index;">
+            <div class="fontZize" *ngFor="let datas of dts.Feb; let i=index;">
+              <div *ngIf="datas"  class="true" > </div>
+              <div *ngIf="!datas" class="false" > </div>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="0.2">
+          <div class="fontZize" *ngFor="let dts of data.meses; let i=index;">
+            <div class="fontZize" *ngFor="let datas of dts.Mar; let i=index;">
+              <div *ngIf="datas"  class="true" > </div>
+              <div *ngIf="!datas" class="false" > </div>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="0.2">
+          <div class="fontZize" *ngFor="let dts of data.meses; let i=index;">
+            <div class="fontZize" *ngFor="let datas of dts.Abr; let i=index;">
+              <div *ngIf="datas"  class="true" > </div>
+              <div *ngIf="!datas" class="false" > </div>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="0.2">
+          <div class="fontZize" *ngFor="let dts of data.meses; let i=index;">
+            <div class="fontZize" *ngFor="let datas of dts.May; let i=index;">
+              <div *ngIf="datas"  class="true" > </div>
+              <div *ngIf="!datas" class="false" > </div>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="0.2">
+          <div class="fontZize" *ngFor="let dts of data.meses; let i=index;">
+            <div class="fontZize" *ngFor="let datas of dts.Jun; let i=index;">
+              <div *ngIf="datas"  class="true" > </div>
+              <div *ngIf="!datas" class="false" > </div>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="0.2">
+          <div class="fontZize" *ngFor="let dts of data.meses; let i=index;">
+            <div class="fontZize" *ngFor="let datas of dts.Jul; let i=index;">
+              <div *ngIf="datas"  class="true" > </div>
+              <div *ngIf="!datas" class="false" > </div>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="0.2">
+          <div class="fontZize" *ngFor="let dts of data.meses; let i=index;">
+            <div class="fontZize" *ngFor="let datas of dts.Ago; let i=index;">
+              <div *ngIf="datas"  class="true" > </div>
+              <div *ngIf="!datas" class="false" > </div>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="0.2">
+          <div class="fontZize" *ngFor="let dts of data.meses; let i=index;">
+            <div class="fontZize" *ngFor="let datas of dts.Sep; let i=index;">
+              <div *ngIf="datas"  class="true" > </div>
+              <div *ngIf="!datas" class="false" > </div>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="0.2">
+          <div class="fontZize" *ngFor="let dts of data.meses; let i=index;">
+            <div class="fontZize" *ngFor="let datas of dts.Oct; let i=index;">
+              <div *ngIf="datas"  class="true" > </div>
+              <div *ngIf="!datas" class="false" > </div>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="0.2">
+          <div class="fontZize" *ngFor="let dts of data.meses; let i=index;">
+            <div class="fontZize" *ngFor="let datas of dts.Nov; let i=index;">
+              <div *ngIf="datas"  class="true" > </div>
+              <div *ngIf="!datas" class="false" > </div>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="0.2">
+          <div class="fontZize" *ngFor="let dts of data.meses; let i=index;">
+            <div class="fontZize" *ngFor="let datas of dts.Dic; let i=index;">
+              <div *ngIf="datas"  class="true" > </div>
+              <div *ngIf="!datas" class="false" > </div>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="2">
+          <div class="fontZize" *ngFor="let dts of data.reporte; let i=index;">
+              {{dts}}
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

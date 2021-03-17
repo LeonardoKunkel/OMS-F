@@ -35,13 +35,9 @@ export class E5MenuPage implements OnInit {
     this._routes.navigate(['/e5-matriz-responsabilidad', {custom_id: this.idEstacion}]);
   }
 
-  async goCarta(){
-    // const modal = await this.modalController.create({
-    //   component: E5CartaDesignacionPage ,
-    //   cssClass: 'my-custom-class'
-    // });
+  goCarta(){
+    
     this._routes.navigate(['e5-carta-designacion', {custom_id: this.idEstacion}]);
-    // return await modal.present();
   }
   
 }
