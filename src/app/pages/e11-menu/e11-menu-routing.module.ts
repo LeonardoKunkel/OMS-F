@@ -15,7 +15,15 @@ const routes: Routes = [
   {
     path: 'e11-inspeccion-tanques-registros',
     loadChildren: () => import('./e11-inspeccion-tanques-registros/e11-inspeccion-tanques-registros.module').then( m => m.E11InspeccionTanquesRegistrosPageModule)
+  },  {
+    path: 'programa-anual-mantenimiento',
+    loadChildren: () => import('./programa-anual-mantenimiento/programa-anual-mantenimiento.module').then( m => m.ProgramaAnualMantenimientoPageModule)
+  },
+  {
+    path: 'e11-plan-mantenimiento',
+    loadChildren: () => import('./e11-plan-mantenimiento/e11-plan-mantenimiento.module').then( m => m.E11PlanMantenimientoPageModule)
   }
+
 
 ];
 

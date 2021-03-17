@@ -1,0 +1,139 @@
+<ion-header>
+  <ion-toolbar color="blue">
+    <ion-title class="ion-text-center">Solicitud de Información</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle class="ion-text-center">TANQUES</ion-card-subtitle>
+    </ion-card-header>
+    <ion-grid fixed>
+      <ion-row class="head">
+        <ion-col size="4">PRODUCTO MANEJADO</ion-col>
+        <ion-col size="2">SIGLAS</ion-col>
+        <ion-col size="2">NO. DE TANQUES</ion-col>
+        <ion-col size="2">NO. DE DISPENSARIOS</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let data of arrayProduct; let idx = index;">
+          <ion-col size="4">
+            <ion-input type="text" placeholder="Magna..."></ion-input>
+          </ion-col>
+          <ion-col size="2">
+            <ion-input type="text" placeholder="MG..."></ion-input>
+          </ion-col>
+          <ion-col size="2">
+            <ion-input type="number" placeholder="1..."></ion-input>
+          </ion-col>
+          <ion-col size="2">
+            <ion-input type="number" placeholder="2..."></ion-input>
+          </ion-col>
+      </ion-row>
+      <ion-toolbar>
+        <ion-buttons slot="end">
+          <ion-button (click)="addProduct()">
+            <ion-icon slot="end" name="add"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-grid>
+  </ion-card>
+
+  <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle class="ion-text-center">
+          UNICACON DE EXTINTORES, PAROS DE EMERGENCIA, BOTIQUINES
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid fixed>
+          <ion-row class="head">
+            <ion-col size="2.4">NO.</ion-col>
+            <ion-col size="2.4">EXTINTORES</ion-col>
+            <ion-col size="2.4">PQS o CO2</ion-col>
+            <ion-col size="2.4">PAROS DE EMERGENCIA</ion-col>
+            <ion-col size="2.4">BOTIQUINES</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let data of arrayBotiquin; let idx = index;">
+            <ion-col size="2.4">{{idx}}</ion-col>
+            <ion-col size="2.4"></ion-col>
+            <ion-col size="2.4"></ion-col>
+            <ion-col size="2.4"></ion-col>
+            <ion-col size="2.4"></ion-col>
+          </ion-row>
+          <ion-toolbar>
+            <ion-buttons slot="end">
+              <ion-button (click)="addBotiquin()">
+                <ion-icon slot="end" name="add"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-grid>
+      </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Cuentas con:</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="4" *ngFor="let data of itemsComponents;">
+            <ion-item>
+              <ion-label>{{data.name}}</ion-label>
+              <ion-checkbox slot="end"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>COMUNICACIÓN EXTERNA: COMPLETAR INFORMACIÓN.</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid fixed>
+        <ion-row class="head">
+          <ion-col size="2.4">INSTITUCIÓN</ion-col>
+          <ion-col size="2.4">DIRECCIÓN</ion-col>
+          <ion-col size="2.4">FUNCIÓN</ion-col>
+          <ion-col size="2.4">TELÉFONO</ion-col>
+          <ion-col size="2.4">TIEMPO ESTIMADO QUE TARDARÍA EN LLEGAR LA AYUDA </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid fixed>
+        <ion-row *ngFor="let data of arrayComunication; let idx = index;">
+          <ion-col size="2.4">
+            <ion-input type="text" placeholder="Escribe..."></ion-input>
+          </ion-col>
+          <ion-col size="2.4">
+            <ion-input type="text" placeholder="Escribe..."></ion-input>
+          </ion-col>
+          <ion-col size="2.4">
+            <ion-input type="text" placeholder="Escribe..."></ion-input>
+          </ion-col>
+          <ion-col size="2.4">
+            <ion-input type="text" placeholder="Escribe..."></ion-input>
+          </ion-col>
+          <ion-col size="2.4">
+            <ion-input type="text" placeholder="Escribe..."></ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-toolbar>
+        <ion-buttons slot="end">
+          <ion-button (click)="addComunication()">
+            <ion-icon slot="end" name="add"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-card-content>
+  </ion-card>
+
+
+
+</ion-content>

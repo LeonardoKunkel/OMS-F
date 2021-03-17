@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>tictactoe</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="board" id="board">
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+  </div>
+  <div class="winning-message" id="winningMessage">
+    <div data-winning-message-text></div>
+    <button id="restartButton">Restart</button>
+  </div>
+  <!-- <ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
+    Reset
+  </ion-button>
+  <section>
+    <div class="row" *ngFor="let row of positionX; let x = index;">
+      <button
+        class="square"
+        style="width: 40px; height: 40px;"
+        *ngFor="let col of positionY; let y = index;"
+      >
+        {{x}}{{y}}
+      </button>
+    </div>
+  </section> -->
+</ion-content>

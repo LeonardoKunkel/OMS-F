@@ -1,12 +1,11 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar>
+  <ion-toolbar color="blue">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs/tabs2"></ion-back-button>
     </ion-buttons>
     <ion-title class="ion-text-center">XI. Integridad Mecánica</ion-title>
     <ion-card-subtitle class="ion-text-center">{{DataEstacion.nombre}}</ion-card-subtitle>
   </ion-toolbar>
-  <hr class="linea">
 </ion-header>
 
 <ion-content>
@@ -54,4 +53,10 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+  <ion-button (click)="goSolicitud()" expand="block" fill="clear" shape="round">
+    Solicitud informacion
+  </ion-button>
+  <ion-button (click)="goPlanMantenimiento()" expand="block" fill="clear" shape="round">
+    Plan mantenimiento
+  </ion-button>
 </ion-content>

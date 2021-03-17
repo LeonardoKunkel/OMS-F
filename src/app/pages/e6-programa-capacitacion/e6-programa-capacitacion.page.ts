@@ -14,18 +14,22 @@ export class E6ProgramaCapacitacionPage implements OnInit {
 
   constructor() { }
 
+  public trainingLetter:any=[];
+
+
   public anArray:any=[];
   public cardArray:any=[];
+  public addPersonales:any=[];
 
   ngOnInit() {
-    this.Add();
-    this.addCard();
+    // this.Add();
+    // this.addCard();
+    this.addLetter();
+    
   }
 
-
-  addCard(){
-    // this.croArray.push({'value':''});
-    this.cardArray.push({
+  addLetter(){
+    this.trainingLetter.push({
       'nombreCurso':'',
       'nombreInstructor':'',
       'fecha':'',
@@ -34,37 +38,24 @@ export class E6ProgramaCapacitacionPage implements OnInit {
       'objetivo':'',
       'contenido':'',
       'metodologia':'',
-      personal:[]
-    }); 
+      'modalidad':'',
+      personal:new Array
+    })
   }
 
-  Add(){
-  
-  this.anArray.push({'value':'' });
-    // this.anArray.push({
-    //   'puesto':'',
-    //   'personal': ''
-    // });
-
+  addPersonal(e){
+    // el evento te trae en numero de carta
+    let arrayNumber = e;
+    this.trainingLetter[arrayNumber].personal.push(
+      {
+        "puesto":" ",
+        "personal":" "
+      }
+    );
   }
 
-  ver(){
-     console.log(this.cardArray); ////Meter los datos de Anarray card a arraycard
-    // console.log(this.croArray);
-    // console.log('Anarray', this.anArray);
-  }
-
-  change(){
-    // console.log('Hola Eduardo', this.color);
-     var col = document.getElementById('color');
-     col.style.backgroundColor = '#FF00FF';
-     console.log(col);
-    //  col.style.backgroundColor = null;
-  }
-
-  clear(){
-    var col = document.getElementById('color');
-    col.style.backgroundColor = null;
+  send(){
+     console.log(this.trainingLetter); ////Meter los datos de Anarray card a arraycard
   }
 
   pdf(){
@@ -81,6 +72,23 @@ export class E6ProgramaCapacitacionPage implements OnInit {
             new Cell(new Txt(`COSTO (pesos)`).bold().fontSize(8).end).fillColor('#add9ea').end
         ]
       ]).widths([15,130,130,130,75,75,75,75]).margin([0,10,0,0]).end)
+
+      for (let i = 0; i < this.trainingLetter.length; i++) {
+        pdf.add([
+          new Table([
+            [
+              new Cell ( new Txt(`${i + 1}`).fontSize(8).alignment('center').end).end,
+              new Cell ( new Txt(`${this.trainingLetter[i].nombreCurso}`).fontSize(8).alignment('center').end).end,
+              new Cell ( new Txt(`${this.trainingLetter[i].objetivo}`).fontSize(8).alignment('center').end).end,
+              new Cell ( new Txt(`${this.trainingLetter[i].contenido}`).fontSize(8).alignment('center').end).end,
+              new Cell ( new Txt(`${this.trainingLetter[i].duracion}`).fontSize(8).alignment('center').end).end,
+              new Cell ( new Txt(`${this.trainingLetter[i].modalidad}`).fontSize(8).alignment('center').end).end,
+              new Cell ( new Txt(`${this.trainingLetter[i].metodologia}`).fontSize(8).alignment('center').end).end,
+              new Cell ( new Txt(`${this.trainingLetter[i].costo}`).fontSize(8).alignment('center').end).end
+            ]
+          ]).widths([15,130,130,130,75,75,75,75]).end
+        ])
+      }
 
     pdf.pageMargins([20, 30, 30, 20]);
     pdf.pageOrientation('landscape');

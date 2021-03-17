@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -9,11 +10,13 @@ import { NavController } from '@ionic/angular';
 export class TabsPage {
 
   constructor(
-    public navCtrl:NavController
-  ) {  }
+    public navCtrl:NavController,
+    private router:ActivatedRoute,
+    private route: Router,
+  ) { 
+    
+   }
 
-  home(){
-    this.navCtrl.navigateForward('/intro');
-  }
+  
 
 }

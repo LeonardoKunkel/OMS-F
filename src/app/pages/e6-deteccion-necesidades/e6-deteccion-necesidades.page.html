@@ -13,71 +13,65 @@
 </ion-header>
 
 <ion-content>
-  <ion-fab vertical="center" horizontal="start" slot="fixed" (click)="swipeBack()">
-      <ion-icon name="chevron-back-outline" class="custom-icon"></ion-icon>
-  </ion-fab>
-  <ion-fab vertical="center" horizontal="end" slot="fixed" (click)="swipeNext()">
-      <ion-icon name="chevron-forward-outline" class="custom-icon"></ion-icon>
-  </ion-fab>
   <ion-grid fixed>
-    <ion-row  style="margin: auto; display: block;">
-      <ion-col size="12" sizeLg="8">
-        <ion-slides mode="ios" pager="ios" scrollbar="ios" #mySlider>
-          <ion-slide *ngFor="let data of form; let idx = index">
-            <ion-card>
-              <ion-card-header>
-                <ion-card-title>{{data.name}}</ion-card-title>
-              </ion-card-header>
-              <ion-card-content>
-                <ion-item *ngFor="let dts of data.developer; let i = index">
-                  <ion-label>{{dts.val}}</ion-label>
-                  <ion-checkbox slot="start"></ion-checkbox>
-                </ion-item>
-                <ion-item-divider>
-                  <ion-label>SITUACIÓN ACTUAL</ion-label>
-                </ion-item-divider>
-                <ion-item>
-                  <ion-textarea placeholder="Escribe..."></ion-textarea>
-                </ion-item>
-                <ion-item-divider>
-                  <ion-label>SITUACIÓN DESEADA</ion-label>
-                </ion-item-divider>
-                <ion-item>
-                  <ion-textarea placeholder="Escribe..."></ion-textarea>
-                </ion-item>
-                <ion-item-divider>
-                  <ion-label>Objetivos de la necesidad:</ion-label>
-                </ion-item-divider>
-                <ion-item *ngFor="let data of anArray; let idx = index">
-                  <ion-label position="floating">{{idx + 1}}.Objetivo</ion-label>
-                  <ion-input  [(ngModel)]="_dataBase.ObjetiveNeed[idx]"></ion-input>
-                </ion-item>
-                <ion-toolbar>
-                  <ion-buttons slot="end"> 
-                    <ion-button (click)="add(data.name)">
-                      <!-- <label for="">{{data.name}}</label> -->
-                      <ion-icon slot="end" name="add"></ion-icon>
-                    </ion-button>
-                  </ion-buttons>
-                </ion-toolbar>
-                <ion-item-divider>
-                  <ion-label>TEMAS PARA CAPACITACIÓN</ion-label>
-                </ion-item-divider>
-                <ion-item *ngFor="let datas of anCapacitation; let j = index">
-                  <ion-label> {{j+1}}.Tema </ion-label>
-                  <ion-input [(ngModel)]="_dataBase.TopicsTraining[j]"></ion-input>
-                </ion-item>
-                <ion-toolbar>
-                  <ion-buttons slot="end">
-                    <ion-button (click)="addCapacitation()">
-                      <ion-icon slot="end" name="add"></ion-icon>
-                    </ion-button>
-                  </ion-buttons>
-                </ion-toolbar>
-              </ion-card-content>
-            </ion-card>
-          </ion-slide>
-        </ion-slides>
+    <ion-row>
+      <ion-col size="12" sizeLg="6" style="display: block; margin: auto;">
+        <ion-card>
+          <ion-card-content>
+            <ion-item *ngFor="let data of dataStatic let idx=index;">
+              <ion-label>{{data.name}}</ion-label>
+              <ion-select placeholder="Selecciona" 
+              [(ngModel)]="dataDB.select">
+                <ion-select-option 
+                *ngFor="let dts of data.developer"
+                >{{dts}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item-divider color="light">
+              <ion-label>SITUACIÓN ACTUAL</ion-label>
+            </ion-item-divider>
+            <ion-textarea 
+            placeholder="Escribe..."
+            name="currentSituation"
+            [(ngModel)]="dataDB.currentSituation"
+            ></ion-textarea>
+            <ion-item-divider color="light">
+              <ion-label>SITUACIÓN DESEADA</ion-label>
+            </ion-item-divider>
+            <ion-textarea
+            name="desiredSituation"
+            [(ngModel)]="dataDB.desiredSituation"
+            placeholder="Escribe..."></ion-textarea>
+            <ion-item-divider color="light">
+              <ion-label>Objetivos de la necesidad:</ion-label>
+            </ion-item-divider>
+            <ion-item *ngFor="let datas of dataDB.objetives; let j = index">
+              <ion-label position="floating">{{j+1}}.Objetivo</ion-label>
+              <ion-input [(ngModel)]="dataDB.objetives[j].value"></ion-input>
+            </ion-item>
+            <ion-toolbar>
+              <ion-buttons slot="end"> 
+                <ion-button (click)="add()">
+                  <ion-icon slot="end" name="add"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+            <ion-item-divider color="light">
+              <ion-label>TEMAS PARA CAPACITACIÓN</ion-label>
+            </ion-item-divider>
+            <ion-item *ngFor="let datas of dataDB.topicsTraining; let k=index">
+              <ion-label position="floating" > {{k + 1}}.Tema </ion-label>
+              <ion-input [(ngModel)]="dataDB.topicsTraining[k].value"></ion-input>
+            </ion-item>
+            <ion-toolbar>
+              <ion-buttons slot="end">
+                <ion-button (click)="addTraining()">
+                  <ion-icon slot="end" name="add"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-card-content>
+        </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>

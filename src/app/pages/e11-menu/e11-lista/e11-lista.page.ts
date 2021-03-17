@@ -11,6 +11,247 @@ import { E11EquipoCriticoService } from 'src/app/services/e11-equipo-critico.ser
 })
 export class E11ListaPage implements OnInit {
 
+  listaEquipos:any=[
+    {
+      tipo:'Tanque horizontal',
+      clave:1,
+      desc:'Almacenamiento de gasolina',
+      producto:[
+        'MAGNA'
+      ]
+    },
+    {
+      tipo:'Tanque horizontal',
+      clave:2,
+      desc:'Almacenamiento de Gasolina',
+      producto:[
+        'PREMIUM'
+      ]
+    },
+    {
+      tipo:'Tanque horizontal',
+      clave:3,
+      desc:'Almacenamiento de Gasolina',
+      producto:[
+        'DIESEL'
+      ]
+    },
+    {
+      tipo:'Dispensario',
+      clave:1,
+      desc:'Despacho de producto a vehículos',
+      producto:[
+        'MG',
+        'PR',
+        'DL'
+      ]
+    },
+    {
+      tipo:'Dispensario',
+      clave:2,
+      desc:'Despacho de producto a vehículos',
+      producto:[
+        'MG',
+        'PR',
+        'DL'
+      ]
+    },
+    {
+      tipo:'Dispensario',
+      clave:3,
+      desc:'Despacho de producto a vehículos',
+      producto:[
+        'MG',
+        'PR'
+      ]
+    },
+    {
+      tipo:'Dispensario',
+      clave:4,
+      desc:'Despacho de producto a vehículos',
+      producto:[
+        'MG',
+        'PR'
+      ]
+    },
+    {
+      tipo:'Dispensario',
+      clave:5,
+      desc:'Despacho de producto a vehículos',
+      producto:[
+        'MG',
+        'PR'
+      ]
+    },
+    {
+      tipo:'Extintores',
+      clave:'S/N',
+      desc:'Protección C.I.',
+      producto:[
+
+      ]
+    },
+    {
+      tipo:'Válvula presión -vacío',
+      clave:'S/N',
+      desc:'Retención -expulsión vapores de gasolina',
+      producto:[
+        'MAGNA'
+      ]
+    },
+    {
+      tipo:'Válvula presión -vacío',
+      clave:'S/N',
+      desc:'Retención -expulsión de vapores de gasolina',
+      producto:[
+        'PREMIUM'
+      ]
+    },
+    {
+      tipo:'Arrestador de flama',
+      clave:'S/N',
+      desc:'Retención de flama',
+      producto:[
+
+      ]
+    },
+    {
+      tipo:'Pozos de observación',
+      clave:'S/N',
+      desc:'Monitoreo de fugas',
+      producto:[
+
+      ]
+    },
+    {
+      tipo:'Drenajes',
+      clave:'S/N',
+      desc:'Contención y conducción de agua aceitosa',
+      producto:[
+
+      ]
+    },
+    {
+      tipo:'Trampa de combustible',
+      clave:'S/N',
+      desc:'Contención y separación de productos con agua.',
+      producto:[
+
+      ]
+    },
+    {
+      tipo:'Tierras y pararrayos',
+      clave:'S/N',
+      desc:'Disipación de cargas estáticas y atmosféricas',
+      producto:[
+
+      ]
+    },
+    {
+      tipo:'Paros de emergencia',
+      clave:'S/N',
+      desc:'Paro de la operación',
+      producto:[
+
+      ]
+    },
+    {
+      tipo:'Transformador',
+      clave:'S/N',
+      desc:'Regulación de energía eléctrica',
+      producto:[
+
+      ]
+    },
+    {
+      tipo:'Motobomba',
+      clave:'S/N',
+      desc:'Transporte de producto hacia dispensarios',
+      producto:[
+        'MAGNA'
+      ]
+    },
+    {
+      tipo:'Motobomba',
+      clave:'S/N',
+      desc:'Transporte de producto hacia dispensarios',
+      producto:[
+        'PREMIUM'
+      ]
+    },
+    {
+      tipo:'Motobomba',
+      clave:'S/N',
+      desc:'Transporte de producto hacia dispensarios',
+      producto:[
+        'DIÉSEL'
+      ]
+    },
+    {
+      tipo:'Control de inventarios',
+      clave:'S/N',
+      desc:'Medición de nivel de producto en tanques ',
+      producto:[
+
+      ]
+    },
+    {
+      tipo:'Tubería de venteo',
+      clave:'S/N',
+      desc:'Venteo de vapores de gasolina',
+      producto:[
+        'MAGNA'
+      ]
+    },
+    {
+      tipo:'Tubería de venteo',
+      clave:'S/N',
+      desc:'Tubería',
+      producto:[
+        'PREMIUM'
+      ]
+    },
+    {
+      tipo:'Tubería de venteo',
+      clave:'S/N',
+      desc:'Tubería',
+      producto:[
+        'DIÉSEL'
+      ]
+    },
+    {
+      tipo:'Sensores de fugas',
+      clave:'S/N',
+      desc:'Detección de fugas de producto en tanques y accesorios',
+      producto:[
+
+      ]
+    },
+    {
+      tipo:'Control de alarmas',
+      clave:'S/N',
+      desc:'Aviso de fuga en tanques y contenedores.',
+      producto:[
+        
+      ]
+    },
+    {
+      tipo:'Tablero de control eléctrico',
+      clave:'S/N',
+      desc:'Control de suministro de e.e., arranque y paro de bombas',
+      producto:[
+
+      ]
+    },
+    {
+      tipo:'Canalización eléctrica',
+      clave:'S/N',
+      desc:'Protección al cableado conductor de energía eléctrica.',
+      producto:[
+      ]
+    }
+  ];
+
   DataEstacion: any = {};
 
   datos: any = {

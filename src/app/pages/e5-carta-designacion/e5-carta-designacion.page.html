@@ -14,36 +14,35 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid fixed>
+  <ion-grid>
     <ion-row >
       <ion-col size="12" sizeLg="6" style="margin: auto; display: block;">
-        <ion-card>
-          <ion-card-content class="ion-text-justify">
-            En seguimiento al proceso de la Implantación del Sistema de Administración de la Seguridad Industrial,
-              Seguridad Operativa y Protección al medio Ambiente, en la Gasolinera <b>{{datosEstacion.nombre}}</b> , ubicada en
-              <b>{{datosEstacion.calleNumero}}</b>, C.P. <b>{{cp.cp}}</b>,
-              <b>{{cp.estado}}</b>, <b>{{cp.ciudad}}</b>, el que suscribe <b style="font-size: 15px;">{{representante.nombre}} {{representante.apellidos}}</b>, Representante
-              Legal me permito hacer de su conocimiento que ha sido designado Representante Técnico, para fungir
-              como Representante de la Estación de Servicio ante la ASEA, y para cumplir con lo siguiente:
-              <ol>
-                <li>Asegurar que el SA es conforme con los requisitos establecidos en los lineamientos y
-                  demás normativa aplicable.
-                </li>
-                <li>
-                  Informar a la alta dirección de la Estación de Servicio acerca del desempeño del Sistema
-                  de Administración.
-                </li>
-                <li>Proponer la adopción de las mejores prácticas nacionales e internacionales en la
-                  implementación del Sistema de Administración.
-                </li>
-                <li>Coordinar las acciones necesarias para subsanar los incumplimientos de la normatividad
-                  interna y externa aplicable.</li>
-                <li>Informar a la Agencia de cualquier situación que pudiera poner en riesgo la seguridad
-                  Industrial, seguridad Operativa y Protección al Ambiente.
-                </li>
-              </ol>
-          </ion-card-content>
-        </ion-card>
+        <div class="ion-text-justify" style="font-size: 12px;">
+          En seguimiento al proceso de la Implantación del Sistema de Administración de la Seguridad Industrial,
+            Seguridad Operativa y Protección al medio Ambiente, en la Gasolinera <b>{{datosEstacion.nombre}}</b> , ubicada en
+            <b>{{datosEstacion.calleNumero}}</b>, C.P. <b>{{cp.cp}}</b>,
+            <b>{{cp.estado}}</b>, <b>{{cp.ciudad}}</b>, el que suscribe <b style="font-size: 15px;">{{representante.nombre}} {{representante.apellidos}}</b>, Representante
+            Legal me permito hacer de su conocimiento que ha sido designado Representante Técnico, para fungir
+            como Representante de la Estación de Servicio ante la ASEA, y para cumplir con lo siguiente:
+            <ol>
+              <li>Asegurar que el SA es conforme con los requisitos establecidos en los lineamientos y
+                demás normativa aplicable.
+              </li><br>
+              <li>
+                Informar a la alta dirección de la Estación de Servicio acerca del desempeño del Sistema
+                de Administración.
+              </li><br>
+              <li>Proponer la adopción de las mejores prácticas nacionales e internacionales en la
+                implementación del Sistema de Administración.
+              </li><br>
+              <li>Coordinar las acciones necesarias para subsanar los incumplimientos de la normatividad
+                interna y externa aplicable.
+            </li><br>
+              <li>Informar a la Agencia de cualquier situación que pudiera poner en riesgo la seguridad
+                Industrial, seguridad Operativa y Protección al Ambiente.
+              </li>
+            </ol>
+        </div>
       </ion-col>
     </ion-row>
   </ion-grid>

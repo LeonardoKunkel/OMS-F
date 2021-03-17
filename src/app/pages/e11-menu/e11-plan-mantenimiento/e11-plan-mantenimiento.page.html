@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="blue">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/e11-menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Plan de Mantenimiento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let data of array; let idx=index">
+    <p class="ion-text-center"><b>{{data.topic}}</b></p>
+    <ion-grid fixed>
+      <ion-row class="header">
+        <ion-col size="5">
+          <p class="ion-text-center head">
+            <b>Equipo</b><br>
+            <b>Principal</b> &nbsp;
+            <b>Secundario</b>
+          </p>
+        </ion-col>
+        <ion-col size="6"><p class="head"><b>Actividades</b></p></ion-col>
+        <ion-col size="1"><p class="head"><b>Frecuencia</b></p></ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col size="2">{{data.team.first}}</ion-col>
+        <ion-col size="2">
+          <p *ngFor="let dts of array[idx].team.second; let id=index">{{dts.name}}</p>
+        </ion-col>
+        <ion-col size="6">
+          <div *ngFor="let dts of array[idx].team.second; let i=index">
+            <p *ngFor="let dts of array[idx].team.second[i].item; let id=index">{{dts.act}}</p>
+          </div>
+        </ion-col>
+        <ion-col size="2">
+          <div *ngFor="let dts of array[idx].team.second; let i=index">
+            <p *ngFor="let dts of array[idx].team.second[i].item; let id=index">{{dts.frec}}</p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

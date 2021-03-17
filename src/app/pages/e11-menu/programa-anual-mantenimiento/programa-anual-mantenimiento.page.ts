@@ -1,0 +1,1330 @@
+import { Component, OnInit } from '@angular/core';
+import { Cell, PdfMakeWrapper, Table, Txt, Ul } from 'pdfmake-wrapper';
+
+@Component({
+  selector: 'app-programa-anual-mantenimiento',
+  templateUrl: './programa-anual-mantenimiento.page.html',
+  styleUrls: ['./programa-anual-mantenimiento.page.scss'],
+})
+export class ProgramaAnualMantenimientoPage implements OnInit {
+
+  programaMantenimiento:any=[
+    {
+      areaEquipo:'Tanques',
+      planMantenimiento:[
+        'Limpieza área de almacenamiento',
+        'Inspección bomba, control inventarios',
+        'Prueba sensores, bomba, espacio anular',
+        'Inspección, estado contenedores, botas, boquillas y tapas',
+        'Prueba de hermeticidad, control de inventarios',
+        'Medición y purga de agua, si aplica',
+        'Revisión válvula sobrellenado, en operación y completa',
+        'Pruebas de hermeticidad equipo móvil.'
+      ],
+      periodo:[
+        'Diaria',
+        'Mensual',
+        'Mensual',
+        'Mensual',
+        'Mensual',
+        'Mensual',
+        '6 Meses',
+        'Anual',
+      ],
+      meses:[
+        {
+          Ene:[
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          Feb:[
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          Mar:[
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false
+          ]
+        },
+        {
+          Abr:[
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          May:[
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          Jun:[
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          Jul:[
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          Ago:[
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          Sep:[
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Oct:[
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          Nov:[
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          Dic:[
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false
+          ]
+        }
+      ],
+      reporte:[
+        'F-06',
+        'F-01',
+        'F-02',
+        'F-01',
+        'B',
+        'B',
+        'B'
+      ]
+    },
+    {
+      areaEquipo:'Dispensarios / Tuberias',
+      planMantenimiento:[
+        'Limpieza gabinete, manguera, pistola',
+        'Inspección contenedores y accesorios, sin fuga, buen estado',
+        'Prueba de válvula shut-off',
+        'Prueba sensor de líquidos',
+        'Calibración',
+        'Inspección de protectores y anclajes',
+        'Inspección de fugas en accesorios, válvulas',
+        'Tubería de venteo, integridad Mecánica',
+        'Revisión de válvulas de venteo',
+        'Revisión de arrestador de flama',
+        'Pruebas de hermeticidad'
+      ],
+      periodo:[
+        'Diaria',
+        'Mensual',
+        'Mensual',
+        'Mensual',
+        'Anual',
+        'Mensual',
+        'Mensual',
+        'Mensual',
+        '6 Meses',
+        '6 Meses',
+        'Anual',
+      ],
+      meses:[
+        {
+          Ene:[
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            true,
+            true,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          Feb:[
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            true,
+            true,
+            false,
+            true,
+            false
+          ]
+        },
+        {
+          Mar:[
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            true,
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          Abr:[
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            true,
+            true,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          May:[
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            true,
+            true,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          Jun:[
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            true,
+            true,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          Jul:[
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          Ago:[
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            true,
+            true,
+            true,
+            true,
+            false
+          ]
+        },
+        {
+          Sep:[
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            true,
+            true,
+            false,
+            false,
+            true
+          ]
+        },
+        {
+          Oct:[
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            true,
+            true,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          Nov:[
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            true,
+            true,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          Dic:[
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            true,
+            true,
+            false,
+            false,
+            false
+          ]
+        }
+      ],
+      reporte:[
+        'F-03',
+        'F-03',
+        'F-02',
+        'F-02',
+        'R',
+        '',
+        'F-04',
+        'F-04',
+        'F-04',
+        'F-04',
+        'R',
+        'F-07',
+        'R'
+      ]
+    },
+    {
+      areaEquipo:'Extintores',
+      planMantenimiento:[
+        'Inspección, ubicación y estado de accesorios.',
+        'Recarga de polvo o gas.'
+      ],
+      periodo:[
+        'Mensual',
+        'Anual'
+      ],
+      meses:[
+        {
+          Ene:[
+            true,
+            false
+          ]
+        },
+        {
+          Feb:[
+            true,
+            false
+          ]
+        },
+        {
+          Mar:[
+            true,
+            false
+          ]
+        },
+        {
+          Abr:[
+            true,
+            false
+          ]
+        },
+        {
+          May:[
+            true,
+            false
+          ]
+        },
+        {
+          Jun:[
+            true,
+            false
+          ]
+        },
+        {
+          Jul:[
+            true,
+            true
+          ]
+        },
+        {
+          Ago:[
+            true,
+            false
+          ]
+        },
+        {
+          Sep:[
+            true,
+            false
+          ]
+        },
+        {
+          Oct:[
+            true,
+            false
+          ]
+        },
+        {
+          Nov:[
+            true,
+            false
+          ]
+        },
+        {
+          Dic:[
+            true,
+            false
+          ]
+        }
+      ],
+      reporte:[
+        'F-07',
+        'R'
+      ]
+    },
+    {
+      areaEquipo:'Drenajes Registros, Trampa de combustibles',
+      planMantenimiento:[
+        'Inspección de trampa que esté libre de hidrocarburos',
+        'Limpieza Rejillas, registros y trampa.',
+        'Limpieza ecológica, desazolve de registros y trampa',
+        'Retiro Residuos peligrosos'
+      ],
+      periodo:[
+        'Diaria',
+        'Mensual',
+        '3 Meses',
+        '3 Meses'
+      ],
+      meses:[
+        {
+          Ene:[
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Feb:[
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          Mar:[
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          Abr:[
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          May:[
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          Jun:[
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          Jul:[
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Ago:[
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          Sep:[
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          Oct:[
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Nov:[
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          Dic:[
+            true,
+            true,
+            false,
+            false
+          ]
+        }
+      ],
+      reporte:[
+        'F-06',
+        'B',
+        'R',
+        'R'
+      ]
+    },
+    {
+      areaEquipo:'Áreas Verdes',
+      planMantenimiento:[
+        'Poda y limpieza'
+      ],
+      periodo:[
+        '15 días'
+      ],
+      meses:[
+        {
+          Ene:[
+            true
+          ]
+        },
+        {
+          Feb:[
+            false
+          ]
+        },
+        {
+          Mar:[
+            false
+          ]
+        },
+        {
+          Abr:[
+            true
+          ]
+        },
+        {
+          May:[
+            false
+          ]
+        },
+        {
+          Jun:[
+            false
+          ]
+        },
+        {
+          Jul:[
+            true
+          ]
+        },
+        {
+          Ago:[
+            false
+          ]
+        },
+        {
+          Sep:[
+            false
+          ]
+        },
+        {
+          Oct:[
+            true
+          ]
+        },
+        {
+          Nov:[
+            false
+          ]
+        },
+        {
+          Dic:[
+            false
+          ]
+        }
+      ],
+      reporte:[
+        ''
+      ]
+    },
+    {
+      areaEquipo:'Instalaciones eléctricas',
+      planMantenimiento:[
+        'Instalaciones eléctricas',
+        'Inspección de alumbrado',
+        'Revisión y prueba de Paros de emergencia',
+        'Inspección general de Instalaciones (integridad eléctrica)',
+        'Medición de resistividad tierras y limpieza',
+        'Mantenimiento a Respaldo (UPS)',
+        'Dictamen por una UVIE'
+      ],
+      periodo:[
+        'Mensual',
+        'Mensual',
+        'Mensual',
+        '6 Meses',
+        'Anual',
+        'Anual',
+        '5 Años'
+      ],
+      meses:[
+        {
+          Ene:[
+            true,
+            true,
+            true,
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          Feb:[
+            true,
+            true,
+            true,
+            false,
+            false,
+            true,
+            false
+          ]
+        },
+        {
+          Mar:[
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          Abr:[
+            true,
+            true,
+            true,
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          May:[
+            true,
+            true,
+            true,
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          Jun:[
+            true,
+            true,
+            true,
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          Jul:[
+            true,
+            true,
+            true,
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          Ago:[
+            true,
+            true,
+            true,
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          Sep:[
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          Oct:[
+            true,
+            true,
+            true,
+            false,
+            false,
+            false,
+            true
+          ]
+        },
+        {
+          Nov:[
+            true,
+            true,
+            true,
+            false,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          Dic:[
+            true,
+            true,
+            true,
+            false,
+            false,
+            false,
+            false
+          ]
+        }
+      ],
+      reporte:[
+        'F-02',
+        'B',
+        'F-02',
+        'F-05',
+        'R',
+        'R',
+        'D'
+      ]
+    },
+    {
+      areaEquipo:'Señalamientos',
+      planMantenimiento:[
+        'Inspección señalamientos basura, no estacionarse, etc.',
+        'Inspección señalamientos horizontales',
+        'Rotulación/sustitución de señalamientos horizontales',
+        'Pintura y rotulación tapas contenedores tanques',
+        'Pintura y rotulación tapas pozos de monitoreo observación.',
+        'Pintura de tapas de registros eléctricos y drenajes.'
+      ],
+      periodo:[
+        '4 Meses',
+        '4 Meses',
+        '6 Meses',
+        'Anual',
+        'Anual',
+        'Anual'
+      ],
+      meses:[
+        {
+          Ene:[
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Feb:[
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Mar:[
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Abr:[
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          May:[
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Jun:[
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Jul:[
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Ago:[
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Sep:[
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Oct:[
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Nov:[
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Dic:[
+            true,
+            true,
+            true
+          ]
+        }
+      ],
+      reporte:[
+        'B',
+        'B',
+        'F-02'
+      ]
+    },
+    {
+      areaEquipo:'Otros Equipos',
+      planMantenimiento:[
+        'Revisión de compresor, lubricación',
+        'Revisión de hidroneumático.',
+        'Revisión de bombas de agua',
+        'Revisión de CCTV',
+        'Revisión de accesorios de descarga, codos, mangueras'
+      ],
+      periodo:[
+        'Mensual',
+        'Mensual',
+        'Mensual',
+        'Mensual',
+        'Mensual'
+      ],
+      meses:[
+        {
+          Ene:[
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Feb:[
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Mar:[
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Abr:[
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          May:[
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Jun:[
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Jul:[
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Ago:[
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Sep:[
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Oct:[
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Nov:[
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          Dic:[
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      ],
+      reporte:[
+        'B',
+        'B',
+        'B',
+        'B',
+        'F-04'
+      ]
+    },
+    {
+      areaEquipo:'Edificios',
+      planMantenimiento:[
+        'Limpieza',
+        'Orden, cuarto eléctrico, sucios, Máquinas, Alm. Res. Peligroso',
+        'Azoteas, Revisión de bajadas de agua',
+        'Revisión de pavimentos, libre de baches, fisuras.',
+        'Revisión de pisos de almacenamiento despacho sin fisuras.',
+        'Revisión de tinacos y cisternas'
+      ],
+      periodo:[
+        'Diaria',
+        'Diaria',
+        'Mensual',
+        '4 Meses',
+        '4 Meses',
+        '6 Meses'
+      ],
+      meses:[
+        {
+          Ene:[
+            true,
+            true,
+            true,
+            false,
+            true,
+            false
+          ]
+        },
+        {
+          Feb:[
+            true,
+            true,
+            true,
+            false,
+            true,
+            false
+          ]
+        },
+        {
+          Mar:[
+            true,
+            true,
+            true,
+            true,
+            true,
+            false
+          ]
+        },
+        {
+          Abr:[
+            true,
+            true,
+            true,
+            false,
+            true,
+            false
+          ]
+        },
+        {
+          May:[
+            true,
+            true,
+            true,
+            false,
+            true,
+            false
+          ]
+        },
+        {
+          Jun:[
+            true,
+            true,
+            true,
+            false,
+            true,
+            false
+          ]
+        },
+        {
+          Jul:[
+            true,
+            true,
+            true,
+            true,
+            true,
+            false
+          ]
+        },
+        {
+          Ago:[
+            true,
+            true,
+            true,
+            false,
+            true,
+            false
+          ]
+        },
+        {
+          Sep:[
+            true,
+            true,
+            true,
+            false,
+            true,
+            false
+          ]
+        },
+        {
+          Oct:[
+            true,
+            true,
+            true,
+            false,
+            true,
+            false
+          ]
+        },
+        {
+          Nov:[
+            true,
+            true,
+            true,
+            true,
+            true,
+            false
+          ]
+        },
+        {
+          Dic:[
+            true,
+            true,
+            true,
+            false,
+            true,
+            false
+          ]
+        }
+      ],
+      reporte:[
+        'F-06',
+        'F-06',
+        'b',
+        'b',
+        'b',
+        'b'
+      ]
+    }
+  ]
+
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  item(){
+    
+    let area = this.programaMantenimiento.map(stack =>[
+      stack.areaEquipo
+    ]);
+
+    let plan = this.programaMantenimiento.map(stack =>[
+      stack.planMantenimiento
+    ]);
+
+    let periodo= this.programaMantenimiento.map(stack =>[
+      stack.periodo
+    ]);
+
+    return{area, plan, periodo}    
+  }
+
+  pdf(){
+    console.log('Hola mundo');
+    const pdf = new PdfMakeWrapper();
+
+    for (let i = 0; i < this.programaMantenimiento.length; i++) {
+      console.log(i);
+      pdf.add([
+        new Table([
+          [
+            new Cell( new Txt(`${this.programaMantenimiento[i].areaEquipo}`).end).end,
+            new Cell( new Txt(`${this.item().plan}`).end).end
+          ],
+          // [
+          //   new Cell( new Txt(`${this.programaMantenimiento[i].planMantenimiento}`).end).end
+          // ]
+        ]).end
+      ]);
+    }
+
+
+
+
+
+
+    // pdf.add(
+    //   // [
+    //   //   this.item().area,
+    //   //   this.item().plan,
+    //   //   this.item().periodo
+
+    //   // ]
+    //   // new Table(
+    //   // [
+    //   //     [new Cell(new Ul(this.item().area).end).end]
+    //   // ]
+    //   // ).end
+    //   // [
+    //   //   [
+    //   //     new Cell(new Txt(`${this.item().plan}`).end).end,
+    //   //     new Cell(new Txt('xdxdxdxdx').end).end,
+    //   //     // this.item().area,
+    //   //     // this.item().plan,
+    //   //   ]
+    //   // ]
+    //   // new Table(this.programaMantenimiento.areaEquipo).end
+    // )
+
+    pdf.create().open();
+  }
+
+}

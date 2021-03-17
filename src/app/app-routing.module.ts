@@ -262,7 +262,50 @@ const routes: Routes = [
   {
     path: 'e11-inspeccion-tanques-registros',
     loadChildren: () => import('./pages/e11-menu/e11-inspeccion-tanques-registros/e11-inspeccion-tanques-registros.module').then( m => m.E11InspeccionTanquesRegistrosPageModule)
-  }
+  },
+  {
+    path: 'tictactoe',
+    loadChildren: () => import('./pages/tictactoe/tictactoe.module').then( m => m.TictactoePageModule)
+  },
+  {
+    path: 'solicitud-informacion',
+    loadChildren: () => import('./pages/solicitud-informacion/solicitud-informacion.module').then( m => m.SolicitudInformacionPageModule)
+  },
+  // {
+  //   path: 'tab5',
+  //   loadChildren: () => import('./pages/tab5/tab5.module').then( m => m.Tab5PageModule)
+  // },
+  // {
+  //   path: 'tab6',
+  //   loadChildren: () => import('./pages/tab6/tab6.module').then( m => m.Tab6PageModule)
+  // },
+  // {
+  //   path: 'tab7',
+  //   loadChildren: () => import('./pages/tab7/tab7.module').then( m => m.Tab7PageModule)
+  // },
+
+  // {
+  //   path: 'producto',
+  //   loadChildren: () => import('./pages/producto/producto.module').then( m => m.ProductoPageModule)
+  // },
+  // {
+  //   path: 'extintores',
+  //   loadChildren: () => import('./pages/extintores/extintores.module').then( m => m.ExtintoresPageModule)
+  // },
+  // {
+  //   path: 'componentes',
+  //   loadChildren: () => import('./pages/componentes/componentes.module').then( m => m.ComponentesPageModule)
+  // },
+  // {
+  //   path: 'comunicacion',
+  //   loadChildren: () => import('./pages/comunicacion/comunicacion.module').then( m => m.ComunicacionPageModule)
+  // },
+  // {
+  //   path: 'sensores',
+  //   loadChildren: () => import('./pages/sensores/sensores.module').then( m => m.SensoresPageModule)
+  // }
+
+
 
 
 
