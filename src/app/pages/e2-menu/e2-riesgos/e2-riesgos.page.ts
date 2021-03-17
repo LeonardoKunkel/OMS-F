@@ -1,4 +1,4 @@
-// import { E2RiesgosService } from './../../../services/e2-riesgos.service';
+import { E2RiesgosService } from './../../../services/e2-riesgos.service';
 import { RiesgosModalPage } from './riesgos-modal/riesgos-modal.page';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides, ModalController } from '@ionic/angular';
@@ -14,29 +14,29 @@ import { EstacionService } from 'src/app/services/estacion.service';
 })
 export class E2RiesgosPage implements OnInit {
 
-  @ViewChild('mySlider')  slides: IonSlides;
+  @ViewChild('mySlider') slides: IonSlides;
 
-  public swipeNext(){
+  public swipeNext() {
     this.slides.slideNext();
   }
   
-  public swipeBack(){
+  public swipeBack() {
     this.slides.slidePrev();
   }
 
-  riesgos:any=[
+  riesgos: any = [
     {
-      actividad:'Arribo de autotanque a la Estación de servicio.',
-      peligros:[
+      actividad: 'Arribo de autotanque a la Estación de servicio.',
+      peligros: [
         'Maniobra dentro de la estación.',
         'Falta de conocimiento o de conciencia del personal.'
       ],
       riesgoAsociado:'Golpe a instalaciones u otros vehículos o atropellamiento a personas.',
-      causas:[
+      causas: [
         'Falta o mal estado de señalamiento de circulación dentro de la estación de servicio.',
         'Personal no sigue los procedimientos.'
       ],
-      salvaGuardas:[
+      salvaGuardas: [
         'Abanderar al Autotanque al ingresar a la Estación de Servicio.',
         'Respetar el señalamiento de circulación, dentro de la estación.',
         'Procedimiento de descarga en estaciones de servicio.',
@@ -44,22 +44,22 @@ export class E2RiesgosPage implements OnInit {
         'Válvulas Shut Off.',
         'Procedimiento preparación de respuesta a emergencias.',
       ],
-      recomendaciones:[
+      recomendaciones: [
         'Cumplir programa de mantenimiento de señalamientos, y procedimiento P-IM-04',
         'Cumplir procedimiento P-OP-01.'
       ],
-      frecuencia:null,
-      consecuencia:null,
-      magnitud:null
+      frecuencia: 0,
+      consecuencia: 0,
+      magnitud: null
     },
     {
       actividad:'Conexión e inicio de la descarga de producto.',
-      peligros:[
+      peligros: [
         'Equipos en mal estado.',
         'Falta de conocimiento o de conciencia del personal.'
       ],
       riesgoAsociado:'Derrame o fuga durante la conexión y/o operación de llenado de tanque de almacenamiento.',
-      causas:[
+      causas: [
         'Conexión deficiente o equipo en mal estado.',
         'Conexiones o manguera en mal estado, o falta de juntas.',
         'No se conecta la manguera de recuperación de vapores y la válvula de presión vacío no opera',
@@ -67,14 +67,14 @@ export class E2RiesgosPage implements OnInit {
         'Falta de hermeticidad en las conexiones de las boquillas del tanque.',
         'No se cumple el procedimiento.'
       ],
-      salvaGuardas:[
+      salvaGuardas: [
         'Mangueras, conexiones, accesorios, válvulas de sobrellenado, accesorios de tanques en buen estado.',
         'Alarma de alto nivel.',
         'Pisos impermeables con pendiente del 1% a registros de drenaje.',
         'Procedimiento de descarga en estaciones de servicio',
         'Procedimiento preparación de respuesta a emergencias.'
       ],
-      recomendaciones:[
+      recomendaciones: [
         'Cumplir programa de mantenimiento de mangueras, conexiones, accesorios, válvulas de sobrellenado, así como de accesorios de tanques y contenedores. P-IM-01',
         'Cumplir procedimiento P-OP-01.'
       ],
@@ -116,7 +116,7 @@ export class E2RiesgosPage implements OnInit {
       ],
       riesgoAsociado:'Incendio durante el llenado del tanque de almacenamiento.',
       causas:[
-        'Previamente ocurre fuga o derrame y la presencia de una fuente de ignición entre otras:',
+        'Previamente ocurre fuga o derrame y la presencia de una fuente de ignición entre otras.',
         'Uso de celular.',
         'Portar ropa sintética.',
         'Fumar, encender fuego.',
@@ -171,7 +171,7 @@ export class E2RiesgosPage implements OnInit {
         'Nivel de producto en tanques es erróneo.',
         'Conexión a tanque diferente.'
       ],
-      riesgoAsociado:'Sobrellenado de tanque de almacenamiento./Derrrame de producto al realizar la desconexión.',
+      riesgoAsociado: 'Sobrellenado de tanque de almacenamiento./Derrrame de producto al realizar la desconexión.',
       causas:[
         'No se verifica la capacidad de recibo del autotanque previo al llenado.',
         'Distracción de la persona al conectar la manguera de descarga'
@@ -220,7 +220,7 @@ export class E2RiesgosPage implements OnInit {
       magnitud:null
     },
     {
-      actividad:'Salida de autotanque a la estación de Servicio.',
+      actividad: 'Salida de autotanque a la estación de Servicio.',
       peligros:[
         'Maniobra dentro de la estación.'
       ],
@@ -404,7 +404,7 @@ export class E2RiesgosPage implements OnInit {
         'Procedimiento de Mantenimiento a Drenajes'
       ],
       recomendaciones:[
-        'Mantener trampa de combustibles libre de hidrocarburos. peligrosos. ',
+        'Mantener trampa de combustibles libre de hidrocarburos peligrosos. ',
         'Cumplir con Programa de mantenimiento de drenajes. ',
         'Cumplir con programa de mantenimiento de tanques y de dispensarios.'
       ],
@@ -493,12 +493,12 @@ export class E2RiesgosPage implements OnInit {
       causas:[
         'Fenómeno geológico que no depende de la estación de servicio.'
       ],
-salvaGuardas:[
+      salvaGuardas:[
         'Monitoreo de subsuelo por medio de pozos de observación y pozos de monitoreo.',
         'Detector de fugas en contenedores.',
         'Procedimiento preparación de respuesta a emergencias.'
       ],
-      recomendaciones:[
+      recomendaciones: [
         'Cumplir monitoreo periódico de subsuelo y mantos freáticos.',
         'Cumplir programa de mantenimiento a detectores de fugas.'
       ],
@@ -508,13 +508,16 @@ salvaGuardas:[
     }
   ]
 
-   idEstacion=''
-   datosEstacion:any={};
+  criterios: any = [];
+
+  idEstacion = ''
+  datosEstacion: any = {};
 
   constructor(
     private route: ActivatedRoute,
     private modalCtrl: ModalController,
-    private _estacionService: EstacionService
+    private _estacionService: EstacionService,
+    private riesgosService: E2RiesgosService
   ) { 
     const id = this.route.snapshot.paramMap.get('custom_id');
     this.idEstacion = id;
@@ -522,12 +525,20 @@ salvaGuardas:[
    }
 
   ngOnInit() {
+    this.getRiesgos();
   }
   
-  getEstacion(id: string){
+  getEstacion(id: string) {
     this._estacionService.getEstacionId(id).subscribe((data: any) => {
       this.datosEstacion = data;
       console.log(data ,'Riesgos');
+    });
+  }
+
+  getRiesgos() {
+    this.riesgosService.getRiesgos().subscribe((data: any) => {
+      this.criterios = data.riesgosFounded;
+      console.log(this.criterios);
     });
   }
 
@@ -539,25 +550,25 @@ salvaGuardas:[
     return await modal.present();
   }
 
-  onClick(){
+  check() {
     for (let i = 0; i < this.riesgos.length; i++) {
       let suma = parseInt(this.riesgos[i].frecuencia) + parseInt(this.riesgos[i].consecuencia);
       this.riesgos[i].magnitud = suma;
       // console.log(suma);
       if (this.riesgos[i].magnitud <= 4) {
         this.riesgos[i].magnitud ='IV';
-      }else if(this.riesgos[i].magnitud === 5){
+      } else if(this.riesgos[i].magnitud === 5) {
         this.riesgos[i].magnitud ='III'
-      }else if(this.riesgos[i].magnitud === 6){
+      } else if(this.riesgos[i].magnitud === 6) {
         this.riesgos[i].magnitud ='II'
-      }else if(this.riesgos[i].magnitud >= 7){
+      } else if(this.riesgos[i].magnitud >= 7) {
         this.riesgos[i].magnitud ='I'
       }
     }
-
+    console.log(this.riesgos);
   }
 
-  async pdf(){
+  async pdf() {
     let pdf = new PdfMakeWrapper();
     pdf.header(
       await new Table([
@@ -572,9 +583,9 @@ salvaGuardas:[
             new Txt(`${this.datosEstacion.nombre}`).alignment('center').fontSize(15).bold().end
           ]).end
         ],
-          [new Cell(new Txt('I. POLÍTICA').alignment('center').end).end],
-          [new Cell(new Txt('SISTEMA DE LA ADMINISTRACIÓN DE LA SEGURIDAD INDUSTRIAL SEGURIDAD OPERATIVA Y PROTECCIÓN DEL MEDIO AMBIENTE').fontSize(8).alignment('center').end).fillColor('#d7d8d6').end]
-      ]).margin([20,0]).relativePosition(90,90).margin(-80 |-100).widths([800]).end
+        [new Cell(new Txt('I. POLÍTICA').alignment('center').end).end],
+        [new Cell(new Txt('SISTEMA DE LA ADMINISTRACIÓN DE LA SEGURIDAD INDUSTRIAL SEGURIDAD OPERATIVA Y PROTECCIÓN DEL MEDIO AMBIENTE').fontSize(8).alignment('center').end).fillColor('#d7d8d6').end]
+      ]).margin([20, 0]).relativePosition(90,90).margin(-80 |-100).widths([800]).end
     );
     
     pdf.background(
@@ -583,35 +594,32 @@ salvaGuardas:[
         height(300).
         width(200).
         opacity(0.3).
-        margin([300,200]).
+        margin([300, 200]).
         build()
       ]
     );
 
-    
-     
-      pdf.rawContent(
-        [
-          new Table(
+    pdf.rawContent(
+      [
+        new Table(
+          [
             [
-              [
-                new Cell(new Txt(`No.`).fontSize(10).end).fillColor('#abadds').end,
-                new Cell(new Txt(`Actividades`).fontSize(10).end).fillColor('#abadds').end,
-                new Cell(new Txt(`Riesgo asociado`).fontSize(10).end).fillColor('#abadds').end,
-                new Cell(new Txt(`Causas`).fontSize(10).end).fillColor('#abadds').end,
-                new Cell(new Txt(`Salvaguardas`).fontSize(10).end).fillColor('#abadds').end,
-                new Cell(new Txt(`F`).fontSize(10).end).fillColor('#abadds').end,
-                new Cell(new Txt(`C`).fontSize(10).end).fillColor('#abadds').end,
-                new Cell(new Txt(`R`).fontSize(10).end).fillColor('#abadds').end,
-                new Cell(new Txt(`Recomendación`).fontSize(10).end).fillColor('#abadds').end
-              ]
+              new Cell(new Txt(`No.`).fontSize(10).end).fillColor('#abadds').end,
+              new Cell(new Txt(`Actividades`).fontSize(10).end).fillColor('#abadds').end,
+              new Cell(new Txt(`Riesgo asociado`).fontSize(10).end).fillColor('#abadds').end,
+              new Cell(new Txt(`Causas`).fontSize(10).end).fillColor('#abadds').end,
+              new Cell(new Txt(`Salvaguardas`).fontSize(10).end).fillColor('#abadds').end,
+              new Cell(new Txt(`F`).fontSize(10).end).fillColor('#abadds').end,
+              new Cell(new Txt(`C`).fontSize(10).end).fillColor('#abadds').end,
+              new Cell(new Txt(`R`).fontSize(10).end).fillColor('#abadds').end,
+              new Cell(new Txt(`Recomendación`).fontSize(10).end).fillColor('#abadds').end
             ]
-          ).widths([20, 130, 130, 115, 140, 10, 10, 10, 115]).end
-        ]
-      )
+          ]
+        ).widths([20, 130, 130, 115, 140, 10, 10, 10, 115]).end
+      ]
+    )
   
     for (let i = 0; i < this.riesgos.length; i++) {
-      
       pdf.add(
         new Table(
           [

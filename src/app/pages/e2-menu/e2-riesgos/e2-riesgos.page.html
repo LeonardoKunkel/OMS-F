@@ -1,4 +1,4 @@
-<ion-header >
+<ion-header no-border>
   <ion-toolbar color="blue">
     <ion-buttons slot="end">
       <ion-button (click)="pdf()">
@@ -10,7 +10,6 @@
     </ion-buttons>
     <ion-title class="ion-text-center">Evaluación de Riesgos</ion-title>
   </ion-toolbar>
-  <hr class="linea">
 </ion-header>
 
 <ion-content>
@@ -29,36 +28,40 @@
       <ion-icon name="help"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-  <form #formulario="ngForm" (ngSubmit)="form()">
+  <form #formulario="ngForm">
     <ion-grid fixed>
       <ion-row style="display: block; margin: auto;">
         <ion-col size="12" sizeLg="8">
-          <ion-slides   pager="true"  pager="true" #mySlider class="swiper-container">
-            <ion-slide *ngFor="let data of riesgos; let idx=index" class="swiper-slide">
+          <ion-slides pager="true" #mySlider class="swiper-container">
+            <ion-slide *ngFor="let data of riesgos; let idx = index" class="swiper-slide">
               <ion-card class="card">
                 <ion-card-header color="light">
-                  <ion-card-subtitle>{{idx+1}}. {{data.actividad}}</ion-card-subtitle>
+                  <ion-card-subtitle>{{idx + 1}}.{{data.actividad}}</ion-card-subtitle>
                 </ion-card-header>
+                
                   <ion-card-subtitle>Peligros</ion-card-subtitle>
                   <ion-list>
-                    <ion-item *ngFor="let datas of riesgos[idx].peligros; let idxs=index">
+                    <ion-item *ngFor="let datas of riesgos[idx].peligros; let idxs = index">
                       <ion-label>{{data.peligros[idxs]}}</ion-label>
                     </ion-item>
                   </ion-list>
+                  
                   <ion-card-subtitle>Riesgo asociado</ion-card-subtitle>
                   <p style="margin: 5%; text-align: justify;">{{data.riesgoAsociado}}</p>
-                    <ion-item-divider color="light">
-                      <ion-label></ion-label>
-                    </ion-item-divider>
+                  <ion-item-divider color="light">
+                    <ion-label></ion-label>
+                  </ion-item-divider>
+                  
                   <ion-item>
                     <ion-label>Frecuencia</ion-label>
                     <ion-select  name="frecuencia{{idx}}" required [(ngModel)]="riesgos[idx].frecuencia">
-                      <ion-select-option value="1" >1</ion-select-option>
+                      <ion-select-option value="1">1</ion-select-option>
                       <ion-select-option value="2">2</ion-select-option>
                       <ion-select-option value="3">3</ion-select-option>
                       <ion-select-option value="4">4</ion-select-option>
                     </ion-select>
                   </ion-item>
+                  
                   <ion-item>
                     <ion-label>Consecuencia</ion-label>
                     <ion-select name="consecuencia{{idx}}" required [(ngModel)]="riesgos[idx].consecuencia" >
@@ -68,9 +71,11 @@
                       <ion-select-option value="4">4</ion-select-option>
                     </ion-select>
                   </ion-item>
+                  
                   <ion-item>
                     <ion-label>Magnitud:  {{riesgos[idx].magnitud}}</ion-label>
                   </ion-item>
+                  
               </ion-card>
             </ion-slide>
           </ion-slides>
@@ -84,10 +89,15 @@
           >
           Guardar
         </ion-button>
-        <ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
+        <ion-button (click)="check()" expand="block" fill="clear" shape="round">
          comprobar
         </ion-button>
       </ion-row>
     </ion-grid>
   </form>
+  <ion-list>
+    <ion-item *ngFor="let c of criterios">
+      <ion-label>Awesome Label</ion-label>
+    </ion-item> 
+  </ion-list>
 </ion-content>

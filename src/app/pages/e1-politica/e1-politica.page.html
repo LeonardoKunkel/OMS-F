@@ -68,11 +68,14 @@
         </ion-card>
         <ion-item>
           <ion-label>Politíca</ion-label>
-          <ion-select placeholder="Selecciona una politíca" (ionChange)="options($event)">
+          <ion-select placeholder="Selecciona una política" (ionChange)="options($event)">
             <ion-select-option value="politica1">Politíca 1</ion-select-option>
             <ion-select-option value="politica2">Politíca 2</ion-select-option>
             <ion-select-option value="politica3">Politíca 3</ion-select-option>
           </ion-select>
+        </ion-item>
+        <ion-item (click)="postPolitica()">
+          <ion-label>Prueba</ion-label>
         </ion-item>
       </ion-col>
     </ion-row>

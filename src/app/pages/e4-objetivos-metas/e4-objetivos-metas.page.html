@@ -12,36 +12,37 @@
     <ion-row>
       <ion-col size="12" sizeLg="8" style="margin: auto; display: block;">
         <ion-list *ngFor = "let check of data">
-          <ion-card >
-              <ion-card-header>
-                  <ion-card-title class="ion-text-center">{{check.name}}</ion-card-title>
-              </ion-card-header>
-              <ion-card-content>
-                  <ion-grid fixed>
-                      <ion-row>
-                          <ion-col size="12" sizeLg="6">
-                              <!-- <img src={{check.img}} alt="" style="width: 30%;"> -->
-                          </ion-col>
-                          <ion-col size="12" sizeLg="6">
-                              <h6 class="ion-text-center">Objetivos</h6>
-                              <ol>
-                                  <li style="text-align: justify;">{{check.met1}}</li>
-                                  <li style="text-align: justify;">{{check.met2}}</li>
-                                  <li style="text-align: justify;">{{check.meth3}}</li>
-                              </ol>
-                          </ion-col>
-                      </ion-row>
-                  </ion-grid>
-                  <ion-item color="diana" #carta style="border-radius: 15px;">
-                      <ion-label>{{check.name}}</ion-label>
-                      <ion-checkbox #check  (ionChange)="cambio($event)" [(ngModel)]="check.selected" ></ion-checkbox>
-                  </ion-item>
-              </ion-card-content>
+          <ion-card>
+            <ion-card-header>
+                <ion-card-title class="ion-text-center">{{check.name}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid fixed>
+                <ion-row>
+                  <ion-col size="12" sizeLg="6">
+                    <!-- <img src={{check.img}} alt="" style="width: 30%;"> -->
+                  </ion-col>
+                  <ion-col size="12" sizeLg="6">
+                    <h6 class="ion-text-center">Objetivos</h6>
+                    <ol>
+                      <li style="text-align: justify;">{{check.met1}}</li>
+                      <li style="text-align: justify;">{{check.met2}}</li>
+                      <li style="text-align: justify;">{{check.meth3}}</li>
+                    </ol>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-item color="diana" #carta style="border-radius: 15px;">
+                <ion-label>{{check.name}}</ion-label>
+                <ion-checkbox #check  (ionChange)="cambio($event)" [(ngModel)]="check.selected" ></ion-checkbox>
+              </ion-item>
+            </ion-card-content>
           </ion-card>
         </ion-list>      
       </ion-col>
     </ion-row>
-  </ion-grid>  <ion-button (click)="verify()" expand="block" fill="clear" shape="round">
+  </ion-grid>
+  <ion-button (click)="verify()" expand="block" fill="clear" shape="round">
     Guardar y enviar
   </ion-button>
 </ion-content>

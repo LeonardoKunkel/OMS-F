@@ -27,88 +27,84 @@
       </ion-refresher-content>
     </ion-refresher>
   </div>
-  <ion-grid fixed>
-    <ion-row >
-      <ion-col size="12" sizeLg="4" style="margin: auto; display: block;">
+    <ion-row>
+      <ion-col size="12" sizeLg="8">
+        <ion-fab vertical="bottom" horizontal="end">
+          <ion-fab-button color="diana" (click)="estacion()">
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+        <ion-row>
+          <ion-col size="12">
+            <h2>Estaciones de Servicio Registradas</h2>
+          </ion-col>
+          <ion-col size="12" sizeLg="4" *ngFor="let data of supEstacion">
+            <ion-card>
+              <!-- <ion-toolbar>
+                <ion-buttons slot="end">
+                  <ion-button (click)="delete(data._id)">
+                    <ion-icon color="danger" slot="end" name="trash-outline"></ion-icon>
+                  </ion-button>
+                </ion-buttons>
+              </ion-toolbar> -->
+              <ion-card-header>
+                <ion-card-title>{{data.nombre}}</ion-card-title>
+                <ion-card-subtitle>
+                  Dirección:
+                  {{data.calleNumero}}
+                  {{data.cp.asentamiento}}
+                  {{data.cp.ciudad}}
+                  {{data.cp.cp}}
+                  {{data.cp.estado}}
+                </ion-card-subtitle>
+                <ion-card-subtitle>Telefono: {{data.telefono}}</ion-card-subtitle>
+                <ion-card-subtitle>Gerente: {{data.idGerente.nombre}} {{data.idGerente.apellidos}}</ion-card-subtitle>
+              </ion-card-header>
+              <img src="http://localhost:3000/logo/{{data.filename}}"  alt="No hay Logo"  style="width: auto; height: 100px;">
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col size="12" sizeLg="4">
+        <ion-list>
+          <ion-list-header color="diana">
+            <ion-label>Registro de Personal</ion-label>
+          </ion-list-header>
+          <ion-item>
+            <ion-label>Representante</ion-label>
+            <ion-button (click)="goRepresentante()" fill="clear">
+              <ion-icon slot="icon-only" name="add"></ion-icon>
+            </ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-label>Gerente</ion-label>
+            <ion-button (click)="goGerente()" fill="clear">
+              <ion-icon slot="icon-only" name="add"></ion-icon>
+            </ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-label>Máxima Autoridad</ion-label>
+            <ion-button (click)="goAutoridad()" fill="clear">
+              <ion-icon slot="icon-only" name="add"></ion-icon>
+            </ion-button>
+          </ion-item>
+        </ion-list>
+        <ion-card style="border-radius: 15px; " (click)="mapa()">
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">MAPA</ion-card-title>
+          </ion-card-header>
+          <ion-card-content style="display: flex; align-items: center; justify-content: center;">
+            <img 
+            style="width: 25%; height: auto;"
+            src="../../../assets/icon/mexico.png" 
+            alt="">
+          </ion-card-content>
+        </ion-card>
         <ion-item>
           <ion-label>Dark Theme</ion-label>
           <ion-icon name="moon-outline"></ion-icon>
           <ion-toggle color="diana" slot="end" (ionChange)='toogleTheme($event)'></ion-toggle>
         </ion-item>
-        <ion-card style="border-radius: 15px; ">
-          <ion-card-header>
-            <ion-card-title class="ion-text-center">Registro de Personal</ion-card-title>
-            <ion-button (click)="goRepresentante()" expand="block"  shape="round" color="diana">
-              representante
-            </ion-button>
-            <ion-button (click)="goGerente()" expand="block"  shape="round" color="diana">
-              gerente
-            </ion-button>
-            <ion-button (click)="goAutoridad()" expand="block"  shape="round" color="diana">
-              Maxima Autoridad
-            </ion-button>
-          </ion-card-header>
-        </ion-card>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col size="12" sizeLg="4" style="margin: auto; display: block;">
-        <ion-card style="border-radius: 15px; " (click)="mapa()">
-          <ion-card-header>
-            <ion-card-title class="ion-text-center">MAPA</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <img 
-            style="width: 90%; height: auto;"
-            src="../../../assets/icon/mexico.png" 
-            alt="">
-            <ion-card-subtitle class="ion-text-center">Mapa Estaciones de Servicio</ion-card-subtitle>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col size="12" sizeLg="8" style="margin: auto; display: block;">
-        <h1 class="ion-text-center">Estaciones de Servicio Registradas</h1>
-        <ion-item>
-          <ion-label>Agregar Estación</ion-label>
-          <ion-fab-button color="diana" (click)="estacion()">
-            <ion-icon name="add"></ion-icon>
-          </ion-fab-button>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col size="12" sizeLg="3" *ngFor="let data of supEstacion">
-        <ion-card>
-          <ion-toolbar>
-            <ion-buttons slot="end">
-              <ion-button (click)="delete(data._id)">
-                <ion-icon color="danger" slot="end" name="trash-outline"></ion-icon>
-              </ion-button>
-            </ion-buttons>
-          </ion-toolbar>
-          <ion-card-header>
-            <ion-card-title>{{data.nombre}}</ion-card-title>
-            <ion-card-subtitle>
-              Dirección:
-              {{data.calleNumero}}
-              {{data.cp.asentamiento}}
-              {{data.cp.ciudad}}
-              {{data.cp.cp}}
-              {{data.cp.estado}}
-            </ion-card-subtitle>
-            <ion-card-subtitle>Telefono: {{data.telefono}}</ion-card-subtitle>
-            <ion-card-subtitle>Gerente: {{data.idGerente.nombre}} {{data.idGerente.apellidos}}</ion-card-subtitle>
-          </ion-card-header>
-          <!-- <img src="../../../assets/images/Softoil_logo.png"> -->
-          <img src="http://localhost:3000/logo/{{data.filename}}"  alt="No hay Logo"  style="width: auto; height: 100px;">
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
 </ion-content>

@@ -7,7 +7,15 @@ const routes: Routes = [
   {
     path: '',
     component: E12MenuPage
+  },  {
+    path: 'e12-anexo',
+    loadChildren: () => import('./e12-anexo/e12-anexo.module').then( m => m.E12AnexoPageModule)
+  },
+  {
+    path: 'e12-carta',
+    loadChildren: () => import('./e12-carta/e12-carta.module').then( m => m.E12CartaPageModule)
   }
+
 ];
 
 @NgModule({
