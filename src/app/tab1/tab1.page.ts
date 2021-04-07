@@ -46,7 +46,6 @@ export class Tab1Page {
     
   }
 
-
   // abrirCalendario() {
   //   this.navCtrl.navigateForward('/calendario');
   // }

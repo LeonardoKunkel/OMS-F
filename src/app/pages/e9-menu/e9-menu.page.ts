@@ -32,4 +32,8 @@ export class E9MenuPage implements OnInit {
   goListado(){
     this.navCtrl.navigateForward('/e9-listado-codigos-estandares');
   }
+  
+  goProcedure() {
+    this.navCtrl.navigateForward('/e9-menu/e9-procedimiento');
+  }
 }

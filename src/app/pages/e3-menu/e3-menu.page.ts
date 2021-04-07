@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EstacionService } from 'src/app/services/estacion.service';
 import { PdfMakeWrapper, Txt, Table, Cell, Img } from 'pdfmake-wrapper';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-e3-menu',
@@ -9,13 +10,14 @@ import { PdfMakeWrapper, Txt, Table, Cell, Img } from 'pdfmake-wrapper';
   styleUrls: ['./e3-menu.page.scss'],
 })
 export class E3MenuPage implements OnInit {
-  DataEstacion:any={};
-  idEstacion= "";
+  DataEstacion: any = {};
+  idEstacion = '';
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private _estacionService: EstacionService  
+    private _estacionService: EstacionService,
+    private navCtrl: NavController
   ) { }
 
 
@@ -36,6 +38,9 @@ export class E3MenuPage implements OnInit {
     this.router.navigate(['/e3-requisitos-legales', {custom_id: this.idEstacion}]);
   }
 
+  goProcedure() {
+    this.navCtrl.navigateForward('/e3-menu/e3-procedimiento');
+  }
   // goProcedimiento(){
   //   console.log('procedimiento');
     

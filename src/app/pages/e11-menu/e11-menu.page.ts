@@ -46,4 +46,7 @@ export class E11MenuPage implements OnInit {
     this.navCtrl.navigateForward('/solicitud-informacion');
   }
 
+  goProcedure() {
+    this.navCtrl.navigateForward('/e11-menu/e11-procedimiento');
+  }
 }

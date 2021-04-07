@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: E5MenuPage
+  },  {
+    path: 'e5-procedimiento',
+    loadChildren: () => import('./e5-procedimiento/e5-procedimiento.module').then( m => m.E5ProcedimientoPageModule)
   }
+
 ];
 
 @NgModule({

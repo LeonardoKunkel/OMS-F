@@ -36,4 +36,8 @@ export class E12MenuPage implements OnInit {
   goCarta() {
     this.navCtrl.navigateForward('/e12-menu/e12-carta');
   }
+  
+  goProcedure() {
+    this.navCtrl.navigateForward('/e12-menu/e12-procedimiento');
+  }
 }

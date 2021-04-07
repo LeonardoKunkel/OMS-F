@@ -31,6 +31,10 @@ export class E8MenuPage implements OnInit {
     });
   }
 
+  goProcedure() {
+    this.navCtrl.navigateForward('/e8-menu/e8-procedimiento');
+  }
+
   async procedimientoInstructivo(){
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',

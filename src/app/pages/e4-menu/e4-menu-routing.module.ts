@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: E4MenuPage
+  },  {
+    path: 'e4-procedimiento',
+    loadChildren: () => import('./e4-procedimiento/e4-procedimiento.module').then( m => m.E4ProcedimientoPageModule)
   }
+
 ];
 
 @NgModule({

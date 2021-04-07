@@ -1,0 +1,348 @@
+<ion-grid fixed>
+  <ion-row>
+    <ion-col size="12" sizeLg="10">
+      <ion-card mode="ios">
+        <ion-card-header (click)="toggleAcordeon()" class="card-header">
+          <ion-item>
+            <ion-card-title>Incendio en área de despacho</ion-card-title>
+            <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+            <ion-label></ion-label>
+          </ion-item>
+        </ion-card-header>
+        <ion-card-content #cc class="card-content">
+          <form #formulario="ngForm" (ngSubmit)="enviarForm(formulario)">
+            <p style="margin: 3%; text-align: justify;"></p>
+            <ion-item>
+              <ion-label>Programa de simulacros</ion-label>
+              <ion-select name="mes" [(ngModel)]="datos.mes"  placeholder="Selecciona el mes programado para el simulacro">
+                <ion-select-option value="enero">Enero</ion-select-option>
+                <ion-select-option value="febrero">Febrero</ion-select-option>
+                <ion-select-option value="marzo">Marzo</ion-select-option>
+                <ion-select-option value="abril">Abril</ion-select-option>
+                <ion-select-option value="mayo">Mayo</ion-select-option>
+                <ion-select-option value="junio">Junio</ion-select-option>
+                <ion-select-option value="julio">Julio</ion-select-option>
+                <ion-select-option value="agosto">Agosto</ion-select-option>
+                <ion-select-option value="septiembre">Septiembre</ion-select-option>
+                <ion-select-option value="octubre">Octubre</ion-select-option>
+                <ion-select-option value="noviembre">Noviembre</ion-select-option>
+                <ion-select-option value="diciembre">Diciembre</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label>Clase de simulacro</ion-label>
+              <ion-input name="claseSimulacro" [(ngModel)]="datos.claseSimulacro"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Aviso previo</ion-label>
+              <ion-select name="aviso" [(ngModel)]="datos.aviso" placeholder="¿Cuenta con aviso previo?">
+                <ion-select-option value="Si">Si</ion-select-option>
+                <ion-select-option value="No">No</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label>Fecha y hora</ion-label>
+              <ion-datetime display-format="DD.MM.YYYY HH:mm" name="fecha" [(ngModel)]="datos.fecha"></ion-datetime>
+            </ion-item>
+            <ion-item>
+              <ion-label >Descripción del escenario</ion-label><br>
+              <ion-textarea placeholder="Escribe..." name="descripcionEmergencia" [(ngModel)]="datos.descripcionEmergencia"></ion-textarea>
+            </ion-item>
+            <ion-grid fixed>
+              <ion-row>
+                <ion-col size="6">
+                  <ion-button (click)="planeacioSimulacroIncendio()" [disabled]="disabled" style="margin: auto; display: block;">
+                    <ion-icon name="create-outline"></ion-icon>
+                    Planeación de simulacros
+                  </ion-button>
+                </ion-col>
+                <ion-col size="6">
+                  <ion-button (click)="evaluacionSimulacroIncendio()" [disabled]="disabled" style="margin: auto; display: block;">
+                    <ion-icon name="create-outline"></ion-icon>
+                    Evaluación de simulacros
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <ion-button (click)="enviarForm(formulario)" expand="block" fill="clear" shape="round" color="success">
+              Guardar datos
+            </ion-button>
+          </form>     
+        </ion-card-content>
+      </ion-card>
+      <ion-card mode="ios">
+       <ion-card-header (click)="toggleSismo()" class="card-header">
+          <ion-item>
+            <ion-card-title>Sismo</ion-card-title>
+            <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+          </ion-item>
+       </ion-card-header>
+       <ion-card-content #sismo class="card-content">
+          <form #formulario2="ngForm" (ngSubmit)="enviarForm2(formulario2)">
+            <p style="margin: 3%; text-align: justify;"></p>
+            <ion-item>
+              <ion-label>Programa de simulacros</ion-label>
+              <ion-select name="mes" [(ngModel)]="datos2.mes" placeholder="Selecciona el mes programado para el simulacro">
+                <ion-select-option value="enero">Enero</ion-select-option>
+                <ion-select-option value="febrero">Febrero</ion-select-option>
+                <ion-select-option value="marzo">Marzo</ion-select-option>
+                <ion-select-option value="abril">Abril</ion-select-option>
+                <ion-select-option value="mayo">Mayo</ion-select-option>
+                <ion-select-option value="junio">Junio</ion-select-option>
+                <ion-select-option value="julio">Julio</ion-select-option>
+                <ion-select-option value="agosto">Agosto</ion-select-option>
+                <ion-select-option value="septiembre">Septiembre</ion-select-option>
+                <ion-select-option value="octubre">Octubre</ion-select-option>
+                <ion-select-option value="noviembre">Noviembre</ion-select-option>
+                <ion-select-option value="diciembre">Diciembre</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label>Clase de simulacro</ion-label>
+              <ion-input name="claseSimulacro" [(ngModel)]="datos2.claseSimulacro"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Aviso previo</ion-label>
+              <ion-select name="aviso" [(ngModel)]="datos2.aviso" placeholder="¿Cuenta con aviso previo?">
+                <ion-select-option value="Si">Si</ion-select-option>
+                <ion-select-option value="No">No</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label>Fecha y hora</ion-label>
+              <ion-datetime name="fecha" [(ngModel)]="datos2.fecha" display-format="DD.MM.YYYY HH:mm"></ion-datetime>
+            </ion-item>
+            <ion-item>
+              <ion-label >Descripción del escenario</ion-label><br>
+              <ion-textarea placeholder="Escribe..." name="descripcionEmergencia" [(ngModel)]="datos2.descripcionEmergencia"></ion-textarea>
+            </ion-item>
+            <ion-grid fixed>
+              <ion-row>
+                <ion-col size="6">
+                  <ion-button (click)=" planeacioSimulacroSismo()" [disabled]="disabled2" style="margin: auto; display: block;">
+                    <ion-icon name="create-outline"></ion-icon>
+                    Planeación de simulacros
+                  </ion-button>
+                </ion-col>
+                <ion-col size="6">
+                  <ion-button  style="margin: auto; display: block;" [disabled]="disabled2" (click)=" evaluacionSimulacroSismo()">
+                    <ion-icon name="create-outline"></ion-icon>
+                    Evaluación de simulacros
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <ion-button (click)="enviarForm2(formulario2)" expand="block" fill="clear" shape="round" color="success">
+              Guardar datos
+            </ion-button>
+          </form>
+        </ion-card-content>
+      </ion-card>
+      <form #formulario3="ngForm" (ngSubmit)="enviarForm3(formulario3)">
+        <ion-card mode="ios">
+          <ion-card-header (click)="toggleDerrameDespacho()" class="card-header">
+            <ion-item>
+              <ion-card-title>Derrame de producto en despacho</ion-card-title>
+              <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+            </ion-item>
+          </ion-card-header>
+          <ion-card-content #derrameDespacho class="card-content">
+            <p style="margin: 3%; text-align: justify;"></p>
+            <ion-item>
+              <ion-label>Programa de simulacros</ion-label>
+              <ion-select name="mes" [(ngModel)]="datos3.mes"  placeholder="Selecciona el mes programado para el simulacro">
+                <ion-select-option value="enero">Enero</ion-select-option>
+                <ion-select-option value="febrero">Febrero</ion-select-option>
+                <ion-select-option value="marzo">Marzo</ion-select-option>
+                <ion-select-option value="abril">Abril</ion-select-option>
+                <ion-select-option value="mayo">Mayo</ion-select-option>
+                <ion-select-option value="junio">Junio</ion-select-option>
+                <ion-select-option value="julio">Julio</ion-select-option>
+                <ion-select-option value="agosto">Agosto</ion-select-option>
+                <ion-select-option value="septiembre">Septiembre</ion-select-option>
+                <ion-select-option value="octubre">Octubre</ion-select-option>
+                <ion-select-option value="noviembre">Noviembre</ion-select-option>
+                <ion-select-option value="diciembre">Diciembre</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label>Clase de simulacro</ion-label>
+              <ion-input name="claseSimulacro" [(ngModel)]="datos3.claseSimulacro"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Aviso previo</ion-label>
+              <ion-select name='aviso' [(ngModel)]="datos3.aviso" placeholder="¿Cuenta con aviso previo?">
+                <ion-select-option value="Si">Si</ion-select-option>
+                <ion-select-option value="No">No</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label>Fecha y hora</ion-label>
+              <ion-datetime name='fecha' [(ngModel)]="datos3.fecha" display-format="DD.MM.YYYY HH:mm"></ion-datetime>
+            </ion-item>
+            <ion-item>
+              <ion-label >Descripción del escenario</ion-label><br>
+              <ion-textarea placeholder="Escribe..." name="descripcionEmergencia" [(ngModel)]="datos3.descripcionEmergencia"></ion-textarea>
+            </ion-item>
+            <ion-grid fixed>
+              <ion-row>
+                <ion-col size="6">
+                  <ion-button (click)="planeacioSimulacroDerrameProducto()" [disabled]="disabled3" style="margin: auto; display: block;">
+                    <ion-icon name="create-outline"></ion-icon>
+                    Planeación de simulacros
+                  </ion-button>
+                </ion-col>
+                <ion-col size="6">
+                  <ion-button (click)="evaluacionSimulacroDerrameProducto()"  [disabled]="disabled3" style="margin: auto; display: block;">
+                    <ion-icon name="create-outline"></ion-icon>
+                    Evaluación de simulacros
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <ion-button (click)="enviarForm3(formulario3)" expand="block" fill="clear" shape="round" color="success">
+              Guardar datos
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </form>
+
+      <form #formulario4="ngForm" (ngSubmit)="enviarForm4(formulario4)">
+        <ion-card mode="ios">
+          <ion-card-header (click)="toggleIncendiosElectricos()" class="card-header">
+            <ion-item>
+              <ion-card-title>Incendios en instalaciones eléctricas</ion-card-title>
+              <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+            </ion-item>
+          </ion-card-header>
+          <ion-card-content #incendiosElectricos class="card-content">
+             <p style="margin: 3%; text-align: justify;"></p>
+             <ion-item>
+              <ion-label>Programa de simulacros</ion-label>
+              <ion-select name="mes" [(ngModel)]="datos4.mes" placeholder="Selecciona el mes programado para el simulacro">
+                  <ion-select-option value="enero">Enero</ion-select-option>
+                  <ion-select-option value="febrero">Febrero</ion-select-option>
+                  <ion-select-option value="marzo">Marzo</ion-select-option>
+                  <ion-select-option value="abril">Abril</ion-select-option>
+                  <ion-select-option value="mayo">Mayo</ion-select-option>
+                  <ion-select-option value="junio">Junio</ion-select-option>
+                  <ion-select-option value="julio">Julio</ion-select-option>
+                  <ion-select-option value="agosto">Agosto</ion-select-option>
+                  <ion-select-option value="septiembre">Septiembre</ion-select-option>
+                  <ion-select-option value="octubre">Octubre</ion-select-option>
+                  <ion-select-option value="noviembre">Noviembre</ion-select-option>
+                  <ion-select-option value="diciembre">Diciembre</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label>Clase de simulacro</ion-label>
+              <ion-input name="claseSimulacro" [(ngModel)]="datos4.claseSimulacro"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Aviso previo</ion-label>
+              <ion-select name="aviso" [(ngModel)]="datos4.aviso" placeholder="¿Cuenta con aviso previo?">
+                <ion-select-option value="Si">Si</ion-select-option>
+                <ion-select-option value="No">No</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label>Fecha y hora</ion-label>
+              <ion-datetime name="fecha" [(ngModel)]="datos4.fecha" display-format="DD.MM.YYYY HH:mm"></ion-datetime>
+            </ion-item>
+            <ion-item>
+              <ion-label >Descripción del escenario</ion-label><br>
+              <ion-textarea placeholder="Escribe..." name="descripcionEmergencia" [(ngModel)]="datos4.descripcionEmergencia"></ion-textarea>
+            </ion-item>
+            <ion-grid fixed>
+            <ion-row>
+              <ion-col size="6">
+                <ion-button (click)="planeacioSimulacroIncendioElectricos()" [disabled]="disabled4" style="margin: auto; display: block;">
+                  <ion-icon name="create-outline"></ion-icon>
+                  Planeación de simulacros
+                </ion-button>
+              </ion-col>
+              <ion-col size="6">
+                <ion-button (click)=" evaluacionSimulacroIncendioElectricos()" [disabled]="disabled4" style="margin: auto; display: block;">
+                  <ion-icon name="create-outline"></ion-icon>
+                  Evaluación de simulacros
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <ion-button (click)="enviarForm4(formulario4)" expand="block" fill="clear" shape="round" color="success">
+            Guardar datos
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </form>
+
+    <form #formulario5="ngForm" (ngSubmit)="enviarForm5(formulario5)">
+      <ion-card mode="ios">
+        <ion-card-header (click)="toggleDerrameFuga()" class="card-header">
+          <ion-item>
+            <ion-card-title>Derrame o fuga durante la operación descarga de autotanque</ion-card-title>
+            <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+          </ion-item>
+        </ion-card-header>
+        <ion-card-content #derrameFuga class="card-content">
+          <ion-item>
+            <ion-label>Programa de simulacros</ion-label>
+            <ion-select name="mes" [(ngModel)]="datos5.mes" placeholder="Selecciona el mes programado para el simulacro">
+              <ion-select-option value="enero">Enero</ion-select-option>
+              <ion-select-option value="febrero">Febrero</ion-select-option>
+              <ion-select-option value="marzo">Marzo</ion-select-option>
+              <ion-select-option value="abril">Abril</ion-select-option>
+              <ion-select-option value="mayo">Mayo</ion-select-option>
+              <ion-select-option value="junio">Junio</ion-select-option>
+              <ion-select-option value="julio">Julio</ion-select-option>
+              <ion-select-option value="agosto">Agosto</ion-select-option>
+              <ion-select-option value="septiembre">Septiembre</ion-select-option>
+              <ion-select-option value="octubre">Octubre</ion-select-option>
+              <ion-select-option value="noviembre">Noviembre</ion-select-option>
+              <ion-select-option value="diciembre">Diciembre</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label>Clase de simulacro</ion-label>
+            <ion-input name="claseSimulacro" [(ngModel)]="datos5.claseSimulacro"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Aviso previo</ion-label>
+            <ion-select name="aviso" [(ngModel)]="datos5.aviso" placeholder="¿Cuenta con aviso previo?">
+              <ion-select-option value="Si">Si</ion-select-option>
+              <ion-select-option value="No">No</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label>Fecha y hora</ion-label>
+            <ion-datetime name="fecha" [(ngModel)]="datos5.fecha" display-format="DD.MM.YYYY HH:mm"></ion-datetime>
+          </ion-item>
+          <ion-item>
+            <ion-label >Descripción del escenario</ion-label><br>
+            <ion-textarea placeholder="Escribe..." name="descripcionEmergencia" [(ngModel)]="datos5.descripcionEmergencia"></ion-textarea>
+          </ion-item>
+          <ion-grid fixed>
+            <ion-row>
+              <ion-col size="6">
+                <ion-button (click)="planeacioSimulacroDerrame()" [disabled]="disabled5" style="margin: auto; display: block;">
+                  <ion-icon name="create-outline"></ion-icon>
+                  Planeación de simulacros
+                </ion-button>
+              </ion-col>
+              <ion-col size="6">
+                <ion-button (click)="evaluacionSimulacroDerrame()" [disabled]="disabled5" style="margin: auto; display: block;">
+                  <ion-icon name="create-outline"></ion-icon>
+                  Evaluación de simulacros
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <ion-button (click)="enviarForm5(formulario5)" expand="block" fill="clear" shape="round" color="success">
+            Guardar datos
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </form>
+    </ion-col>
+  </ion-row>
+</ion-grid>

@@ -24,15 +24,18 @@ export class E4MenuPage implements OnInit {
     //console.log(id,'Elemento 1');
   }
 
-  getEstacion(id:string){
-    this._estacionService.getEstacionId(id).subscribe((data:any) =>{
+  getEstacion(id: string) {
+    this._estacionService.getEstacionId(id).subscribe((data: any) => {
       console.log(data);
       this.DataEstacion = data;
     });
   }
 
-  goObjetivos(){
+  goObjetivos() {
     this.navCtrl.navigateForward('e4-objetivos-metas');
   }
 
+  goProcedure() {
+    this.navCtrl.navigateForward('/e4-menu/e4-procedimiento')
+  }
 }
