@@ -14,6 +14,7 @@ import { Geolocation } from '@capacitor/core';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import { NgCalendarModule } from 'ionic2-calendar';
 import { SwiperModule } from 'swiper/angular';
+import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
 
 // import pdfFonts from '../assets/fonts/custom-fonts.js';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
@@ -49,7 +50,8 @@ PdfMakeWrapper.setFonts(pdfFonts);
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    FileOpener
+    FileOpener,
+    DocumentViewer
   ],
   bootstrap: [AppComponent]
 })

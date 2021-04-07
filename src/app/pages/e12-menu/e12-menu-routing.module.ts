@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'e12-carta',
     loadChildren: () => import('./e12-carta/e12-carta.module').then( m => m.E12CartaPageModule)
+  },
+  {
+    path: 'e12-procedimiento',
+    loadChildren: () => import('./e12-procedimiento/e12-procedimiento.module').then( m => m.E12ProcedimientoPageModule)
   }
 
 ];

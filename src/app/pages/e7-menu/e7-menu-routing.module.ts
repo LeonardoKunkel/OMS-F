@@ -10,6 +10,10 @@ const routes: Routes = [
   },  {
     path: 'e7-lista',
     loadChildren: () => import('./e7-lista/e7-lista.module').then( m => m.E7ListaPageModule)
+  },
+  {
+    path: 'e7-procedimiento',
+    loadChildren: () => import('./e7-procedimiento/e7-procedimiento.module').then( m => m.E7ProcedimientoPageModule)
   }
 
 ];

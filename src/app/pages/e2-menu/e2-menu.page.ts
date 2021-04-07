@@ -40,4 +40,8 @@ export class E2MenuPage implements OnInit {
   aspectosAmbientales() {
     this.navCtrl.navigateForward('/e2-menu/e2-aspectos');
   }
+  
+  goProcedure() {
+    this.navCtrl.navigateForward('/e2-menu/e2-procedimiento')
+  }
 }

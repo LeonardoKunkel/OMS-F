@@ -1,3 +1,4 @@
+import { PdfMakerService } from './../../services/pdf-maker.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
@@ -14,7 +15,8 @@ export class E7MenuPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private estacionService: EstacionService,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private pdfMaker: PdfMakerService
   ) { }
 
   ngOnInit() {
@@ -44,5 +46,9 @@ export class E7MenuPage implements OnInit {
   }
   goRegistroControl(){
     this.navCtrl.navigateForward('/e7registro-control-quejas');
+  }
+  
+  goProcedure() {
+    this.navCtrl.navigateForward('/e7-menu/e7-procedimiento');
   }
 }

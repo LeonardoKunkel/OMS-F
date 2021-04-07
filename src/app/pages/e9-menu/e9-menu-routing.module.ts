@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: E9MenuPage
+  },  {
+    path: 'e9-procedimiento',
+    loadChildren: () => import('./e9-procedimiento/e9-procedimiento.module').then( m => m.E9ProcedimientoPageModule)
   },
+
 
 ];
 

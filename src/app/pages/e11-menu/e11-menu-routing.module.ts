@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'e11-plan-mantenimiento',
     loadChildren: () => import('./e11-plan-mantenimiento/e11-plan-mantenimiento.module').then( m => m.E11PlanMantenimientoPageModule)
+  },
+  {
+    path: 'e11-procedimiento',
+    loadChildren: () => import('./e11-procedimiento/e11-procedimiento.module').then( m => m.E11ProcedimientoPageModule)
   }
 
 

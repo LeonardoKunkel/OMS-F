@@ -7,7 +7,7 @@
   </ion-toolbar>
   <ion-toolbar color="light">
     <ion-buttons slot="start">
-      <ion-button (click)="onClick()">
+      <ion-button>
           <ion-icon name="home-outline"></ion-icon>
            INICIO
       </ion-button>
@@ -15,11 +15,11 @@
         <ion-icon name="layers-outline"></ion-icon>
         SASISOPA
       </ion-button>
-      <ion-button (click)="onClick()">
+      <ion-button>
         <ion-icon name="server-outline"></ion-icon>
         NOM-006
       </ion-button>
-      <ion-button (click)="onClick()">
+      <ion-button>
         <ion-icon name="library-outline"></ion-icon>
         SGC
       </ion-button>
@@ -33,10 +33,10 @@
     <!--  the side menu  -->
         <ion-card>
           <ion-card-content>
-            <ion-card-title>Datos Generales de la Estacion de Servicio</ion-card-title>
+            <ion-card-title>Datos Generales de la Estación de Servicio</ion-card-title>
             <hr color="diana">
-            <p><b>Telefono:</b> {{estacion.telefono}}</p>
-            <p><b>Calle/Numero:</b>  {{estacion.calleNumero}}</p>
+            <p><b>Teléfono:</b> {{estacion.telefono}}</p>
+            <p><b>Calle/Número:</b>  {{estacion.calleNumero}}</p>
             <p><b>Asentamiento:</b> {{cp.asentamiento}}</p>
             <p><b>Ciudad:</b>  {{cp.ciudad}}</p>
             <p><b>Estado:</b>  {{cp.estado}}</p>
@@ -46,17 +46,17 @@
             <hr color="diana">
             <p><b>Nombre:</b>  {{gerente.nombre}} {{gerente.apellidos}}</p>
             <p><b>Correo:</b> {{gerente.correo}}</p>
-            <p><b>Telefono:</b>  {{gerente.telefono}}</p>
-            <ion-card-title>Maxima Autoridad</ion-card-title>
+            <p><b>Teléfono:</b>  {{gerente.telefono}}</p>
+            <ion-card-title>Máxima Autoridad</ion-card-title>
             <hr color="diana">
             <p><b>Nombre:</b>  {{autoridad.nombre}} {{autoridad.apellidos}}</p>
             <p><b>Correo:</b> {{autoridad.correo}}</p>
-            <p><b>Telefono:</b>  {{autoridad.telefono}}</p>
-            <ion-card-title>Representante Tecnico</ion-card-title>
+            <p><b>Teléfono:</b>  {{autoridad.telefono}}</p>
+            <ion-card-title>Representante Técnico</ion-card-title>
             <hr color="diana">
             <p><b>Nombre:</b>  {{representante.nombre}} {{representante.apellidos}}</p>
             <p><b>Correo:</b> {{representante.correo}}</p>
-            <p><b>Telefono:</b>  {{representante.telefono}}</p>
+            <p><b>Teléfono:</b>  {{representante.telefono}}</p>
           </ion-card-content>
         </ion-card>
     <!-- the main content -->

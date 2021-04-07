@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'e2-aspectos',
     loadChildren: () => import('./e2-aspectos/e2-aspectos.module').then( m => m.E2AspectosPageModule)
+  },
+  {
+    path: 'e2-procedimiento',
+    loadChildren: () => import('./e2-procedimiento/e2-procedimiento.module').then( m => m.E2ProcedimientoPageModule)
   }
 
 ];

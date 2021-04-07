@@ -1,0 +1,86 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/e13-menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Programa anual de Simulacros</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <p style="margin: 3%; text-align: justify;">
+          A continuación te presentamos los escenarios de riesgos más comunes en tu estación de servicio.
+          Deberás seleccionar dos para realizar tu programación de los simulacros correspondientes al año.
+        </p>
+      </ion-col>
+      <ion-col size="12">
+        <ion-button (click)="pdf1()" expand="block" fill="clear" shape="round">
+          Planeación
+        </ion-button>
+        <ion-button (click)="pdf2()" expand="block" fill="clear" shape="round">
+          Evaluación
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Simulacro</ion-card-subtitle>
+            <ion-card-title>Derrame de producto en despacho</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-card-title>Awesome Title</ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Simulacro</ion-card-subtitle>
+            <ion-card-title>Derrame o fuga durante descarga de autontanque</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Awesome content
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Simulacro</ion-card-subtitle>
+            <ion-card-title>Incendio en área de despacho</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Awesome content
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Simulacro</ion-card-subtitle>
+            <ion-card-title>Incendio en instalaciones eléctricas</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Awesome content
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Simulacro</ion-card-subtitle>
+            <ion-card-title>Sismo</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Awesome content
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
