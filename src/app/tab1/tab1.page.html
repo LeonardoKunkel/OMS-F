@@ -3,358 +3,96 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/intro"></ion-back-button>
     </ion-buttons>
-    <ion-title class="ion-text-center">{{estacion.nombre}}</ion-title>
-  </ion-toolbar>
-  <ion-toolbar color="light">
-    <ion-buttons slot="start">
-      <ion-button>
-          <ion-icon name="home-outline"></ion-icon>
-           INICIO
-      </ion-button>
-      <ion-button (click)="goSasisopa()">
-        <ion-icon name="layers-outline"></ion-icon>
-        SASISOPA
-      </ion-button>
-      <ion-button>
-        <ion-icon name="server-outline"></ion-icon>
-        NOM-006
-      </ion-button>
-      <ion-button>
-        <ion-icon name="library-outline"></ion-icon>
-        SGC
-      </ion-button>
-    </ion-buttons>
+    <ion-title class="ion-text-center">Registro de Información</ion-title>
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
-  <ion-split-pane contentId="main">
-    <!--  the side menu  -->
-        <ion-card>
-          <ion-card-content>
-            <ion-card-title>Datos Generales de la Estación de Servicio</ion-card-title>
-            <hr color="diana">
-            <p><b>Teléfono:</b> {{estacion.telefono}}</p>
-            <p><b>Calle/Número:</b>  {{estacion.calleNumero}}</p>
-            <p><b>Asentamiento:</b> {{cp.asentamiento}}</p>
-            <p><b>Ciudad:</b>  {{cp.ciudad}}</p>
-            <p><b>Estado:</b>  {{cp.estado}}</p>
-            <p><b>Municipio:</b>  {{cp.municipio}}</p>
-            <p><b>Cp:</b>  {{cp.cp}}</p>
-            <ion-card-title>Gerente de la estación</ion-card-title>
-            <hr color="diana">
-            <p><b>Nombre:</b>  {{gerente.nombre}} {{gerente.apellidos}}</p>
-            <p><b>Correo:</b> {{gerente.correo}}</p>
-            <p><b>Teléfono:</b>  {{gerente.telefono}}</p>
-            <ion-card-title>Máxima Autoridad</ion-card-title>
-            <hr color="diana">
-            <p><b>Nombre:</b>  {{autoridad.nombre}} {{autoridad.apellidos}}</p>
-            <p><b>Correo:</b> {{autoridad.correo}}</p>
-            <p><b>Teléfono:</b>  {{autoridad.telefono}}</p>
-            <ion-card-title>Representante Técnico</ion-card-title>
-            <hr color="diana">
-            <p><b>Nombre:</b>  {{representante.nombre}} {{representante.apellidos}}</p>
-            <p><b>Correo:</b> {{representante.correo}}</p>
-            <p><b>Teléfono:</b>  {{representante.telefono}}</p>
-          </ion-card-content>
-        </ion-card>
-    <!-- the main content -->
+  <!-- <ion-split-pane contentId="main">
     <ion-router-outlet id="main">
-      <!-- MAPA -->
-      <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7471.912158368455!2d-100.382093090947!3d20.548977877573627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2smx!4v1615993842437!5m2!1ses!2smx" 
-      width="800" 
-      height="800" 
-      style="border:0;" 
-      allowfullscreen="" 
-      loading="lazy"
-      ></iframe>
-      <!-- <ion-tabs>
-        <ion-tab-bar slot="bottom,top">
-          <ion-tab-button tab="tab3">
-            <ion-icon name="water-outline"></ion-icon>
-            <ion-label>PRODUCTO</ion-label>
-          </ion-tab-button>
-          <ion-tab-button tab="tab4">
-            <ion-icon name="bag-add-outline"></ion-icon>
-            <ion-label>EXTINTORES</ion-label>
-          </ion-tab-button>
-          <ion-tab-button tab="tab3">
-            <ion-icon name="build-outline"></ion-icon>
-            <ion-label>COMPONENTES</ion-label>
-          </ion-tab-button>
-          <ion-tab-button tab="tab3">
-            <ion-icon name="business-outline"></ion-icon>
-            <ion-label>COMUNICACION</ion-label>
-          </ion-tab-button>
-          <ion-tab-button tab="tab3">
-            <ion-icon name="speedometer-outline"></ion-icon>
-            <ion-label>SENSORES</ion-label>
-          </ion-tab-button>
-        </ion-tab-bar>
-      </ion-tabs> -->
-      <!-- <div id="div1">
-        <tr class="header">
-          <td>NO°</td>
-          <td>PRODUCTO MANEJADO</td>
-          <td>SIGLAS</td>
-          <td>NO. DE TANQUES</td>
-          <td>NO. DE DISPENSARIOS</td>
-        </tr>
-      </div> -->
-      <!-- <ion-card>
-        <ion-card-header>
-          <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
-          <ion-card-title>Awesome Title</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="12"  sizeLg="4">
-          <div id="div1">
-            <table>
-              <tr class="header">
-                <td>NO°</td>
-                <td>PRODUCTO MANEJADO</td>
-                <td>SIGLAS</td>
-                <td>NO. DE TANQUES</td>
-                <td>NO. DE DISPENSARIOS</td>
-              </tr>
-              <tr *ngFor="let data of arrayTanques; let idx=index">
-                <td>{{idx+1}}</td>
-                <td>{{data.producto}}</td>
-                <td>{{data.siglas}}</td>
-                <td>{{data.noTanques}}</td>
-                <td>{{data.noDispensarios}}</td>
-              </tr>
-            </table>
-          </div>
-              </ion-col>
-              <ion-col size="12"  sizeLg="4">
-          <div id="div1">
-            <table>
-              <tr class="header">
-                <td>NO°</td>
-                <td>PRODUCTO MANEJADO</td>
-                <td>SIGLAS</td>
-                <td>NO. DE TANQUES</td>
-                <td>NO. DE DISPENSARIOS</td>
-              </tr>
-              <tr *ngFor="let data of arrayTanques; let idx=index">
-                <td>{{idx+1}}</td>
-                <td>{{data.producto}}</td>
-                <td>{{data.siglas}}</td>
-                <td>{{data.noTanques}}</td>
-                <td>{{data.noDispensarios}}</td>
-              </tr>
-            </table>
-          </div>
-              </ion-col>
-              <ion-col size="12"  sizeLg="4">
-          <div id="div1">
-            <table>
-              <tr class="header">
-                <td>NO°</td>
-                <td>PRODUCTO MANEJADO</td>
-                <td>SIGLAS</td>
-                <td>NO. DE TANQUES</td>
-                <td>NO. DE DISPENSARIOS</td>
-              </tr>
-              <tr *ngFor="let data of arrayTanques; let idx=index">
-                <td>{{idx+1}}</td>
-                <td>{{data.producto}}</td>
-                <td>{{data.siglas}}</td>
-                <td>{{data.noTanques}}</td>
-                <td>{{data.noDispensarios}}</td>
-              </tr>
-            </table>
-          </div>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card-content>
-      </ion-card> -->
-
-
-
-
-      <!-- <ion-card>
-        <ion-card-header>
-          <ion-card-title class="ion-text-center"> SOLICITUD DE INFORMACION</ion-card-title>
-          <ion-card-subtitle>Tanques y Dispensarios</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-button (click)="presentAlertPrompt()" expand="block" fill="clear" shape="round">
-            Agregar
-          </ion-button>
-          <div id="div1">
-            <table>
-              <tr class="header">
-                <td>NO°</td>
-                <td>PRODUCTO MANEJADO</td>
-                <td>SIGLAS</td>
-                <td>NO. DE TANQUES</td>
-                <td>NO. DE DISPENSARIOS</td>
-              </tr>
-              <tr *ngFor="let data of arrayTanques; let idx=index">
-                <td>{{idx+1}}</td>
-                <td>{{data.producto}}</td>
-                <td>{{data.siglas}}</td>
-                <td>{{data.noTanques}}</td>
-                <td>{{data.noDispensarios}}</td>
-              </tr>
-            </table>
-          </div>
-        </ion-card-content>
-      </ion-card>
-
-      <div id="div1">
-        <table>
-          <tr class="header">
-            <td>NO°</td>
-            <td>EXTINTORES</td>
-            <td>PQS o CO2</td>
-            <td>PAROS DE EMERGENCIA</td>
-            <td>BOTIQUINES</td>
-          </tr>
-          <tr *ngFor="let data of arrayTanques; let idx=index">
-            <td>{{idx+1}}</td>
-            <td>{{data.producto}}</td>
-            <td>{{data.siglas}}</td>
-            <td>{{data.noTanques}}</td>
-            <td>{{data.noDispensarios}}</td>
-          </tr>
-        </table>
-      </div> -->
-
-
-
-
-
+      
     </ion-router-outlet>
-  </ion-split-pane>
-
-<!-- <ion-content>
-    <ion-menu contentId="main" menuId="main-menu" side="start" type="overlay">
-      <ion-header>
-        <ion-toolbar color="secondary" >
-          <ion-title class="ion-text-center">Menu</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content>
-        <ion-list>
-          <ion-menu-toggle>
-            <ion-item >
-              <ion-icon name= "add" slot="start"></ion-icon>
-              <ion-label> </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-      </ion-content>
-    </ion-menu>
-  
-    <ion-router-outlet id="main"></ion-router-outlet> -->
-
-<!-- 
-  <ion-split-pane when="md" contentId="main">
-
-    <ion-menu side="start" menuId="first" contentId="main">
-      <ion-header>
-        <ion-toolbar color="primary">
-          <ion-title>Menú</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content>
-        
-        <ion-list>
-  
-          <ion-menu-toggle *ngFor="let c of componentes | async" 
-                           autoHide="false">
-            <ion-item [routerLink]="c.redirectTo"
-                      detail>
-              <ion-icon [name]="c.icon" slot="start" color="primary"></ion-icon>
-              {{ c.name }}
-            </ion-item>
-          </ion-menu-toggle>
-  
-  
-        </ion-list>
-  
-      </ion-content>
-    </ion-menu>
-  
-  
-    <ion-router-outlet id="main">
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt quam magnam, exercitationem omnis quis impedit voluptatibus saepe ad necessitatibus odit soluta maiores. Placeat facere unde rem eligendi repellat! Provident, eos?</p>
-    </ion-router-outlet>
-
   </ion-split-pane> -->
 
-
-
-  
-  <!-- <ion-grid fixed>
-    <ion-row style="display: block; margin: auto;">
-      <ion-col size="12" sizeLg="3">
-        <ion-card>
-          <ion-card-content>
-            <p><b>Teléfono:</b> {{estacion.telefono}}</p>
-            <p><b>Calle/Numero:</b>  {{estacion.calleNumero}}</p>
-            <p><b>Asentamiento:</b> {{cp.asentamiento}}</p>
-            <p><b>Ciudad:</b>  {{cp.ciudad}}</p>
-            <p><b>Estado:</b>  {{cp.estado}}</p>
-            <p><b>Municipio:</b>  {{cp.municipio}}</p>
-            <p><b>Cp:</b>  {{cp.cp}}</p>
-            <ion-item-divider color="diana" style="border-radius: 15px;">
-              <ion-label>Gerente de la estación</ion-label>
-            </ion-item-divider>
-            <p><b>Nombre:</b>  {{gerente.nombre}} {{gerente.apellidos}}</p>
-            <p><b>Correo:</b> {{gerente.correo}}</p>
-            <p><b>Teléfono:</b>  {{gerente.telefono}}</p>
-            <ion-item-divider color="diana" style="border-radius: 15px;">
-              <ion-label>Máxima Autoridad </ion-label>
-            </ion-item-divider>
-            <p><b>Nombre:</b>  {{autoridad.nombre}} {{autoridad.apellidos}}</p>
-            <p><b>Correo:</b> {{autoridad.correo}}</p>
-            <p><b>Teléfono:</b>  {{autoridad.telefono}}</p>
-            <ion-item-divider color="diana" style="border-radius: 15px;">
-              <ion-label>Representante Técnico</ion-label>
-            </ion-item-divider>
-            <p><b>Nombre:</b>  {{representante.nombre}} {{representante.apellidos}}</p>
-            <p><b>Correo:</b> {{representante.correo}}</p>
-            <p><b>Teléfono:</b>  {{representante.telefono}}</p>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
   <ion-grid fixed>
     <ion-row>
-      <ion-col size="12" sizeLg="4">
-        <ion-card (click)="abrirCalendario()">
-          <ion-card-header>
-            <ion-card-title class="ion-text-center">Calendario</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-icon name="calendar-outline" size="large" style="margin: auto; display: block;"></ion-icon>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeLg="4">
-        <ion-card (click)="grafica()">
-          <ion-card-header>
-            <ion-card-title class="ion-text-center">Gráficas</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-icon name="stats-chart-outline" size="large" style="margin: auto; display: block;"></ion-icon>
-          </ion-card-content>
-        </ion-card>
+      <ion-col size="12">
+        <form #formulario="ngForm" (ngSubmit)="form()">
+          <ion-item>
+            <ion-label position="floating">Nombre de la estación:</ion-label>
+            <ion-input required name="nombre" [(ngModel)]="datos.nombre"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Correo electrónico:</ion-label>
+            <ion-input
+            required 
+            name="correo" 
+            type="email" 
+            pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+            [(ngModel)]="datos.correo"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Teléfono(cel):</ion-label>
+            <ion-input 
+            maxlength="10" 
+            pattern="^([0-9]+)"
+            required name="telefono" 
+            [(ngModel)]="datos.telefono"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Código Postal:</ion-label>
+            <ion-input required name="codigoP" [(ngModel)]="datos.codigoP"></ion-input>
+          </ion-item>
+          
+          
+          <!-- <ion-item>
+            <ion-label>Ingresa el Código Postal:</ion-label>
+            <ion-input type="number" name="cp"  required (ionChange)="cpServices($event)" ></ion-input>
+          </ion-item> -->
+          
+          <!-- <ion-item>
+            <ion-label>Selecciona la colonia</ion-label>
+            <ion-select required  placeholder="Colonia" (ionChange)="select($event)">
+              <ion-select-option *ngFor="let data of respuestaCP" [value]= data.response >{{data.response.asentamiento}}</ion-select-option>
+            </ion-select>
+          </ion-item> -->
+          
+          <ion-item>
+            <ion-label position="floating">Estado:</ion-label>
+            <ion-input required name="estado" [(ngModel)]="datos.estado"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Municipio:</ion-label>
+            <ion-input required name="municipio" [(ngModel)]="datos.municipio"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Calle y Número:</ion-label>
+            <ion-input required name="calleNumero" [(ngModel)]="datos.calleNumero"></ion-input>
+          </ion-item>
+          <ion-input 
+            type="file"
+            class="d-none"
+            (change)="onPhotoSelected($event)"
+            #photoInput
+            required>
+          </ion-input>
+          <br>
+          <img
+            [src]="photoSelected || '../../../assets/no hay imagen.png' "
+            style="width: 30%; display: block; margin: auto;"
+            alt="No image"
+          />
+          <ion-button 
+            type="submit" 
+            expand="block" 
+            fill="clear" 
+            shape="round"
+            [disabled]="formulario.invalid">
+            Guardar
+          </ion-button>
+        </form>
       </ion-col>
     </ion-row>
   </ion-grid>
-
-  <ion-button (click)="goSasisopa()" expand="block" fill="clear" shape="round">
-    Sasisopa
-  </ion-button> -->
 </ion-content>

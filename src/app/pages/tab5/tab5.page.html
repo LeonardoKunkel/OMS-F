@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="blue">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+      <ion-back-button defaultHref="/intro"></ion-back-button>
     </ion-buttons>
     <ion-title class="ion-text-center">COMPONENTES</ion-title>
   </ion-toolbar>
@@ -16,8 +16,8 @@
       <ion-grid fixed>
         <ion-row> 
           <ion-col size="12" sizeLg="6" style="margin: auto; display: block;">
-            <ion-item *ngFor="let data of  arrayComponents; let idx=index">
-              <ion-label>{{data.componente}}</ion-label>
+            <ion-item *ngFor="let data of arrayComponents; let idx = index">
+              <ion-label>{{ data.componente }}</ion-label>
               <ion-checkbox slot="start" [(ngModel)]="arrayComponents[idx].checked"></ion-checkbox>
             </ion-item>
             <ion-button type="submit">

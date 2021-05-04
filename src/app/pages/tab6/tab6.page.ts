@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
+import { ComunicacionService } from './../../services/comunicacion.service';
+import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab6',
@@ -8,27 +9,42 @@ import { IonSlides } from '@ionic/angular';
 })
 export class Tab6Page implements OnInit {
 
-  public anArray:any=[];
-  form:any={
-    product:'',
-    siglas:'',
-    nTanques: '',
-    nDispensarios: ''
-
+  form: any = {
+    institucion: '',
+    direccion: '',
+    funcion: '',
+    telefono: '',
+    tiempo: ''
   };
-  @ViewChild('mySlider')  slides: IonSlides;
+  coms: any[] = [];
 
-  public swipeNext(){
-    this.slides.slideNext();
-  }
-  
-  public swipeBack(){
-    this.slides.slidePrev();
-  }
-
-  constructor() { }
+  constructor( private comsService: ComunicacionService, public toast: ToastController ) { }
 
   ngOnInit() {
+    this.getComs();
   }
 
+  getComs() {
+    this.comsService.getComs().subscribe((data: any) => {
+      console.log(data);
+      this.coms = data.comsFound;
+    });
+  }
+
+  postComs() {
+    this.comsService.postComs(this.form).subscribe((data: any) => {
+      console.log(data);
+    });
+  }
+
+  async delete(id: string) {
+    this.comsService.deleteComsId(id).subscribe((data: any) => {
+      this.getComs();
+    });
+    const toast = await this.toast.create({
+      message: 'Institución eliminada',
+      duration: 1500
+    });
+    toast.present();
+  }
 }

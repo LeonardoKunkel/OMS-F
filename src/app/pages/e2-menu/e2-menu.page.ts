@@ -9,6 +9,7 @@ import { EstacionService } from 'src/app/services/estacion.service';
   styleUrls: ['./e2-menu.page.scss'],
 })
 export class E2MenuPage implements OnInit {
+
   DataEstacion: any = {};
 
   constructor(
@@ -16,27 +17,26 @@ export class E2MenuPage implements OnInit {
     private router: Router,
     private _estacionService: EstacionService,
     private navCtrl: NavController
-    ) { }
+  ) { }
 
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('custom_id');
-    this.getEstacion(id);
-    // console.log(id,'Elemento 1');
   }
-  getEstacion(id: string){
+
+  getEstacion(id: string) {
     this._estacionService.getEstacionId(id).subscribe((data: any) => {
       console.log(data);
       this.DataEstacion = data;
     });
   }
   riesgos() {
-    let _idEstacion = this.DataEstacion._id;
-    this.router.navigate(['/e2-menu/e2-riesgos', {custom_id: _idEstacion}]);
-    // this.navCtrl.navigateForward('/e2-menu/e2-riesgos');
+    // let _idEstacion = this.DataEstacion._id;
+    // this.router.navigate(['/e2-menu/e2-riesgos', {custom_id: _idEstacion}]);
+    this.navCtrl.navigateForward('/e2-menu/e2-riesgos');
     // console.log(this.DataEstacion._id);
     
   }
+  
   aspectosAmbientales() {
     this.navCtrl.navigateForward('/e2-menu/e2-aspectos');
   }

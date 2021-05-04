@@ -1,164 +1,80 @@
 <ion-header >
   <ion-toolbar color="blue">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+      <ion-back-button defaultHref="/intro"></ion-back-button>
     </ion-buttons>
     <ion-title class="ion-text-center">
-      UBICACION DE EXTINTORES, PAROS DE EMERGENCIA, BOTIQUINES
+      Ubicación de Extintores, Paros de Emergencia, Botiquines
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-segment>
-    <ion-segment-button value="friends" (click)="swipeBack()">
-      <ion-label>Registro</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="enemies" (click)="swipeNext()">
-      <ion-label>Consulta</ion-label>
-    </ion-segment-button>
-  </ion-segment>
-  <ion-slides pager="true"  pager="true" #mySlider class="swiper-container">
-    <ion-slide>
-      <ion-card style="height: 100%; width: 100%;">
-        <ion-card-header>
-          <ion-card-title>Registros</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <div>
-            <ion-grid fixed>
-              <ion-row >
-                <ion-col size="12" sizeLg="8" style="margin: auto; display: block;">
-                  <form action="">
-                    <ion-item>
-                      <ion-label position="floating">Ubicacion del Extintor</ion-label>
-                      <ion-input name="product" [(ngModel)]="form.product"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                      <ion-label>PQS o CO2</ion-label>
-                      <ion-select  multiple="true" placeholder="Selecciona">
-                        <ion-select-option value="PQS">PQS</ion-select-option>
-                        <ion-select-option value="CO2">CO2</ion-select-option>
-                      </ion-select>
-                    </ion-item>
-                    <ion-item>
-                      <ion-label position="floating">Ubicacion del paro de Emergencia</ion-label>
-                      <ion-input name="nTanques" [(ngModel)]="form.nTanques"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                      <ion-label position="floating">Ubicacion del Botiquin</ion-label>
-                      <ion-input name="nDispensarios" [(ngModel)]="form.nDispensarios"></ion-input>
-                    </ion-item>
-                    <ion-button type="submit">
-                      Enviar
-                    </ion-button>
-                  </form>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </div>
-        </ion-card-content>
-      </ion-card>
-    </ion-slide>
-    <ion-slide>
-      <ion-card style="height: 100%; width: 100%;">
-        <ion-card-header>
-          <ion-card-title class="ion-text-center">Consultas</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <div id="div1" style="margin: auto; display: block;">
-            <table>
-              <tr class="header">
-                <td>EXTINTORES</td>
-                <td>PQS o CO2</td>
-                <td>PAROS DE EMERGENCIA</td>
-                <td>BOTIQUINES</td>
-              </tr>
-              <tr>
-                <td>EXTINTORES</td>
-                <td>PQS o CO2</td>
-                <td>PAROS DE EMERGENCIA</td>
-                <td>BOTIQUINES</td>
-              </tr>
-            </table>
-            <!-- <table >
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-           </table> -->
-       </div>
-        </ion-card-content>
-      </ion-card>
-    </ion-slide>
-  </ion-slides>
-
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" sizeMd="6" offset-md="4">
+        <ion-card>
+          <ion-card-content>
+            <form #formulario="ngForm" (ngSubmit)="postExt()">
+              <ion-item>
+                <ion-label position="floating">Ubicación del Extintor</ion-label>
+                <ion-input name="ubicacion" [(ngModel)]="form.ubicacion"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>PQS o CO2</ion-label>
+                <ion-select
+                  interface="popover"
+                  name="agente"
+                  placeholder="Selecciona"
+                  [(ngModel)]="form.agente">
+                  <ion-select-option value="PQS">PQS</ion-select-option>
+                  <ion-select-option value="CO2">CO2</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Ubicación del paro de Emergencia</ion-label>
+                <ion-input name="nTanques" [(ngModel)]="form.paro"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Ubicación del Botiquín</ion-label>
+                <ion-input name="botiquin" [(ngModel)]="form.botiquin"></ion-input>
+              </ion-item>
+              <ion-button type="submit" expand="block" shape="round">
+                Enviar
+              </ion-button>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" sizeMd="6" offset-md="4">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Extintores</th>
+              <th>Agente</th>
+              <th>Paros de Emergencia</th>
+              <th>Botiquines</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let e of extintor; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ e.ubicacion }}</td>
+              <td>{{ e.agente }}</td>
+              <td>{{ e.paro }}</td>
+              <td>{{ e.botiquin }}</td>
+              <td>
+                <ion-button (click)="delete(e._id)" fill="clear">
+                  <ion-icon color="danger" slot="icon-only" name="trash-outline"></ion-icon>
+                </ion-button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

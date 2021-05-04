@@ -1,0 +1,346 @@
+{
+    "aspectos": [
+        {
+            "area": "ALMACENAMIENTO DE COMBUSTIBLES",
+            "conjunto": [
+                {
+                    "act": "Entrada maniobra de autotanque (Recepción AT)",
+                    "eql": "Autotanque",
+                    "element": "HTC, BETX y Hexano",
+                    "imAmb": "Aire",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Toma muestra de producto (Recepción AT)",
+                    "eql": "Autotanque",
+                    "element": "HTC, BETX y Hexano",
+                    "imAmb": "Aire",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Conexión de mangueras (Recepción AT)",
+                    "eql": "Autotanque y tanque de almacenamiento",
+                    "element": "HTC, BETX y Hexano",
+                    "imAmb": "Aire",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Descarga de hidrocarburo (Recepción AT)",
+                    "eql": "Autotanque y tanque de almacenamiento",
+                    "element": "HTC, BETX y Hexano",
+                    "imAmb": "Aire",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Derrame durante en llenado (Recepción AT)",
+                    "eql": "Autotanque y tanque de almacenamiento",
+                    "element": "HTC, BETX y Hexano",
+                    "imAmb": "Aire",
+                    "realPot": "Potencial",
+                    "condOp": "Emergencia"
+                },
+                {
+                    "act": "Desconexión de Mangueras (Recepción AT)",
+                    "eql": "Autotanque y tanque de almacenamiento",
+                    "element": "HTC, BETX y Hexano",
+                    "imAmb": "Aire",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Desconexión de Mangueras (Recepción AT)",
+                    "eql": "Autotanque y tanque de almacenamiento",
+                    "element": "Hidrocarburo goteo al piso",
+                    "imAmb": "Suelo",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Desconexión de Mangueras (Recepción AT)",
+                    "eql": "Autotanque y tanque de almacenamiento",
+                    "element": "Hidrocarburo goteo que se lava y se va al drenaje",
+                    "imAmb": "Agua",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Escurrimiento de autotanque(Recepción AT)",
+                    "eql": "Autotanque y tanque de almacenamiento",
+                    "element": "HTC, BETX y Hexano",
+                    "imAmb": "Aire",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Salida maniobra de autotanque(Recepción AT)",
+                    "eql": "Autotanque",
+                    "element": "HTC, BETX y Hexano",
+                    "imAmb": "Aire",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Almacenamiento derrame",
+                    "eql": "Tanque de almacenamiento",
+                    "element": "Hidrocarburo",
+                    "imAmb": "Suelo",
+                    "realPot": "Potencial",
+                    "condOp": "Emergencia"
+                },
+                {
+                    "act": "Almacenamiento derrame",
+                    "eql": "Tanque de almacenamiento",
+                    "element": "HTC, BETX y Hexano",
+                    "imAmb": "Aire",
+                    "realPot": "Real",
+                    "condOp": "Emergencia"
+                },
+                {
+                    "act": "Venteo",
+                    "eql": "Tuberías de venteo",
+                    "element": "HTC, BETX y Hexano",
+                    "imAmb": "Aire",
+                    "realPot": "Potencial",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Venteo incendio",
+                    "eql": "Tuberías de venteo",
+                    "element": "Emisiones",
+                    "imAmb": "Aire",
+                    "realPot": "Potencial",
+                    "condOp": "Emergencia"
+                },
+                {
+                    "act": "Retiro de aguas aceitosas (purgado de agua)",
+                    "eql": "Tanque de almacenamiento",
+                    "element": "Agua contaminada",
+                    "imAmb": "Aire",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Retiro de lodos(limpieza de tanque)",
+                    "eql": "Tanque de almacenamiento",
+                    "element": "Lodos aceitosos",
+                    "imAmb": "Residuos Peligrosos",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Retiro de aguas aceitosas y materiales impregnados(limpieza de bocatomas)",
+                    "eql": "Tanque de almacenamiento",
+                    "element": "Residuos impregnados",
+                    "imAmb": "Residuos Peligrosos",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                }
+            ]
+        },
+        {
+            "area": "MÓDULO DE DESPACHO DE ABASTECIMIENTO DE COMBUSTIBLE A VEHÍCULOS",
+            "conjunto": [
+                {
+                    "act": "Entrada maniobra de autotanque (Recepción AT)",
+                    "eql": "Autotanque",
+                    "element": "HTC, BETX y Hexano",
+                    "imAmb": "Aire",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Colocación de la pistola en el vehículo",
+                    "eql": "Vehículo",
+                    "element": "Hidrocarburo goteo y se lava y se va al drenaj",
+                    "imAmb": "Agua",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Carga de hidrocarburo",
+                    "eql": "Vehículo",
+                    "element": "HTC, BETX y Hexano",
+                    "imAmb": "Aire",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Termino del despacho y retiro de pistola del vehículo",
+                    "eql": "Vehículo",
+                    "element": "Hidrocarburo goteo y se lava y se va al drenaje",
+                    "imAmb": "Agua",
+                    "realPot": "REAL",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Suministro de lubricantes, aditivos.",
+                    "eql": "Vehículo",
+                    "element": "Envases y estopa o franela impregnados de aceite o aditivos",
+                    "imAmb": "Residuos peligrosos",
+                    "realPot": "REAL",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Limpieza de dispensarios e islas",
+                    "eql": "Dispensario",
+                    "element": "Consumo de agua",
+                    "imAmb": "Agua",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Limpieza de contenedores",
+                    "eql": "Dispensario",
+                    "element": "Aguas contaminadas y material impregnados con hidrocarburos",
+                    "imAmb": "Residuos peligrosos",
+                    "realPot": "REAL",
+                    "condOp":"Rutinaria"
+                },
+                {
+                    "act": "Cambio de filtros",
+                    "eql": "Dispensario",
+                    "element": "Filtros impregnados de hidrocarburo",
+                    "imAmb": "Residuos peligrosos",
+                    "realPot": "REAL",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Cambio de mangueras, conexiones o pistolas",
+                    "eql": "Dispensario",
+                    "element": "HTC, BETX y Hexano",
+                    "imAmb": "Aire",
+                    "realPot": "REAL",
+                    "condOp": "Rutinaria"
+                }
+            ]
+        },
+        {
+            "area": "DRENAJES Y TRAMPAS DE COMBUSTIBLE",
+            "conjunto": [
+                {
+                    "act": "Limpieza",
+                    "eql": "Registros, tubería y trampa",
+                    "element": "Lodos impregnados de hidrocarburos y aceites",
+                    "imAmb": "Residuos peligrosos",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Limpieza",
+                    "eql": "Rejillas",
+                    "element": "Recolección de residuos sólidos no peligrosos",
+                    "imAmb": "Residuos sólidos",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Separación de hidrocarburo",
+                    "eql": "Trampa de gasolina y Diesel",
+                    "element": "HTC, BETX y Hexano",
+                    "imAmb": "Aire",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                }
+            ]
+        },
+        {
+            "area": "OFICINAS Y BAÑOS",
+            "conjunto": [
+                {
+                    "act": "Actividades cotidianas sin riesgo",
+                    "eql": "Contenedores",
+                    "element": "Generación de residuos",
+                    "imAmb": "Residuos sólidos no peligrosos (basura)",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Actividades cotidianas sin riesgo",
+                    "eql": "Instalaciones eléctricas",
+                    "element": "Consumo de energía eléctrica",
+                    "imAmb": "Recursos naturales",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Actividades cotidianas sin riesgo",
+                    "eql": "Sanitarios",
+                    "element": "Consumo de agua",
+                    "imAmb": "Recursos naturales",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Actividades cotidianas sin riesgo",
+                    "eql": "Consumo de papel",
+                    "element": "Consumo de papel",
+                    "imAmb": "Recursos naturales",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                }
+            ]
+        },
+        {
+            "area": "CUARTO DE CONTROL ELÉCTRICO",
+            "conjunto": [
+                {
+                    "act": "Operación normal",
+                    "eql": "Consumo de energía eléctrica",
+                    "element": "Recursos naturales",
+                    "imAmb": "Recursos naturales",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Mantenimiento",
+                    "eql": "Tableros eléctricos",
+                    "element": "Generación de residuos peligrosos (trapos impregnados aceite usado) y residuos solidos",
+                    "imAmb": "Recsiduos peligrosos",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Operación normal",
+                    "eql": "Planta de emergencia",
+                    "element": "HTC, BETX y Hexano",
+                    "imAmb": "Aire",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                },
+                {
+                    "act": "Mantenimiento",
+                    "eql": "Planta de emergencia",
+                    "element": "Generación de residuos peligrosos (trapos impregnados aceite usado) y residuos sólidos",
+                    "imAmb": "Residuos peligrosos",
+                    "realPot": "Real",
+                    "condOp": "Rutinaria"
+                }
+            ]
+        },
+        {
+            "area": "CUARTO DE MÁQUINAS",
+            "conjunto": [
+                {
+                    "act": "Operación normal",
+                    "eql": "Compresor e hidroneumático",
+                    "element": "Consumo de energía eléctrica",
+                    "imAmb": "Recursos naturales",
+                    "realPot": "Real",
+                    "condOp": "Normal"
+                },
+                {
+                    "act": "Mantenimiento",
+                    "eql": "Compresor e hidroneumático",
+                    "element": "Generación de residuos peligrosos (trapos impregnados aceite usado) y residuos solidos",
+                    "imAmb": "Residuos peligrosos",
+                    "realPot": "Real",
+                    "condOp": "Normal"
+                }
+            ]
+        }
+    ]
+}

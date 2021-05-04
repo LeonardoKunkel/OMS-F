@@ -18,12 +18,10 @@ export class E12MenuPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('custom_id');
-    this.getEstacion(id);
-    //console.log(id,'Elemento 1');
   }
+
   getEstacion(id:string){
-    this._estacionService.getEstacionId(id).subscribe((data:any) =>{
+    this._estacionService.getEstacionId(id).subscribe((data: any) => {
       console.log(data);
       this.DataEstacion = data;
     });

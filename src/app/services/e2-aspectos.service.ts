@@ -1,11 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+export interface Aspecto {
+  _id?: string;
+  act?: string;
+  F: number;
+  N: number;
+  M: number;
+  VT: number;
+  AAS: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class E2AspectosService {
 
+  url2 = ''
   url = 'http://localhost:3000/aspectos';
 
   constructor( private http: HttpClient ) { }
@@ -30,4 +41,7 @@ export class E2AspectosService {
     return this.http.delete(`${this.url}/${id}`);
   }
 
+  getActividades() {
+    return this.http.get('/assets/data/aspectosTest.json');
+  }
 }

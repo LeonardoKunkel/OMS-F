@@ -6,7 +6,16 @@ const routes: Routes = [
   {
     path: '',
     component: Tab2Page,
+  },
+  {
+    path: 'update',
+    loadChildren: () => import('./update/update.module').then( m => m.UpdatePageModule)
+  },
+  {
+    path: 'update/:id',
+    loadChildren: () => import('./update/update.module').then(m => m.UpdatePageModule)
   }
+
 ];
 
 @NgModule({

@@ -1,6 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+export interface Politica {
+  _id?: string;
+  politicaSelected: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,4 +23,7 @@ export class E1PoliticaService {
     return this.http.post(`${this.url}/create`, form)
   }
   
+  updatePolitica(id: string, pol: Politica) {
+    return this.http.put(`${this.url}/${id}`, pol);
+  }
 }

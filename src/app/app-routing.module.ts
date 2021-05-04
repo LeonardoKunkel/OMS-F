@@ -270,7 +270,11 @@ const routes: Routes = [
   {
     path: 'solicitud-informacion',
     loadChildren: () => import('./pages/solicitud-informacion/solicitud-informacion.module').then( m => m.SolicitudInformacionPageModule)
+  },  {
+    path: 'menu-sasisopa',
+    loadChildren: () => import('./pages/menu-sasisopa/menu-sasisopa.module').then( m => m.MenuSasisopaPageModule)
   },
+
   // {
   //   path: 'tab5',
   //   loadChildren: () => import('./pages/tab5/tab5.module').then( m => m.Tab5PageModule)

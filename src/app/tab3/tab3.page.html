@@ -1,7 +1,7 @@
 <ion-header >
   <ion-toolbar color="blue">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+      <ion-back-button defaultHref="/intro"></ion-back-button>
     </ion-buttons>
     <ion-title class="ion-text-center">
       PRODUCTO MANEJADO 
@@ -10,152 +10,62 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-segment>
-    <ion-segment-button value="friends" (click)="swipeBack()">
-      <ion-label>Registro</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="enemies" (click)="swipeNext()">
-      <ion-label>Consulta</ion-label>
-    </ion-segment-button>
-  </ion-segment>
-  <ion-slides pager="true"  pager="true" #mySlider class="swiper-container">
-    <ion-slide>
-      <ion-card style="height: 100%; width: 100%;">
-        <ion-card-header>
-          <ion-card-title>Registros</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <div>
-            <ion-grid fixed>
-              <ion-row >
-                <ion-col size="12" sizeLg="8" style="margin: auto; display: block;">
-                  <form action="">
-                    <ion-item>
-                      <ion-label position="floating">Producto Manejado</ion-label>
-                      <ion-input name="product" [(ngModel)]="form.product"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                      <ion-label position="floating">Siglas</ion-label>
-                      <ion-input name="siglas" [(ngModel)]="form.siglas"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                      <ion-label position="floating">No. Tanques</ion-label>
-                      <ion-input name="nTanques" [(ngModel)]="form.nTanques"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                      <ion-label position="floating">No. Dispensarios</ion-label>
-                      <ion-input name="nDispensarios" [(ngModel)]="form.nDispensarios"></ion-input>
-                    </ion-item>
-                    <ion-button type="submit">
-                      Enviar
-                    </ion-button>
-                  </form>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </div>
-        </ion-card-content>
-      </ion-card>
-    </ion-slide>
-    <ion-slide>
-      <ion-card style="height: 100%; width: 100%;">
-        <ion-card-header>
-          <ion-card-title class="ion-text-center">Consultas</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <div id="div1" style="margin: auto; display: block;">
-            <table>
-              <tr class="header">
-                <td>PRODUCTO MANEJADO</td>
-                <td>SIGLAS</td>
-                <td>NO. DE TANQUES</td>
-                <td>NO. DE DISPENSARIOS</td>
-              </tr>
-              <tr>
-                <td>PRODUCTO MANEJADO</td>
-                <td>SIGLAS</td>
-                <td>NO. DE TANQUES</td>
-                <td>NO. DE DISPENSARIOS</td>
-              </tr>
-            </table>
-            <!-- <table >
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-               <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-           </table> -->
-       </div>
-        </ion-card-content>
-      </ion-card>
-    </ion-slide>
-  </ion-slides>
-
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" sizeMd="6" offset-md="4">
+        <ion-card>
+          <ion-card-content>
+            <form #formulario="ngForm" (ngSubmit)="postProducto()">
+              <ion-item>
+                <ion-label position="floating">Producto Manejado</ion-label>
+                <ion-input type="text" name="producto" [(ngModel)]="form.producto"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Siglas</ion-label>
+                <ion-input type="text" name="siglas" [(ngModel)]="form.siglas"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">No. Tanques</ion-label>
+                <ion-input type="number" name="tanques" [(ngModel)]="form.tanques"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">No. Dispensarios</ion-label>
+                <ion-input type="number" name="dispensarios" [(ngModel)]="form.dispensarios"></ion-input>
+              </ion-item>
+              <ion-button type="submit" expand="block" shape="round">
+                Enviar
+              </ion-button>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" sizeMd="6" offset-md="4">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Siglas</th>
+              <th>Tanques</th>
+              <th>Dispensarios</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of producto">
+              <td>{{ p.producto }}</td>
+              <td>{{ p.siglas }}</td>
+              <td>{{ p.tanques }}</td>
+              <td>{{ p.dispensarios }}</td>
+              <td>
+                <ion-button (click)="delete(p._id)" fill="clear">
+                  <ion-icon color="danger" slot="icon-only" name="trash-outline"></ion-icon>
+                </ion-button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

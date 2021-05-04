@@ -1,3 +1,4 @@
+import { PdfMakerService } from './../../../services/pdf-maker.service';
 import { Component, OnInit } from '@angular/core';
 import { Cell, PdfMakeWrapper, Table, Txt } from 'pdfmake-wrapper'
 
@@ -20,7 +21,7 @@ export class E12AnexoPage implements OnInit {
     },
   ];
 
-  constructor(  ) { }
+  constructor( private pdfMaker: PdfMakerService ) { }
 
   ngOnInit() {
   }
@@ -177,5 +178,6 @@ export class E12AnexoPage implements OnInit {
       pageSize: 'LETTER',
       pageMargins: [22, 120]
     }
+    this.pdfMaker.generate('Anexo', dd);
   }
 }

@@ -1,19 +1,18 @@
 <ion-header class="ion-no-border">
   <ion-toolbar color="blue">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tab2"></ion-back-button>
+      <ion-back-button defaultHref="/menu-sasisopa"></ion-back-button>
     </ion-buttons>
     <ion-title class="ion-text-center">II. Identificación de peligros y riesgos ambientales</ion-title>
     <ion-card-subtitle class="ion-text-center">{{DataEstacion.nombre}}</ion-card-subtitle>
   </ion-toolbar>
-  <hr class="linea">
 </ion-header>
 
 <ion-content>
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12" sizeMd="6" sizeLg="4">
-        <ion-card class="carta" (click)="goProcedure()">
+        <ion-card class="carta" (click)="goProcedure()" >
           <img
             class="ion-padding image"
             src="../../../assets/icon/Procedimiento.png"
