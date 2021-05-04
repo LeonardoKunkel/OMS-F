@@ -1,5 +1,5 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="blue">
     <ion-buttons slot="start">
       <ion-button (click)="dismiss()">
         <ion-icon slot="start" name="close"></ion-icon>
@@ -44,7 +44,7 @@
             <ion-col size="2" >Valor</ion-col>
           </ion-row>
           <ion-row *ngFor="let data of naturaleza">
-            <!-- <ion-col size="6">{{data.desc}}</ion-col> -->
+            <ion-col size="6">{{data.desc}}</ion-col>
             <ion-col size="4">{{data.grade}}</ion-col>
             <ion-col size="2">{{data.value}}</ion-col>
             <hr color="purple" size=2 width="150%">
@@ -65,7 +65,7 @@
             <ion-col size="2" >Valor</ion-col>
           </ion-row>
           <ion-row *ngFor="let data of magnitud">
-            <!-- <ion-col size="6">{{data.desc}}</ion-col> -->
+            <ion-col size="6">{{data.desc}}</ion-col>
             <ion-col size="4">{{data.grade}}</ion-col>
             <ion-col size="2">{{data.value}}</ion-col>
             <hr color="purple" size=2 width="150%">

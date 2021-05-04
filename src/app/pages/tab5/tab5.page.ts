@@ -7,42 +7,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Tab5Page implements OnInit {
 
-  arrayComponents:any=[
+  arrayComponents: any = [
     {
-      componente:'COMPRESOR',
-      checked:false
+      componente: 'COMPRESOR',
+      checked: false
     },
     {
-      componente:'HIDRONEUMÁTICO',
-      checked:false
+      componente: 'HIDRONEUMÁTICO',
+      checked: false
     },
     {
-      componente:'PLANTA DE EMERGENCIA',
-      checked:false
+      componente: 'PLANTA DE EMERGENCIA',
+      checked: false
     },
     {
-      componente:'PARARRAYOS',
-      checked:false
+      componente: 'PARARRAYOS',
+      checked: false
     },
     {
-      componente:'CISTERNA',
-      checked:false
+      componente: 'CISTERNA',
+      checked: false
     },
     {
-      componente:'BOMBA DE AGUA',
-      checked:false
+      componente: 'BOMBA DE AGUA',
+      checked: false
     },
     {
-      componente:'ÁREA CAMBIO DE ACEITE',
-      checked:false
+      componente: 'ÁREA CAMBIO DE ACEITE',
+      checked: false
     },
     {
-      componente:'BODEGA DE LUBRICANTES',
-      checked:false
+      componente: 'BODEGA DE LUBRICANTES',
+      checked: false
     },
     {
-      componente:'ALMACÉN DE RESIDUOS PELIGROSOS',
-      checked:false
+      componente: 'ALMACÉN DE RESIDUOS PELIGROSOS',
+      checked: false
     }
   ]
 

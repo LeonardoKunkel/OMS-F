@@ -1,90 +1,147 @@
+import { AutoridadService } from 'src/app/services/autoridad.service';
+import { GerenteService } from './../services/gerente.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
-import { EstacionService } from '../services/estacion.service';
+import { AlertController, ModalController, NavController, ToastController } from '@ionic/angular';
+
+import { AutoridadPage } from '../pages/autoridad/autoridad.page';
+import { GerentePage } from '../pages/gerente/gerente.page';
+import { RepresentantePage } from '../pages/representante/representante.page';
+import { RepresentanteService } from '../services/representante.service';
+import { PersonalService } from '../services/personal.service';
+
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page implements OnInit {
-  datosEstacion: any = {};
-  idEstacion = '';
+  
+  representante: any = [];
+  autoridad: any = [];
+  gerente: any = [];
+  personal: any[] = [];
 
   constructor(
     public navCtrl: NavController,
-    private route: ActivatedRoute,
-    private _estacionService: EstacionService,
-    private router: Router
-  ) {
-    const id = this.route.snapshot.paramMap.get('custom_id');
-    this.idEstacion = id;
-    this.getEstacion(id);
-    // console.log('Id seleccionado:',id);
-  }
+    private modalCtrl: ModalController,
+    private _gerente: GerenteService,
+    private _autoridad: AutoridadService,
+    private _representante: RepresentanteService,
+    private _personal: PersonalService,
+    private toast: ToastController,
+    private alertCtrl: AlertController
+  ) { }
 
   ngOnInit() {
+    this.getRepresentante();
+    this.getMaximaAutoridad();
+    this.getGerente();
+    this.getPersonal();
   }
 
-  getEstacion(id: string){
-    this._estacionService.getEstacionId(id).subscribe((data: any) => {
-      // console.log(data);
-      this.datosEstacion = data;
+  ionViewWillEnter() {
+    this.getPersonal();
+  }
+
+  async goRepresentante() {
+    const modal = await this.modalCtrl.create({
+      component: RepresentantePage,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
+    // this.navCtrl.navigateForward('/representante')
+  }
+
+  async goGerente() {
+    const modal = await this.modalCtrl.create({
+      component: GerentePage,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
+  }
+
+  async goAutoridad() {
+    const modal = await this.modalCtrl.create({
+      component: AutoridadPage,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
+  }
+
+  getRepresentante() {
+    this._representante.getRepresentante().subscribe((data: any) => {
+      console.log(data.representante[0]);
+      this.representante = data.representante[0];
     });
   }
-  goPuntoUno(){
-    this.router.navigate(['/e1-menu', {custom_id: this.idEstacion}]);
+
+  getMaximaAutoridad() {
+    this._autoridad.getAutoridad().subscribe((data: any) => {
+      console.log(data.autoridad[0]);
+      this.autoridad = data.autoridad[0];
+    });
   }
-  goPuntoDos(){
-    this.router.navigate(['/e2-menu', {custom_id: this.idEstacion}]);
+  
+  getGerente() {
+    this._gerente.getGerente().subscribe((data: any) => {
+      console.log(data.gerente[0]);
+      this.gerente = data.gerente[0];
+    });
   }
-  goPuntoTres(){
-    this.router.navigate(['/e3-menu', {custom_id: this.idEstacion}]);
+
+  
+
+  getPersonal() {
+    this._personal.getPersonal().subscribe((data: any) => {
+      this.personal = data.personalFound;
+    });
   }
-  goPuntoCuatro(){
-    this.router.navigate(['/e4-menu', {custom_id: this.idEstacion}]);
+  
+  async add() {
+    const alert = await this.alertCtrl.create({
+      header: 'Agregar Personal',
+      inputs: [
+        {
+          name: ''
+        }
+      ]
+    });
   }
-  goPuntoCinco(){
-    this.router.navigate(['/e5-menu', {custom_id: this.idEstacion}]);
-  }
-  goPuntoSeis(){
-    this.router.navigate(['/e6-menu', {custom_id: this.idEstacion}]);
-  }
-  goPuntoSiete(){
-    this.router.navigate(['/e7-menu', {custom_id: this.idEstacion}]);
-  }
-  goPuntoOcho(){
-    this.router.navigate(['/e8-menu', {custom_id: this.idEstacion}]);
-  }
-  goPuntoNueve(){
-    this.router.navigate(['/e9-menu', {custom_id: this.idEstacion}]);
-  }
-  goPuntoDiez(){
-    this.router.navigate(['/e10-menu', {custom_id: this.idEstacion}]);
-  }
-  goPuntoOnce(){
-    this.router.navigate(['/e11-menu', {custom_id: this.idEstacion}]);
-  }
-  goPuntoDoce(){
-    this.router.navigate(['/e12-menu', {custom_id: this.idEstacion}]);
-  }
-  goPuntoTrece(){
-    this.router.navigate(['/e13-menu', {custom_id: this.idEstacion}]);
-  }
-  goPuntoCatorce(){
-    this.router.navigate(['/e14-menu', {custom_id: this.idEstacion}]);
-  }
-  goPuntoQuince(){
-    this.router.navigate(['/e15-menu', {custom_id: this.idEstacion}]);
-  }
-  goPuntoDieciseis(){
-    this.router.navigate(['/e16-menu', {custom_id: this.idEstacion}]);
-  }
-  goPuntoDiecisiete(){
-    this.router.navigate(['/e17-menu', {custom_id: this.idEstacion}]);
-  }
-  goElemento18(){
-    this.navCtrl.navigateForward('/e18-procedimiento');
+
+  async deletePersonal( id: string ) {
+    const alert = await this.alertCtrl.create({
+      cssClass: 'my-custom-class',
+      header: 'Confirma',
+      message: '<strong>¿Estás seguro de eliminar este registro?</strong>',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary'
+        },
+        {
+          text: 'Okay',
+          handler: async () => {
+
+            this._personal.deletePersonal(id).subscribe((data: any) => {
+              this.getPersonal();
+            });
+
+            const toast = await this.toast.create({
+              message: 'Registro eliminado',
+              duration: 2000
+            });
+            toast.present();
+
+          }
+        }
+      ]
+    });
+    alert.present();
+  };
+
+  editPersonal( id: string ) {
+    console.log(id)
   }
 
 }

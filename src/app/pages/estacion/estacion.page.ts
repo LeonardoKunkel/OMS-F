@@ -23,7 +23,7 @@ export class EstacionPage implements OnInit {
     idRepresentante: '',
     idAutoridad: '',
     idGerente: '',
-    cp:{}   ,
+    cp:{},
     calleNumero: ''
   };
   respuestaCP: any = [];
@@ -117,7 +117,7 @@ export class EstacionPage implements OnInit {
    }
   }
 
-  async form(){
+  async form() {
     // console.log(this.datos);
     const toast = await this.toast.create({
       message: 'Datos guardados',

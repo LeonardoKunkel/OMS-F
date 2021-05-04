@@ -1,0 +1,62 @@
+{
+    "aspectos": [
+        {
+            "area": "ALMACENAMIENTO DE COMBUSTIBLES",
+            "actividades": {
+                "act1": "Entrada maniobra de autotanque (Recepción AT)",
+                "act2": "Toma muestra de producto (Recepción AT)",
+                "act3": "Conexión de mangueras (Recepción AT)",
+                "act4": "Descarga de hidrocarburo (Recepción AT)",
+                "act5": "Derrame durante en llenado (Recepción AT)",
+                "act6": "Desconexión de Mangueras (Recepción AT)",
+                "act7": "Desconexión de Mangueras (Recepción AT)",
+                "act8": "Escurrimiento de autotanque(Recepción AT)",
+                "act9": "Salida maniobra de autotanque(Recepción AT)",
+                "act10": "Almacenamiento derrame",
+                "act11": "Almacenamiento derrame",
+                "act12": "Venteo",
+                "act13": "Venteo incendio",
+                "act14": "Retiro de aguas aceitosas (purgado de agua)",
+                "act15": "Retiro de lodos(limpieza de tanque)",
+                "act16": "Retiro de aguas aceitosas y materiales impregnados(limpieza de bocatomas)"
+            }
+        },
+        {
+            "area": "MÓDULO DE DESPACHO DE ABASTECIMIENTO DE COMBUSTIBLE A VEHÍCULOS",
+            "act1": "Entrada maniobra de autotanque (Recepción AT)",
+            "act2": "Colocación de la pistola en el vehículo",
+            "act3": "Carga de hidrocarburo",
+            "act4": "Termino del despacho y retiro de pistola del vehículo",
+            "act5": "Suministro de lubricantes, aditivos",
+            "act6": "Limpieza de dispensarios e islas",
+            "act7": "Limpieza de contenedores",
+            "act8": "Cambio de filtros",
+            "act9": "Cambio de mangueras, conexiones o pistolas"
+        },
+        {
+            "area": "DRENAJES Y TRAMPAS DE COMBUSTIBLE",
+            "act1": "Limpieza",
+            "act2": "Limpieza",
+            "act3": "Separación de hidrocarburo"
+        },
+        {
+            "area": "OFICINAS Y BAÑOS",
+            "act1": "Actividades cotidianas sin riesgo",
+            "act2": "Actividades cotidianas sin riesgo",
+            "act3": "Actividades cotidianas sin riesgo",
+            "act4": "Actividades cotidianas sin riesgo"
+        },
+        {
+            "area": "CUARTO DE CONTROL ELÉCTRICO",
+            "act1": "Operación normal",
+            "act2": "Mantenimiento",
+            "act3": "Operación normal",
+            "act4": "Mantenimiento"
+        },
+        {
+            "area": "CUARTO DE MÁQUINAS",
+            "act1": "Operación normal",
+            "act2": "Mantenimiento"
+        }
+    ]
+}

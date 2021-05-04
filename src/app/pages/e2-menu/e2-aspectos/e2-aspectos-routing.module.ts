@@ -7,7 +7,12 @@ const routes: Routes = [
   {
     path: '',
     component: E2AspectosPage
+  },
+  {
+    path: 'actividad/:id',
+    loadChildren: () => import('./actividad/actividad.module').then( m => m.ActividadPageModule)
   }
+
 ];
 
 @NgModule({

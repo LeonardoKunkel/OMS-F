@@ -12,7 +12,7 @@ import { NavController } from '@ionic/angular';
 })
 export class E1MenuPage implements OnInit {
   DataEstacion: any = {};
-  idEstacion = "";
+  idEstacion = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -30,14 +30,14 @@ export class E1MenuPage implements OnInit {
     //console.log(id,'Elemento 1');
   }
 
-  getEstacion(id:string){
-    this._estacionService.getEstacionId(id).subscribe((data:any) =>{
-     // console.log(data);
+  getEstacion(id: string) {
+    this._estacionService.getEstacionId(id).subscribe((data: any) => {
+      // console.log(data);
       this.DataEstacion = data;
     });
   }
 
-  goPolitica(){
+  goPolitica() {
     this.router.navigate(['/e1-politica', {custom_id: this.idEstacion}]);
   }
 

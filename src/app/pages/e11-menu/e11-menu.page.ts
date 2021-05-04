@@ -9,6 +9,7 @@ import { EstacionService } from 'src/app/services/estacion.service';
   styleUrls: ['./e11-menu.page.scss'],
 })
 export class E11MenuPage implements OnInit {
+
   DataEstacion: any = {};
 
   constructor(
@@ -18,10 +19,8 @@ export class E11MenuPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('custom_id');
-    this.getEstacion(id);
-    // console.log(id,'Elemento 1');
   }
+
   getEstacion(id: string) {
     this._estacionService.getEstacionId(id).subscribe((data: any) => {
       console.log(data);
@@ -33,16 +32,16 @@ export class E11MenuPage implements OnInit {
     this.navCtrl.navigateForward('/e11-menu/e11-lista');
   }
 
-  programaAnual(){
+  programaAnual() {
     this.navCtrl.navigateForward('e11-menu/e11-programa-anual-mantenimiento');
     
   }
 
-  goPlanMantenimiento(){
+  goPlanMantenimiento() {
     this.navCtrl.navigateForward('e11-menu/e11-plan-mantenimiento');
   }
 
-  goSolicitud(){
+  goSolicitud() {
     this.navCtrl.navigateForward('/solicitud-informacion');
   }
 

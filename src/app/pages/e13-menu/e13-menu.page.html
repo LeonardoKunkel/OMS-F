@@ -1,12 +1,10 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar>
+  <ion-toolbar color="blue">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tabs2"></ion-back-button>
+      <ion-back-button defaultHref="/menu-sasisopa"></ion-back-button>
     </ion-buttons>
     <ion-title class="ion-text-center">XIII. Preparación y respuesta a emergencias</ion-title>
-    <ion-card-subtitle class="ion-text-center">{{ DataEstacion.nombre }}</ion-card-subtitle>
   </ion-toolbar>
-  <hr class="linea">
 </ion-header>
 
 <ion-content>
@@ -29,7 +27,7 @@
         </ion-card>
       </ion-col>
       <ion-col size="12" sizeMd="6" sizeLg="4">
-        <ion-card class="carta" (click)="goActa()">
+        <ion-card class="carta" (click)="pdf()">
           <img height="100px" class="ion-padding" src="../../../assets/images/Element-13/13_evaluacionsimulacros-01-01.png" style="width: 50%; height: auto; margin: auto; display: block;"/>
           <ion-card-header>
             <ion-card-title class="ion-text-center">FS-25 Acta de Conformación de las brigadas de respuesta a emergencias</ion-card-title>

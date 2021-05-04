@@ -1,16 +1,93 @@
 <ion-header >
   <ion-toolbar color="blue">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+      <ion-back-button defaultHref="/intro"></ion-back-button>
     </ion-buttons>
     <ion-title class="ion-text-center">
-      PRODUCTO MANEJADO 
+      Comunicación Externa 
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-segment>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" sizeLg="6" offset="4">
+        <ion-card>
+          <ion-card-header>
+          </ion-card-header>
+          <ion-card-content>
+            <form #formulario="ngForm" (ngSubmit)="postComs()">
+              <ion-item>
+                <ion-label>Institución</ion-label>
+                <ion-select
+                  interface="popover"
+                  placeholder="Selecciona"
+                  name="institucion"
+                  [(ngModel)]="form.institucion">
+                  <ion-select-option value="hospital">Hospital Regional</ion-select-option>
+                  <ion-select-option value="policia">Policía Regional</ion-select-option>
+                  <ion-select-option value="bomberos">Bomberos</ion-select-option>
+                  <ion-select-option value="cruz">Cruz Roja</ion-select-option>
+                  <ion-select-option value="imss">IMSS Clínica</ion-select-option>
+                  <ion-select-option value="estatal">Protección Civil Estatal</ion-select-option>
+                  <ion-select-option value="municipal">Protección Civil Municipal</ion-select-option>
+                  <ion-select-option value="ministerio">Ministerio Público</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Dirección</ion-label>
+                <ion-input name="direccion" [(ngModel)]="form.direccion"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Función</ion-label>
+                <ion-input type="text" name="funcion" [(ngModel)]="form.funcion"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Teléfono</ion-label>
+                <ion-input type="number" name="telefono" [(ngModel)]="form.telefono"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Tiempo estimado de llegada (en minutos)</ion-label>
+                <ion-input type="number" name="tiempo" [(ngModel)]="form.tiempo"></ion-input>
+              </ion-item>
+              <ion-button type="submit" expand="block" shape="round">
+                Enviar
+              </ion-button>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" sizeMd="6" offset-md="4">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <td>Intitución</td>
+              <td>Dirección</td>
+              <td>Función</td>
+              <td>Teléfono</td>
+              <td>Tiempo estimado</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let c of coms">
+              <td>{{ c.institucion }}</td>
+              <td>{{ c.direccion }}</td>
+              <td>{{ c.funcion }}</td>
+              <td>{{ c.telefono }}</td>
+              <td>{{ c.tiempo }}</td>
+              <ion-button (click)="delete()" fill="clear">
+                <ion-icon color="danger" slot="icon-only" name="trash-outline"></ion-icon>
+              </ion-button>
+            </tr>
+          </tbody>
+        </table>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- <ion-segment>
     <ion-segment-button value="friends" (click)="swipeBack()">
       <ion-label>Registro</ion-label>
     </ion-segment-button>
@@ -83,7 +160,7 @@
                 <td>TELÉFONO</td>
                 <td>TIEMPO ESTIMADO QUE TARDARÍA EN LLEGAR LA AYUDA</td>
               </tr>
-            </table>
+            </table> -->
             <!-- <table >
                <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
                <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
@@ -158,10 +235,10 @@
                <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
                <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
            </table> -->
-       </div>
+       <!-- </div>
         </ion-card-content>
       </ion-card>
     </ion-slide>
-  </ion-slides>
+  </ion-slides> -->
 
 </ion-content>

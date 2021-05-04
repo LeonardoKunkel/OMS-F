@@ -11,23 +11,23 @@ export class GerenteService {
     private http:HttpClient
   ) { }
 
-  postGerente(form){
+  postGerente(form) {
     return this.http.post(`${this.url}/create`,form);
   }
 
-  getGerente(){
+  getGerente() {
    return this.http.get(`${this.url}/`);
   }
 
-  getGerenteId(id: String){
+  getGerenteId(id: String) {
     return this.http.get(`${this.url}/${id}`);
   }
 
-  updateGerenteId(id:string, body){
+  updateGerenteId(id:string, body) {
     return this.http.put(`${this.url}/${id}`,body)
   }
 
-  deleteGerenteId(id:String){
+  deleteGerenteId(id:String) {
     return this.http.delete(`${this.url}/${id}`);
   }
 }

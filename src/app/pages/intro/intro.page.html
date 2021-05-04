@@ -7,9 +7,9 @@
       </ion-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button (click)="entrar()" >
-        <ion-icon slot="end" name="enter-outline" ></ion-icon>
-        Entrar
+      <ion-button (click)="registro()" >
+        <ion-icon slot="end" name="folder-outline" ></ion-icon>
+        REGISTROS
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -28,44 +28,53 @@
     </ion-refresher>
   </div>
     <ion-row>
-      <ion-col size="12" sizeLg="8">
-        <ion-fab vertical="bottom" horizontal="end">
-          <ion-fab-button color="diana" (click)="estacion()">
-            <ion-icon name="add"></ion-icon>
-          </ion-fab-button>
-        </ion-fab>
-        <ion-row>
-          <ion-col size="12">
-            <h2>Estaciones de Servicio Registradas</h2>
-          </ion-col>
-          <ion-col size="12" sizeLg="4" *ngFor="let data of supEstacion">
-            <ion-card>
-              <!-- <ion-toolbar>
-                <ion-buttons slot="end">
-                  <ion-button (click)="delete(data._id)">
-                    <ion-icon color="danger" slot="end" name="trash-outline"></ion-icon>
-                  </ion-button>
-                </ion-buttons>
-              </ion-toolbar> -->
-              <ion-card-header>
-                <ion-card-title>{{data.nombre}}</ion-card-title>
-                <ion-card-subtitle>
-                  Dirección:
-                  {{data.calleNumero}}
-                  {{data.cp.asentamiento}}
-                  {{data.cp.ciudad}}
-                  {{data.cp.cp}}
-                  {{data.cp.estado}}
-                </ion-card-subtitle>
-                <ion-card-subtitle>Telefono: {{data.telefono}}</ion-card-subtitle>
-                <ion-card-subtitle>Gerente: {{data.idGerente.nombre}} {{data.idGerente.apellidos}}</ion-card-subtitle>
-              </ion-card-header>
-              <img src="http://localhost:3000/logo/{{data.filename}}"  alt="No hay Logo"  style="width: auto; height: 100px;">
-            </ion-card>
-          </ion-col>
-        </ion-row>
+      <ion-col size="12" sizeLg="4">
+        <ion-card>
+          <ion-card-content>
+            <ion-card-title>Datos Generales de la Estación de Servicio</ion-card-title>
+            <p><b>Nombre:</b> {{ estacion.nombre }}</p>
+            <p><b>Correo:</b> {{ estacion.correo }}</p>
+            <p><b>Teléfono:</b> {{ estacion.nombre }}</p>
+            <p><b>Calle/Número:</b>  {{ estacion.calleNumero }}</p>
+            <p><b>Estado:</b> {{ estacion.estado }}</p>
+            <p><b>Municipio:</b> {{ estacion.municipio }}</p>
+            <p><b>Cp:</b> {{ estacion.codigoP }}</p>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+          <ion-card-content>
+            <ion-card-title>Gerente de la estación</ion-card-title>
+            <p><b>Nombre:</b> {{ gerente.nombre }} {{ gerente.apellidos }}</p>
+            <p><b>Correo:</b> {{ gerente.correo }}</p>
+            <p><b>Teléfono:</b> {{ gerente.telefono }}</p>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+          <ion-card-content>
+            <ion-card-title>Máxima Autoridad</ion-card-title>
+            <p><b>Nombre:</b> {{ autoridad.nombre }} {{ autoridad.apellidos }}</p>
+            <p><b>Correo:</b> {{ autoridad.correo }}</p>
+            <p><b>Teléfono:</b> {{ autoridad.telefono }}</p>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+          <ion-card-content>
+            <ion-card-title>Representante Técnico</ion-card-title>
+            <p><b>Nombre:</b> {{ representante.nombre }} {{ representante.apellidos }}</p>
+            <p><b>Correo:</b> {{ representante.correo }}</p>
+            <p><b>Teléfono:</b> {{ representante.telefono }}</p>
+          </ion-card-content>
+        </ion-card>
       </ion-col>
       <ion-col size="12" sizeLg="4">
+        <ion-card style="display: flex; align-items: center;" (click)="sasisopa()">
+          <img height="100px" class="ion-padding" src="../../../assets/images/menuSASISOPA/libra.svg" />
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">SASISOPA</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <!-- <ion-col size="12" sizeLg="4">
         <ion-list>
           <ion-list-header color="diana">
             <ion-label>Registro de Personal</ion-label>
@@ -88,23 +97,24 @@
               <ion-icon slot="icon-only" name="add"></ion-icon>
             </ion-button>
           </ion-item>
+          <ion-list-header color="diana">
+            <ion-label>Registro de Producto</ion-label>
+          </ion-list-header>
         </ion-list>
-        <ion-card style="border-radius: 15px; " (click)="mapa()">
-          <ion-card-header>
-            <ion-card-title class="ion-text-center">MAPA</ion-card-title>
-          </ion-card-header>
-          <ion-card-content style="display: flex; align-items: center; justify-content: center;">
-            <img 
-            style="width: 25%; height: auto;"
-            src="../../../assets/icon/mexico.png" 
-            alt="">
-          </ion-card-content>
-        </ion-card>
         <ion-item>
           <ion-label>Dark Theme</ion-label>
           <ion-icon name="moon-outline"></ion-icon>
           <ion-toggle color="diana" slot="end" (ionChange)='toogleTheme($event)'></ion-toggle>
         </ion-item>
-      </ion-col>
+         MAPA 
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7471.912158368455!2d-100.382093090947!3d20.548977877573627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2smx!4v1615993842437!5m2!1ses!2smx" 
+          width="800" 
+          height="800" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </ion-col> -->
     </ion-row>
 </ion-content>

@@ -1,0 +1,42 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="blue">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="e2-menu/e2-aspectos"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Actualizar evaluación de las actividades</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6" offsetMd="4">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
+            <ion-card-title>{{ aspecto.act }}</ion-card-title>
+          </ion-card-header>
+          <ion-item>
+            <ion-label position="floating">Frecuencia</ion-label>
+            <ion-input pattern="^[0-9]*$" type="number" [(ngModel)]="aspecto.F"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Naturaleza</ion-label>
+            <ion-input type="number" [(ngModel)]="aspecto.N"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Magnitud</ion-label>
+            <ion-input type="number" [(ngModel)]="aspecto.M"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Valor Total</ion-label>
+            <ion-input readonly type="number" [(ngModel)]="aspecto.VT"></ion-input>
+          </ion-item>
+          <ion-button (click)="aspectoUpdate()" color="diana" expand="block" shape="round">
+            Actualizar
+          </ion-button>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
